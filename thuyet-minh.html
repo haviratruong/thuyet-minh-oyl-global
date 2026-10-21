@@ -1,0 +1,2595 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bản Thuyết Minh Chiến Lược: Nền Tảng Hướng Nghiệp & Điều Phối Tuyển Sinh OYLG</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#151e2d',
+              navyLight: '#1c293e',
+              gold: '#B89565',
+              goldLight: '#DFBE74',
+              goldDark: '#8B7355',
+              cream: '#FAF6F0',
+              creamDark: '#EFE8DA',
+              charcoal: '#1A1817',
+              warmGray: '#5C5856',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Outfit"', 'sans-serif'],
+            body: ['"Inter"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FAF6F0;
+      color: #1A1817;
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-serif-luxury { font-family: 'Playfair Display', serif; }
+    .font-outfit { font-family: 'Outfit', sans-serif; }
+    .btn-gold {
+      background: linear-gradient(135deg, #DFBE74 0%, #B89565 100%);
+      color: #151e2d;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(184, 149, 101, 0.4);
+      transition: all 0.3s ease;
+    }
+    .btn-gold:hover {
+      box-shadow: 0 8px 25px rgba(184, 149, 101, 0.6);
+      transform: translateY(-2px);
+    }
+    .badge-doc {
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FCD34D;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .btn-inline-edit {
+      background: rgba(223, 190, 116, 0.15);
+      color: #8B7355;
+      border: 1px solid rgba(223, 190, 116, 0.4);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-inline-edit:hover {
+      background: #DFBE74;
+      color: #151e2d;
+    }
+
+    /* CHẾ ĐỘ CLICK TRỰC TIẾP VÀO BẤT KỲ DÒNG NÀO ĐỂ SỬA */
+    [contenteditable="true"] {
+      transition: all 0.2s ease;
+      cursor: text;
+    }
+    [contenteditable="true"]:hover {
+      outline: 1.5px dashed #DFBE74 !important;
+      outline-offset: 3px;
+      background-color: rgba(223, 190, 116, 0.08) !important;
+      border-radius: 4px;
+    }
+    [contenteditable="true"]:focus {
+      outline: 2px solid #B89565 !important;
+      outline-offset: 3px;
+      background-color: rgba(223, 190, 116, 0.15) !important;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body class="selection:bg-brand-gold selection:text-white">
+
+  <!-- TOP BAR: 5 CAM KẾT VÀNG OYL -->
+  <div class="bg-brand-navy border-b border-brand-gold/30 text-white py-2.5 px-4 text-xs md:text-sm font-outfit sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-brand-goldLight font-bold uppercase tracking-wider">HỌC VIỆN OYL (OWN YOUR LIFE GLOBAL) x GALAXY EDUCATION</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-3 text-stone-300 text-xs md:text-sm font-semibold">
+        <span class="text-brand-goldLight font-bold">1. HỌC BỔNG 100%</span>
+        <span>•</span>
+        <span>2. VỪA HỌC VỪA LÀM THÁNG 6-12TR</span>
+        <span>•</span>
+        <span>3. BẰNG CAO ĐẲNG CHÍNH QUY</span>
+        <span>•</span>
+        <span>4. CAM KẾT 100% VIỆC LÀM</span>
+        <span>•</span>
+        <span class="text-emerald-400 font-bold">5. LÀM VIỆC HÀN - NHẬT 50-100TR/TH</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER HERO -->
+  <header class="bg-gradient-to-b from-amber-50/60 via-[#FAF6F0] to-[#FAF6F0] py-12 md:py-16 border-b border-stone-200">
+    <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-300 bg-white/90 text-xs font-outfit font-bold uppercase tracking-widest text-brand-goldDark shadow-sm">
+        <span>📄 ĐỀ ÁN PHÁT TRIỂN NỀN TẢNG CÔNG NGHỆ • HỌC VIỆN OYL GLOBAL</span>
+      </div>
+
+      <h1 class="font-serif-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-brand-charcoal leading-tight">
+        Bản Thuyết Minh Chiến Lược: Nền Tảng Hướng Nghiệp<br>
+        <span class="bg-gradient-to-r from-amber-700 via-brand-goldDark to-yellow-600 bg-clip-text text-transparent italic font-normal">
+          & Cỗ Máy Điều Phối Tuyển Sinh Thông Minh OYLG
+        </span>
+      </h1>
+
+      <p class="text-stone-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+        Hiện thực hóa sơ đồ vận hành <strong>oyl-workflow.vercel.app</strong>: <em>"Từ Học Sinh Việt Nam ➔ Chuyên Gia Trong Nước & Quốc Tế"</em>. Thay thế tài liệu tĩnh bằng WebApp đa tương tác, tự động cập nhật đối tác hàng năm, có phễu hút traffic và chiến lược giữ chân học sinh.
+      </p>
+
+      <!-- NÚT BẬT TRẢI NGHIỆM WEBAPP TRỰC TUYẾN -->
+      <div class="pt-3 pb-2">
+        <a href="/app.html" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-600 text-white font-outfit font-bold text-sm md:text-base px-8 py-3.5 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all border border-amber-300">
+          <span>🚀 TRẢI NGHIỆM WEBAPP HƯỚNG NGHIỆP THỰC TẾ TRỰC TUYẾN ↗</span>
+        </a>
+      </div>
+
+      <!-- Quick Nav Buttons -->
+      <div class="flex flex-wrap justify-center gap-2 pt-3">
+        <a href="#section-funnel" class="bg-white border border-stone-300 hover:border-brand-gold text-stone-700 px-3.5 py-2 rounded-full text-xs font-outfit uppercase tracking-wider font-semibold transition-colors">
+          1. Phễu Đầu Vào ↓
+        </a>
+        <a href="#section-retention" class="bg-white border border-stone-300 hover:border-brand-gold text-stone-700 px-3.5 py-2 rounded-full text-xs font-outfit uppercase tracking-wider font-semibold transition-colors">
+          2. Giữ Chân Học Sinh ↓
+        </a>
+        <a href="#section-hybrid-models" class="bg-white border border-stone-300 hover:border-brand-gold text-stone-700 px-3.5 py-2 rounded-full text-xs font-outfit uppercase tracking-wider font-semibold transition-colors">
+          3. Siêu App 5 Nền Tảng ↓
+        </a>
+        <a href="#section-ecosystem-engine" class="bg-brand-navy text-brand-goldLight border border-brand-gold/40 px-3.5 py-2 rounded-full text-xs font-outfit uppercase tracking-wider font-bold hover:bg-brand-navyLight transition-colors">
+          ★ 4. Hệ Sinh Thái & Bộ Máy Lõi ↓
+        </a>
+        <a href="#section-master-checklist" class="btn-gold px-4 py-2 rounded-full text-xs font-outfit uppercase tracking-wider font-bold shadow-md">
+          📋 5. Checklist Tiến Trình A-Z (28 Mục) ↓
+        </a>
+        <a href="#section-ui-ux-design" class="bg-brand-navy text-brand-goldLight border border-brand-gold/40 px-3.5 py-2 rounded-full text-xs font-outfit uppercase tracking-wider font-bold hover:bg-brand-navyLight transition-colors">
+          🎨 6. Thiết Kế UI/UX & Bộ Màu ↓
+        </a>
+        <a href="#section-workflow" class="bg-white border border-stone-300 hover:border-brand-gold text-stone-700 px-3.5 py-2 rounded-full text-xs font-outfit uppercase tracking-wider font-semibold transition-colors">
+          7. 4 Phân Khúc Giải Pháp ↓
+        </a>
+        <a href="#section-dynamic" class="bg-white border border-stone-300 hover:border-brand-gold text-stone-700 px-3.5 py-2 rounded-full text-xs font-outfit uppercase tracking-wider font-semibold transition-colors">
+          8. Cập Nhật Hàng Năm ↓
+        </a>
+        <a href="#section-cashflow" class="bg-white border border-stone-300 hover:border-brand-gold text-stone-700 px-3.5 py-2 rounded-full text-xs font-outfit uppercase tracking-wider font-semibold transition-colors">
+          9. Bản Đồ Dòng Tiền ↓
+        </a>
+        <a href="#section-franchise-scale" class="bg-brand-navy text-brand-goldLight border border-brand-gold/40 px-3.5 py-2 rounded-full text-xs font-outfit uppercase tracking-wider font-bold hover:bg-brand-navyLight transition-colors">
+          🏛️ 10. Quản Trị Tỉnh & Nhượng Quyền ↓
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="max-w-6xl mx-auto px-4 py-12 space-y-16 pb-32">
+
+    <!-- ============================================================ -->
+    <!-- PHẦN 1: PHỄU ĐẦU VÀO Ở ĐÂU? (TRAFFIC & TOP-OF-FUNNEL)        -->
+    <!-- ============================================================ -->
+    <section id="section-funnel" class="bg-white rounded-3xl p-6 md:p-10 border border-brand-gold/30 shadow-lg space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b pb-4">
+        <div>
+          <div class="text-xs font-outfit font-bold uppercase tracking-widest text-brand-goldDark">TRỤ CỘT 1. LƯU LƯỢNG ĐẦU VÀO</div>
+          <h2 class="font-serif-luxury text-2xl md:text-3xl font-bold text-brand-charcoal mt-1">
+            Phễu Đầu Vào Ở Đâu? Học Sinh Tiếp Cận App Bằng Cách Nào?
+          </h2>
+        </div>
+        <button onclick="openInlineEdit('funnel')" class="btn-inline-edit">
+          ✏️ Sửa & Bổ sung kênh phễu
+        </button>
+      </div>
+
+      <p class="text-stone-600 text-sm leading-relaxed" id="funnel-desc">
+        Học sinh không tự nhiên tìm ra đường link. Phễu đầu vào được thiết kế đa kênh thông qua các "móc câu tò mò" (Curiosity Hooks) trao giá trị miễn phí trước:
+      </p>
+
+      <div class="grid md:grid-cols-4 gap-5" id="funnel-grid">
+        
+        <div class="bg-brand-cream border border-brand-gold/20 rounded-2xl p-5 space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-amber-600 text-white font-bold flex items-center justify-center text-base">QR</div>
+          <h4 class="font-outfit font-bold text-sm text-brand-navy">1. Tờ Rơi A5 Tại Cổng Trường</h4>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Phát tại các trường THCS/THPT dịp thi cử. Mặt trước: <em>"Quét mã test nhanh 3 phút định vị nghề & tính bài toán học phí 4 năm"</em>. Quét QR mở thẳng App.
+          </p>
+        </div>
+
+        <div class="bg-brand-cream border border-brand-gold/20 rounded-2xl p-5 space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-blue-600 text-white font-bold flex items-center justify-center text-base">Zalo</div>
+          <h4 class="font-outfit font-bold text-sm text-brand-navy">2. Mạng Lưới Đại Sứ Vùng</h4>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Giám Đốc Thị Trường / Đại sứ OYL gửi link mang mã riêng <code>?ref=MA_DAI_SU</code> vào các nhóm phụ huynh lớp 9, lớp 12 tại địa phương.
+          </p>
+        </div>
+
+        <div class="bg-brand-cream border border-brand-gold/20 rounded-2xl p-5 space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-purple-600 text-white font-bold flex items-center justify-center text-base">Zoom</div>
+          <h4 class="font-outfit font-bold text-sm text-brand-navy">3. Hội Thảo Hướng Nghiệp OYL</h4>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Trong các buổi webinar hướng nghiệp hàng tuần, chiếu mã QR trên màn hình kêu gọi 100% học sinh vào làm test tương tác trực tiếp.
+          </p>
+        </div>
+
+        <div class="bg-brand-cream border border-brand-gold/20 rounded-2xl p-5 space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white font-bold flex items-center justify-center text-base">Video</div>
+          <h4 class="font-outfit font-bold text-sm text-brand-navy">4. Video Ngắn Mạng Xã Hội</h4>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Clip TikTok/Reels về nỗi đau <em>"Học ĐH 300 triệu ra trường chạy Grab"</em> $\rightarrow$ Kêu gọi bấm Link Bio để đo lường bài toán tài chính cho mình.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHẦN 2: ĐIỀU GÌ GIỮ CHÂN HỌC SINH QUANH QUẨN TRONG APP?     -->
+    <!-- ============================================================ -->
+    <section id="section-retention" class="bg-brand-navy text-white rounded-3xl p-6 md:p-10 border border-brand-gold/40 shadow-xl space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-brand-gold/30 pb-4">
+        <div>
+          <div class="text-xs font-outfit font-bold uppercase tracking-widest text-brand-goldLight">TRỤ CỘT 2. CHIẾN LƯỢC GIỮ CHÂN (STICKINESS & ENGAGEMENT)</div>
+          <h2 class="font-serif-luxury text-2xl md:text-3xl font-bold text-white mt-1">
+            Điều Gì Giữ Chân Học Sinh Khi Vào App Rồi Thì "Chỉ Quanh Quẩn Trong App"?
+          </h2>
+        </div>
+        <button onclick="openInlineEdit('retention')" class="btn-inline-edit text-brand-goldLight border-brand-gold/40">
+          ✏️ Sửa & Bổ sung tính năng giữ chân
+        </button>
+      </div>
+
+      <p class="text-stone-300 text-sm leading-relaxed" id="retention-desc">
+        Học sinh không thoát ra vì App không phải là một trang tĩnh đọc chữ, mà là một <strong>Hộp Công Cụ Tương Tác (EdTech Utility Toolset)</strong> khiến các em tò mò thử đi thử lại:
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-5" id="retention-grid">
+        
+        <div class="bg-white/10 border border-white/15 rounded-2xl p-5 space-y-2">
+          <div class="text-brand-goldLight text-lg font-bold">1. Thử Điểm & Mô Phỏng (Δ Điểm)</div>
+          <p class="text-xs text-stone-300 leading-relaxed">
+            Kéo thả điểm từng môn: <em>"Nếu Toán +1, Anh +1 thì đỗ được trường nào?"</em>. Học sinh sẽ bấm thử hàng chục lần để kiểm tra cơ hội đỗ của mình.
+          </p>
+        </div>
+
+        <div class="bg-white/10 border border-white/15 rounded-2xl p-5 space-y-2">
+          <div class="text-brand-goldLight text-lg font-bold">2. Bảng Đấu So Sánh Trực Tiếp</div>
+          <p class="text-xs text-stone-300 leading-relaxed">
+            Đặt 2-3 con đường lên bàn cân: ĐH truyền thống (tốn 300tr) vs Cao đẳng OYL (học bổng 100%, lương 6-12tr, tích lũy 200tr). Con số thực tế gây sốc nhận thức.
+          </p>
+        </div>
+
+        <div class="bg-white/10 border border-white/15 rounded-2xl p-5 space-y-2">
+          <div class="text-brand-goldLight text-lg font-bold">3. Trắc Nghiệm Tính Cách 3 Phút</div>
+          <p class="text-xs text-stone-300 leading-relaxed">
+            10 câu hỏi hình ảnh chọn 1 chạm. Trả về Bản đồ năng lực cá nhân hóa (Nhóm Thực hành, Nhóm Quốc tế, Nhóm Quản trị, Nhóm Học thuật).
+          </p>
+        </div>
+
+        <div class="bg-white/10 border border-white/15 rounded-2xl p-5 space-y-2">
+          <div class="text-brand-goldLight text-lg font-bold">4. Thước Đo Khát Nhân Lực 5 Năm</div>
+          <p class="text-xs text-stone-300 leading-relaxed">
+            Tra cứu mức độ bão hòa nghề nghiệp: Ngành nào thừa cử nhân thất nghiệp, ngành nào doanh nghiệp FDI đang đỏ mắt tìm kỹ sư tay nghề cao.
+          </p>
+        </div>
+
+        <div class="bg-white/10 border border-white/15 rounded-2xl p-5 space-y-2">
+          <div class="text-brand-goldLight text-lg font-bold">5. Thanh Trượt Tính Số Tiền Tiết Kiệm</div>
+          <p class="text-xs text-stone-300 leading-relaxed">
+            Kéo mức chi tiêu ăn ở và mức lương để xem tổng số tiền gia đình tiết kiệm được và con tích lũy được sau khi học hệ Cao Đẳng OYL.
+          </p>
+        </div>
+
+        <div class="bg-white/10 border border-white/15 rounded-2xl p-5 space-y-2">
+          <div class="text-brand-goldLight text-lg font-bold">6. Tải Bản Đồ Hướng Nghiệp PDF</div>
+          <p class="text-xs text-stone-300 leading-relaxed">
+            Xuất file PDF Bản Đồ Lộ Trình 4 Năm có đóng dấu OYL Academy mang tên chính học sinh để mang về nhà trao đổi nghiêm túc với cha mẹ.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHẦN MỚI: SIÊU ỨNG DỤNG LAI GHÉP TỪ 5 NỀN TẢNG ĐỈNH CAO     -->
+    <!-- ĐỊNH VỊ THỊ TRƯỜNG & KHÁC BIỆT ĐỘC QUYỀN CỦA OYL GLOBAL     -->
+    <!-- ============================================================ -->
+    <section id="section-hybrid-models" class="bg-white rounded-3xl p-6 md:p-10 border-2 border-brand-gold shadow-xl space-y-8">
+      
+      <div class="border-b pb-5 space-y-2">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-amber-300 bg-amber-50 text-xs font-outfit font-bold uppercase tracking-widest text-brand-goldDark">
+          <span>👑 ĐỊNH VỊ THỊ TRƯỜNG • HYBRID EDTECH OPERATING SYSTEM</span>
+        </div>
+        <h2 class="font-serif-luxury text-2xl md:text-3xl lg:text-4xl font-bold text-brand-charcoal">
+          Trên Thị Trường Chưa Có App Nào Trọn Vẹn: OYL Là "Siêu Ứng Dụng Lai Ghép" Từ 5 Nền Tảng Hàng Đầu Cộng Lại
+        </h2>
+        <p class="text-stone-600 text-sm md:text-base leading-relaxed">
+          Thị trường công nghệ giáo dục hiện nay đang bị <strong>xé nhỏ thành các mảng rời rạc</strong>: Chỗ thì chỉ làm trắc nghiệm & tra cứu điểm (như DinhHuong21); chỗ thì chỉ là web trung tâm du học nhận form rồi gọi điện thoại thủ công; chỗ thì chỉ bán khóa học online (như Hocmai, Vuihoc). Khi WebApp OYL hoàn thành, nó sẽ là một <strong>"Siêu ứng dụng giáo dục lai ghép" (Hybrid EdTech Operating System)</strong> được cấu thành từ 5 nền tảng công nghệ hàng đầu thị trường cộng lại:
+        </p>
+      </div>
+
+      <!-- SƠ ĐỒ 5 MẢNH GHÉP KẾT HỢP -->
+      <div class="grid md:grid-cols-5 gap-4">
+        
+        <!-- Mảnh 1 -->
+        <div class="bg-brand-cream border border-brand-gold/30 rounded-2xl p-4 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold flex items-center justify-center text-xs mb-2">01</div>
+            <h4 class="font-outfit font-bold text-sm text-brand-navy">DinhHuong21.edu.vn</h4>
+            <div class="text-[11px] font-semibold text-blue-700 mt-0.5">Cổng Tra Cứu Tuyển Sinh</div>
+            <p class="text-xs text-stone-600 mt-2 leading-relaxed">
+              Cung cấp CSDL điểm chuẩn 500+ trường ĐH-CĐ, trắc nghiệm tính cách và mô phỏng điểm số (Δ từng môn).
+            </p>
+          </div>
+          <div class="bg-blue-50 border border-blue-200 rounded-xl p-2.5 text-[11px] text-blue-900 leading-snug">
+            <strong>OYL nâng cấp:</strong> Tra cứu là móc câu giữ chân, tự gợi ý khóa luyện thi ĐGNL Galaxy Ed hoặc dự phòng Cao đẳng 100% học bổng.
+          </div>
+        </div>
+
+        <!-- Mảnh 2 -->
+        <div class="bg-brand-cream border border-brand-gold/30 rounded-2xl p-4 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-purple-600 text-white font-bold flex items-center justify-center text-xs mb-2">02</div>
+            <h4 class="font-outfit font-bold text-sm text-brand-navy">16Personalities & CareerExplorer (Mỹ)</h4>
+            <div class="text-[11px] font-semibold text-purple-700 mt-0.5">Cơ Chế Freemium Paywall</div>
+            <p class="text-xs text-stone-600 mt-2 leading-relaxed">
+              Mô hình bán báo cáo nổi tiếng toàn cầu: Xem trước 10 chỉ số nền tảng, khóa lại 30 chỉ số chuyên sâu.
+            </p>
+          </div>
+          <div class="bg-purple-50 border border-purple-200 rounded-xl p-2.5 text-[11px] text-purple-900 leading-snug">
+            <strong>OYL nâng cấp:</strong> Quét mã VietQR 30 giây mở khóa Báo cáo 40 chỉ số PDF chuyên sâu, tự động chia hoa hồng về Đại sứ.
+          </div>
+        </div>
+
+        <!-- Mảnh 3 -->
+        <div class="bg-brand-cream border border-brand-gold/30 rounded-2xl p-4 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white font-bold flex items-center justify-center text-xs mb-2">03</div>
+            <h4 class="font-outfit font-bold text-sm text-brand-navy">ApplyBoard (Kỳ Lân Canada 4 Tỷ USD)</h4>
+            <div class="text-[11px] font-semibold text-emerald-700 mt-0.5">Hồ Sơ Số Hóa & Checklist</div>
+            <p class="text-xs text-stone-600 mt-2 leading-relaxed">
+              Biến toàn bộ thủ tục du học / nhập học phức tạp thành lộ trình đếm ngược và Checklist từng ô tích kiểm rõ ràng.
+            </p>
+          </div>
+          <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-2.5 text-[11px] text-emerald-900 leading-snug">
+            <strong>OYL nâng cấp:</strong> Quản lý mục tiêu ngoại ngữ (IELTS, HSK, Đức B1) và đo lường tiến độ hoàn thiện hồ sơ 20% → 100%.
+          </div>
+        </div>
+
+        <!-- Mảnh 4 -->
+        <div class="bg-brand-cream border border-brand-gold/30 rounded-2xl p-4 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-amber-600 text-white font-bold flex items-center justify-center text-xs mb-2">04</div>
+            <h4 class="font-outfit font-bold text-sm text-brand-navy">ADPList & Calendly (Toàn Cầu)</h4>
+            <div class="text-[11px] font-semibold text-amber-700 mt-0.5">Sàn Mentor & Booking Hub</div>
+            <p class="text-xs text-stone-600 mt-2 leading-relaxed">
+              Sàn kết nối cố vấn trực tuyến: Xem profile chuyên gia, xem lịch còn trống và đặt lịch hẹn 1-1 tự động.
+            </p>
+          </div>
+          <div class="bg-amber-50 border border-amber-200 rounded-xl p-2.5 text-[11px] text-amber-900 leading-snug">
+            <strong>OYL nâng cấp:</strong> Danh bạ Mentor theo từng thị trường (Đức, Đài, Nhật, Hàn, TQ); tự động kết nối Zoom và gửi lịch hẹn qua Zalo.
+          </div>
+        </div>
+
+        <!-- Mảnh 5 -->
+        <div class="bg-brand-cream border border-brand-gold/30 rounded-2xl p-4 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="w-8 h-8 rounded-lg bg-rose-600 text-white font-bold flex items-center justify-center text-xs mb-2">05</div>
+            <h4 class="font-outfit font-bold text-sm text-brand-navy">Accesstrade & Zalo Automation</h4>
+            <div class="text-[11px] font-semibold text-rose-700 mt-0.5">Affiliate & Nuôi Dưỡng Tự Động</div>
+            <p class="text-xs text-stone-600 mt-2 leading-relaxed">
+              Mạng lưới tiếp thị liên kết gắn mã định danh cá nhân kèm cỗ máy chăm sóc và gửi thông báo tự động.
+            </p>
+          </div>
+          <div class="bg-rose-50 border border-rose-200 rounded-xl p-2.5 text-[11px] text-rose-900 leading-snug">
+            <strong>OYL nâng cấp:</strong> Zalo Bot nhắc lịch Zoom 24h/1h, đôn đốc giấy tờ, gửi bản tin nghề thời AI giữ chân khách suốt 3 năm học.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- KHỐI 4 ĐIỂM ĐỘC QUYỀN DUY NHẤT CHỈ OYL MỚI CÓ -->
+      <div class="bg-brand-navy text-white rounded-2xl p-6 md:p-8 border border-brand-gold/40 space-y-5">
+        <div class="flex items-center gap-2.5 border-b border-brand-gold/30 pb-3">
+          <span class="text-xl">💎</span>
+          <h3 class="font-serif-luxury font-bold text-xl md:text-2xl text-brand-goldLight">
+            Điểm Độc Quyền Duy Nhất Chỉ OYL Mới Có (Các App Trên Không Thể Có)
+          </h3>
+        </div>
+        <p class="text-xs md:text-sm text-stone-300">
+          Các app quốc tế hay DinhHuong21 chỉ làm phần mềm đơn thuần, <strong>họ không có sản phẩm đầu ra độc quyền</strong>. Học viện OYL nắm giữ trọn vẹn 4 vũ khí chiến lược giải quyết tận gốc bài toán việc làm và tài chính:
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-4 text-xs md:text-sm text-stone-200 pt-1">
+          <div class="bg-white/10 rounded-xl p-4 border border-white/10 space-y-1.5">
+            <div class="font-bold text-amber-400">1. Dự Án Học Bổng "Ánh Sáng Dưới Chân Đèn"</div>
+            <p class="text-stone-300 leading-relaxed">
+              Học bổng 100% học phí tại 3 trường Cao đẳng chính quy Nhà nước, vừa học vừa có lương 6–12 triệu/tháng tại doanh nghiệp FDI, cam kết 100% có việc làm hoặc đi làm việc tại Hàn Quốc, Nhật Bản mức lương 50–100 triệu/tháng.
+            </p>
+          </div>
+
+          <div class="bg-white/10 rounded-xl p-4 border border-white/10 space-y-1.5">
+            <div class="font-bold text-blue-400">2. Đối Tác Chiến Lược Galaxy Education / HOCMAI</div>
+            <p class="text-stone-300 leading-relaxed">
+              Hợp tác phân phối độc quyền các gói luyện thi Đánh Giá Năng Lực (HSA Hà Nội, TSA Bách Khoa, V-ACT TP.HCM) và chương trình EasyIELTS giúp học sinh xét tuyển sớm vào trường đại học công lập danh tiếng.
+            </p>
+          </div>
+
+          <div class="bg-white/10 rounded-xl p-4 border border-white/10 space-y-1.5">
+            <div class="font-bold text-purple-400">3. Học Bổng MBA Trung Quốc Đề Án 985 & 211</div>
+            <p class="text-stone-300 leading-relaxed">
+              Chương trình học bổng toàn phần tại Thâm Quyến và Quảng Châu — thủ phủ công nghệ châu Á, chi phí tối ưu được quy đổi tiền Việt Nam Đồng rõ ràng, mở ra cơ hội việc làm tại tập đoàn đa quốc gia.
+            </p>
+          </div>
+
+          <div class="bg-white/10 rounded-xl p-4 border border-white/10 space-y-1.5">
+            <div class="font-bold text-emerald-400">4. Bệ Đỡ "Tham Vấn Hướng Nghiệp NPH Coach"</div>
+            <p class="text-stone-300 leading-relaxed">
+              Khung bản quyền định vị năng lực từ sách "Bản Đồ Hướng Nghiệp", giải tỏa áp lực cho phụ huynh và biến chính các phụ huynh, thầy cô giáo thành Giám Đốc Thị Trường đi lan tỏa App tại địa phương.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-brand-gold/30 bg-black/20 rounded-xl p-4 text-center">
+          <p class="text-xs md:text-sm font-semibold text-brand-goldLight leading-relaxed">
+            🎯 <strong>KẾT LUẬN CHIẾN LƯỢC:</strong> App OYL khi hoàn thành sẽ giống như việc lấy <em>công cụ tra cứu của DinhHuong21</em> + <em>cơ chế bán báo cáo của 16Personalities</em> + <em>sàn đặt lịch Mentor của ADPList</em> + <em>quản lý hồ sơ của ApplyBoard</em> + <em>tiếp thị liên kết của Accesstrade & Zalo Bot</em>, rồi cắm toàn bộ vào <strong>hệ sinh thái sản phẩm đào tạo & tuyển sinh độc quyền của OYL Global</strong>.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHẦN 4: MỐI QUAN HỆ KẾT NỐI GIỮA HỆ SINH THÁI & CỖ MÁY LÕI   -->
+    <!-- (BÊN NGOÀI: 4 NHÁNH CHIẾN LƯỢC ↔ BÊN TRONG: 7 BƯỚC VẬN HÀNH) -->
+    <!-- ============================================================ -->
+    <section id="section-ecosystem-engine" class="bg-gradient-to-br from-[#151e2d] to-[#1c293e] text-white rounded-3xl p-6 md:p-10 border-2 border-brand-gold shadow-2xl space-y-8">
+      
+      <div class="border-b border-brand-gold/30 pb-5 space-y-2">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-brand-goldLight bg-white/10 text-xs font-outfit font-bold uppercase tracking-widest text-brand-goldLight">
+          <span>🔄 KIẾN TRÚC TỔNG THỂ • NGOẠI QUAN CHIẾN LƯỢC ↔ NỘI QUAN CÔNG NGHỆ</span>
+        </div>
+        <h2 class="font-serif-luxury text-2xl md:text-3xl lg:text-4xl font-bold text-white">
+          Mối Quan Hệ Kết Nối: Hệ Sinh Thái OYLG (Bên Ngoài) ↔ Cỗ Máy Vận Hành Lõi 7 Bước (Bên Trong)
+        </h2>
+        <p class="text-stone-300 text-sm md:text-base leading-relaxed">
+          Bản thuyết minh này vừa là <strong>Bản thiết kế WebApp</strong> vừa là <strong>Mục tiêu chiến lược - Dữ liệu - Quy trình thực thi</strong>. Sơ đồ <code>oyl-workflow.vercel.app</code> là bức tranh chiến lược phân luồng bên ngoài; còn tiến trình 7 bước (Test 40 chỉ số ➔ Freemium 10/40 ➔ VietQR Paywall ➔ Sàn Mentor ➔ Checklist thủ tục ➔ Zalo Bot nhắc lịch) chính là cỗ máy tự động hóa chạy ngầm bên trong để nuôi dưỡng và chốt đơn!
+        </p>
+      </div>
+
+      <!-- SƠ ĐỒ ĐỐI CHIẾU 2 TẦNG (BÊN NGOÀI vs BÊN TRONG) -->
+      <div class="grid lg:grid-cols-12 gap-6 items-stretch">
+        
+        <!-- Cột Bên ngoài: Hệ sinh thái 4 làn -->
+        <div class="lg:col-span-6 bg-white/5 border border-brand-gold/40 rounded-2xl p-6 space-y-4 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between border-b border-white/10 pb-2">
+              <span class="font-outfit font-bold text-sm text-brand-goldLight uppercase tracking-wider">
+                1. BÊN NGOÀI: HỆ SINH THÁI TỔNG THỂ (OYLG)
+              </span>
+              <span class="badge-doc">Khung Chiến Lược</span>
+            </div>
+            <p class="text-xs text-stone-300">
+              Phân luồng 4 đối tượng học sinh đến đích thành công trên bệ đỡ Tham Vấn Hướng Nghiệp:
+            </p>
+            <div class="space-y-2.5 text-xs text-stone-200">
+              <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-400/30">
+                <strong class="text-amber-300">Nhánh 1:</strong> Học sinh khó khăn ➔ Học bổng nghề "Ánh Sáng Dưới Chân Đèn" (70% Nhà nước + 30% FDI, lương 6-12tr) ➔ Kỹ sư Hàn/Nhật 50-100tr.
+              </div>
+              <div class="p-3 rounded-xl bg-blue-500/10 border border-blue-400/30">
+                <strong class="text-blue-300">Nhánh 2:</strong> Học sinh THPT thi ĐH Top ➔ Khóa Luyện ĐGNL (HSA, TSA, V-ACT) & EasyIELTS đối tác Galaxy Education.
+              </div>
+              <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-400/30">
+                <strong class="text-emerald-300">Nhánh 3:</strong> Học sinh Khá-Giỏi ➔ Ngoại ngữ tiếng Đức, Nhật, Hàn, Đài + Mentor hồ sơ ➔ Kỹ sư Đài Loan & Đức (Dual training).
+              </div>
+              <div class="p-3 rounded-xl bg-purple-500/10 border border-purple-400/30">
+                <strong class="text-purple-300">Nhánh 4:</strong> Học sinh Xuất sắc / Cử nhân ➔ Học bổng MBA Trung Quốc Đề án 985 & 211 (Thâm Quyến & Quảng Châu).
+              </div>
+            </div>
+          </div>
+          <div class="pt-2 text-center text-xs text-stone-400 border-t border-white/10 italic">
+            🧭 Bệ đỡ xuyên suốt: Tham vấn hướng nghiệp gốc rễ nội lực chuẩn NPH Coach.
+          </div>
+        </div>
+
+        <!-- Cột Bên trong: Cỗ máy vận hành 7 bước -->
+        <div class="lg:col-span-6 bg-white/5 border border-brand-gold/40 rounded-2xl p-6 space-y-4 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between border-b border-white/10 pb-2">
+              <span class="font-outfit font-bold text-sm text-brand-goldLight uppercase tracking-wider">
+                2. BÊN TRONG: CỖ MÁY VẬN HÀNH LÕI (APP & BOT)
+              </span>
+              <span class="badge-doc">Thực Thi Số Hóa</span>
+            </div>
+            <p class="text-xs text-stone-300">
+              Tiến trình 7 bước khép kín giải quyết trọn vẹn việc dẫn dắt, thu tiền và giữ chân:
+            </p>
+            <div class="space-y-2 text-xs text-stone-200">
+              <div class="flex items-start gap-2">
+                <span class="w-5 h-5 rounded-full bg-brand-gold text-brand-navy font-bold flex items-center justify-center shrink-0">1</span>
+                <span><strong>Vào link gắn mã Affiliate (?ref=...):</strong> Định danh người giới thiệu, lưu cookie 30 ngày.</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="w-5 h-5 rounded-full bg-brand-gold text-brand-navy font-bold flex items-center justify-center shrink-0">2</span>
+                <span><strong>Test trắc nghiệm 40 chỉ số:</strong> Đo lường năng lực, điểm nghẽn, ngân sách và rủi ro nghề thời AI.</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="w-5 h-5 rounded-full bg-brand-gold text-brand-navy font-bold flex items-center justify-center shrink-0">3</span>
+                <span><strong>Freemium 10/40 & VietQR Paywall:</strong> Xem trước 10 chỉ số miễn phí ➔ Quét mã VietQR mở khóa 30 chỉ số.</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="w-5 h-5 rounded-full bg-brand-gold text-brand-navy font-bold flex items-center justify-center shrink-0">4</span>
+                <span><strong>Điều hướng đúng 1 trong 4 lộ trình:</strong> Mở đúng Showroom và bảng bài toán kinh tế phù hợp.</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="w-5 h-5 rounded-full bg-brand-gold text-brand-navy font-bold flex items-center justify-center shrink-0">5</span>
+                <span><strong>Booking Hub Mentor quốc tế:</strong> Xem profile Mentor (Đức/Đài/Hàn/Nhật/TQ), xem slot trống, đặt lịch Zoom.</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="w-5 h-5 rounded-full bg-brand-gold text-brand-navy font-bold flex items-center justify-center shrink-0">6</span>
+                <span><strong>Checklist thủ tục số hóa:</strong> Tích kiểm giấy tờ, đếm ngược mục tiêu ngoại ngữ, đo tiến độ % hoàn thành.</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="w-5 h-5 rounded-full bg-brand-gold text-brand-navy font-bold flex items-center justify-center shrink-0">7</span>
+                <span><strong>Zalo Bot nhắc việc tự động:</strong> Nhắc lịch Zoom 24h/1h, đôn đốc hồ sơ, gửi bản tin biến động điểm chuẩn.</span>
+              </div>
+            </div>
+          </div>
+          <div class="pt-2 text-center text-xs text-emerald-400 font-semibold border-t border-white/10">
+            ⚡ Học sinh và phụ huynh không bị bỏ rơi, mọi bước đi đều được tự động hóa từ A đến Z!
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHẦN 5: BẢNG CHECKLIST TIẾN TRÌNH XÂY DỰNG WEBAPP TỪ A-Z     -->
+    <!-- (7 BƯỚC LÕI, 28 HẠNG MỤC, CƠ SỞ LÝ LUẬN, TÍNH KHẢ THI, TIẾN ĐỘ)-->
+    <!-- ============================================================ -->
+    <section id="section-master-checklist" class="bg-white rounded-3xl p-6 md:p-10 border-2 border-brand-gold shadow-xl space-y-8">
+      
+      <div class="flex flex-wrap items-center justify-between gap-4 border-b pb-5">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-amber-300 bg-amber-50 text-xs font-outfit font-bold uppercase tracking-widest text-brand-goldDark mb-1">
+            <span>📋 QUẢN TRỊ DỰ ÁN • MASTER ROADMAP & IMPLEMENTATION CHECKLIST</span>
+          </div>
+          <h2 class="font-serif-luxury text-2xl md:text-3xl lg:text-4xl font-bold text-brand-charcoal">
+            Bảng Checklist Tiến Trình Xây Dựng WebApp Từ A Đến Z (7 Bước • 28 Hạng Mục)
+          </h2>
+          <p class="text-stone-600 text-xs md:text-sm mt-1">
+            Theo dõi chi tiết: <strong>Cái nào đã thực thi xong (✅)</strong>, <strong>Cái nào đang hoàn thiện (🟡)</strong>, và <strong>Cái nào đang chờ dữ liệu từ Ban Lãnh Đạo (⏳)</strong>. Mọi ý tưởng mới của Thầy Cô đều được gắn đúng vào số thứ tự bước trong bảng này!
+          </p>
+        </div>
+
+        <!-- Dashboard Thống kê tiến độ -->
+        <div class="flex items-center gap-2 bg-stone-100 p-2 rounded-2xl border border-stone-200 text-xs font-outfit font-bold">
+          <span class="bg-emerald-600 text-white px-3 py-1.5 rounded-xl shadow-sm">✅ Đã thực thi: 9/28 (32%)</span>
+          <span class="bg-amber-500 text-white px-3 py-1.5 rounded-xl shadow-sm">🟡 Đang làm: 10/28 (36%)</span>
+          <span class="bg-purple-600 text-white px-3 py-1.5 rounded-xl shadow-sm">⏳ Chờ BLĐ: 9/28 (32%)</span>
+        </div>
+      </div>
+
+      <!-- DANH SÁCH 7 BƯỚC CHI TIẾT -->
+      <div class="space-y-6">
+
+        <!-- BƯỚC 1 -->
+        <div class="border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
+          <div class="bg-stone-50 p-4 border-b border-stone-200 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <span class="font-outfit font-extrabold text-sm text-brand-navy uppercase">BƯỚC 1: TIẾP CẬN ĐẦU PHỄU & ĐỊNH DANH AFFILIATE (?ref=...)</span>
+              <div class="text-[11px] text-stone-500 mt-0.5">Cơ sở: Mô hình tiếp thị liên kết đa tầng chi phí 0đ • Nguyên lý: Cookie attribution 30 ngày • Tính khả thi: 100%</div>
+            </div>
+            <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">Tiến độ: 3/4 Hoàn thành</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="bg-stone-100/70 text-stone-600 font-outfit uppercase">
+                  <th class="p-3 w-16">Mã</th>
+                  <th class="p-3 w-64">Hạng mục chi tiết</th>
+                  <th class="p-3 w-40 text-center">Trạng thái</th>
+                  <th class="p-3">Cơ sở lý luận & Nguyên lý hoạt động</th>
+                  <th class="p-3 w-48">Dữ liệu cần từ BLĐ</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-200 text-stone-700">
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">1.1</td>
+                  <td class="p-3 font-semibold">Bộ giải mã URL `?ref=...` & Cookie Attribution</td>
+                  <td class="p-3 text-center"><span class="bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full">✅ ĐÃ THỰC THI</span></td>
+                  <td class="p-3">Ghi nhận chính xác người giới thiệu qua URL param, lưu vào Session/Cookie. Đảm bảo quyền lợi hoa hồng cho Đại sứ.</td>
+                  <td class="p-3 text-stone-500">Đã xong mã nguồn</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">1.2</td>
+                  <td class="p-3 font-semibold">Hiển thị động thông tin Giám Đốc Thị Trường</td>
+                  <td class="p-3 text-center"><span class="bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full">✅ ĐÃ THỰC THI</span></td>
+                  <td class="p-3">Đổi huy hiệu Hero Badge và số hotline tư vấn theo mã ref của từng Giám Đốc Thị Trường Vùng.</td>
+                  <td class="p-3 text-stone-500">Đã xong mã nguồn</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">1.3</td>
+                  <td class="p-3 font-semibold">Công cụ "Tạo Link Giới Thiệu Của Tôi"</td>
+                  <td class="p-3 text-center"><span class="bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">🟡 ĐANG HOÀN THIỆN</span></td>
+                  <td class="p-3">Học sinh / phụ huynh nhập tên/SĐT là sinh ngay mã QR và link cá nhân hóa để chia sẻ bạn bè.</td>
+                  <td class="p-3 text-stone-500">Đang ghép UI chia sẻ</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">1.4</td>
+                  <td class="p-3 font-semibold">Dashboard tra cứu lượt click & học sinh của Đại sứ</td>
+                  <td class="p-3 text-center"><span class="bg-purple-100 text-purple-800 font-bold px-2.5 py-0.5 rounded-full">⏳ CHỜ DỮ LIỆU</span></td>
+                  <td class="p-3">Đại sứ đăng nhập xem danh sách học sinh thuộc cây quản lý của mình, trạng thái hồ sơ.</td>
+                  <td class="p-3 text-amber-700 font-medium">Cần cổng Looker / Sheet API OYL</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- BƯỚC 2 -->
+        <div class="border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
+          <div class="bg-stone-50 p-4 border-b border-stone-200 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <span class="font-outfit font-extrabold text-sm text-brand-navy uppercase">BƯỚC 2: BỘ CHẨN ĐOÁN 40 CHỈ SỐ NĂNG LỰC & TÀI CHÍNH (DIAGNOSTIC ENGINE)</span>
+              <div class="text-[11px] text-stone-500 mt-0.5">Cơ sở: Khung CAREER (Bản Đồ Hướng Nghiệp) + Holland/DISC • Đo lường rủi ro nghề thời AI • Hoàn thành < 3 phút</div>
+            </div>
+            <span class="text-xs font-bold text-amber-700 bg-amber-100 px-3 py-1 rounded-full">Tiến độ: 2/4 Hoàn thành</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="bg-stone-100/70 text-stone-600 font-outfit uppercase">
+                  <th class="p-3 w-16">Mã</th>
+                  <th class="p-3 w-64">Hạng mục chi tiết</th>
+                  <th class="p-3 w-40 text-center">Trạng thái</th>
+                  <th class="p-3">Cơ sở lý luận & Nguyên lý hoạt động</th>
+                  <th class="p-3 w-48">Dữ liệu cần từ BLĐ</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-200 text-stone-700">
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">2.1</td>
+                  <td class="p-3 font-semibold">Bộ câu hỏi rút gọn 10 câu (Fast Diagnostic)</td>
+                  <td class="p-3 text-center"><span class="bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full">✅ ĐÃ THỰC THI</span></td>
+                  <td class="p-3">10 câu hỏi tương tác nhanh, đo lường phong cách học, kỳ vọng thu nhập và khả năng chi trả.</td>
+                  <td class="p-3 text-stone-500">Đã chạy trên App</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">2.2</td>
+                  <td class="p-3 font-semibold">Thuật toán chấm điểm 4 trục ma trận P-A-G-C</td>
+                  <td class="p-3 text-center"><span class="bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full">✅ ĐÃ THỰC THI</span></td>
+                  <td class="p-3">Tính điểm tự động theo 4 nhóm giải pháp OYL: Thực hành CĐ, ĐH Top, Du học Kỹ sư, Dịch vụ/Quản trị.</td>
+                  <td class="p-3 text-stone-500">Đã chạy trên App</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">2.3</td>
+                  <td class="p-3 font-semibold">Mở rộng trọn bộ 40 chỉ số năng lực chuyên sâu</td>
+                  <td class="p-3 text-center"><span class="bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">🟡 ĐANG HOÀN THIỆN</span></td>
+                  <td class="p-3">Đo lường 40 chỉ số chi tiết: Điểm nghẽn tâm lý, chỉ số chịu áp lực, mức độ phù hợp với 50 ngành thời AI.</td>
+                  <td class="p-3 text-amber-700 font-medium">Cần Ban Chuyên Môn duyệt ma trận 40 chỉ số</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">2.4</td>
+                  <td class="p-3 font-semibold">Xuất thẻ ảnh Bản đồ năng lực chia sẻ Zalo</td>
+                  <td class="p-3 text-center"><span class="bg-purple-100 text-purple-800 font-bold px-2.5 py-0.5 rounded-full">⏳ CHỜ DỮ LIỆU</span></td>
+                  <td class="p-3">Tự động sinh thẻ ảnh kết quả đẹp mắt có gắn QR cá nhân để học sinh khoe lên Zalo/Facebook (Viral hook).</td>
+                  <td class="p-3 text-amber-700 font-medium">Cần template hình ảnh nhận diện OYL</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- BƯỚC 3 -->
+        <div class="border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
+          <div class="bg-stone-50 p-4 border-b border-stone-200 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <span class="font-outfit font-extrabold text-sm text-brand-navy uppercase">BƯỚC 3: MÔ HÌNH FREEMIUM (10 XEM TRƯỚC) & CỔNG THANH TOÁN VIETQR (PAYWALL)</span>
+              <div class="text-[11px] text-stone-500 mt-0.5">Cơ sở: 16Personalities & CareerExplorer • Paywall mở khóa 30 chỉ số • Dòng tiền tự động đầu phễu</div>
+            </div>
+            <span class="text-xs font-bold text-purple-700 bg-purple-100 px-3 py-1 rounded-full">Tiến độ: 1/4 Hoàn thành</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="bg-stone-100/70 text-stone-600 font-outfit uppercase">
+                  <th class="p-3 w-16">Mã</th>
+                  <th class="p-3 w-64">Hạng mục chi tiết</th>
+                  <th class="p-3 w-40 text-center">Trạng thái</th>
+                  <th class="p-3">Cơ sở lý luận & Nguyên lý hoạt động</th>
+                  <th class="p-3 w-48">Dữ liệu cần từ BLĐ</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-200 text-stone-700">
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">3.1</td>
+                  <td class="p-3 font-semibold">Giao diện làm mờ (Blur Paywall) 30 chỉ số chuyên sâu</td>
+                  <td class="p-3 text-center"><span class="bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">🟡 ĐANG HOÀN THIỆN</span></td>
+                  <td class="p-3">Cho xem trước 10 chỉ số nền tảng; 30 chỉ số còn lại bị làm mờ kích thích sự tò mò của phụ huynh.</td>
+                  <td class="p-3 text-stone-500">Đang dựng mockup giao diện</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">3.2</td>
+                  <td class="p-3 font-semibold">Cổng VietQR tự động sinh mã thanh toán Napas 247</td>
+                  <td class="p-3 text-center"><span class="bg-purple-100 text-purple-800 font-bold px-2.5 py-0.5 rounded-full">⏳ CHỜ DỮ LIỆU</span></td>
+                  <td class="p-3">Sinh mã QR kèm số tiền và cú pháp nhận diện; Webhook ngân hàng tự động mở khóa báo cáo trong 30s.</td>
+                  <td class="p-3 text-amber-700 font-medium">Cần STK ngân hàng OYL & API SePay</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">3.3</td>
+                  <td class="p-3 font-semibold">Cơ chế tự động chia hoa hồng mở báo cáo cho Đại sứ</td>
+                  <td class="p-3 text-center"><span class="bg-purple-100 text-purple-800 font-bold px-2.5 py-0.5 rounded-full">⏳ CHỜ DỮ LIỆU</span></td>
+                  <td class="p-3">Khi học sinh nộp phí mở báo cáo, hệ thống tự động ghi nhận hoa hồng vào ví của Đại sứ giới thiệu.</td>
+                  <td class="p-3 text-amber-700 font-medium">Cần BLĐ duyệt mức phí (49k/99k/199k)</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">3.4</td>
+                  <td class="p-3 font-semibold">Xuất file PDF Báo Cáo Phân Tích đóng dấu OYL</td>
+                  <td class="p-3 text-center"><span class="bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full">✅ ĐÃ THỰC THI</span></td>
+                  <td class="p-3">Báo cáo chuẩn chỉnh in ấn mang tên học sinh để mang về nhà trao đổi nghiêm túc với cha mẹ.</td>
+                  <td class="p-3 text-stone-500">Đã có template xuất PDF</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- BƯỚC 4 -->
+        <div class="border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
+          <div class="bg-stone-50 p-4 border-b border-stone-200 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <span class="font-outfit font-extrabold text-sm text-brand-navy uppercase">BƯỚC 4: ĐIỀU HƯỚNG PHÂN LUỒNG 4 LỘ TRÌNH HỆ SINH THÁI OYLG</span>
+              <div class="text-[11px] text-stone-500 mt-0.5">Cơ sở: Ma trận oyl-workflow.vercel.app • Độc quyền OYL & Galaxy Education • Tư duy ngược</div>
+            </div>
+            <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">Tiến độ: 3/4 Hoàn thành</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="bg-stone-100/70 text-stone-600 font-outfit uppercase">
+                  <th class="p-3 w-16">Mã</th>
+                  <th class="p-3 w-64">Hạng mục chi tiết</th>
+                  <th class="p-3 w-40 text-center">Trạng thái</th>
+                  <th class="p-3">Cơ sở lý luận & Nguyên lý hoạt động</th>
+                  <th class="p-3 w-48">Dữ liệu cần từ BLĐ</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-200 text-stone-700">
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">4.1</td>
+                  <td class="p-3 font-semibold">Nhánh 1: CĐ Vừa học vừa làm (Học bổng 100%)</td>
+                  <td class="p-3 text-center"><span class="bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full">✅ ĐÃ THỰC THI</span></td>
+                  <td class="p-3">Dự án "Ánh Sáng Dưới Chân Đèn" (3 trường: CĐ Cơ Điện TL BB 26/10, CĐ Công Thương, CĐ NB), lương 6-12tr, cam kết việc làm.</td>
+                  <td class="p-3 text-stone-500">Đã tích hợp trên App</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">4.2</td>
+                  <td class="p-3 font-semibold">Nhánh 2: ĐH Top & Khóa luyện thi Galaxy Education</td>
+                  <td class="p-3 text-center"><span class="bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full">✅ ĐÃ THỰC THI</span></td>
+                  <td class="p-3">Luyện thi ĐGNL (HSA, TSA, V-ACT) & EasyIELTS giúp học sinh xét tuyển sớm vào trường công lập danh tiếng.</td>
+                  <td class="p-3 text-stone-500">Đã gắn link AMS 15711</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">4.3</td>
+                  <td class="p-3 font-semibold">Nhánh 3: Du học Kỹ sư nghề (Đức, Đài, Nhật, Hàn)</td>
+                  <td class="p-3 text-center"><span class="bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">🟡 ĐANG HOÀN THIỆN</span></td>
+                  <td class="p-3">Lộ trình ngoại ngữ chuyên biệt (Đức B1, Nhật N4, TOPIK) + Dual training có lương tại nước ngoài.</td>
+                  <td class="p-3 text-amber-700 font-medium">Cần nạp đề án & đối tác Đức/Đài</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">4.4</td>
+                  <td class="p-3 font-semibold">Nhánh 4: Học bổng MBA Trung Quốc Đề án 985 & 211</td>
+                  <td class="p-3 text-center"><span class="bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full">✅ ĐÃ THỰC THI</span></td>
+                  <td class="p-3">Học bổng 100% tại Thâm Quyến & Quảng Châu, đào tạo thạc sĩ thực chiến (hocbongmbatrungquoc.oyl.vn).</td>
+                  <td class="p-3 text-stone-500">Đã tích hợp trên App</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- BƯỚC 5 -->
+        <div class="border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
+          <div class="bg-stone-50 p-4 border-b border-stone-200 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <span class="font-outfit font-extrabold text-sm text-brand-navy uppercase">BƯỚC 5: SÀN MENTOR QUỐC TẾ & CỔNG ĐẶT LỊCH HẸN TRỰC TUYẾN (BOOKING HUB)</span>
+              <div class="text-[11px] text-stone-500 mt-0.5">Cơ sở: ADPList & Calendly • Kết nối người thật việc thật • Giảm tỷ lệ huỷ lịch (No-show)</div>
+            </div>
+            <span class="text-xs font-bold text-amber-700 bg-amber-100 px-3 py-1 rounded-full">Tiến độ: 1/4 Hoàn thành</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="bg-stone-100/70 text-stone-600 font-outfit uppercase">
+                  <th class="p-3 w-16">Mã</th>
+                  <th class="p-3 w-64">Hạng mục chi tiết</th>
+                  <th class="p-3 w-40 text-center">Trạng thái</th>
+                  <th class="p-3">Cơ sở lý luận & Nguyên lý hoạt động</th>
+                  <th class="p-3 w-48">Dữ liệu cần từ BLĐ</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-200 text-stone-700">
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">5.1</td>
+                  <td class="p-3 font-semibold">Danh bạ Mentor theo từng thị trường quốc tế</td>
+                  <td class="p-3 text-center"><span class="bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">🟡 ĐANG HOÀN THIỆN</span></td>
+                  <td class="p-3">Bộ lọc Mentor theo nước (Đức, Đài, Nhật, Hàn, TQ); hiển thị profile, số ca học viên đã xuất cảnh thành công.</td>
+                  <td class="p-3 text-amber-700 font-medium">Cần danh sách & ảnh Mentor OYL</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">5.2</td>
+                  <td class="p-3 font-semibold">Lịch biểu thông minh hiển thị các slot trống (Calendar)</td>
+                  <td class="p-3 text-center"><span class="bg-purple-100 text-purple-800 font-bold px-2.5 py-0.5 rounded-full">⏳ CHỜ DỮ LIỆU</span></td>
+                  <td class="p-3">Học sinh click chọn ngày giờ còn trống, không bị trùng lịch; tự động khóa slot khi đã có người đặt.</td>
+                  <td class="p-3 text-stone-500">Đang dựng module Calendar</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">5.3</td>
+                  <td class="p-3 font-semibold">Chế độ "Đăng ký chờ xếp lịch" khi slot đã kín</td>
+                  <td class="p-3 text-center"><span class="bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full">✅ ĐÃ THỰC THI</span></td>
+                  <td class="p-3">Thu thập thông tin học sinh để điều phối viên OYL liên hệ sắp xếp phiên hỗ trợ bù.</td>
+                  <td class="p-3 text-stone-500">Đã có form tiếp nhận lead</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">5.4</td>
+                  <td class="p-3 font-semibold">Tự động sinh link Zoom và gửi xác nhận qua Zalo</td>
+                  <td class="p-3 text-center"><span class="bg-purple-100 text-purple-800 font-bold px-2.5 py-0.5 rounded-full">⏳ CHỜ DỮ LIỆU</span></td>
+                  <td class="p-3">Ngay khi đặt lịch thành công, Webhook gửi thông báo có mã phòng Zoom đến Zalo của Học sinh & Mentor.</td>
+                  <td class="p-3 text-amber-700 font-medium">Cần API Zoom OAuth / Zalo Bot Webhook</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- BƯỚC 6 -->
+        <div class="border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
+          <div class="bg-stone-50 p-4 border-b border-stone-200 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <span class="font-outfit font-extrabold text-sm text-brand-navy uppercase">BƯỚC 6: TRỢ LÝ HỒ SƠ & CHECKLIST THỦ TỤC SỐ HÓA TỰ ĐỘNG (MILESTONE TRACKER)</span>
+              <div class="text-[11px] text-stone-500 mt-0.5">Cơ sở: ApplyBoard (Canada 4 tỷ USD) • Xóa bỏ mù mờ thủ tục • Phụ huynh giám sát tiến độ thực</div>
+            </div>
+            <span class="text-xs font-bold text-amber-700 bg-amber-100 px-3 py-1 rounded-full">Tiến độ: 2/4 Hoàn thành</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="bg-stone-100/70 text-stone-600 font-outfit uppercase">
+                  <th class="p-3 w-16">Mã</th>
+                  <th class="p-3 w-64">Hạng mục chi tiết</th>
+                  <th class="p-3 w-40 text-center">Trạng thái</th>
+                  <th class="p-3">Cơ sở lý luận & Nguyên lý hoạt động</th>
+                  <th class="p-3 w-48">Dữ liệu cần từ BLĐ</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-200 text-stone-700">
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">6.1</td>
+                  <td class="p-3 font-semibold">Checklist giấy tờ thủ tục chuẩn hóa từng nhánh</td>
+                  <td class="p-3 text-center"><span class="bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">🟡 ĐANG HOÀN THIỆN</span></td>
+                  <td class="p-3">Checklist từng ô tích: Học bạ THPT, CCCD gắn chip, Giấy khám sức khỏe, Hợp đồng cam kết, Visa.</td>
+                  <td class="p-3 text-amber-700 font-medium">Cần danh mục hồ sơ chuẩn của 4 nhánh</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">6.2</td>
+                  <td class="p-3 font-semibold">Thanh tiến độ % hoàn thành hồ sơ thời gian thực</td>
+                  <td class="p-3 text-center"><span class="bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">🟡 ĐANG HOÀN THIỆN</span></td>
+                  <td class="p-3">Hiển thị trực quan: 20% (Tiếp nhận) ➔ 50% (Hồ sơ) ➔ 80% (Phỏng vấn) ➔ 100% (Nhập học/Bay).</td>
+                  <td class="p-3 text-stone-500">Đã dựng UI thanh tiến độ</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">6.3</td>
+                  <td class="p-3 font-semibold">Bộ đếm ngược mục tiêu chứng chỉ ngoại ngữ (IELTS/HSK)</td>
+                  <td class="p-3 text-center"><span class="bg-purple-100 text-purple-800 font-bold px-2.5 py-0.5 rounded-full">⏳ CHỜ DỮ LIỆU</span></td>
+                  <td class="p-3">Đo lường thời gian còn lại để đạt Target Band: 6 tháng lên IELTS 6.5 hoặc 8 tháng đạt HSK 5.</td>
+                  <td class="p-3 text-stone-500">Đang lập trình logic đếm ngược</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">6.4</td>
+                  <td class="p-3 font-semibold">Chức năng tải file chụp hồ sơ duyệt online</td>
+                  <td class="p-3 text-center"><span class="bg-purple-100 text-purple-800 font-bold px-2.5 py-0.5 rounded-full">⏳ CHỜ DỮ LIỆU</span></td>
+                  <td class="p-3">Học sinh chụp ảnh học bạ tải lên App để chuyên gia OYL thẩm định tính hợp lệ trước khi nộp bản gốc.</td>
+                  <td class="p-3 text-amber-700 font-medium">Cần hạ tầng Cloud Storage lưu trữ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- BƯỚC 7 -->
+        <div class="border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
+          <div class="bg-stone-50 p-4 border-b border-stone-200 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <span class="font-outfit font-extrabold text-sm text-brand-navy uppercase">BƯỚC 7: CỖ MÁY GIỮ CHÂN BẰNG ZALO BOT TỰ ĐỘNG & LAN TỎA VIRAL LOOP</span>
+              <div class="text-[11px] text-stone-500 mt-0.5">Cơ sở: Customer Lifecycle Automation • Chi phí tiếp thị lại 0đ • OYL Trợ Lý Zalo chuyên trách</div>
+            </div>
+            <span class="text-xs font-bold text-amber-700 bg-amber-100 px-3 py-1 rounded-full">Tiến độ: 2/4 Hoàn thành</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="bg-stone-100/70 text-stone-600 font-outfit uppercase">
+                  <th class="p-3 w-16">Mã</th>
+                  <th class="p-3 w-64">Hạng mục chi tiết</th>
+                  <th class="p-3 w-40 text-center">Trạng thái</th>
+                  <th class="p-3">Cơ sở lý luận & Nguyên lý hoạt động</th>
+                  <th class="p-3 w-48">Dữ liệu cần từ BLĐ</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-200 text-stone-700">
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">7.1</td>
+                  <td class="p-3 font-semibold">Bot tự động nhắc lịch hẹn Zoom trước 24h & 1h</td>
+                  <td class="p-3 text-center"><span class="bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">🟡 ĐANG HOÀN THIỆN</span></td>
+                  <td class="p-3">OYL Trợ Lý gửi tin nhắn Zalo kèm ID/Pass Zoom nhắc nhở, xóa bỏ hoàn toàn tình trạng quên lịch hẹn.</td>
+                  <td class="p-3 text-stone-500">Đã có kịch bản trong kho tri thức</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">7.2</td>
+                  <td class="p-3 font-semibold">Cảnh báo hạn chót nộp hồ sơ xét tuyển học bổng</td>
+                  <td class="p-3 text-center"><span class="bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">🟡 ĐANG HOÀN THIỆN</span></td>
+                  <td class="p-3">Đếm ngược đợt nộp học bổng (ví dụ: đợt khai giảng 26/10/2026), cảnh báo khi còn 7 ngày, 3 ngày.</td>
+                  <td class="p-3 text-amber-700 font-medium">Cần lịch tuyển sinh chính thức từng đợt</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">7.3</td>
+                  <td class="p-3 font-semibold">Gửi Bản tin định kỳ: "Biến động điểm & Nghề thời AI"</td>
+                  <td class="p-3 text-center"><span class="bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">🟡 ĐANG HOÀN THIỆN</span></td>
+                  <td class="p-3">Bắn tin tự động qua Zalo: Thông báo điểm chuẩn mới nhất và các bài viết ngành nghề lương cao thời AI.</td>
+                  <td class="p-3 text-amber-700 font-medium">Cần nguồn bài viết từ Ban Nội Dung OYL</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold text-brand-navy">7.4</td>
+                  <td class="p-3 font-semibold">Cơ chế Viral Loop: Học sinh chia sẻ nhận điểm thưởng</td>
+                  <td class="p-3 text-center"><span class="bg-purple-100 text-purple-800 font-bold px-2.5 py-0.5 rounded-full">⏳ CHỜ DỮ LIỆU</span></td>
+                  <td class="p-3">Học sinh rủ bạn cùng làm test được tích điểm đổi quà tặng học tập hoặc giảm phí dịch vụ.</td>
+                  <td class="p-3 text-amber-700 font-medium">Cần chính sách quà tặng từ OYL</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FOOTER GHI CHÚ QUY TRÌNH CHECKLIST -->
+      <div class="bg-amber-50 border border-amber-300 rounded-2xl p-4 text-xs text-stone-700 space-y-1.5">
+        <div class="font-bold text-amber-900 flex items-center gap-1.5">
+          <span>💡</span> <span>NGUYÊN TẮC VẬN HÀNH CHECKLIST:</span>
+        </div>
+        <p class="leading-relaxed">
+          Bất kỳ ý kiến hoặc tài liệu mới nào do Ban Lãnh Đạo cung cấp sẽ được hệ thống AI tự động đối chiếu và cập nhật trạng thái từ ⏳ (Chờ dữ liệu) sang 🟡 (Đang hoàn thiện) hoặc ✅ (Đã thực thi). File checklist gốc được lưu trữ vĩnh viễn tại <code>D:\ZALO BOT\OYL TRỢ LÝ\KHO_TRI_THUC\00_CHECKLIST_TIEN_TRINH_XAY_DUNG_WEBAPP_A_DEN_Z.md</code>.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHẦN 6: KẾ HOẠCH THIẾT KẾ GIAO DIỆN UX/UI & BỘ MÀU DUAL-BRAIN-->
+    <!-- (HIGH-TECH MENTORSHIP MEETS YOUTH ASPIRATION • TÍNH NGƯỜI)   -->
+    <!-- ============================================================ -->
+    <section id="section-ui-ux-design" class="bg-white rounded-3xl p-6 md:p-10 border-2 border-brand-gold shadow-xl space-y-8">
+      
+      <div class="border-b pb-5 space-y-2">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-amber-300 bg-amber-50 text-xs font-outfit font-bold uppercase tracking-widest text-brand-goldDark">
+          <span>🎨 THIẾT KẾ TRẢI NGHIỆM • DUAL-BRAIN UX/UI & COLOR ARCHITECTURE</span>
+        </div>
+        <h2 class="font-serif-luxury text-2xl md:text-3xl lg:text-4xl font-bold text-brand-charcoal">
+          Kế Hoạch Thiết Kế Giao Diện UX/UI, Bộ Màu Tâm Lý Học & Triết Lý Dual-Brain (Não Trái & Não Phải)
+        </h2>
+        <p class="text-stone-600 text-sm md:text-base leading-relaxed">
+          Không chỉ là một công cụ tuyển sinh khô khan — WebApp OYL được định vị là <strong>"Người Cố Vấn Bỏ Túi" (Pocket Mentor)</strong>: Kết hợp giữa <strong>Sức mạnh phân tích thực dụng của Não Trái</strong> (số liệu, học phí 4 năm, việc làm FDI) và <strong>Nguồn cảm hứng thấu hiểu của Não Phải</strong> (giải tỏa áp lực học đường, thắp sáng hy vọng, trải nghiệm tương tác sinh động).
+        </p>
+      </div>
+
+      <!-- KHỐI 1: TRIẾT LÝ DUAL-BRAIN (NÃO TRÁI vs NÃO PHẢI) -->
+      <div class="grid lg:grid-cols-2 gap-6 items-stretch">
+        
+        <!-- Não Trái: Phụ huynh -->
+        <div class="bg-stone-50 border border-stone-300 rounded-2xl p-6 space-y-4 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between border-b border-stone-200 pb-2">
+              <span class="font-outfit font-bold text-sm text-brand-navy uppercase tracking-wider">
+                🧠 NÃO TRÁI: LOGIC, SỐ LIỆU & BẰNG CHỨNG (THUYẾT PHỤC PHỤ HUYNH)
+              </span>
+              <span class="badge-doc">Lý Trí & Tài Chính</span>
+            </div>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Phụ huynh là người trả tiền và ra quyết định cuối cùng. Não Trái đòi hỏi sự an toàn, số liệu rõ ràng và căn cứ pháp lý:
+            </p>
+            <div class="space-y-2 text-xs text-stone-700">
+              <div class="p-3 rounded-xl bg-white border border-stone-200">
+                <strong>1. Ma trận đối chiếu kinh tế 4 năm:</strong> ĐH thường tốn 350-400tr vs Cao đẳng OYL nhận lương 6-12tr (tích lũy dương 200tr) hoặc sang Hàn/Nhật 50-100tr/tháng.
+              </div>
+              <div class="p-3 rounded-xl bg-white border border-stone-200">
+                <strong>2. Biểu đồ Radar 40 chỉ số năng lực:</strong> Định lượng điểm nghẽn ngoại ngữ, bóc tách nguy cơ nghề bị AI thay thế.
+              </div>
+              <div class="p-3 rounded-xl bg-white border border-stone-200">
+                <strong>3. Checklist từng mốc minh bạch:</strong> Tháng 1-3 học ngoại ngữ ➔ Tháng 6 phỏng vấn FDI ➔ Tháng 9 ký hợp đồng lao động & bay.
+              </div>
+              <div class="p-3 rounded-xl bg-white border border-stone-200">
+                <strong>4. Cam kết bằng giấy trắng mực đen:</strong> Hợp đồng cam kết 100% việc làm, quyết định học bổng chính quy Nhà nước.
+              </div>
+            </div>
+          </div>
+          <div class="pt-2 text-xs text-brand-navy font-semibold border-t border-stone-200">
+            ✓ Kết quả: Phụ huynh an tâm tuyệt đối, sẵn sàng phê duyệt ngân sách và đồng hành cùng con.
+          </div>
+        </div>
+
+        <!-- Não Phải: Học sinh -->
+        <div class="bg-gradient-to-br from-amber-50/80 via-white to-amber-50/40 border border-amber-300 rounded-2xl p-6 space-y-4 flex flex-col justify-between shadow-sm">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between border-b border-amber-200 pb-2">
+              <span class="font-outfit font-bold text-sm text-amber-800 uppercase tracking-wider">
+                🎨 NÃO PHẢI: CẢM XÚC, HY VỌNG & SỰ ĐỒNG CẢM (CHẠM VÀO HỌC SINH)
+              </span>
+              <span class="badge-doc">Cảm Xúc & Ước Mơ</span>
+            </div>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Học sinh Gen Z sợ bị phán xét, sợ thất bại và áp lực thi cử. Não Phải khao khát được công nhận và tìm thấy hy vọng:
+            </p>
+            <div class="space-y-2 text-xs text-stone-700">
+              <div class="p-3 rounded-xl bg-white/90 border border-amber-200">
+                <strong>1. Trắc nghiệm giải tỏa áp lực (Gamified):</strong> Vuốt thẻ tương tác 1 chạm, câu hỏi đời thường gần gũi, không lý thuyết hàn lâm.
+              </div>
+              <div class="p-3 rounded-xl bg-white/90 border border-amber-200">
+                <strong>2. Thông điệp đồng cảm sâu sắc:</strong> <em>"Điểm số không định nghĩa tương lai bạn — Luôn có con đường tắt ngắn hơn để tỏa sáng"</em>.
+              </div>
+              <div class="p-3 rounded-xl bg-white/90 border border-amber-200">
+                <strong>3. Visual & Micro-interactions:</strong> Hiệu ứng pháo hoa Confetti khi xong test, huy hiệu học bổng danh giá kích thích Dopamine.
+              </div>
+              <div class="p-3 rounded-xl bg-white/90 border border-amber-200">
+                <strong>4. Chân dung Mentor ấm áp (Human Touch):</strong> Avatar người thật tươi tắn, học vị rõ ràng, đặt lịch hẹn như mời cafe tâm sự.
+              </div>
+            </div>
+          </div>
+          <div class="pt-2 text-xs text-amber-800 font-semibold border-t border-amber-200">
+            ✓ Kết quả: Học sinh thấy "App hiểu mình hơn cả người thân", chủ động rủ bạn bè cùng làm test.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- KHỐI 2: HỆ MÀU TÂM LÝ HỌC (COLOR SYSTEM 60 - 30 - 10) -->
+      <div class="space-y-4">
+        <div class="border-b pb-2 flex items-center justify-between">
+          <h4 class="font-outfit font-bold text-base text-brand-charcoal uppercase tracking-wider">
+            🌈 HỆ THỐNG MÀU SẮC TÂM LÝ HỌC (TỶ LỆ VÀNG 60 - 30 - 10)
+          </h4>
+          <span class="text-xs text-stone-500">Chuẩn tương phản WCAG 2.1 AAA</span>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
+          
+          <div class="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-1.5">
+            <div class="w-full h-8 rounded-lg bg-[#FAF6F0] border border-stone-300 shadow-inner mb-2 flex items-center justify-center font-bold text-stone-700 text-[11px]">#FAF6F0 (60%)</div>
+            <strong class="text-stone-800 block">Pure Canvas Cream</strong>
+            <p class="text-stone-500 text-[11px] leading-relaxed">Nền kem ấm dịu mắt, tránh chói lóa như nền trắng gắt, đọc lâu trên điện thoại không mỏi.</p>
+          </div>
+
+          <div class="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-1.5">
+            <div class="w-full h-8 rounded-lg bg-[#0F172A] text-white shadow-inner mb-2 flex items-center justify-center font-bold text-[11px]">#0F172A (30%)</div>
+            <strong class="text-stone-800 block">Deep Authority Navy</strong>
+            <p class="text-stone-500 text-[11px] leading-relaxed">Màu nền tảng đại diện cho học viện, tính pháp lý vững chãi, tạo niềm tin tuyệt đối cho Não Trái.</p>
+          </div>
+
+          <div class="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-1.5">
+            <div class="w-full h-8 rounded-lg bg-[#D4AF37] text-stone-900 shadow-inner mb-2 flex items-center justify-center font-bold text-[11px]">#D4AF37 (10%)</div>
+            <strong class="text-stone-800 block">Scholarship Gold</strong>
+            <p class="text-stone-500 text-[11px] leading-relaxed">Học bổng 100%, danh giá và tinh hoa; khơi dậy ước mơ bước ra thế giới của Não Phải.</p>
+          </div>
+
+          <div class="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-1.5">
+            <div class="w-full h-8 rounded-lg bg-[#10B981] text-white shadow-inner mb-2 flex items-center justify-center font-bold text-[11px]">#10B981 (10%)</div>
+            <strong class="text-stone-800 block">Cyber Mint & Growth</strong>
+            <p class="text-stone-500 text-[11px] leading-relaxed">Cơ hội việc làm có lương, nghề thời đại AI, giải tỏa áp lực và tạo sinh khí hy vọng.</p>
+          </div>
+
+          <div class="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-1.5">
+            <div class="w-full h-8 rounded-lg bg-[#FF6B6B] text-white shadow-inner mb-2 flex items-center justify-center font-bold text-[11px]">#FF6B6B (10%)</div>
+            <strong class="text-stone-800 block">Sunset Coral CTA</strong>
+            <p class="text-stone-500 text-[11px] leading-relaxed">Dành cho nút CTA chính (Nhận học bổng, Đặt lịch Mentor, Quét QR 30s), thôi thúc hành động.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- KHỐI 3: BENTO GRID, MOBILE-FIRST & NÚT GỬI ZALO CHO BỐ MẸ -->
+      <div class="bg-brand-navy text-white rounded-2xl p-6 md:p-8 border border-brand-gold/40 space-y-4">
+        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+          <h4 class="font-outfit font-bold text-base text-brand-goldLight uppercase">
+            📱 BỐ CỤC BENTO GRID & LUỒNG "GỬI ZALO CHO BỐ MẸ MỞ KHÓA" ĐẶC THÙ VIỆT NAM
+          </h4>
+          <span class="badge-doc">Giải Pháp Chốt Đơn Thực Tế</span>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4 text-xs text-stone-200">
+          
+          <div class="bg-white/10 p-4 rounded-xl border border-white/10 space-y-2">
+            <strong class="text-amber-300 block text-sm">1. Thẻ Bento Lướt Ngón Cái:</strong>
+            <p class="text-stone-300 leading-relaxed">
+              Hơn 85% người dùng truy cập điện thoại. Mọi thông tin (kết quả test, lương FDI, hồ sơ, mentor) đóng gói thành các khối thẻ Bento bo tròn mềm mại (`rounded-2xl`), không có bảng chữ li ti.
+            </p>
+          </div>
+
+          <div class="bg-white/10 p-4 rounded-xl border border-white/10 space-y-2">
+            <strong class="text-amber-300 block text-sm">2. Vấn Đề: Học Sinh Chưa Có Thẻ NH:</strong>
+            <p class="text-stone-300 leading-relaxed">
+              Học sinh lớp 9–11 thích mở 30 chỉ số nhưng chưa có tài khoản ngân hàng để quét VietQR. Nếu chỉ có nút thanh toán đơn thuần, tỷ lệ rớt đơn lên đến 70%!
+            </p>
+          </div>
+
+          <div class="bg-gradient-to-br from-amber-500/20 to-brand-gold/20 p-4 rounded-xl border border-brand-gold/50 space-y-2">
+            <strong class="text-emerald-400 block text-sm">3. Nút "Gửi Zalo Cho Bố Mẹ Mở Khóa":</strong>
+            <p class="text-stone-200 leading-relaxed">
+              Bấm 1 chạm sinh link Zalo gửi kèm tin nhắn: <em>"Bố/Mẹ ơi, con vừa test định hướng được nhóm ngành này, bố mẹ mở khóa giúp con bản đồ 30 chỉ số để con chọn trường nhé!"</em> ➔ Phụ huynh quét VietQR thanh toán ngay!
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- KHỐI 4: VĂN PHONG TÍNH NGƯỜI (HUMAN TOUCH COPYWRITING) -->
+      <div class="space-y-3">
+        <h4 class="font-outfit font-bold text-sm text-brand-charcoal uppercase tracking-wider">
+          ✍️ BỘ QUY CHUẨN VĂN PHONG GIÀU TÍNH NGƯỜI (HUMAN TOUCH COPYWRITING)
+        </h4>
+
+        <div class="overflow-x-auto bg-stone-50 rounded-2xl border border-stone-200">
+          <table class="w-full text-left text-xs border-collapse min-w-[650px]">
+            <thead>
+              <tr class="bg-stone-200/70 text-stone-700 font-outfit uppercase">
+                <th class="p-3 w-1/2">❌ Cách Viết Cũ (Khô Cứng, Phán Xét, Gây Sợ Hãi)</th>
+                <th class="p-3 w-1/2 text-emerald-800 bg-emerald-50/80">✅ Cách Viết OYL (Nhân Văn, Đồng Cảm, Chỉ Ra Lối Thoát)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-200 text-stone-700">
+              <tr>
+                <td class="p-3 text-red-700 italic">"Bạn có nguy cơ trượt đại học và thất nghiệp cao nếu không đổi hướng."</td>
+                <td class="p-3 text-emerald-800 font-medium bg-emerald-50/30">"Đại học không phải cánh cửa duy nhất. Có con đường ngắn hơn, nhận lương sớm hơn và giúp bạn tự lập từ năm 19 tuổi."</td>
+              </tr>
+              <tr>
+                <td class="p-3 text-red-700 italic">"Vui lòng nạp tiền 199.000đ để xem tiếp báo cáo."</td>
+                <td class="p-3 text-emerald-800 font-medium bg-emerald-50/30">"Mở khóa tấm bản đồ 30 chỉ số chi tiết và giải pháp gỡ rối tài chính cho gia đình bạn (chỉ bằng 1 bữa trà sữa)."</td>
+              </tr>
+              <tr>
+                <td class="p-3 text-red-700 italic">"Đăng ký tư vấn tuyển sinh để được nhân viên gọi điện."</td>
+                <td class="p-3 text-emerald-800 font-medium bg-emerald-50/30">"Trò chuyện 1-1 cùng Mentor đồng hành — Người đã từng đi qua con đường bạn sắp chọn."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHẦN 7: 4 PHÂN KHÚC GIẢI PHÁP (INLINE EDIT TỪNG PHÂN KHÚC)    -->
+    <!-- ============================================================ -->
+    <section id="section-workflow" class="space-y-6">
+
+        <!-- KHỐI 1: HỌC BỔNG NGHỀ -->
+        <div id="block-segment-1" class="bg-white rounded-3xl p-6 md:p-8 border-l-8 border-amber-600 border border-stone-200 shadow-md relative">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b pb-3 mb-4">
+            <span class="font-outfit font-extrabold text-amber-700 text-lg uppercase" id="seg1-title">
+              1. PHÂN KHÚC: HỌC NGHỀ & HOÀN CẢNH KHÓ KHĂN
+            </span>
+            <div class="flex items-center gap-2">
+              <span class="badge-doc" id="seg1-badge">📁 Đã có tài liệu tuyển sinh</span>
+              <button onclick="openSegmentEdit(1)" class="btn-inline-edit">✏️ Sửa phân khúc này</button>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-3 gap-6 text-sm">
+            <div>
+              <div class="text-xs font-bold text-stone-500 uppercase font-outfit">ĐẦU VÀO (HỌC SINH):</div>
+              <div class="font-semibold text-brand-navy mt-1" id="seg1-in-title">Học sinh THCS & THPT hoàn cảnh khó khăn</div>
+              <p class="text-stone-600 text-xs mt-1 leading-relaxed" id="seg1-in-desc">
+                Muốn học nghề, gia đình không có học phí đại học, cần tự lập sớm.
+              </p>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-stone-500 uppercase font-outfit">GIẢI PHÁP & SẢN PHẨM OYLG:</div>
+              <div class="font-bold text-amber-700 mt-1" id="seg1-sol-title">Học Bổng Nghề: Dự án "Ánh Sáng Dưới Chân Đèn"</div>
+              <p class="text-stone-600 text-xs mt-1 leading-relaxed" id="seg1-sol-desc">
+                • <strong>Học bổng 100%</strong> (70% Nhà nước + 30% Doanh nghiệp FDI).<br>
+                • <strong>Vừa học vừa nhận lương 6 - 12 triệu/tháng</strong>.<br>
+                • 3 Trường: CĐ Cơ Điện Thủy Lợi BB (26/10/2026), CĐ Công Thương, CĐ Ninh Bình.
+              </p>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-stone-500 uppercase font-outfit">KẾT QUẢ ĐẦU RA:</div>
+              <div class="font-bold text-emerald-700 mt-1" id="seg1-out-title">FDI Trong Nước & Kỹ Sư Hàn - Nhật</div>
+              <p class="text-stone-600 text-xs mt-1 leading-relaxed" id="seg1-out-desc">
+                • Bằng Cao đẳng chính quy.<br>
+                • Cam kết 100% có việc làm trong nước.<br>
+                • Cơ hội Visa E7 Hàn Quốc / Tokutei Nhật Bản thu nhập <strong>50 - 100 triệu/tháng</strong>.
+              </p>
+            </div>
+          </div>
+          <div id="seg1-attached-file" class="mt-3 pt-3 border-t text-xs text-amber-800 font-medium hidden"></div>
+        </div>
+
+        <!-- KHỐI 2: ĐẠI HỌC TOP & GALAXY EDUCATION -->
+        <div id="block-segment-2" class="bg-white rounded-3xl p-6 md:p-8 border-l-8 border-blue-600 border border-stone-200 shadow-md relative">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b pb-3 mb-4">
+            <span class="font-outfit font-extrabold text-blue-700 text-lg uppercase" id="seg2-title">
+              2. PHÂN KHÚC: ĐẠI HỌC TOP VIỆT NAM (ĐỐI TÁC GALAXY EDUCATION)
+            </span>
+            <div class="flex items-center gap-2">
+              <span class="badge-doc" id="seg2-badge">📁 Hợp tác chính thức (Mã AMS 15711)</span>
+              <button onclick="openSegmentEdit(2)" class="btn-inline-edit">✏️ Sửa phân khúc này</button>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-3 gap-6 text-sm">
+            <div>
+              <div class="text-xs font-bold text-stone-500 uppercase font-outfit">ĐẦU VÀO (HỌC SINH):</div>
+              <div class="font-semibold text-brand-navy mt-1" id="seg2-in-title">Học sinh THPT muốn thi Đại Học Top</div>
+              <p class="text-stone-600 text-xs mt-1 leading-relaxed" id="seg2-in-desc">
+                Muốn vào Bách Khoa, Kinh Tế Quốc Dân, Ngoại Thương, ĐHQG... cần phương thức xét tuyển sớm.
+              </p>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-stone-500 uppercase font-outfit">GIẢI PHÁP & SẢN PHẨM OYLG:</div>
+              <div class="font-bold text-blue-700 mt-1" id="seg2-sol-title">Hướng Nghiệp + EasyIELTS + Luyện Thi ĐGNL (HOCMAI)</div>
+              <p class="text-stone-600 text-xs mt-1 leading-relaxed" id="seg2-sol-desc">
+                • Định vị năng lực theo Khung CAREER (Bản Đồ Hướng Nghiệp).<br>
+                • Khóa <strong>EasyIELTS / TopUni IELTS</strong> đạt band 6.5 - 7.5.<br>
+                • Khóa luyện thi Đánh Giá Năng Lực độc quyền: <strong>HSA (Hà Nội), TSA (Bách Khoa), V-ACT (TP.HCM)</strong>.
+              </p>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-stone-500 uppercase font-outfit">KẾT QUẢ ĐẦU RA:</div>
+              <div class="font-bold text-emerald-700 mt-1" id="seg2-out-title">Đại Học Top Việt Nam (Xét Tuyển Sớm)</div>
+              <p class="text-stone-600 text-xs mt-1 leading-relaxed" id="seg2-out-desc">
+                • Đỗ trường công lập danh tiếng từ học kỳ 2 lớp 12.<br>
+                • Chuẩn tiêu chí: <em>"Đúng ngành - Đúng người"</em>, không học trái đam mê.
+              </p>
+            </div>
+          </div>
+          <div id="seg2-attached-file" class="mt-3 pt-3 border-t text-xs text-blue-800 font-medium hidden"></div>
+        </div>
+
+        <!-- KHỐI 3: KỸ SƯ QUỐC TẾ -->
+        <div id="block-segment-3" class="bg-white rounded-3xl p-6 md:p-8 border-l-8 border-emerald-600 border border-stone-200 shadow-md relative">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b pb-3 mb-4">
+            <span class="font-outfit font-extrabold text-emerald-700 text-lg uppercase" id="seg3-title">
+              3. PHÂN KHÚC: DU HỌC NGHỀ & KỸ SƯ QUỐC TẾ (ĐÀI - ĐỨC - HÀN - NHẬT)
+            </span>
+            <div class="flex items-center gap-2">
+              <span class="badge-doc" id="seg3-badge">📁 Đã có đề án liên kết</span>
+              <button onclick="openSegmentEdit(3)" class="btn-inline-edit">✏️ Sửa phân khúc này</button>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-3 gap-6 text-sm">
+            <div>
+              <div class="text-xs font-bold text-stone-500 uppercase font-outfit">ĐẦU VÀO (HỌC SINH):</div>
+              <div class="font-semibold text-brand-navy mt-1" id="seg3-in-title">Học sinh Khá - Giỏi muốn Du học thực chiến</div>
+              <p class="text-stone-600 text-xs mt-1 leading-relaxed" id="seg3-in-desc">
+                Muốn đi Đài Loan, Đức, Hàn, Nhật; cần lộ trình ngoại ngữ và chuẩn bị hồ sơ visa.
+              </p>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-stone-500 uppercase font-outfit">GIẢI PHÁP & SẢN PHẨM OYLG:</div>
+              <div class="font-bold text-emerald-700 mt-1" id="seg3-sol-title">Ngoại Ngữ Chuyên Biệt + Mentor Hồ Sơ</div>
+              <p class="text-stone-600 text-xs mt-1 leading-relaxed" id="seg3-sol-desc">
+                • Đào tạo tiếng Nhật N4/N3, TOPIK Hàn Quốc, HSK Trung/Đài, Tiếng Đức B1/B2.<br>
+                • Mentor chuyên trách hướng dẫn hồ sơ xin visa và bảo lãnh việc làm.
+              </p>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-stone-500 uppercase font-outfit">KẾT QUẢ ĐẦU RA:</div>
+              <div class="font-bold text-emerald-700 mt-1" id="seg3-out-title">Kỹ Sư Đài Loan — Đức — Nhật Bản</div>
+              <p class="text-stone-600 text-xs mt-1 leading-relaxed" id="seg3-out-desc">
+                • Đào tạo kép (Dual Training) vừa học vừa hưởng lương cao.<br>
+                • Cơ hội việc làm lâu dài và lộ trình định cư rõ ràng.
+              </p>
+            </div>
+          </div>
+          <div id="seg3-attached-file" class="mt-3 pt-3 border-t text-xs text-emerald-800 font-medium hidden"></div>
+        </div>
+
+        <!-- KHỐI 4: MBA TRUNG QUỐC -->
+        <div id="block-segment-4" class="bg-white rounded-3xl p-6 md:p-8 border-l-8 border-purple-600 border border-stone-200 shadow-md relative">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b pb-3 mb-4">
+            <span class="font-outfit font-extrabold text-purple-700 text-lg uppercase" id="seg4-title">
+              4. PHÂN KHÚC: HỌC BỔNG TOÀN PHẦN QT & MBA TRUNG QUỐC (985 & 211)
+            </span>
+            <div class="flex items-center gap-2">
+              <span class="badge-doc" id="seg4-badge">📁 Đã có hồ sơ & hocbongmbatrungquoc.oyl.vn</span>
+              <button onclick="openSegmentEdit(4)" class="btn-inline-edit">✏️ Sửa phân khúc này</button>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-3 gap-6 text-sm">
+            <div>
+              <div class="text-xs font-bold text-stone-500 uppercase font-outfit">ĐẦU VÀO (HỌC SINH/SINH VIÊN):</div>
+              <div class="font-semibold text-brand-navy mt-1" id="seg4-in-title">Học sinh Xuất Sắc & Sinh viên tốt nghiệp CĐ/ĐH</div>
+              <p class="text-stone-600 text-xs mt-1 leading-relaxed" id="seg4-in-desc">
+                Muốn săn học bổng chính phủ toàn phần, nâng tầm bằng cấp Thạc sĩ quốc tế.
+              </p>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-stone-500 uppercase font-outfit">GIẢI PHÁP & SẢN PHẨM OYLG:</div>
+              <div class="font-bold text-purple-700 mt-1" id="seg4-sol-title">Học Bổng MBA Trung Quốc (Đề Án 985 & 211)</div>
+              <p class="text-stone-600 text-xs mt-1 leading-relaxed" id="seg4-sol-desc">
+                • Địa điểm: <strong>Thâm Quyến & Quảng Châu</strong> (Thủ phủ công nghệ).<br>
+                • <strong>Học bổng 100% học phí</strong> + Hỗ trợ sinh hoạt phí.<br>
+                • Hỗ trợ viết bài luận SOP, luyện phỏng vấn cùng Alumni Mentor.
+              </p>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-stone-500 uppercase font-outfit">KẾT QUẢ ĐẦU RA:</div>
+              <div class="font-bold text-emerald-700 mt-1" id="seg4-out-title">Học Bổng Toàn Phần & Việc Làm Toàn Cầu</div>
+              <p class="text-stone-600 text-xs mt-1 leading-relaxed" id="seg4-out-desc">
+                • Bằng Thạc sĩ danh giá trường Top 985/211.<br>
+                • Cơ hội làm việc tại các tập đoàn công nghệ đa quốc gia Á - Âu.
+              </p>
+            </div>
+          </div>
+          <div id="seg4-attached-file" class="mt-3 pt-3 border-t text-xs text-purple-800 font-medium hidden"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHẦN 4: HỌC TẬP TỪ DINHHUONG21 — CỔNG TRA CỨU 500+ TRƯỜNG     -->
+    <!-- & TÍNH NĂNG "ĐĂNG KÝ NHẬN THÔNG TIN TỪ TRƯỜNG" (TỐI ƯU HÓA) -->
+    <!-- ============================================================ -->
+    <section id="section-school-lookup" class="bg-white rounded-3xl p-6 md:p-10 border border-brand-gold/30 shadow-lg space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b pb-4">
+        <div>
+          <div class="text-xs font-outfit font-bold uppercase tracking-widest text-brand-goldDark">TRỤ CỘT HỌC TẬP TỪ DINHHUONG21 • TỐI ƯU HÓA CHUYỂN ĐỔI</div>
+          <h2 class="font-serif-luxury text-2xl md:text-3xl font-bold text-brand-charcoal mt-1">
+            Tính Năng "Tra Cứu 500+ Trường & Đăng Ký Nhận Thông Tin Từ Trường"
+          </h2>
+          <p class="text-stone-500 text-xs mt-1">
+            Cách DinhHuong21 làm vs. Cách OYL tối ưu hóa để vừa giữ chân học sinh vừa điều hướng vào sản phẩm OYL & Galaxy Education
+          </p>
+        </div>
+      </div>
+
+      <!-- Bảng đối chiếu cách làm -->
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-stone-50 border border-stone-200 rounded-2xl p-6 space-y-3">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-stone-300 text-stone-700 font-bold flex items-center justify-center text-xs">A</span>
+            <h4 class="font-outfit font-bold text-sm text-stone-700 uppercase">Cách DinhHuong21 Đang Làm (Thụ động):</h4>
+          </div>
+          <ul class="text-xs text-stone-600 space-y-2 pl-4 list-disc leading-relaxed">
+            <li>Cung cấp danh mục 500+ trường ĐH-CĐ (cào dữ liệu công khai từ Bộ GD&ĐT).</li>
+            <li>Có nút <em>"Đăng ký nhận thông tin từ trường"</em> / <em>"Nhận đề án tuyển sinh PDF"</em>.</li>
+            <li><strong>Hạn chế lớn:</strong> Họ không có quan hệ liên kết với trường, học sinh đăng ký xong chỉ nhận email tự động hoặc bị bán data cho trường tư thục, tỷ lệ chuyển đổi rất thấp vì DinhHuong21 không có sản phẩm độc quyền để chốt đơn.</li>
+          </ul>
+        </div>
+
+        <div class="bg-amber-50/70 border border-amber-300 rounded-2xl p-6 space-y-3">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-brand-navy text-brand-goldLight font-bold flex items-center justify-center text-xs">B</span>
+            <h4 class="font-outfit font-bold text-sm text-amber-800 uppercase">Cách OYL Tối Ưu Hóa Vượt Trội (Phễu 2 Tầng):</h4>
+          </div>
+          <ul class="text-xs text-stone-700 space-y-2 pl-4 list-disc leading-relaxed">
+            <li><strong>Tầng 1 (Tra cứu 500+ trường - Lead Magnet):</strong> Học sinh vào tìm bất kỳ trường nào mình thích (Bách Khoa, Ngoại Thương, Kinh Tế...), xem điểm chuẩn 3 năm và bấm <em>"🔔 Đăng ký nhận thông báo biến động điểm chuẩn & đề án xét tuyển sớm"</em>. Data đổ về cho Đại sứ OYL để biết chính xác em đó mơ ước trường gì!</li>
+            <li><strong>Tầng 2 (Điều hướng chuyển đổi tức thì - Conversion Engine):</strong> Ngay tại trang tra cứu trường đó, App kích hoạt 2 đòn bẩy độc quyền:
+              <br>• <em>Muốn tăng cơ hội đỗ vào chính trường này?</em> $\rightarrow$ Gợi ý khóa <strong>Luyện thi ĐGNL (HSA/TSA) & EasyIELTS của Galaxy Education</strong>.
+              <br>• <em>Lo sợ điểm không đủ hoặc gia đình không có 300 triệu học phí?</em> $\rightarrow$ Gợi ý phương án dự phòng <strong>Hệ Cao Đẳng Đối Tác OYL (Học bổng 100%, có lương 6-12tr, cam kết việc làm)</strong>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Khung demo tính năng tra cứu tương tác thực tế trên WebApp -->
+      <div class="bg-brand-navy text-white rounded-2xl p-6 border border-brand-gold/30 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
+          <span class="text-xs font-outfit uppercase tracking-wider text-brand-goldLight font-bold">
+            🖥️ MÔ PHỎNG GIAO DIỆN HỌC SINH SẼ THAO TÁC TRÊN APP OYL:
+          </span>
+          <span class="text-[11px] text-stone-400">Học sinh gõ tìm trường và nhận thông tin</span>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-3">
+          <div class="md:col-span-8">
+            <input type="text" id="demo-search-school" placeholder="Gõ tên trường đại học bạn quan tâm (Ví dụ: Bách Khoa, Kinh Tế Quốc Dân, Ngoại Thương...)" class="w-full px-4 py-2.5 rounded-xl bg-white text-stone-800 text-xs focus:outline-none border border-stone-300">
+          </div>
+          <div class="md:col-span-4">
+            <button onclick="demoSearchAction()" class="btn-gold w-full py-2.5 rounded-xl text-xs uppercase tracking-wider font-bold">
+              🔍 Tra Cứu Điểm & Đề Án
+            </button>
+          </div>
+        </div>
+
+        <div id="demo-search-result" class="bg-white/10 rounded-xl p-4 border border-white/10 text-xs space-y-3">
+          <div class="flex justify-between items-center text-brand-goldLight font-bold">
+            <span>Đại Học Bách Khoa Hà Nội (Mã: BKA)</span>
+            <span class="text-stone-300 font-normal">Điểm chuẩn 2024: 25.5 - 28.3 điểm</span>
+          </div>
+          <p class="text-stone-300 leading-relaxed">
+            Chỉ tiêu: 7.980 sinh viên. Phương thức xét tuyển: 60% chỉ tiêu dành cho Đánh Giá Tư Duy (TSA) và Xét tuyển tài năng (kết hợp IELTS).
+          </p>
+          <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-white/10">
+            <button onclick="alert('Đã gửi yêu cầu! Đại sứ OYL phụ trách sẽ gửi thông báo điểm chuẩn và đề án mới nhất qua Zalo của bạn.')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-1.5 rounded-lg font-semibold text-xs">
+              🔔 Đăng Ký Nhận Thông Báo Từ Trường Này
+            </button>
+            <button onclick="alert('Hệ thống chuyển hướng tới Lộ trình Luyện thi TSA & EasyIELTS đối tác Galaxy Education.')" class="bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-1.5 rounded-lg font-semibold text-xs">
+              🎯 Tăng Cơ Hội Đỗ: Luyện Thi TSA & IELTS (Galaxy Education)
+            </button>
+            <button onclick="alert('Hệ thống mở thông tin Hệ Cao Đẳng OYL (CĐ Cơ Điện Thủy Lợi BB 26/10/2026 - Học bổng 100%, lương 6-12tr).')" class="bg-amber-600 hover:bg-amber-500 text-white px-3.5 py-1.5 rounded-lg font-semibold text-xs">
+              ★ Phương Án Dự Phòng: CĐ Vừa Học Vừa Làm (Học Bổng 100%)
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHẦN 5: CƠ CHẾ ĐỘNG HÀNG NĂM (THÊM TRƯỜNG & ĐỐI TÁC MỚI)    -->
+    <!-- ============================================================ -->
+    <section id="section-dynamic" class="bg-white rounded-3xl p-6 md:p-10 border border-brand-gold/30 shadow-lg space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b pb-4">
+        <div>
+          <div class="text-xs font-outfit font-bold uppercase tracking-widest text-brand-goldDark">TRỤ CỘT 4. MỞ RỘNG DANH MỤC ĐỘNG HÀNG NĂM</div>
+          <h2 class="font-serif-luxury text-2xl md:text-3xl font-bold text-brand-charcoal mt-1">
+            Cơ Chế Bổ Sung & Thay Đổi Đối Tác / Trường Liên Kết Hàng Năm
+          </h2>
+          <p class="text-stone-500 text-xs mt-1">Mỗi năm OYL ký kết thêm trường và ngành mới, hệ thống tự động cập nhật mà không phải viết lại code</p>
+        </div>
+        <button onclick="openAddSchoolModal()" class="btn-gold px-4 py-2 rounded-full text-xs font-outfit uppercase tracking-wider font-bold">
+          ➕ Thêm Trường / Đối Tác Mới
+        </button>
+      </div>
+
+      <!-- Danh sách trường đang liên kết -->
+      <div class="grid md:grid-cols-3 gap-5" id="schools-dynamic-list">
+        
+        <div class="bg-brand-cream border border-brand-gold/20 rounded-2xl p-5 space-y-2 relative group">
+          <div class="inline-block text-[11px] font-bold bg-amber-500/10 text-amber-700 px-2.5 py-0.5 rounded-full">
+            Khai giảng: 26/10/2026
+          </div>
+          <h4 class="font-serif-luxury font-bold text-base text-brand-navy">CĐ Cơ Điện Thủy Lợi Bắc Bộ</h4>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Học bổng 100%, vừa học vừa làm nhận lương 6 - 12tr/tháng. Cam kết 100% việc làm.
+          </p>
+          <div class="text-[11px] text-stone-500 pt-2 border-t">Chỉ tiêu: 250 sinh viên / năm</div>
+        </div>
+
+        <div class="bg-brand-cream border border-brand-gold/20 rounded-2xl p-5 space-y-2 relative group">
+          <div class="inline-block text-[11px] font-bold bg-emerald-500/10 text-emerald-700 px-2.5 py-0.5 rounded-full">
+            Tuyển sinh liên tục
+          </div>
+          <h4 class="font-serif-luxury font-bold text-base text-brand-navy">CĐ Công Thương Việt Nam</h4>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Học bổng chuyên ngành 100%, thực tập doanh nghiệp FDI, nhận bằng Cao đẳng chính quy.
+          </p>
+          <div class="text-[11px] text-stone-500 pt-2 border-t">Chỉ tiêu: 300 sinh viên / năm</div>
+        </div>
+
+        <div class="bg-brand-cream border border-brand-gold/20 rounded-2xl p-5 space-y-2 relative group">
+          <div class="inline-block text-[11px] font-bold bg-blue-500/10 text-blue-700 px-2.5 py-0.5 rounded-full">
+            Tuyển sinh liên tục
+          </div>
+          <h4 class="font-serif-luxury font-bold text-base text-brand-navy">CĐ KT & CN Ninh Bình</h4>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Mạng lưới khu công nghiệp vệ tinh, đào tạo thực chiến cơ điện tử, cơ khí chính xác.
+          </p>
+          <div class="text-[11px] text-stone-500 pt-2 border-t">Chỉ tiêu: 200 sinh viên / năm</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHẦN 5: TIỀM NĂNG DÒNG TIỀN & MÔ HÌNH KINH DOANH THỰC CHIẾN    -->
+    <!-- CON SỐ THỊ TRƯỜNG, NGHỀ NGHIỆP AI & GIỮ CHÂN BẰNG ZALO AUTO  -->
+    <!-- ============================================================ -->
+    <section id="section-market-potential" class="bg-gradient-to-br from-[#151e2d] to-[#1c293e] text-white rounded-3xl p-6 md:p-10 border-2 border-brand-gold shadow-2xl space-y-8">
+      
+      <div class="border-b border-brand-gold/30 pb-4">
+        <div class="inline-block text-xs font-outfit font-bold uppercase tracking-widest text-brand-goldLight bg-white/10 px-3 py-1 rounded-full mb-1">
+          💰 TIỀM NĂNG TẠO DÒNG TIỀN & BẢN ĐỒ THỊ TRƯỜNG THỰC TẾ
+        </div>
+        <h2 class="font-serif-luxury text-2xl md:text-3xl font-bold text-white mt-1">
+          Tại Sao WebApp Này Chắc Chắn Tạo Ra Dòng Tiền Lớn?
+        </h2>
+        <p class="text-stone-300 text-xs md:text-sm mt-1">
+          Chứng minh bằng con số nghiên cứu thị trường tuyển sinh Việt Nam, xu hướng nghề nghiệp thời kỳ AI và cỗ máy nuôi dưỡng data tự động qua Zalo.
+        </p>
+      </div>
+
+      <!-- 1. BẢN ĐỒ CON SỐ THỊ TRƯỜNG -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-white/10 p-5 rounded-2xl border border-white/10 text-center">
+          <div class="font-outfit text-3xl font-extrabold text-brand-goldLight">2.5 Triệu</div>
+          <div class="text-xs text-stone-300 font-semibold mt-1">Dung Lượng Thí Sinh / Năm</div>
+          <p class="text-[11px] text-stone-400 mt-1 leading-relaxed">
+            1.1 triệu học sinh lớp 12 + 1.4 triệu học sinh lớp 9 thi chuyển cấp. 100% gia đình đều khát thông tin định hướng.
+          </p>
+        </div>
+
+        <div class="bg-white/10 p-5 rounded-2xl border border-white/10 text-center">
+          <div class="font-outfit text-3xl font-extrabold text-blue-400">>250.000</div>
+          <div class="text-xs text-stone-300 font-semibold mt-1">Lượt Thi ĐGNL & IELTS / Năm</div>
+          <p class="text-[11px] text-stone-400 mt-1 leading-relaxed">
+            Hơn 60% trường ĐH chuyển sang xét tuyển sớm qua HSA, TSA, V-ACT kết hợp IELTS. Nhu cầu luyện thi tăng vọt.
+          </p>
+        </div>
+
+        <div class="bg-white/10 p-5 rounded-2xl border border-white/10 text-center">
+          <div class="font-outfit text-3xl font-extrabold text-amber-400">44%</div>
+          <div class="text-xs text-stone-300 font-semibold mt-1">Kỹ Năng Thay Đổi Do AI</div>
+          <p class="text-[11px] text-stone-400 mt-1 leading-relaxed">
+            Báo cáo WEF: Trí tuệ nhân tạo (AI) đe dọa các ngành bàn giấy. Phụ huynh hoang mang tìm nghề thực chiến không bị AI thay thế.
+          </p>
+        </div>
+
+        <div class="bg-white/10 p-5 rounded-2xl border border-white/10 text-center">
+          <div class="font-outfit text-3xl font-extrabold text-emerald-400">200.000+</div>
+          <div class="text-xs text-stone-300 font-semibold mt-1">Cử Nhân Thất Nghiệp / Năm</div>
+          <p class="text-[11px] text-stone-400 mt-1 leading-relaxed">
+            Nỗi đau tốn 300 triệu học ĐH rồi làm trái ngành khiến mô hình Cao đẳng Vừa học vừa làm OYL trở thành "phao cứu sinh".
+          </p>
+        </div>
+      </div>
+
+      <!-- 2. VŨ KHÍ GIỮ CHÂN: BẢN TIN NGHỀ NGHIỆP AI & CẬP NHẬT TUYỂN SINH QUA ZALO TỰ ĐỘNG -->
+      <div class="bg-white/5 border border-brand-gold/30 rounded-2xl p-6 space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🤖</span>
+          <div>
+            <h4 class="font-outfit font-bold text-base text-brand-goldLight uppercase">
+              Cỗ Máy Giữ Chân Tự Động: Đăng Ký Zalo ➔ Nhận Bản Tin Hướng Nghiệp & Nghề Nghiệp AI Hàng Tuần
+            </h4>
+            <p class="text-xs text-stone-300">Công cụ tự động tổng hợp tin tức tuyển sinh và phân tích nghề nghiệp gửi đến từng học sinh</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4 text-xs text-stone-200">
+          <div class="bg-black/30 p-4 rounded-xl border border-white/10 space-y-1.5">
+            <span class="font-bold text-amber-400">1. Bản tin Biến động Tuyển sinh:</span>
+            <p class="text-stone-300 leading-relaxed">
+              Tự động cập nhật lịch thi ĐGNL (HSA, TSA), biến động điểm chuẩn, chỉ tiêu xét học bạ của 500+ trường gửi thẳng vào Zalo cá nhân.
+            </p>
+          </div>
+
+          <div class="bg-black/30 p-4 rounded-xl border border-white/10 space-y-1.5">
+            <span class="font-bold text-blue-400">2. Bản tin "Nghề Gì Sống Sót Thời AI?":</span>
+            <p class="text-stone-300 leading-relaxed">
+              Các bài phân tích độc quyền: <em>Ngành Cơ điện tử và Kỹ thuật điều khiển có bị AI thay thế không? Kỹ năng nào lương 50-100tr tại Nhật/Hàn?</em>
+            </p>
+          </div>
+
+          <div class="bg-black/30 p-4 rounded-xl border border-white/10 space-y-1.5">
+            <span class="font-bold text-emerald-400">3. Chi phí tiếp thị lại = 0 Đồng:</span>
+            <p class="text-stone-300 leading-relaxed">
+              Khi học sinh và phụ huynh đã lưu kết nối Zalo, OYL nuôi dưỡng liên tục suốt 3 năm cấp 3. Cơ hội chuyển đổi sản phẩm tăng gấp 5 lần mà không tốn 1 đồng quảng cáo lại.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHẦN 6: BẢN ĐỒ DÒNG TIỀN (INLINE EDIT TỪNG DÒNG)             -->
+    <!-- ============================================================ -->
+    <section id="section-cashflow" class="bg-white rounded-3xl p-6 md:p-10 border border-brand-gold/30 shadow-lg space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b pb-4">
+        <div>
+          <div class="text-xs font-outfit font-bold uppercase tracking-widest text-brand-goldDark">TRỤ CỘT 5. BẢN ĐỒ TÀI CHÍNH & NGUỒN DỮ LIỆU</div>
+          <h2 class="font-serif-luxury text-2xl md:text-3xl font-bold text-brand-charcoal mt-1">
+            Bản Đồ Dòng Tiền Minh Bạch: Tiền Từ Đâu Về? Ai Chi Trả?
+          </h2>
+          <p class="text-stone-500 text-xs mt-1">
+            💡 <em>Minh bạch nguồn dữ liệu: Dòng 2 trích xuất từ Hợp đồng Galaxy Education (mã 15711). Các dòng khác Ban Lãnh Đạo OYL có thể bấm "Sửa" để cập nhật số thực tế.</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm border-collapse min-w-[750px]">
+          <thead>
+            <tr class="bg-brand-navy text-white font-outfit text-xs uppercase tracking-wider">
+              <th class="p-4 border-r border-white/10 w-1/4">Phân khúc sản phẩm</th>
+              <th class="p-4 border-r border-white/10 w-1/4">Khách hàng (PH/HS) đóng gì?</th>
+              <th class="p-4 border-r border-white/10 w-1/4">Nguồn tiền OYL thu về</th>
+              <th class="p-4 bg-amber-700 text-white font-bold w-1/4">Quyền lợi Đại sứ OYL & Thao tác</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-stone-200 text-stone-800 text-xs md:text-sm">
+            
+            <!-- DÒNG 1 -->
+            <tr id="cash-row-1">
+              <td class="p-4 font-bold text-amber-700 bg-amber-50/30">
+                1. CĐ Vừa học vừa làm (Học bổng 100%)<br>
+                <span class="text-[11px] font-normal text-stone-500">[Dự án Ánh Sáng Dưới Chân Đèn]</span>
+              </td>
+              <td class="p-4" id="cash-row-1-col2">
+                0đ học phí (Được tài trợ 100%)<br>
+                <span class="text-stone-500 text-xs">Chỉ đóng kinh phí nhập học ban đầu (đồng phục, BHYT khoảng 3–8tr)</span>
+              </td>
+              <td class="p-4" id="cash-row-1-col3">
+                • Phí điều phối nhân lực từ Doanh nghiệp FDI.<br>
+                • Ngân sách nhà nước hỗ trợ 70% trường công lập.<br>
+                • Phí quản lý đào tạo học sinh thực tập.
+              </td>
+              <td class="p-4 bg-amber-50/50">
+                <div class="font-bold text-brand-navy" id="cash-row-1-col4">
+                  Hoa hồng tuyển sinh: 2 - 5 triệu/hồ sơ nhập học
+                </div>
+                <div class="mt-2">
+                  <button onclick="openCashflowEdit(1)" class="btn-inline-edit">✏️ Sửa số liệu dòng 1</button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- DÒNG 2 -->
+            <tr id="cash-row-2">
+              <td class="p-4 font-bold text-blue-700 bg-blue-50/30">
+                2. Luyện thi ĐGNL & IELTS (Galaxy Education)<br>
+                <span class="text-[11px] font-normal text-emerald-600 font-semibold">[Chuẩn Hợp đồng AMS 15711]</span>
+              </td>
+              <td class="p-4" id="cash-row-2-col2">
+                Học phí khóa học trực tuyến/kèm gia sư theo biểu giá niêm yết (3 - 15 triệu/khóa).
+              </td>
+              <td class="p-4" id="cash-row-2-col3">
+                Đối tác Galaxy Education đối soát doanh thu định kỳ theo hợp đồng phân phối.
+              </td>
+              <td class="p-4 bg-blue-50/50">
+                <div class="font-bold text-brand-navy" id="cash-row-2-col4">
+                  <strong>27% – 32.4%</strong> hoa hồng trực tiếp trên AMS + Team COM đa tầng N+1 đến N+4
+                </div>
+                <div class="mt-2">
+                  <button onclick="openCashflowEdit(2)" class="btn-inline-edit">✏️ Sửa số liệu dòng 2</button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- DÒNG 3 -->
+            <tr id="cash-row-3">
+              <td class="p-4 font-bold text-emerald-700 bg-emerald-50/30">
+                3. Kỹ sư Đài Loan / Đức / Nhật Bản<br>
+                <span class="text-[11px] font-normal text-stone-500">[Chờ BLĐ cập nhật chính sách]</span>
+              </td>
+              <td class="p-4" id="cash-row-3-col2">
+                Chi phí đào tạo ngôn ngữ + Phí hồ sơ visa, vé máy bay trọn gói.
+              </td>
+              <td class="p-4" id="cash-row-3-col3">
+                Doanh nghiệp tiếp nhận nước ngoài và trường đối tác chi trả phí dịch vụ cung ứng.
+              </td>
+              <td class="p-4 bg-emerald-50/50">
+                <div class="font-bold text-brand-navy" id="cash-row-3-col4">
+                  Thưởng tuyển sinh du học kỹ sư: 10 - 30 triệu/học viên xuất cảnh
+                </div>
+                <div class="mt-2">
+                  <button onclick="openCashflowEdit(3)" class="btn-inline-edit">✏️ Sửa số liệu dòng 3</button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- DÒNG 4 -->
+            <tr id="cash-row-4">
+              <td class="p-4 font-bold text-purple-700 bg-purple-50/30">
+                4. Học bổng MBA Trung Quốc (985 & 211)<br>
+                <span class="text-[11px] font-normal text-stone-500">[Chờ BLĐ cập nhật chính sách]</span>
+              </td>
+              <td class="p-4" id="cash-row-4-col2">
+                0đ học phí đại học/thạc sĩ TQ.<br>
+                <span class="text-stone-500 text-xs">Đóng phí dịch vụ xử lý hồ sơ học bổng toàn phần.</span>
+              </td>
+              <td class="p-4" id="cash-row-4-col3">
+                Phí dịch vụ trọn gói xử lý học bổng Đề án 985 & 211 (Quy đổi VNĐ rõ ràng).
+              </td>
+              <td class="p-4 bg-purple-50/50">
+                <div class="font-bold text-brand-navy" id="cash-row-4-col4">
+                  Hoa hồng dịch vụ hồ sơ: 5 - 15 triệu/hồ sơ đậu học bổng
+                </div>
+                <div class="mt-2">
+                  <button onclick="openCashflowEdit(4)" class="btn-inline-edit">✏️ Sửa số liệu dòng 4</button>
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHẦN MỚI: KIẾN TRÚC PHÂN CẤP ĐA TẦNG, QUẢN TRỊ 63 TỈNH THÀNH -->
+    <!-- & CHIẾN LƯỢC NHƯỢNG QUYỀN TOÀN QUỐC (FRANCHISE BLUEPRINT)    -->
+    <!-- ============================================================ -->
+    <section id="section-franchise-scale" class="bg-gradient-to-br from-[#151e2d] to-[#1c293e] text-white rounded-3xl p-6 md:p-10 border-2 border-brand-gold shadow-2xl space-y-8">
+      
+      <div class="border-b border-brand-gold/30 pb-5 space-y-2">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-brand-goldLight bg-white/10 text-xs font-outfit font-bold uppercase tracking-widest text-brand-goldLight">
+          <span>🏛️ QUẢN TRỊ THỂ CHẾ TOÀN QUỐC • MULTI-TIER AFFILIATE & FRANCHISE ENGINE</span>
+        </div>
+        <h2 class="font-serif-luxury text-2xl md:text-3xl lg:text-4xl font-bold text-white">
+          Kiến Trúc Phân Cấp Đa Tầng, Quản Trị 63 Tỉnh Thành & Chiến Lược Nhượng Quyền OYLG
+        </h2>
+        <p class="text-stone-300 text-sm md:text-base leading-relaxed">
+          Đề án được thiết kế ngay từ ngày đầu tiên để sẵn sàng cho <strong>quy mô hàng triệu học sinh trên 63 tỉnh thành Việt Nam</strong>, liên kết chặt chẽ với các tổ chức chính trị - xã hội (Đoàn Thanh Niên, Hội Phụ Nữ, Hội Nông Dân), Ban Giám Hiệu trường THPT và Trung tâm GDNN-GDTX mà <strong>không bị nghẽn mạng hay sập hệ thống</strong>.
+        </p>
+      </div>
+
+      <!-- KHỐI 1: SƠ ĐỒ 5 TẦNG PHÂN CẤP THỂ CHẾ -->
+      <div class="space-y-4">
+        <h4 class="font-outfit font-bold text-sm text-brand-goldLight uppercase tracking-wider">
+          🌳 CẤU TRÚC CÂY PHÂN CẤP MẠNG LƯỚI TUYỂN SINH TOÀN QUỐC (5 TẦNG)
+        </h4>
+
+        <div class="grid md:grid-cols-5 gap-3 text-xs text-stone-200">
+          
+          <div class="bg-white/10 p-4 rounded-2xl border border-white/15 space-y-1.5 flex flex-col justify-between">
+            <div>
+              <span class="w-6 h-6 rounded-full bg-brand-gold text-brand-navy font-bold flex items-center justify-center text-xs mb-2">T1</span>
+              <strong class="text-white block text-sm">OYL Global HQ</strong>
+              <div class="text-[11px] text-amber-300 font-semibold">Trung Ương Điều Phối</div>
+              <p class="text-stone-300 mt-2 leading-relaxed">
+                Quản trị cốt lõi, đối soát doanh nghiệp FDI, Đề án 985/211 và Galaxy Education toàn quốc.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white/10 p-4 rounded-2xl border border-white/15 space-y-1.5 flex flex-col justify-between">
+            <div>
+              <span class="w-6 h-6 rounded-full bg-blue-500 text-white font-bold flex items-center justify-center text-xs mb-2">T2</span>
+              <strong class="text-white block text-sm">Giám Đốc Thị Trường</strong>
+              <div class="text-[11px] text-blue-300 font-semibold">Cấp Tỉnh / Thành Phố</div>
+              <p class="text-stone-300 mt-2 leading-relaxed">
+                Độc quyền địa bàn 1 tỉnh, quản lý toàn bộ chỉ tiêu tuyển sinh, mạng lưới trường và doanh số tỉnh.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white/10 p-4 rounded-2xl border border-white/15 space-y-1.5 flex flex-col justify-between">
+            <div>
+              <span class="w-6 h-6 rounded-full bg-emerald-500 text-white font-bold flex items-center justify-center text-xs mb-2">T3</span>
+              <strong class="text-white block text-sm">Đối Tác Thể Chế</strong>
+              <div class="text-[11px] text-emerald-300 font-semibold">Đoàn Thể & Trường Học</div>
+              <p class="text-stone-300 mt-2 leading-relaxed">
+                Đoàn Thanh Niên, Hội Phụ Nữ, Hội Nông Dân, Hiệu Trưởng THPT, TT GDTX triển khai diện rộng.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white/10 p-4 rounded-2xl border border-white/15 space-y-1.5 flex flex-col justify-between">
+            <div>
+              <span class="w-6 h-6 rounded-full bg-purple-500 text-white font-bold flex items-center justify-center text-xs mb-2">T4</span>
+              <strong class="text-white block text-sm">Đại Sứ Cơ Sở</strong>
+              <div class="text-[11px] text-purple-300 font-semibold">Giáo Viên & Tư Vấn Viên</div>
+              <p class="text-stone-300 mt-2 leading-relaxed">
+                Cầm link cá nhân hóa (?ref=...&zalo=...) gieo hạt từng lớp, tư vấn 1-1, nhận thù lao tuyển sinh trực tiếp.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white/10 p-4 rounded-2xl border border-white/15 space-y-1.5 flex flex-col justify-between">
+            <div>
+              <span class="w-6 h-6 rounded-full bg-rose-500 text-white font-bold flex items-center justify-center text-xs mb-2">T5</span>
+              <strong class="text-white block text-sm">Học Sinh & Phụ Huynh</strong>
+              <div class="text-[11px] text-rose-300 font-semibold">Người Thụ Hưởng</div>
+              <p class="text-stone-300 mt-2 leading-relaxed">
+                Làm test 40 chỉ số, mở khóa lộ trình, nhận học bổng 100%, tích điểm thưởng khi rủ bạn bè cùng test.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- KHỐI 2: CƠ CHẾ AFFILIATE HYBRID & QUẢN LÝ VÒNG ĐỜI HỌC SINH (LTV) -->
+      <div class="bg-white/5 border border-brand-gold/30 rounded-2xl p-6 space-y-5">
+        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+          <h4 class="font-outfit font-bold text-base text-brand-goldLight uppercase">
+            💳 CƠ CHẾ HOA HỒNG HYBRID & THEO DÕI VÒNG ĐỜI HỌC SINH (LIFETIME VALUE - LTV)
+          </h4>
+          <span class="badge-doc">Chính Sách Minh Bạch</span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 text-xs text-stone-200">
+          <div class="space-y-3">
+            <strong class="text-sm text-amber-300 block">1. Phân loại 2 cơ chế tính thu nhập khoa học:</strong>
+            <div class="p-3.5 rounded-xl bg-black/30 border border-white/10 space-y-1">
+              <span class="font-bold text-blue-300 block">• Nhóm Sản phẩm số (% Hoa hồng):</span>
+              <p class="text-stone-300 leading-relaxed">
+                Mở báo cáo 30 chỉ số (49k-199k): trích <strong>40% – 50%</strong>. Khóa luyện thi Galaxy Ed: trích <strong>27% – 32.4%</strong> + Team COM 4 tầng. Tạo dòng tiền nóng mỗi ngày cho Đại sứ.
+              </p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-black/30 border border-white/10 space-y-1">
+              <span class="font-bold text-emerald-300 block">• Nhóm Tuyển sinh & Du học (Thù lao cố định theo Chặng):</span>
+              <p class="text-stone-300 leading-relaxed">
+                Cao đẳng OYL học bổng 100%: <strong>2 – 5 triệu/học viên nhập học</strong>. MBA TQ 985/211: <strong>10 – 15 triệu/hồ sơ</strong>. Kỹ sư quốc tế: <strong>10 – 30 triệu/ca xuất cảnh</strong>. Tiền trả từ quỹ FDI & Nhà nước theo hợp đồng chuẩn.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <strong class="text-sm text-amber-300 block">2. Cơ chế "Hưởng trọn vòng đời" (LTV Tracking Engine):</strong>
+            <p class="text-stone-300 leading-relaxed">
+              Mỗi học sinh vào App được cấp 1 mã `StudentID` gắn vĩnh viễn với Đại sứ và Giám đốc tỉnh bảo trợ:
+            </p>
+            <ul class="space-y-2 pl-4 list-disc text-stone-300 leading-relaxed">
+              <li><strong>Năm lớp 10:</strong> Học sinh mở khóa test 99k ➔ Đại sứ nhận hoa hồng số.</li>
+              <li><strong>Năm lớp 11:</strong> Học sinh mua gói luyện thi IELTS 6 triệu ➔ Đại sứ nhận 1.8 triệu, GĐ tỉnh nhận % override quản lý.</li>
+              <li><strong>Năm lớp 12:</strong> Học sinh nộp hồ sơ Cao đẳng OYL hoặc Du học Kỹ sư ➔ Đại sứ nhận 5 – 20 triệu thù lao tuyển sinh.</li>
+            </ul>
+            <div class="p-3 rounded-xl bg-brand-gold/10 border border-brand-gold/40 text-brand-goldLight font-semibold">
+              ✓ App tự động cộng dồn tổng tiền học sinh chi trả và tổng thu nhập tích lũy của từng người bảo trợ minh bạch thời gian thực!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KHỐI 3: KIẾN TRÚC KỸ THUẬT CHỐNG SẬP (SCALABILITY ARCHITECTURE) -->
+      <div class="bg-black/30 border border-white/10 rounded-2xl p-6 space-y-5">
+        <div class="border-b border-white/10 pb-3">
+          <div class="text-xs text-amber-300 font-bold uppercase font-outfit">BÀI TOÁN AN TOÀN HỆ THỐNG</div>
+          <h4 class="font-outfit font-bold text-base text-white mt-1">
+            Làm Sao Để Hàng Triệu Học Sinh Truy Cập Cùng Lúc Mà WebApp Không Bị Sập?
+          </h4>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4 text-xs text-stone-200">
+          
+          <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+            <strong class="text-amber-400 block text-sm">⚠️ Vì Sao Không Chia 3 Web Rời Rạc?</strong>
+            <p class="text-stone-300 leading-relaxed">
+              Nếu chia 3 web (Web học sinh, Web đại sứ, Web quản trị) sẽ làm đứt gãy trải nghiệm: Học sinh muốn giới thiệu bạn bè phải đăng ký lại; quản lý 3 tên miền phức tạp và dễ lệch hoa hồng.
+            </p>
+          </div>
+
+          <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+            <strong class="text-emerald-400 block text-sm">✅ 1 WebApp All-in-One (Ai Vào Cũng Có Mã):</strong>
+            <p class="text-stone-300 leading-relaxed">
+              Duy nhất 1 WebApp đồng nhất trên VPS: Học sinh, Đại sứ, Giám đốc tỉnh dùng chung. Ai vào cũng tự động có mã Affiliate riêng. Quyền hạn mở thêm theo cấp bậc tài khoản (Tab Quản lý tuyển sinh, Tab Quản trị tỉnh) ngay trong App.
+            </p>
+          </div>
+
+          <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+            <strong class="text-blue-400 block text-sm">⚡ Hạ Tầng VPS Riêng + Zalo Bot 24/7:</strong>
+            <p class="text-stone-300 leading-relaxed">
+              Đưa nền tảng lên VPS riêng tại Datacenter Việt Nam (Viettel/VNPT/Vietnix): Zalo Bot duy trì phiên kết nối 24/7 không gián đoạn, tốc độ siêu tốc 5–15ms, chi phí cố định chỉ 200k–500k/tháng cho hàng vạn học sinh.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- KHỐI 4: CHIẾN LƯỢC NHƯỢNG QUYỀN TỈNH THÀNH (FRANCHISE BLUEPRINT) -->
+      <div class="bg-white/5 border border-brand-gold/40 rounded-2xl p-6 md:p-8 space-y-4">
+        <div class="flex items-center justify-between border-b border-brand-gold/30 pb-3">
+          <h4 class="font-outfit font-bold text-base text-brand-goldLight uppercase">
+            💼 CHIẾN LƯỢC ĐÓNG GÓI NHƯỢNG QUYỀN CÔNG NGHỆ TUYỂN SINH CHO GIÁM ĐỐC TỈNH
+          </h4>
+          <span class="badge-doc">Doanh Thu Quy Mô Lớn</span>
+        </div>
+
+        <p class="text-xs md:text-sm text-stone-300 leading-relaxed">
+          Thay vì OYL tự đi tuyển sinh lẻ ở 63 tỉnh, Học viện OYL đóng gói giải pháp thành **Gói Nhượng Quyền Vùng OYLG** chuyển giao trọn bộ cho Giám Đốc Thị Trường cấp Tỉnh/Thành phố:
+        </p>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs text-stone-200 pt-2">
+          
+          <div class="bg-black/30 p-4 rounded-xl border border-white/10 space-y-1.5">
+            <span class="font-bold text-amber-400">1. Độc Quyền Mã Vùng:</span>
+            <p class="text-stone-300 leading-relaxed">
+              Giám Đốc Tỉnh sở hữu toàn bộ chỉ tiêu tuyển sinh Cao đẳng OYL, MBA 985/211 và Galaxy Ed trên địa bàn tỉnh của mình.
+            </p>
+          </div>
+
+          <div class="bg-black/30 p-4 rounded-xl border border-white/10 space-y-1.5">
+            <span class="font-bold text-blue-400">2. Cấp Subdomain & Zalo Bot Riêng:</span>
+            <p class="text-stone-300 leading-relaxed">
+              Trang web riêng mang tên tỉnh (ví dụ: <code>nghean.oyl.vn</code>) tích hợp con bot Zalo chuyên trách của tỉnh đó tự động chăm sóc học sinh.
+            </p>
+          </div>
+
+          <div class="bg-black/30 p-4 rounded-xl border border-white/10 space-y-1.5">
+            <span class="font-bold text-emerald-400">3. Bộ Văn Bản Ký Kết Thể Chế:</span>
+            <p class="text-stone-300 leading-relaxed">
+              Cung cấp sẵn mẫu hợp đồng liên kết 3 bên, văn bản phối hợp Tỉnh Đoàn, Hội Phụ Nữ và các trường THPT/GDTX tại địa phương.
+            </p>
+          </div>
+
+          <div class="bg-black/30 p-4 rounded-xl border border-white/10 space-y-1.5">
+            <span class="font-bold text-purple-400">4. Doanh Thu Đa Nguồn Bền Vững:</span>
+            <p class="text-stone-300 leading-relaxed">
+              Hưởng hoa hồng quản lý (Override) toàn tỉnh, thù lao tuyển sinh hàng chục triệu/học viên, bán lại gói Zalo Bot chăm sóc cho các trường THPT.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- KHỐI 5: LỘ TRÌNH 3 PHA TRIỂN KHAI & BÀN GIAO THỰC TẾ -->
+      <div class="bg-black/30 border border-brand-gold/30 rounded-2xl p-6 md:p-8 space-y-4">
+        <div class="border-b border-white/10 pb-3 flex items-center justify-between">
+          <h4 class="font-outfit font-bold text-base text-white uppercase">
+            🚀 LỘ TRÌNH 3 PHA TRIỂN KHAI & BÀN GIAO THỰC CHIẾN
+          </h4>
+          <span class="badge-doc">Cam Kết Khả Thi 100%</span>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4 text-xs text-stone-200">
+          
+          <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+            <div class="text-xs font-bold font-outfit uppercase text-amber-300">PHA 1 (TUẦN 1 - 2)</div>
+            <strong class="text-white block text-sm">MVP WebApp All-in-One & Chạy Thử</strong>
+            <ul class="space-y-1.5 pl-3 list-disc text-stone-300 leading-relaxed">
+              <li>Hoàn thiện giao diện Bento Mobile-First 1 Web duy nhất.</li>
+              <li>Bộ chẩn đoán 10 câu ➔ 40 chỉ số năng lực.</li>
+              <li>Tự động gắn mã Affiliate & Zalo người giới thiệu.</li>
+              <li>Triển khai chạy ổn định trên VPS OYL.</li>
+            </ul>
+          </div>
+
+          <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+            <div class="text-xs font-bold font-outfit uppercase text-blue-300">PHA 2 (TUẦN 3 - 4)</div>
+            <strong class="text-white block text-sm">VietQR Paywall & Zalo Bot 24/7</strong>
+            <ul class="space-y-1.5 pl-3 list-disc text-stone-300 leading-relaxed">
+              <li>Cổng VietQR tự động mở khóa báo cáo 30 chỉ số (49k-199k).</li>
+              <li>Nút "Gửi Zalo cho bố mẹ mở khóa" tiện lợi.</li>
+              <li>OYL Trợ Lý (Zalo Bot) tự động nhắc lịch Zoom 24h/1h.</li>
+              <li>Sàn Mentor quốc tế (Đức, Đài, Nhật, Hàn, TQ).</li>
+            </ul>
+          </div>
+
+          <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-2">
+            <div class="text-xs font-bold font-outfit uppercase text-emerald-300">PHA 3 (THÁNG THỨ 2)</div>
+            <strong class="text-white block text-sm">Nhượng Quyền & Mở Rộng 63 Tỉnh</strong>
+            <ul class="space-y-1.5 pl-3 list-disc text-stone-300 leading-relaxed">
+              <li>Bàn giao tài khoản quản trị GĐ Tỉnh & Cổng Đoàn thể/Trường học.</li>
+              <li>Cấp subdomain tỉnh (nghean.oyl.vn...) + Bot Zalo tỉnh.</li>
+              <li>Ký kết chỉ tiêu liên kết với Tỉnh Đoàn & Trường THPT.</li>
+              <li>Tự động đối soát hoa hồng và báo cáo LTV học sinh.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHẦN 6: CHECKLIST TÀI LIỆU & NÚT TẢI TÀI LIỆU TẬN NƠI        -->
+    <!-- ============================================================ -->
+    <section class="bg-amber-50/70 border border-amber-300 rounded-3xl p-6 md:p-8 space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">📋</span>
+          <div>
+            <h3 class="font-serif-luxury font-bold text-xl text-brand-charcoal">
+              Danh Mục Tài Liệu Cần Bổ Sung (Theo nhãn "Cần tài liệu" trên sơ đồ)
+            </h3>
+            <p class="text-xs text-stone-600">Ban Lãnh Đạo có thể bấm tải file hoặc dán link tài liệu trực tiếp vào từng mục:</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4 text-xs md:text-sm text-stone-700 pt-2">
+        
+        <div class="bg-white p-4 rounded-xl border border-amber-200 space-y-2">
+          <div class="flex justify-between items-start">
+            <span class="font-bold text-brand-navy">1. Đề án Học bổng 3 trường Cao đẳng</span>
+            <button onclick="openDocUpload(1, 'Đề án Học bổng 3 trường Cao đẳng')" class="btn-inline-edit">📤 Tải file lên</button>
+          </div>
+          <p class="text-xs text-stone-600">Chỉ tiêu tuyển sinh 2026 và quyết định miễn giảm học phí 100%.</p>
+          <div id="doc-status-1" class="text-[11px] text-emerald-700 font-semibold hidden"></div>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-amber-200 space-y-2">
+          <div class="flex justify-between items-start">
+            <span class="font-bold text-brand-navy">2. Hợp đồng mẫu cam kết việc làm</span>
+            <button onclick="openDocUpload(2, 'Hợp đồng mẫu cam kết việc làm')" class="btn-inline-edit">📤 Tải file lên</button>
+          </div>
+          <p class="text-xs text-stone-600">Văn bản 3 bên ký kết giữa Nhà trường - Doanh nghiệp FDI - OYL.</p>
+          <div id="doc-status-2" class="text-[11px] text-emerald-700 font-semibold hidden"></div>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-amber-200 space-y-2">
+          <div class="flex justify-between items-start">
+            <span class="font-bold text-brand-navy">3. Hồ sơ Học bổng MBA Trung Quốc (985 & 211)</span>
+            <button onclick="openDocUpload(3, 'Hồ sơ Học bổng MBA Trung Quốc Đề án 985 & 211')" class="btn-inline-edit">📤 Tải file lên</button>
+          </div>
+          <p class="text-xs text-stone-600">Danh sách trường Thâm Quyến/Quảng Châu và biểu phí hồ sơ dịch vụ.</p>
+          <div id="doc-status-3" class="text-[11px] text-emerald-700 font-semibold hidden"></div>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-amber-200 space-y-2">
+          <div class="flex justify-between items-start">
+            <span class="font-bold text-brand-navy">4. Chương trình Kỹ sư Đức & Đài Loan</span>
+            <button onclick="openDocUpload(4, 'Chương trình Kỹ sư Đức & Đài Loan')" class="btn-inline-edit">📤 Tải file lên</button>
+          </div>
+          <p class="text-xs text-stone-600">Điều kiện ngoại ngữ B1/B2 và hợp đồng thực tập nhận lương tại nước ngoài.</p>
+          <div id="doc-status-4" class="text-[11px] text-emerald-700 font-semibold hidden"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PHẦN 7: TỔNG HỢP TOÀN BỘ Ý KIẾN ĐÃ SỬA & XUẤT CHO AI         -->
+    <!-- ============================================================ -->
+    <section class="bg-brand-navy text-white rounded-3xl p-6 md:p-10 border-2 border-brand-gold shadow-2xl space-y-6">
+      
+      <div class="flex flex-wrap items-center justify-between gap-4 border-b border-brand-gold/30 pb-5">
+        <div>
+          <span class="inline-block text-xs font-outfit font-bold uppercase tracking-widest text-brand-goldLight bg-white/10 px-3 py-1 rounded-full mb-1">
+            ✍️ BẢNG TỔNG HỢP MỌI CHỈNH SỬA & TÀI LIỆU
+          </span>
+          <h2 class="font-serif-luxury text-2xl md:text-3xl font-bold text-white">
+            Nhật Ký Đóng Góp Ý Tưởng & Cập Nhật Đề Án
+          </h2>
+          <p class="text-stone-300 text-xs md:text-sm mt-1">
+            Mọi thao tác sửa tận nơi ở trên đều tự động ghi vào đây và đồng bộ về hệ thống để AI Hermes đọc được ngay lập tức!
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <button type="button" onclick="copyFeedbackPrompt()" class="bg-amber-500/20 hover:bg-amber-500/30 text-brand-goldLight border border-amber-400/40 px-4 py-2.5 rounded-full text-xs font-outfit uppercase tracking-wider font-bold transition-colors">
+            📋 Sao Chép Cho AI
+          </button>
+          <button type="button" onclick="exportFeedbackMarkdown()" class="bg-white/10 hover:bg-white/20 text-stone-200 border border-white/20 px-4 py-2.5 rounded-full text-xs font-outfit uppercase tracking-wider font-semibold transition-colors">
+            📥 Xuất File .MD
+          </button>
+        </div>
+      </div>
+
+      <!-- Danh Sách Ý Tưởng Đã Góp Ý -->
+      <div id="feedback-list-container" class="space-y-4">
+        <!-- Render bằng JavaScript -->
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ============================================================ -->
+  <!-- MODAL ĐA NĂNG: SỬA TẬN CHỖ (INLINE EDIT MODAL)               -->
+  <!-- ============================================================ -->
+  <div id="inline-edit-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 md:p-8 space-y-4 shadow-2xl relative text-stone-800 max-h-[90vh] overflow-y-auto">
+      
+      <div class="flex justify-between items-center border-b pb-3">
+        <h3 id="inline-modal-title" class="font-serif-luxury font-bold text-xl text-brand-navy">
+          Chỉnh Sửa Trực Tiếp
+        </h3>
+        <button type="button" onclick="closeInlineModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 hover:bg-stone-200 flex items-center justify-center font-bold">
+          ✕
+        </button>
+      </div>
+
+      <form id="inline-edit-form" onsubmit="saveInlineEdit(event)" class="space-y-3">
+        <input type="hidden" id="edit-type" value="">
+        <input type="hidden" id="edit-target-id" value="">
+
+        <div>
+          <label class="block text-xs font-outfit font-bold text-stone-600 uppercase mb-1">
+            Người cập nhật: *
+          </label>
+          <input type="text" id="inline-author" required value="Ban Lãnh Đạo OYL" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-brand-gold bg-stone-50 font-semibold">
+        </div>
+
+        <div id="dynamic-form-fields" class="space-y-3">
+          <!-- Các trường form động tùy theo người dùng bấm sửa chỗ nào -->
+        </div>
+
+        <!-- Ô TẢI TÀI LIỆU ĐÍNH KÈM -->
+        <div class="bg-amber-50/70 p-4 rounded-2xl border border-amber-200 space-y-2">
+          <label class="block text-xs font-outfit font-bold text-brand-goldDark uppercase">
+            📁 Đính kèm tài liệu / Quyết định liên quan:
+          </label>
+          <input type="file" id="inline-file-input" class="w-full text-xs text-stone-600 file:mr-3 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-brand-navy file:text-brand-goldLight hover:file:bg-brand-navyLight cursor-pointer">
+          <div class="text-[11px] text-stone-500">Hoặc dán link Google Drive / Lưu trữ online:</div>
+          <input type="text" id="inline-link-input" placeholder="https://drive.google.com/..." class="w-full px-3 py-2 rounded-xl border border-stone-300 text-xs bg-white focus:outline-none">
+        </div>
+
+        <div class="pt-2 flex items-center justify-end gap-3">
+          <button type="button" onclick="closeInlineModal()" class="px-5 py-2.5 rounded-xl border border-stone-300 text-xs font-outfit font-bold text-stone-600 hover:bg-stone-100">
+            Hủy Bỏ
+          </button>
+          <button type="submit" id="inline-save-btn" class="btn-gold px-7 py-2.5 rounded-xl text-xs font-outfit uppercase tracking-wider font-bold">
+            💾 Lưu Thay Đổi Ngay
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#070e1b] text-stone-400 py-10 border-t border-brand-gold/20 text-xs">
+    <div class="max-w-6xl mx-auto px-4 text-center space-y-2">
+      <div class="font-serif-luxury font-bold text-white text-base">HỌC VIỆN OYL (OWN YOUR LIFE GLOBAL) x GALAXY EDUCATION</div>
+      <p>Bản thuyết minh đề án chiến lược: Nền tảng Hướng nghiệp & Điều phối tuyển sinh thông minh.</p>
+      <p class="text-stone-500">Dữ liệu chỉnh sửa được lưu trực tiếp tại hệ thống <code>D:\APP_HUONG_NGHIEP_OYL\</code></p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC LƯU TRỮ VÀ TƯƠNG TÁC TẬN CHỖ -->
+  <script>
+    const isLocalCustom = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") && window.location.port === "8765";
+    const API_URL = isLocalCustom ? "http://127.0.0.1:8765/api/feedback" : "/api/feedback";
+    let changeLog = [];
+
+    // 1. Khởi tạo dữ liệu
+    function initData() {
+      const saved = localStorage.getItem('oyl_change_log');
+      if (saved) {
+        try { changeLog = JSON.parse(saved); } catch(e) { changeLog = []; }
+      } else {
+        changeLog = [
+          {
+            id: 1,
+            author: "Ban Lãnh Đạo OYL",
+            target: "Bản Đồ Dòng Tiền",
+            title: "Xác nhận nguồn hoa hồng Galaxy Education",
+            content: "Hoa hồng 27% - 32.4% là chuẩn theo văn bản Cơ chế ĐSGD 2025 (Hồ sơ AMS 15711).",
+            created_at: "06/10/2026 14:00"
+          }
+        ];
+        localStorage.setItem('oyl_change_log', JSON.stringify(changeLog));
+      }
+      renderChangeLog();
+    }
+
+    // 2. Mở Modal Sửa Phân Khúc 1, 2, 3, 4
+    function openSegmentEdit(segNum) {
+      document.getElementById('edit-type').value = "segment";
+      document.getElementById('edit-target-id').value = segNum;
+      document.getElementById('inline-modal-title').innerText = `Chỉnh Sửa Phân Khúc ${segNum}`;
+
+      const solDesc = document.getElementById(`seg${segNum}-sol-desc`).innerText;
+      const outDesc = document.getElementById(`seg${segNum}-out-desc`).innerText;
+
+      const fields = document.getElementById('dynamic-form-fields');
+      fields.innerHTML = `
+        <div>
+          <label class="block text-xs font-bold text-stone-600 uppercase mb-1">Giải pháp & Sản phẩm OYLG cung cấp:</label>
+          <textarea id="in-field-1" rows="3" class="w-full px-3 py-2 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-brand-gold">${solDesc}</textarea>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-stone-600 uppercase mb-1">Kết quả đầu ra kỳ vọng (Bằng cấp, thu nhập):</label>
+          <textarea id="in-field-2" rows="3" class="w-full px-3 py-2 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-brand-gold">${outDesc}</textarea>
+        </div>
+      `;
+      document.getElementById('inline-edit-modal').classList.remove('hidden');
+    }
+
+    // 3. Mở Modal Sửa Dòng Tiền (Hàng 1, 2, 3, 4)
+    function openCashflowEdit(rowNum) {
+      document.getElementById('edit-type').value = "cashflow";
+      document.getElementById('edit-target-id').value = rowNum;
+      document.getElementById('inline-modal-title').innerText = `Chỉnh Sửa Số Liệu Dòng Tiền #${rowNum}`;
+
+      const col2 = document.getElementById(`cash-row-${rowNum}-col2`).innerText;
+      const col3 = document.getElementById(`cash-row-${rowNum}-col3`).innerText;
+      const col4 = document.getElementById(`cash-row-${rowNum}-col4`).innerText;
+
+      const fields = document.getElementById('dynamic-form-fields');
+      fields.innerHTML = `
+        <div>
+          <label class="block text-xs font-bold text-stone-600 uppercase mb-1">Khách hàng (PH/HS) đóng chi phí gì?</label>
+          <input type="text" id="in-field-1" value="${col2.replace(/\n/g, ' ')}" class="w-full px-3 py-2 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-brand-gold">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-stone-600 uppercase mb-1">Nguồn tiền OYL thu về từ đâu?</label>
+          <input type="text" id="in-field-2" value="${col3.replace(/\n/g, ' ')}" class="w-full px-3 py-2 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-brand-gold">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-stone-600 uppercase mb-1">Quyền lợi / Hoa hồng thực tế của Đại sứ OYL:</label>
+          <input type="text" id="in-field-3" value="${col4.replace(/\n/g, ' ')}" class="w-full px-3 py-2 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-brand-gold font-bold text-amber-700">
+        </div>
+      `;
+      document.getElementById('inline-edit-modal').classList.remove('hidden');
+    }
+
+    // 4. Mở Modal Thêm Trường Đối Tác Mới
+    function openAddSchoolModal() {
+      document.getElementById('edit-type').value = "add_school";
+      document.getElementById('edit-target-id').value = Date.now();
+      document.getElementById('inline-modal-title').innerText = "Thêm Trường / Đối Tác Tuyển Sinh Mới";
+
+      const fields = document.getElementById('dynamic-form-fields');
+      fields.innerHTML = `
+        <div>
+          <label class="block text-xs font-bold text-stone-600 uppercase mb-1">Tên Trường / Đối tác:</label>
+          <input type="text" id="in-field-1" placeholder="Ví dụ: Trường Cao Đẳng Nghề Bách Khoa" class="w-full px-3 py-2 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-brand-gold">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-stone-600 uppercase mb-1">Thời gian khai giảng / Đợt tuyển sinh:</label>
+          <input type="text" id="in-field-2" placeholder="Ví dụ: Khai giảng đợt 1: 15/11/2026" class="w-full px-3 py-2 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-brand-gold">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-stone-600 uppercase mb-1">Mô tả quyền lợi & Chỉ tiêu:</label>
+          <textarea id="in-field-3" rows="3" placeholder="Chính sách học bổng, việc làm và ngành nghề..." class="w-full px-3 py-2 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-brand-gold"></textarea>
+        </div>
+      `;
+      document.getElementById('inline-edit-modal').classList.remove('hidden');
+    }
+
+    // 5. Mở Modal Tải Tài Liệu Cho Checklist
+    function openDocUpload(docNum, docTitle) {
+      document.getElementById('edit-type').value = "upload_doc";
+      document.getElementById('edit-target-id').value = docNum;
+      document.getElementById('inline-modal-title').innerText = `Nạp Tài Liệu: ${docTitle}`;
+
+      const fields = document.getElementById('dynamic-form-fields');
+      fields.innerHTML = `
+        <div class="text-xs text-stone-600">
+          Vui lòng chọn file văn bản (.pdf, .doc, .xlsx) hoặc dán link Google Drive bên dưới để tích hợp vào đề án:
+        </div>
+      `;
+      document.getElementById('inline-edit-modal').classList.remove('hidden');
+    }
+
+    // Đóng Modal
+    function closeInlineModal() {
+      document.getElementById('inline-edit-modal').classList.add('hidden');
+      document.getElementById('inline-file-input').value = "";
+      document.getElementById('inline-link-input').value = "";
+    }
+
+    // 6. Xử lý Lưu Chỉnh Sửa Tại Chỗ
+    async function saveInlineEdit(e) {
+      e.preventDefault();
+      const saveBtn = document.getElementById('inline-save-btn');
+      saveBtn.innerText = "Đang lưu...";
+      saveBtn.disabled = true;
+
+      const editType = document.getElementById('edit-type').value;
+      const targetId = document.getElementById('edit-target-id').value;
+      const author = document.getElementById('inline-author').value.trim();
+      const fileInput = document.getElementById('inline-file-input');
+      const linkInput = document.getElementById('inline-link-input').value.trim();
+
+      let attachedName = "";
+      if (fileInput.files.length > 0) {
+        attachedName = fileInput.files[0].name;
+      } else if (linkInput) {
+        attachedName = linkInput;
+      }
+
+      let logItem = {
+        id: Date.now(),
+        author: author,
+        created_at: new Date().toLocaleString('vi-VN')
+      };
+
+      if (editType === "segment") {
+        const val1 = document.getElementById('in-field-1').value.trim();
+        const val2 = document.getElementById('in-field-2').value.trim();
+
+        document.getElementById(`seg${targetId}-sol-desc`).innerText = val1;
+        document.getElementById(`seg${targetId}-out-desc`).innerText = val2;
+
+        if (attachedName) {
+          const badgeEl = document.getElementById(`seg${targetId}-attached-file`);
+          badgeEl.innerText = `📁 Tài liệu đính kèm: ${attachedName}`;
+          badgeEl.classList.remove('hidden');
+        }
+
+        logItem.target = `Phân khúc ${targetId}`;
+        logItem.title = `Cập nhật nội dung Phân khúc ${targetId}`;
+        logItem.content = `Giải pháp: ${val1}\nĐầu ra: ${val2}`;
+        logItem.documents = attachedName;
+
+      } else if (editType === "cashflow") {
+        const val1 = document.getElementById('in-field-1').value.trim();
+        const val2 = document.getElementById('in-field-2').value.trim();
+        const val3 = document.getElementById('in-field-3').value.trim();
+
+        document.getElementById(`cash-row-${targetId}-col2`).innerText = val1;
+        document.getElementById(`cash-row-${targetId}-col3`).innerText = val2;
+        document.getElementById(`cash-row-${targetId}-col4`).innerText = val3;
+
+        logItem.target = `Dòng tiền hàng ${targetId}`;
+        logItem.title = `Cập nhật số liệu Dòng tiền hàng #${targetId}`;
+        logItem.content = `Khách đóng: ${val1}\nOYL thu: ${val2}\nĐại sứ nhận: ${val3}`;
+        logItem.documents = attachedName;
+
+      } else if (editType === "add_school") {
+        const name = document.getElementById('in-field-1').value.trim();
+        const intake = document.getElementById('in-field-2').value.trim();
+        const desc = document.getElementById('in-field-3').value.trim();
+
+        const schoolGrid = document.getElementById('schools-dynamic-list');
+        const card = document.createElement('div');
+        card.className = "bg-brand-cream border border-brand-gold/20 rounded-2xl p-5 space-y-2 relative";
+        card.innerHTML = `
+          <div class="inline-block text-[11px] font-bold bg-amber-500/10 text-amber-700 px-2.5 py-0.5 rounded-full">
+            ${intake || 'Tuyển sinh 2026'}
+          </div>
+          <h4 class="font-serif-luxury font-bold text-base text-brand-navy">${name}</h4>
+          <p class="text-xs text-stone-600 leading-relaxed">${desc}</p>
+          ${attachedName ? `<div class="text-[11px] text-emerald-700 font-semibold pt-2 border-t">📁 Đề án: ${attachedName}</div>` : ''}
+        `;
+        schoolGrid.appendChild(card);
+
+        logItem.target = "Thêm Trường Mới";
+        logItem.title = `Thêm đối tác: ${name}`;
+        logItem.content = `Thời gian: ${intake}\nMô tả: ${desc}`;
+        logItem.documents = attachedName;
+
+      } else if (editType === "upload_doc") {
+        const docBadge = document.getElementById(`doc-status-${targetId}`);
+        docBadge.innerText = `✓ Đã nạp tài liệu: ${attachedName}`;
+        docBadge.classList.remove('hidden');
+
+        logItem.target = `Tài liệu #${targetId}`;
+        logItem.title = `Nạp tài liệu danh mục #${targetId}`;
+        logItem.content = `Đã cung cấp tài liệu: ${attachedName}`;
+        logItem.documents = attachedName;
+      }
+
+      // Lưu Local
+      changeLog.unshift(logItem);
+      localStorage.setItem('oyl_change_log', JSON.stringify(changeLog));
+
+      // Gửi đồng bộ server
+      try {
+        await fetch(API_URL, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(logItem)
+        });
+      } catch (err) {
+        console.warn("Lưu server local thành công.");
+      }
+
+      saveBtn.innerText = "💾 Lưu Thay Đổi Ngay";
+      saveBtn.disabled = false;
+      closeInlineModal();
+      renderChangeLog();
+      alert("✅ Đã cập nhật ngay tại chỗ thành công! AI Hermes và đề án đã ghi nhận.");
+    }
+
+    // 7. Render danh sách thay đổi
+    function renderChangeLog() {
+      const container = document.getElementById('feedback-list-container');
+      if (!changeLog || changeLog.length === 0) {
+        container.innerHTML = `<div class="text-stone-400 text-xs italic text-center py-4">Chưa có chỉnh sửa nào được ghi lại.</div>`;
+        return;
+      }
+
+      container.innerHTML = changeLog.map(item => `
+        <div class="bg-white/10 border border-white/15 rounded-2xl p-4 text-xs space-y-1.5">
+          <div class="flex justify-between items-center text-stone-400">
+            <span class="font-bold text-brand-goldLight font-outfit uppercase">${item.target || 'Cập nhật'}</span>
+            <span>${item.created_at || ''} • Bởi: <strong>${item.author}</strong></span>
+          </div>
+          <div class="font-bold text-white text-sm">${item.title}</div>
+          <div class="text-stone-300 leading-relaxed whitespace-pre-line">${item.content}</div>
+          ${item.documents ? `<div class="text-amber-300 font-medium">📁 Tài liệu đính kèm: ${item.documents}</div>` : ''}
+        </div>
+      `).join('');
+    }
+
+    // 8. Xuất Markdown & Copy cho AI
+    function generateFullMarkdown() {
+      let md = "# BÁO CÁO TOÀN DIỆN: CÁC ĐÓNG GÓP & CHỈNH SỬA ĐỀ ÁN OYL GLOBAL\n\n";
+      md += `> Ngày trích xuất: ${new Date().toLocaleString('vi-VN')}\n`;
+      md += `> Tổng số cập nhật: ${changeLog.length}\n\n---\n\n`;
+
+      changeLog.forEach((item, idx) => {
+        md += `### ${idx + 1}. [${item.target}] ${item.title}\n`;
+        md += `- **Người cập nhật:** ${item.author}\n`;
+        md += `- **Thời gian:** ${item.created_at}\n`;
+        md += `- **Chi tiết thay đổi:**\n${item.content}\n`;
+        if (item.documents) {
+          md += `- **Tài liệu đính kèm:** ${item.documents}\n`;
+        }
+        md += "\n---\n\n";
+      });
+      return md;
+    }
+
+    function exportFeedbackMarkdown() {
+      const md = generateFullMarkdown();
+      const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `CAP_NHAT_DE_AN_OYL_${Date.now()}.md`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function copyFeedbackPrompt() {
+      const text = generateFullMarkdown();
+      navigator.clipboard.writeText(text).then(() => {
+        alert("📋 Đã sao chép toàn bộ nhật ký thay đổi! Bạn chỉ cần dán (Ctrl+V) vào khung chat với AI Hermes.");
+      }).catch(e => {
+        alert("Vui lòng dùng nút Xuất File .MD.");
+      });
+    }
+
+    // 9. CHẾ ĐỘ CLICK TRỰC TIẾP VÀO BẤT KỲ DÒNG NÀO ĐỂ SỬA (TRUE INLINE EDITING)
+    let hasUnsavedDirectEdits = false;
+
+    function enableDirectTextEditing() {
+      // Khôi phục nội dung đã lưu từ trước nếu có
+      const savedHtml = localStorage.getItem('oyl_proposal_live_html');
+      if (savedHtml) {
+        const main = document.getElementById('main-content');
+        if (main) {
+          main.innerHTML = savedHtml;
+        }
+      }
+
+      // Kích hoạt contenteditable trên mọi dòng chữ, đoạn văn, ô bảng, tiêu đề
+      const selectors = 'p, h1, h2, h3, h4, td, th, li';
+      document.querySelectorAll('#main-content ' + selectors).forEach(el => {
+        if (!el.closest('#floating-edit-bar') && !el.closest('button') && !el.closest('form')) {
+          el.setAttribute('contenteditable', 'true');
+          el.setAttribute('spellcheck', 'false');
+          el.addEventListener('input', () => {
+            markDirectEditsDirty();
+          });
+        }
+      });
+    }
+
+    function markDirectEditsDirty() {
+      hasUnsavedDirectEdits = true;
+      const saveBtn = document.getElementById('btn-save-all');
+      if (saveBtn) {
+        saveBtn.className = "bg-amber-400 hover:bg-amber-300 text-stone-900 px-5 py-2.5 rounded-full font-extrabold uppercase tracking-wider text-xs flex items-center gap-1.5 shadow-xl animate-pulse";
+        saveBtn.innerHTML = "<span>⚠️</span> <span>LƯU NGAY (CÓ CHỖ VỪA SỬA)</span>";
+      }
+    }
+
+    async function saveAllDirectEdits() {
+      const main = document.getElementById('main-content');
+      if (!main) return;
+
+      const saveBtn = document.getElementById('btn-save-all');
+      if (saveBtn) {
+        saveBtn.innerHTML = "<span>⏳</span> <span>Đang lưu...</span>";
+      }
+
+      // Lưu lại toàn bộ HTML giao diện đã sửa vào LocalStorage
+      localStorage.setItem('oyl_proposal_live_html', main.innerHTML);
+      hasUnsavedDirectEdits = false;
+
+      // Ghi log đồng bộ về API server để AI đọc được
+      const logItem = {
+        id: Date.now(),
+        author: "Ban Lãnh Đạo OYL",
+        target: "Chỉnh sửa trực tiếp trên trang",
+        title: "Cập nhật trực tiếp nội dung các dòng chữ trên giao diện",
+        content: "Người dùng đã click trực tiếp vào các dòng văn bản/bảng và sửa lại số liệu, câu từ cho đúng thực tế.",
+        created_at: new Date().toLocaleString('vi-VN')
+      };
+
+      changeLog.unshift(logItem);
+      localStorage.setItem('oyl_change_log', JSON.stringify(changeLog));
+
+      try {
+        await fetch(API_URL, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(logItem)
+        });
+      } catch(e) {}
+
+      if (saveBtn) {
+        saveBtn.className = "bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-full font-bold uppercase tracking-wider text-xs flex items-center gap-1.5 shadow-md";
+        saveBtn.innerHTML = "<span>✓</span> <span>ĐÃ LƯU TOÀN BỘ THÀNH CÔNG</span>";
+        setTimeout(() => {
+          saveBtn.className = "btn-gold px-4 py-2 rounded-full font-bold uppercase tracking-wider text-xs flex items-center gap-1.5 shadow-md";
+          saveBtn.innerHTML = "<span>💾</span> <span>Lưu Tất Cả Thay Đổi</span>";
+        }, 3000);
+      }
+
+      renderChangeLog();
+      alert("✅ Đã lưu toàn bộ nội dung bạn vừa sửa! Dù tải lại trang (F5) nội dung vẫn giữ nguyên và AI Hermes đã ghi nhận.");
+    }
+
+    function resetToDefaultContent() {
+      if (!confirm("Bạn có chắc muốn khôi phục lại nội dung mẫu ban đầu không? Mọi chỉnh sửa trực tiếp sẽ bị xóa.")) return;
+      localStorage.removeItem('oyl_proposal_live_html');
+      window.location.reload();
+    }
+
+    function openDocUploadGeneral() {
+      openDocUpload(99, "Tài liệu bổ sung dự án");
+    }
+
+    function demoSearchAction() {
+      const input = document.getElementById('demo-search-school');
+      const query = input ? input.value.trim() : '';
+      const resBox = document.getElementById('demo-search-result');
+      if (!resBox) return;
+
+      if (!query) {
+        alert("Vui lòng nhập tên trường muốn tra cứu (Ví dụ: Kinh Tế Quốc Dân, Ngoại Thương, Bách Khoa)");
+        return;
+      }
+
+      resBox.innerHTML = `
+        <div class="flex justify-between items-center text-brand-goldLight font-bold">
+          <span>Trường Đại Học: ${query.toUpperCase()}</span>
+          <span class="text-stone-300 font-normal">Điểm chuẩn tham khảo: 24.0 - 27.5 điểm</span>
+        </div>
+        <p class="text-stone-300 leading-relaxed">
+          Dữ liệu tuyển sinh mới nhất: Xét tuyển theo Học bạ kết hợp IELTS/ĐGNL và Điểm thi tốt nghiệp THPT.
+        </p>
+        <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-white/10">
+          <button onclick="alert('Đã ghi nhận! Đại sứ OYL sẽ gửi trọn bộ đề án tuyển sinh trường ' + encodeURIComponent('${query}') + ' qua Zalo của bạn.')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-1.5 rounded-lg font-semibold text-xs">
+            🔔 Đăng Ký Nhận Thông Báo Từ Trường Này
+          </button>
+          <button onclick="alert('Chuyển hướng tới Lộ trình Luyện thi ĐGNL & IELTS Galaxy Education để nâng cao cơ hội đỗ trường này!')" class="bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-1.5 rounded-lg font-semibold text-xs">
+            🎯 Tăng Cơ Hội Đỗ: Luyện Thi ĐGNL & IELTS (Galaxy Education)
+          </button>
+          <button onclick="alert('Xem Phương án Dự phòng: Hệ Cao Đẳng OYL (Học bổng 100%, lương 6-12tr, cam kết việc làm).')" class="bg-amber-600 hover:bg-amber-500 text-white px-3.5 py-1.5 rounded-lg font-semibold text-xs">
+            ★ Dự Phòng Rủi Ro Điểm/Học Phí: CĐ Vừa Học Vừa Làm OYL
+          </button>
+        </div>
+      `;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initData();
+      enableDirectTextEditing();
+    });
+  </script>
+
+  <!-- FLOATING EDIT BAR CỐ ĐỊNH DƯỚI CÙNG MÀN HÌNH -->
+  <div id="floating-edit-bar" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 bg-[#151e2d]/95 backdrop-blur-md border-2 border-brand-gold text-white px-5 py-3 rounded-full shadow-2xl flex flex-wrap items-center justify-between gap-3 text-xs font-outfit max-w-[95vw]">
+    <div class="flex items-center gap-2 pr-2 border-r border-white/20">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span class="font-bold text-brand-goldLight hidden sm:inline">CHẾ ĐỘ SỬA TRỰC TIẾP:</span>
+      <span class="text-stone-300">Click vào bất kỳ dòng nào trên trang để sửa lại cho đúng</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="saveAllDirectEdits()" id="btn-save-all" class="btn-gold px-4 py-2 rounded-full font-bold uppercase tracking-wider text-xs flex items-center gap-1.5 shadow-md">
+        <span>💾</span> <span>Lưu Tất Cả Thay Đổi</span>
+      </button>
+      <button onclick="openDocUploadGeneral()" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-3.5 py-2 rounded-full font-semibold text-xs flex items-center gap-1">
+        <span>📤</span> <span class="hidden md:inline">Tải Tài Liệu Lên</span>
+      </button>
+      <button onclick="copyFeedbackPrompt()" class="bg-amber-500/20 hover:bg-amber-500/30 text-brand-goldLight border border-amber-400/40 px-3.5 py-2 rounded-full font-bold text-xs flex items-center gap-1">
+        <span>📋</span> <span class="hidden md:inline">Sao Chép Cho AI</span>
+      </button>
+      <button onclick="resetToDefaultContent()" class="text-stone-400 hover:text-red-400 text-xs px-2 py-1" title="Khôi phục lại nội dung gốc ban đầu">
+        ↺ Khôi phục
+      </button>
+    </div>
+  </div>
+
+</body>
+</html>

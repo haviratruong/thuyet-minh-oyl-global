@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truyền Nghề Tham Vấn Hướng Nghiệp — Own Your Life × Galaxy Education</title>
+<meta name="description" content="Một hành trình 4 buổi giúp người mới hiểu nghề, nắm quy trình và bắt đầu những bước thực hành đầu tiên trong lĩnh vực tham vấn hướng nghiệp. Dành cho giáo viên, phụ huynh có con từ lớp 9 trở lên, và người yêu giáo dục.">
+
+<meta property="og:title" content="Truyền Nghề Tham Vấn Hướng Nghiệp">
+<meta property="og:description" content="Chỉ 4 buổi để tiếp cận một nghề mới — mở thêm nguồn thu nhập ngay tại nhà.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: '#0f1524',
+          navy2: '#141b30',
+          navy3: '#1b2440',
+          gold: '#c9a227',
+          goldlight: '#e8c874',
+          ivory: '#f5f1e6',
+          muted: '#a9b0c3'
+        },
+        fontFamily: {
+          heading: ['Playfair Display', 'serif'],
+          body: ['Be Vietnam Pro', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { font-family: 'Be Vietnam Pro', sans-serif; background: #0f1524; }
+  h1, h2, h3, .font-heading { font-family: 'Playfair Display', serif; }
+  html { scroll-behavior: smooth; }
+  .gold-btn { background: linear-gradient(135deg, #e8c874, #c9a227); color: #14100a; }
+  .gold-btn:hover { filter: brightness(1.08); }
+  .outline-btn { border: 1px solid rgba(201,162,39,.55); color: #f5f1e6; }
+  .outline-btn:hover { background: rgba(201,162,39,.12); }
+  .card { background: #141b30; border: 1px solid rgba(201,162,39,.15); }
+  .eyebrow { letter-spacing: .12em; }
+  .divider-line { width: 40px; height: 2px; background: #c9a227; display: inline-block; }
+
+  .proof-wrap { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .proof-track { display: flex; width: max-content; gap: 14px; animation: proof-scroll 70s linear infinite; }
+  .proof-track.reverse { animation-direction: reverse; animation-duration: 85s; }
+  .proof-wrap:hover .proof-track { animation-play-state: paused; }
+  .proof-track img { height: 190px; width: auto; border-radius: 10px; border: 1px solid rgba(201,162,39,.25); cursor: zoom-in; flex-shrink: 0; transition: transform .2s ease, border-color .2s ease; }
+  .proof-track img:hover { transform: scale(1.04); border-color: rgba(201,162,39,.7); }
+  @keyframes proof-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (max-width: 640px) { .proof-track img { height: 130px; } }
+
+  .faq-content { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+  .faq-item.active .faq-content { max-height: 400px; }
+  .faq-icon { transition: transform .3s ease; }
+  .faq-item.active .faq-icon { transform: rotate(45deg); }
+
+  #lightbox { display: none; }
+  #lightbox.open { display: flex; }
+</style>
+</head>
+<body class="text-ivory">
+
+<!-- ============================================================
+  GHI CHÚ CHO NGƯỜI TIẾP TỤC:
+  - Trang này NHÂN BẢN nguyên văn nội dung từ trang gốc "Truyền Nghề
+    Tham Vấn Hướng Nghiệp" (OYL x Galaxy Education) — nội dung do
+    chính người dùng copy/paste trực tiếp từ trang gốc gửi qua chat
+    ngày 06/09/2026, không phải suy diễn/paraphrase.
+  - File HOÀN TOÀN ĐỘC LẬP với artifact gốc (không sở hữu, không
+    ghi đè được) — mọi thay đổi CHỈ nằm ở đây.
+  - Điểm KHÁC/THÊM so với trang gốc (theo yêu cầu riêng của user):
+    1) Section "video-gioi-thieu" — nhúng YouTube acwXXIhyTPk
+    2) Section "bang-chung-thu-nhap" — tường 49 ảnh thu nhập thật tự
+       cuộn, ảnh nằm ở assets/thu-nhap/
+  - Ảnh thật + logo: đã lấy từ đúng link kho tài liệu Google Sheet do
+    user cung cấp (folder Drive "Ms Nguyên Phụng" > IMG_5551.JPG, và
+    folder "LOGO" > Logo Nau den - no back). Folder "Tác Giả Nguyên
+    Phụng" CHỈ chứa giấy tờ pháp lý (chứng nhận bản quyền, quyết định
+    phê duyệt...) — KHÔNG dùng vì có thông tin cá nhân nhạy cảm.
+  - Section #dang-ky KHÔNG dùng form nữa — vì là khoá 0 đồng, cơ chế
+    thật là dẫn thẳng vào nhóm Zalo "Nhà Tham Vấn Hướng Nghiệp"
+    (https://zalo.me/g/kgx279hkeopcbooxh0ap), có cả QR (sinh động qua
+    api.qrserver.com, không cần lưu ảnh QR tĩnh) và nút bấm mở link.
+    Không cần bot Telegram/Google Sheet cho luồng này.
+============================================================ -->
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 bg-navy/95 backdrop-blur border-b border-gold/20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="#top" class="flex items-center gap-2">
+        <img src="assets/logo/logo-oyl-official.png" alt="OYL Own Your Life" class="h-9 w-auto">
+        <div class="leading-tight">
+          <div class="font-heading font-bold text-sm text-ivory">Own Your Life</div>
+          <div class="text-[10px] text-muted eyebrow">× GALAXY EDUCATION</div>
+        </div>
+      </a>
+      <div class="hidden lg:flex items-center gap-7 text-sm text-muted">
+        <a href="#van-de" class="hover:text-gold transition">Vấn đề</a>
+        <a href="#nguoi-truyen-nghe" class="hover:text-gold transition">Người truyền nghề</a>
+        <a href="#lo-trinh" class="hover:text-gold transition">4 buổi học</a>
+        <a href="#quyen-loi" class="hover:text-gold transition">Quyền lợi</a>
+        <a href="#faq" class="hover:text-gold transition">Hỏi đáp</a>
+      </div>
+      <a href="#dang-ky" class="gold-btn text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-full">Đăng ký 0 đồng</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="top" class="relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 grid lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <div class="text-gold text-xs font-bold eyebrow mb-4">KHỞI NGHIỆP TRONG LĨNH VỰC GIÁO DỤC</div>
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">
+        Truyền Nghề<br>Tham Vấn<br>Hướng Nghiệp
+      </h1>
+      <p class="text-muted text-base sm:text-lg mb-6 max-w-lg">
+        Một hành trình <span class="text-ivory font-semibold">4 buổi</span> giúp người mới hiểu nghề, nắm quy trình
+        và bắt đầu những bước thực hành đầu tiên trong lĩnh vực tham vấn hướng nghiệp.
+      </p>
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-gold font-semibold mb-8 eyebrow">
+        <span>4 BUỔI</span><span class="text-muted">•</span>
+        <span>ONLINE</span><span class="text-muted">•</span>
+        <span>NGƯỜI MỚI</span><span class="text-muted">•</span>
+        <span>0 ĐỒNG</span>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-3 mb-6">
+        <a href="#dang-ky" class="gold-btn text-center font-bold px-6 py-3.5 rounded-full">Đăng ký tham gia — 0 đồng</a>
+        <a href="#lo-trinh" class="outline-btn text-center font-semibold px-6 py-3.5 rounded-full">Xem lộ trình 4 buổi</a>
+      </div>
+      <p class="text-xs text-muted max-w-md">
+        Không mất phí đào tạo · Không yêu cầu kinh nghiệm trước đó · Dành cho Giáo viên, Phụ huynh có con từ lớp 9
+        trở lên, và người yêu giáo dục
+      </p>
+    </div>
+    <div class="relative">
+      <img src="assets/tac-gia/nguyen-phung.jpg" alt="Chủ tịch Nguyên Phụng" class="aspect-[4/5] w-full object-cover rounded-2xl border border-gold/20">
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO GIỚI THIỆU (thêm theo yêu cầu riêng, không có trong trang gốc) -->
+<section id="video-gioi-thieu" class="border-t border-gold/10 bg-navy2">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-center">
+    <span class="divider-line mb-4"></span>
+    <h2 class="font-heading font-bold text-2xl sm:text-3xl mt-4 mb-8">Xem giới thiệu chương trình</h2>
+    <div class="aspect-video rounded-2xl overflow-hidden border border-gold/25 shadow-2xl">
+      <iframe class="w-full h-full" src="https://www.youtube.com/embed/acwXXIhyTPk" title="Truyền Nghề Tham Vấn Hướng Nghiệp - Video giới thiệu" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- TRƯỚC KHI BẠN ĐỌC TIẾP -->
+<section class="border-t border-gold/10">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-center">
+    <div class="text-gold text-xs font-bold eyebrow mb-3">CHỦ TỊCH NGUYÊN PHỤNG</div>
+    <h2 class="font-heading font-bold text-2xl sm:text-3xl mb-3">Trước khi bạn đọc tiếp…</h2>
+    <p class="text-muted">Một lời chia sẻ từ người đồng hành cùng chương trình — trước khi bạn khám phá hành trình 4 buổi.</p>
+  </div>
+</section>
+
+<!-- VẤN ĐỀ / BỐI CẢNH NGHỀ NGHIỆP -->
+<section id="van-de" class="border-t border-gold/10 bg-navy2">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div class="text-center mb-12">
+      <span class="divider-line mb-4"></span>
+      <div class="text-gold text-xs font-bold eyebrow mt-4 mb-2">BỐI CẢNH NGHỀ NGHIỆP</div>
+      <h2 class="font-heading font-bold text-2xl sm:text-3xl">Vì sao tham vấn hướng nghiệp đang trở thành một nhu cầu lớn?</h2>
+    </div>
+    <p class="text-center text-lg sm:text-xl font-heading italic text-goldlight max-w-3xl mx-auto mb-10">
+      "Vì sao AI phát triển, thông tin bùng nổ mỗi ngày, nhưng phụ huynh và học sinh vẫn hoang mang trước lựa chọn nghề nghiệp?"
+    </p>
+
+    <div class="card rounded-xl p-6 mb-12 max-w-3xl mx-auto">
+      <div class="text-gold font-bold text-sm eyebrow mb-2">HỆ LUỴ</div>
+      <p class="text-ivory">Chọn sai hướng đi ngay từ đầu khiến gia đình tốn kém học phí, thời gian và cả sự tự tin của các em.</p>
+    </div>
+
+    <p class="text-muted text-center max-w-3xl mx-auto mb-4">
+      Có phải chăng thông tin thôi là chưa đủ? Học sinh và gia đình đang thực sự cần một người đồng hành có:
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 text-sm text-ivory mb-16 max-w-2xl mx-auto">
+      <div class="card rounded-lg px-4 py-3 flex-1">✓ Kỹ năng thấu hiểu bản thân và ngành nghề</div>
+      <div class="card rounded-lg px-4 py-3 flex-1">✓ Nắm rõ các phương thức tuyển sinh mới nhất</div>
+    </div>
+
+    <div class="text-center mb-6">
+      <h3 class="font-heading font-bold text-xl sm:text-2xl mb-3">Từ thông tin đến một lộ trình</h3>
+      <p class="text-muted max-w-3xl mx-auto">
+        Thông tin không còn thiếu. Điều học sinh cần là một người giúp kết nối tất cả lại thành một lộ trình.
+      </p>
+    </div>
+    <p class="text-muted text-center max-w-3xl mx-auto mb-8">
+      Người tham vấn hướng nghiệp giúp: hiểu bản thân, hiểu ngành nghề, hiểu tuyển sinh, hiểu điều kiện gia đình — và
+      từ đó thiết kế một lộ trình phù hợp, thay vì để mỗi gia đình tự mò mẫm giữa hàng loạt thông tin rời rạc.
+    </p>
+    <p class="text-muted text-center mb-6">
+      Tuỳ vào năng lực thực tế và điều kiện tài chính của từng gia đình, người tham vấn giúp chọn ra con đường:
+    </p>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto text-center">
+      <div class="card rounded-lg py-4 px-2 text-goldlight font-heading font-semibold text-sm">Phù hợp nhất</div>
+      <div class="card rounded-lg py-4 px-2 text-goldlight font-heading font-semibold text-sm">Tiết kiệm nhất</div>
+      <div class="card rounded-lg py-4 px-2 text-goldlight font-heading font-semibold text-sm">Tối ưu nhất</div>
+      <div class="card rounded-lg py-4 px-2 text-goldlight font-heading font-semibold text-sm">Đúng đắn nhất</div>
+    </div>
+  </div>
+</section>
+
+<!-- NGƯỜI TRUYỀN NGHỀ -->
+<section id="nguoi-truyen-nghe" class="border-t border-gold/10">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <img src="assets/tac-gia/nguyen-phung.jpg" alt="Chủ tịch Nguyên Phụng" class="aspect-square w-full object-cover rounded-2xl border border-gold/20">
+    </div>
+    <div>
+      <span class="divider-line mb-4"></span>
+      <div class="text-gold text-xs font-bold eyebrow mt-4 mb-2">NGƯỜI ĐỒNG HÀNH CÙNG BẠN</div>
+      <h2 class="font-heading font-bold text-3xl mb-6">Chủ tịch Nguyên Phụng</h2>
+      <h3 class="font-heading text-xl text-goldlight mb-4">Người trực tiếp đồng hành cùng bạn trong 4 buổi học</h3>
+      <p class="text-muted leading-relaxed">
+        Chủ tịch Nguyên Phụng trực tiếp đứng lớp và đồng hành cùng học viên xuyên suốt 4 buổi học — từ những bước
+        đầu tiên đến khi sẵn sàng thực hành case tham vấn đầu tiên.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PHƯƠNG PHÁP NPH COACH -->
+<section class="border-t border-gold/10 bg-navy2">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div class="text-center mb-14">
+      <span class="divider-line mb-4"></span>
+      <div class="text-gold text-xs font-bold eyebrow mt-4 mb-2">PHƯƠNG PHÁP ĐỘC QUYỀN</div>
+      <h2 class="font-heading font-bold text-2xl sm:text-3xl mb-3">Phương pháp NPH COACH™</h2>
+      <p class="text-muted max-w-2xl mx-auto">
+        Bốn bước cốt lõi được ứng dụng xuyên suốt chương trình — kết hợp tư duy ngược, thấu hiểu học sinh và dữ liệu
+        tuyển sinh thực tế.
+      </p>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="card rounded-xl p-6">
+        <div class="text-gold font-heading font-bold text-2xl mb-2">1</div>
+        <div class="font-heading font-bold text-ivory mb-2">Thấu hiểu học sinh</div>
+        <p class="text-muted text-sm">Khai thác nhu cầu, thế mạnh và mối bận tâm thật sự trước khi đưa ra bất kỳ gợi ý nào.</p>
+      </div>
+      <div class="card rounded-xl p-6">
+        <div class="text-gold font-heading font-bold text-2xl mb-2">2</div>
+        <div class="font-heading font-bold text-ivory mb-2">Tư duy ngược thiết kế lộ trình</div>
+        <p class="text-muted text-sm">Bắt đầu từ đích đến — năng lực và điều kiện thực tế — rồi mới thiết kế ngược lại con đường.</p>
+      </div>
+      <div class="card rounded-xl p-6">
+        <div class="text-gold font-heading font-bold text-2xl mb-2">3</div>
+        <div class="font-heading font-bold text-ivory mb-2">Cá nhân hoá bản đồ hướng nghiệp</div>
+        <p class="text-muted text-sm">Mỗi học sinh có một bản đồ hướng nghiệp riêng, không dùng chung một khuôn mẫu cho tất cả.</p>
+      </div>
+      <div class="card rounded-xl p-6">
+        <div class="text-gold font-heading font-bold text-2xl mb-2">4</div>
+        <div class="font-heading font-bold text-ivory mb-2">Cập nhật dữ liệu ngành & tuyển sinh</div>
+        <p class="text-muted text-sm">Kết hợp thông tin thị trường lao động với các thông tư, phương thức tuyển sinh mới nhất.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ĐỐI TƯỢNG PHÙ HỢP -->
+<section class="border-t border-gold/10">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div class="text-center mb-14">
+      <span class="divider-line mb-4"></span>
+      <div class="text-gold text-xs font-bold eyebrow mt-4 mb-2">ĐỐI TƯỢNG PHÙ HỢP</div>
+      <h2 class="font-heading font-bold text-2xl sm:text-3xl">Nghề này dành cho ai?</h2>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-6 mb-12">
+      <div class="card rounded-xl p-6 text-center">
+        <div class="font-heading font-bold text-gold mb-2">Giáo viên</div>
+        <p class="text-muted text-sm">Sẵn có kinh nghiệm làm việc thực tế với học sinh và phụ huynh — tận dụng chuyên môn sư phạm để tạo ra một giá trị mới.</p>
+      </div>
+      <div class="card rounded-xl p-6 text-center">
+        <div class="font-heading font-bold text-gold mb-2">Phụ huynh</div>
+        <p class="text-muted text-sm">Có trải nghiệm đồng hành cùng con cái, thấu hiểu sâu sắc những nỗi lo âu mà các gia đình khác cũng đang đối mặt.</p>
+      </div>
+      <div class="card rounded-xl p-6 text-center">
+        <div class="font-heading font-bold text-gold mb-2">Người mới / yêu giáo dục</div>
+        <p class="text-muted text-sm">Được hướng dẫn từng bước từ nền tảng con số 0 đến khi làm chủ quy trình tham vấn hướng nghiệp cơ bản.</p>
+      </div>
+    </div>
+    <h3 class="font-heading font-bold text-xl text-center mb-6">Lợi thế của nghề tham vấn hướng nghiệp</h3>
+    <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-ivory mb-4">
+      <span>✓ Làm ngoài giờ, chủ động thời gian</span>
+      <span>✓ Làm tại nhà, không cần văn phòng</span>
+      <span>✓ Tư vấn hoàn toàn qua Zoom</span>
+      <span>✓ Không cần rời bỏ công việc hiện tại</span>
+    </div>
+    <p class="text-center text-gold font-heading italic">Phát triển song song với công việc bạn đang có.</p>
+  </div>
+</section>
+
+<!-- BẰNG CHỨNG THU NHẬP (thêm theo yêu cầu riêng, không có trong trang gốc) -->
+<section id="bang-chung-thu-nhap" class="border-t border-gold/10 bg-navy2">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24">
+    <div class="text-center mb-8">
+      <span class="inline-block text-[11px] font-bold text-gold eyebrow border border-gold/30 rounded-full px-3 py-1 mb-4">49 ẢNH THẬT · KHÔNG CHỈNH SỬA</span>
+      <h2 class="font-heading font-bold text-2xl sm:text-3xl mb-2">Bằng chứng thu nhập thật</h2>
+      <p class="text-muted text-sm">Ảnh chụp thu nhập thật từ những người đang làm nghề — rê chuột để dừng, bấm vào ảnh để xem to</p>
+    </div>
+  </div>
+  <div class="proof-wrap py-2">
+    <div class="proof-track" id="proof-row-1"></div>
+  </div>
+  <div class="proof-wrap py-2 mt-3 pb-16 sm:pb-24">
+    <div class="proof-track reverse" id="proof-row-2"></div>
+  </div>
+</section>
+
+<!-- HÌNH ẢNH HOẠT ĐỘNG, LỚP HỌC (thêm theo yêu cầu riêng, không có trong trang gốc) -->
+<!-- Ảnh lấy trực tiếp từ trang chính thức đang chạy thật: oyl.vn/tham-van-huong-nghiep
+     (CDN ladicdn.com, không qua Drive) + 1 ảnh còn lại từ Drive "HÌNH ẢNH HS". -->
+<section id="hoat-dong" class="border-t border-gold/10">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
+    <span class="divider-line mb-4"></span>
+    <h2 class="font-heading font-bold text-2xl sm:text-3xl mt-4 mb-2">Hình ảnh hoạt động</h2>
+    <p class="text-muted mb-10">Những khoảnh khắc thật từ các hoạt động, lớp học đã tổ chức</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <img src="assets/hoat-dong/hoat-dong-02.jpg" alt="Hoạt động lớp học 1" class="w-full h-52 object-cover rounded-xl border border-gold/20">
+      <img src="assets/hoat-dong/hoat-dong-03.jpg" alt="Hoạt động lớp học 2" class="w-full h-52 object-cover rounded-xl border border-gold/20">
+      <img src="assets/hoat-dong/hoat-dong-04.jpg" alt="Hoạt động lớp học 3" class="w-full h-52 object-cover rounded-xl border border-gold/20">
+      <img src="assets/hoat-dong/hoat-dong-05.jpg" alt="Hoạt động lớp học 4" class="w-full h-52 object-cover rounded-xl border border-gold/20">
+      <img src="assets/hoat-dong/hoat-dong-06.jpg" alt="Khoá học khai vấn" class="w-full h-52 object-cover rounded-xl border border-gold/20">
+      <img src="assets/hoat-dong/hoat-dong-07.jpg" alt="Lớp học thực tế" class="w-full h-52 object-cover rounded-xl border border-gold/20">
+      <img src="assets/hoat-dong/hoat-dong-08.jpg" alt="Học viên" class="w-full h-52 object-cover rounded-xl border border-gold/20">
+      <img src="assets/hoat-dong/hoat-dong-01.png" alt="Hoạt động lớp học 5" class="w-full h-52 object-cover rounded-xl border border-gold/20">
+    </div>
+  </div>
+</section>
+
+<!-- LỘ TRÌNH ĐÀO TẠO / 4 BUỔI HỌC -->
+<section id="lo-trinh" class="border-t border-gold/10">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div class="text-center mb-14">
+      <span class="divider-line mb-4"></span>
+      <div class="text-gold text-xs font-bold eyebrow mt-4 mb-2">LỘ TRÌNH ĐÀO TẠO</div>
+      <h2 class="font-heading font-bold text-2xl sm:text-3xl mb-3">Chỉ 4 buổi — bạn sẽ học được gì?</h2>
+      <p class="text-muted max-w-2xl mx-auto">
+        Thiết kế tinh gọn, tập trung vào một kỹ năng mục tiêu: làm chủ quy trình tham vấn hướng nghiệp và sẵn sàng
+        thực hành case đầu tiên.
+      </p>
+    </div>
+    <div class="space-y-5">
+      <div class="card rounded-xl p-6 flex flex-col sm:flex-row gap-5">
+        <div class="text-gold font-heading font-bold text-3xl sm:w-12 shrink-0">1</div>
+        <div>
+          <div class="font-heading font-bold text-ivory mb-1">Tiềm năng & giá trị của nghề</div>
+          <p class="text-muted text-sm mb-3">Hiểu bức tranh nghề tham vấn hướng nghiệp — một nghề nhân văn, có thể bắt đầu ngay cả khi bạn chưa từng bán hàng hay xây dựng thương hiệu cá nhân.</p>
+          <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs text-goldlight">
+            <span><strong>Học gì:</strong> Giá trị nhân văn của nghề</span>
+            <span><strong>Mang về:</strong> Kiến thức nền tảng thực tế</span>
+          </div>
+        </div>
+      </div>
+      <div class="card rounded-xl p-6 flex flex-col sm:flex-row gap-5">
+        <div class="text-gold font-heading font-bold text-3xl sm:w-12 shrink-0">2</div>
+        <div>
+          <div class="font-heading font-bold text-ivory mb-1">Tư duy đúng đắn về nghề</div>
+          <p class="text-muted text-sm mb-3">Thấu hiểu thị trường lao động, cập nhật các chương trình đào tạo và thông tư tuyển sinh mới nhất từ Bộ Giáo dục.</p>
+          <div class="text-xs text-goldlight"><strong>Mang về:</strong> Dữ liệu thị trường & tuyển sinh</div>
+        </div>
+      </div>
+      <div class="card rounded-xl p-6 flex flex-col sm:flex-row gap-5">
+        <div class="text-gold font-heading font-bold text-3xl sm:w-12 shrink-0">3</div>
+        <div>
+          <div class="font-heading font-bold text-ivory mb-1">Ứng dụng quy trình NPH COACH</div>
+          <p class="text-muted text-sm mb-3">Áp dụng tư duy ngược trong thiết kế hướng nghiệp. Lên kịch bản chi tiết để tự tay thiết kế bản đồ hướng nghiệp cá nhân hoá cho học sinh.</p>
+          <div class="text-xs text-goldlight"><strong>Công cụ lõi:</strong> Quy trình NPH COACH</div>
+        </div>
+      </div>
+      <div class="card rounded-xl p-6 flex flex-col sm:flex-row gap-5">
+        <div class="text-gold font-heading font-bold text-3xl sm:w-12 shrink-0">4</div>
+        <div>
+          <div class="font-heading font-bold text-ivory mb-1">Kiến tạo bản đồ khai vấn</div>
+          <p class="text-muted text-sm mb-3">Hoàn thiện bản đồ hướng nghiệp cá nhân hoá và chuẩn bị sẵn sàng cho case tham vấn đầu tiên.</p>
+          <div class="text-xs text-goldlight"><strong>Kết quả:</strong> Sẵn sàng thực hành case đầu tiên</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HÀNH TRANG LÀM NGHỀ -->
+<section class="border-t border-gold/10 bg-navy2">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
+    <span class="divider-line mb-4"></span>
+    <div class="text-gold text-xs font-bold eyebrow mt-4 mb-2">HÀNH TRANG LÀM NGHỀ</div>
+    <h2 class="font-heading font-bold text-2xl sm:text-3xl mb-3">Không chỉ học để biết — mà học để biết cách bắt đầu</h2>
+    <p class="text-muted max-w-2xl mx-auto mb-10">
+      Bạn được cung cấp toàn bộ hành trang, trình bày như những tài nguyên hành nghề thật. Học xong không phải tự mò
+      mẫm từ con số 0.
+    </p>
+    <div class="grid sm:grid-cols-2 gap-x-10 gap-y-3 max-w-2xl mx-auto text-left text-ivory text-sm mb-10">
+      <div>✓ Quy trình tham vấn hướng nghiệp</div>
+      <div>✓ Phiếu thông tin hướng nghiệp</div>
+      <div>✓ Mẫu báo cáo hướng nghiệp</div>
+      <div>✓ Kịch bản trao đổi phụ huynh</div>
+      <div>✓ Bộ 100 câu hỏi coaching</div>
+      <div>✓ Khai thác nhu cầu của học sinh</div>
+      <div>✓ Cẩm nang nghề nghiệp chuyên sâu</div>
+      <div>✓ Đồng hành cùng cộng đồng sau chương trình</div>
+    </div>
+    <a href="#dang-ky" class="gold-btn inline-block font-bold px-8 py-4 rounded-full">Hành trang chuyên nghiệp — tự tin bước vào nghề</a>
+  </div>
+</section>
+
+<!-- QUYỀN LỢI -->
+<section id="quyen-loi" class="border-t border-gold/10">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
+    <span class="divider-line mb-4"></span>
+    <div class="text-gold text-xs font-bold eyebrow mt-4 mb-2">MỘT CƠ HỘI TRẢI NGHIỆM NGHỀ</div>
+    <h2 class="font-heading font-bold text-2xl sm:text-3xl mb-3">Quyền lợi chương trình đào tạo</h2>
+    <p class="text-muted max-w-2xl mx-auto mb-10">
+      Không phải một bảng giá được giảm — mà là cơ hội trải nghiệm trọn vẹn một nghề và một phương pháp làm việc
+      thật, không mất phí đào tạo.
+    </p>
+    <div class="text-sm text-muted mb-1">Học phí đào tạo</div>
+    <p class="font-heading text-4xl sm:text-5xl text-gold font-bold mb-1">0 đồng</p>
+    <p class="text-xs text-muted mb-10">Cho toàn bộ 4 buổi học</p>
+    <div class="grid sm:grid-cols-2 gap-x-10 gap-y-4 text-left text-ivory text-sm mb-10 max-w-2xl mx-auto">
+      <div>✓ Chỉ 4 buổi đào tạo</div>
+      <div>✓ Học từ cơ bản, dành cho người mới</div>
+      <div>✓ Học online thuận tiện</div>
+      <div>✓ Thực hành case thực tế</div>
+      <div>✓ Có bộ công cụ hỗ trợ hành nghề</div>
+      <div>✓ Ứng dụng AI trong hướng nghiệp</div>
+      <div>✓ Có cộng đồng đồng hành</div>
+      <div>✓ Hướng dẫn bắt đầu nghề ngay tại nhà</div>
+    </div>
+    <a href="#dang-ky" class="gold-btn inline-block font-bold px-8 py-4 rounded-full">Truyền nghề tham vấn hướng nghiệp — 0 đồng</a>
+  </div>
+</section>
+
+<!-- BẮT ĐẦU NHỎ - LỘ TRÌNH -->
+<section class="border-t border-gold/10 bg-navy2">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
+    <span class="divider-line mb-4"></span>
+    <div class="text-gold text-xs font-bold eyebrow mt-4 mb-2">BẮT ĐẦU NHỎ — ĐI TỪNG BƯỚC VỮNG</div>
+    <h2 class="font-heading font-bold text-2xl sm:text-3xl mb-4">4 buổi học, mở ra một hướng đi mới</h2>
+    <p class="text-muted mb-2">Bạn không cần bỏ nghề hiện tại. Bạn không cần đầu tư văn phòng. Bạn có thể bắt đầu nhỏ:</p>
+    <div class="flex flex-col items-center gap-2 font-heading font-bold text-lg sm:text-xl mt-8">
+      <div class="text-goldlight">4 buổi học</div>
+      <div class="text-gold">↓</div>
+      <div class="text-goldlight">Hiểu quy trình tham vấn</div>
+      <div class="text-gold">↓</div>
+      <div class="text-goldlight">Bắt đầu thực hành</div>
+      <div class="text-gold">↓</div>
+      <div class="text-goldlight">1 case tham vấn đầu tiên</div>
+      <div class="text-ivory mt-4 text-base sm:text-lg">Từng bước xây dựng năng lực nghề trong lĩnh vực giáo dục</div>
+    </div>
+  </div>
+</section>
+
+<!-- HAI LỰA CHỌN -->
+<section class="border-t border-gold/10">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div class="text-center mb-14">
+      <span class="divider-line mb-4"></span>
+      <h2 class="font-heading font-bold text-2xl sm:text-3xl mb-3">Giờ đây, bạn có hai lựa chọn</h2>
+      <p class="text-muted">Tiếp tục tìm hiểu rời rạc, hoặc bắt đầu một quy trình có hệ thống</p>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="card rounded-xl p-8">
+        <div class="text-muted text-xs font-bold eyebrow mb-3">LỰA CHỌN 1</div>
+        <h3 class="font-heading font-bold text-lg text-ivory mb-4">Tiếp tục tìm kiếm thông tin rời rạc</h3>
+        <div class="space-y-2 text-sm text-muted">
+          <div>✗ Tự đọc, tự tổng hợp từ nhiều nguồn khác nhau</div>
+          <div>✗ Không có quy trình rõ ràng để bắt đầu</div>
+          <div>✗ Chưa có ai đồng hành khi gặp vướng mắc</div>
+        </div>
+      </div>
+      <div class="rounded-xl p-8 bg-gradient-to-br from-navy3 to-navy2 border border-gold/40">
+        <div class="text-gold text-xs font-bold eyebrow mb-3">LỰA CHỌN 2</div>
+        <h3 class="font-heading font-bold text-lg text-ivory mb-4">Bắt đầu 4 buổi để hiểu nghề và trải nghiệm một quy trình có hệ thống</h3>
+        <div class="space-y-2 text-sm text-ivory">
+          <div>✓ Lộ trình 4 buổi rõ ràng, có bộ công cụ đi kèm</div>
+          <div>✓ Có người đồng hành trực tiếp trong suốt chương trình</div>
+          <div>✓ Có cộng đồng cùng thực hành sau chương trình</div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-12">
+      <a href="#dang-ky" class="gold-btn inline-block font-bold px-8 py-4 rounded-full">Đăng ký tham gia — 0 đồng</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="border-t border-gold/10 bg-navy2">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div class="text-center mb-12">
+      <span class="divider-line mb-4"></span>
+      <h2 class="font-heading font-bold text-2xl sm:text-3xl mt-4 mb-2">Câu hỏi thường gặp</h2>
+      <p class="text-muted">Những điều bạn có thể đang thắc mắc</p>
+    </div>
+    <div class="space-y-3" id="faq-list">
+      <div class="faq-item card rounded-xl overflow-hidden">
+        <button class="faq-toggle w-full text-left px-6 py-4 flex justify-between items-center gap-4">
+          <span class="font-semibold text-ivory text-sm sm:text-base">Tôi chưa có kinh nghiệm, có học được không?</span>
+          <span class="faq-icon text-gold text-xl shrink-0">+</span>
+        </button>
+        <div class="faq-content px-6">
+          <p class="text-muted text-sm pb-4">Có. Chương trình được thiết kế từ nền tảng cơ bản, dành cho người mới hoàn toàn chưa từng làm trong lĩnh vực tham vấn hướng nghiệp.</p>
+        </div>
+      </div>
+      <div class="faq-item card rounded-xl overflow-hidden">
+        <button class="faq-toggle w-full text-left px-6 py-4 flex justify-between items-center gap-4">
+          <span class="font-semibold text-ivory text-sm sm:text-base">Tôi không phải giáo viên, có tham gia được không?</span>
+          <span class="faq-icon text-gold text-xl shrink-0">+</span>
+        </button>
+        <div class="faq-content px-6">
+          <p class="text-muted text-sm pb-4">Được. Chương trình dành cho cả giáo viên, phụ huynh có con từ lớp 9 trở lên, và bất kỳ ai yêu thích lĩnh vực giáo dục — hướng nghiệp.</p>
+        </div>
+      </div>
+      <div class="faq-item card rounded-xl overflow-hidden">
+        <button class="faq-toggle w-full text-left px-6 py-4 flex justify-between items-center gap-4">
+          <span class="font-semibold text-ivory text-sm sm:text-base">Chương trình có thật sự 0 đồng không?</span>
+          <span class="faq-icon text-gold text-xl shrink-0">+</span>
+        </button>
+        <div class="faq-content px-6">
+          <p class="text-muted text-sm pb-4">Đúng vậy, học phí đào tạo là 0 đồng cho toàn bộ 4 buổi học.</p>
+        </div>
+      </div>
+      <div class="faq-item card rounded-xl overflow-hidden">
+        <button class="faq-toggle w-full text-left px-6 py-4 flex justify-between items-center gap-4">
+          <span class="font-semibold text-ivory text-sm sm:text-base">Tôi học online ở đâu?</span>
+          <span class="faq-icon text-gold text-xl shrink-0">+</span>
+        </button>
+        <div class="faq-content px-6">
+          <p class="text-muted text-sm pb-4">Toàn bộ chương trình học online qua Zoom, bạn có thể tham gia ngay tại nhà. Lịch khai giảng cụ thể sẽ được gửi đến bạn sau khi đăng ký.</p>
+        </div>
+      </div>
+      <div class="faq-item card rounded-xl overflow-hidden">
+        <button class="faq-toggle w-full text-left px-6 py-4 flex justify-between items-center gap-4">
+          <span class="font-semibold text-ivory text-sm sm:text-base">Tôi cần chuẩn bị gì trước khi học?</span>
+          <span class="faq-icon text-gold text-xl shrink-0">+</span>
+        </button>
+        <div class="faq-content px-6">
+          <p class="text-muted text-sm pb-4">Bạn chỉ cần một thiết bị có kết nối internet ổn định và tinh thần sẵn sàng học hỏi. Không yêu cầu kiến thức nền trước đó.</p>
+        </div>
+      </div>
+      <div class="faq-item card rounded-xl overflow-hidden">
+        <button class="faq-toggle w-full text-left px-6 py-4 flex justify-between items-center gap-4">
+          <span class="font-semibold text-ivory text-sm sm:text-base">Chương trình có phần thực hành không?</span>
+          <span class="faq-icon text-gold text-xl shrink-0">+</span>
+        </button>
+        <div class="faq-content px-6">
+          <p class="text-muted text-sm pb-4">Có. Bạn sẽ được thực hành thiết kế bản đồ hướng nghiệp và chuẩn bị cho một case tham vấn thực tế đầu tiên.</p>
+        </div>
+      </div>
+      <div class="faq-item card rounded-xl overflow-hidden">
+        <button class="faq-toggle w-full text-left px-6 py-4 flex justify-between items-center gap-4">
+          <span class="font-semibold text-ivory text-sm sm:text-base">Sau 4 buổi, tôi có thể làm gì?</span>
+          <span class="faq-icon text-gold text-xl shrink-0">+</span>
+        </button>
+        <div class="faq-content px-6">
+          <p class="text-muted text-sm pb-4">Bạn sẽ hiểu quy trình tham vấn hướng nghiệp, có trong tay bộ công cụ hành nghề, và sẵn sàng thực hiện case tham vấn đầu tiên cho học sinh hoặc con em mình.</p>
+        </div>
+      </div>
+      <div class="faq-item card rounded-xl overflow-hidden">
+        <button class="faq-toggle w-full text-left px-6 py-4 flex justify-between items-center gap-4">
+          <span class="font-semibold text-ivory text-sm sm:text-base">Có cộng đồng hỗ trợ sau chương trình không?</span>
+          <span class="faq-icon text-gold text-xl shrink-0">+</span>
+        </button>
+        <div class="faq-content px-6">
+          <p class="text-muted text-sm pb-4">Có. Bạn sẽ được kết nối vào cộng đồng những người cùng theo đuổi nghề tham vấn hướng nghiệp để tiếp tục học hỏi và đồng hành lâu dài.</p>
+        </div>
+      </div>
+      <div class="faq-item card rounded-xl overflow-hidden">
+        <button class="faq-toggle w-full text-left px-6 py-4 flex justify-between items-center gap-4">
+          <span class="font-semibold text-ivory text-sm sm:text-base">Đăng ký rồi, tôi sẽ nhận thông tin ở đâu?</span>
+          <span class="faq-icon text-gold text-xl shrink-0">+</span>
+        </button>
+        <div class="faq-content px-6">
+          <p class="text-muted text-sm pb-4">Sau khi đăng ký, đội ngũ chương trình sẽ liên hệ bạn qua số điện thoại/Zalo hoặc email bạn đã cung cấp để gửi thông tin lịch học.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ĐĂNG KÝ -->
+<section id="dang-ky" class="border-t border-gold/10">
+  <div class="max-w-lg mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div class="text-center mb-10">
+      <span class="divider-line mb-4"></span>
+      <h2 class="font-heading font-bold text-2xl sm:text-3xl mt-4 mb-2">Tham gia nhóm Zalo</h2>
+      <p class="text-muted">Bạn không cần biết tất cả để bắt đầu. Bạn chỉ cần một bước đầu tiên đủ rõ.</p>
+      <p class="text-muted text-sm mt-2">Vì là khoá học 0 đồng, mọi thông tin lịch khai giảng và tài liệu chương trình 4 buổi được gửi trực tiếp trong nhóm Zalo — quét mã hoặc bấm nút bên dưới để vào nhóm ngay.</p>
+    </div>
+    <div class="card rounded-2xl p-8 text-center">
+      <div class="text-gold text-xs font-bold eyebrow mb-1">NHÀ THAM VẤN HƯỚNG NGHIỆP</div>
+      <div class="text-muted text-sm mb-6">Nhóm Zalo</div>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&margin=10&data=https://zalo.me/g/kgx279hkeopcbooxh0ap" alt="QR tham gia nhóm Zalo Nhà Tham Vấn Hướng Nghiệp" class="mx-auto rounded-xl border border-gold/25 mb-4 bg-white p-2">
+      <p class="text-muted text-sm mb-6">Quét mã QR này bằng Zalo để tham gia</p>
+      <a href="https://zalo.me/g/kgx279hkeopcbooxh0ap" target="_blank" rel="noopener" class="gold-btn block w-full font-bold px-6 py-4 rounded-full">Tham gia nhóm Zalo — 0 đồng</a>
+      <p class="text-center text-xs text-muted mt-4">Bằng việc tham gia, bạn đồng ý với <a href="#chinh-sach-bao-mat" class="text-gold underline">Chính sách bảo mật</a> của chương trình.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-gold/10 py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="font-heading font-bold text-ivory mb-1">OYL Own Your Life × Galaxy Education</div>
+    <p class="text-xs text-muted mb-4">Chương trình truyền nghề tham vấn hướng nghiệp — khởi nghiệp trong lĩnh vực giáo dục.</p>
+    <a href="#chinh-sach-bao-mat" class="text-xs text-gold underline">Chính sách bảo mật</a>
+    <p class="text-xs text-muted mt-4">Bản quyền © 2026 Own Your Life × Galaxy Education. Bảo lưu mọi quyền.</p>
+  </div>
+</footer>
+
+<!-- CHÍNH SÁCH BẢO MẬT -->
+<section id="chinh-sach-bao-mat" class="border-t border-gold/10 bg-navy2">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+    <div class="text-center mb-10">
+      <span class="divider-line mb-4"></span>
+      <div class="text-gold text-xs font-bold eyebrow mt-4 mb-2">PHÁP LÝ & QUYỀN RIÊNG TƯ</div>
+      <h2 class="font-heading font-bold text-2xl sm:text-3xl">Chính sách bảo mật</h2>
+    </div>
+    <div class="space-y-6 text-sm text-muted leading-relaxed">
+      <div>
+        <h3 class="font-heading font-bold text-ivory mb-2">Phạm vi áp dụng</h3>
+        <p>Chính sách này áp dụng cho khách truy cập và người đăng ký chương trình "Truyền Nghề Tham Vấn Hướng Nghiệp" của Own Your Life × Galaxy Education trên trang này.</p>
+      </div>
+      <div>
+        <h3 class="font-heading font-bold text-ivory mb-2">Thông tin chúng tôi thu thập</h3>
+        <p class="mb-2">Khi bạn điền biểu mẫu đăng ký, chúng tôi thu thập các thông tin bạn tự nguyện cung cấp:</p>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Họ và tên</li>
+          <li>Số điện thoại / Zalo</li>
+          <li>Email</li>
+          <li>Tỉnh / thành đang sinh sống</li>
+          <li>Nghề nghiệp hiện tại và mục tiêu tham gia chương trình</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-heading font-bold text-ivory mb-2">Mục đích sử dụng</h3>
+        <p>Thông tin trên được dùng để liên hệ, tư vấn và gửi đến bạn lịch khai giảng cùng nội dung liên quan đến chương trình đào tạo. Chúng tôi không sử dụng thông tin của bạn cho mục đích nào khác, và không bán hoặc chia sẻ thông tin cho bên thứ ba nhằm mục đích quảng cáo khi chưa có sự đồng ý của bạn.</p>
+      </div>
+      <div>
+        <h3 class="font-heading font-bold text-ivory mb-2">Bảo vệ dữ liệu</h3>
+        <p>Thông tin cá nhân của bạn được xử lý phù hợp với quy định pháp luật hiện hành về bảo vệ dữ liệu cá nhân tại Việt Nam.</p>
+      </div>
+      <div>
+        <h3 class="font-heading font-bold text-ivory mb-2">Quyền của bạn</h3>
+        <p>Bạn có quyền yêu cầu xem, chỉnh sửa hoặc xoá thông tin cá nhân đã cung cấp bất cứ lúc nào bằng cách liên hệ với đội ngũ chương trình.</p>
+      </div>
+      <p class="text-xs text-muted/70">Cập nhật lần cuối: 04/09/2026.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="fixed inset-0 bg-black/90 z-[100] items-center justify-center p-6" onclick="this.classList.remove('open')">
+  <img id="lightbox-img" src="" class="max-w-full max-h-full rounded-lg">
+</div>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const wasActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item.active').forEach((el) => el.classList.remove('active'));
+      if (!wasActive) item.classList.add('active');
+    });
+  });
+
+  // Danh sách ảnh bằng chứng thu nhập (đã copy vào assets/thu-nhap/)
+  const incomeImages = [
+    "1wupuklrchfacaduiyq30bsnit0a2qshfjeewr1tym4p31vbhjbivtlvehrczogm1i631.jpg",
+    "1wupuklrchfbd1iq4gsne5rveopeyrhnknt4enxg1xz6wkggnrvxydkxbf1sfectn3z32.jpg",
+    "1wupuklrchfd3snlpy4ihytl0crlkbbh6wwrqji8bnmjrwfzaxorvtzaew1cgmmtilx35.jpg",
+    "1wupuklrchfd3snlpy4ihyup63bploerwor36a5owtptmhc2buwp5mrtfz4rwhw0xh233.jpg",
+    "1wupuklrchfd3snlpy4ihyv89vre37fwzkaqhuidfmbrbnvkwzrhlhisefwlr33erld29.jpg",
+    "1wupuklrchfd3snlpy4ihyvrsjp8oxhowauhyaxonwt86whfrysmnum0dvwv2ye8dzw34.jpg",
+    "1wupuklrchfeujsgkph2v2otviapcqslcnghkrgs1c0bzdjhypegtcrnmpiekualc0a37.jpg",
+    "1wupuklrchfeujsgkph2v2qwbscxyoql43mhf9pnpopud5etqgnhknwwvywwm5qs3zh36.jpg",
+    "1wupuklrchffvaxc67jnyvtim8ydgfx3y3koj3mtzqx9zdbodfruav4uhmoqrtsx4u939.jpg",
+    "1wupuklrchffvaxc67jnyvtkdqfk9zg9mpkxotyrqylstipugup1akltepprcswgrvw38.jpg",
+    "1wupuklrchffvaxc67jnyvxvzvpyrpnwynwpmf8hr7akf2qbahkectdvzqgkuw6fg6t40.jpg",
+    "1wupuklrchfinj7smgy2psunegolet8xjchq83njwhhiq3lkxt4tekuchkggsuzp6ca45.jpg",
+    "1wupuklrchfinj7smgy2psunog7y26lflqwxvdl0efxawk5qru4grmmkeidwewkpmoz43.jpg",
+    "1wupuklrchfinj7smgy2psuxx3pa28q1iph3pmtmdqyg1sjhv76zuefupcot8mqku6p42.jpg",
+    "1wupuklrchfinj7smgy2psuyunp0mlpkvamyxxagtuj49mev75mev8r2pad1lrucbzt41.jpg",
+    "1wupuklrchfkeaco7yanswtm7lgnigrdyo6bfadvetsvrtivywwthzejje67bi0mzwj44.jpg",
+    "1wupuklrchflrbqfi8eidqrgvlbnoueivew09ojoadgqhwicreibmj88avexd9pgx9p6.jpg",
+    "1wupuklrchflrbqfi8eidqrwgzw7s9ho082bz2a0juj3tgy0zxrqenkqzxm9caovaqq8.jpg",
+    "1wupuklrchflrbqfi8eidqsbrtraajkfmc6pajkqqup5jul85nss1hebhogczdwbnjw7.jpg",
+    "1wupuklrchflrbqfi8eidqtibodda7gj3okjjypwtvczlhjq0e8ek5bkavncndlpk4f3.jpg",
+    "1wupuklrchflrbqfi8eidquwqwqbbe3r8z7iofb0hrxwutdndyrdkutmkeeooeyupzj1.jpg",
+    "1wupuklrchfnisvadqh3hknhiz43zlycrmg8kykspaq3eage8qtel0shgak6bayicsn9.jpg",
+    "1wupuklrchfnisvadqh3hkoxmgakoixutgznhgg44ouf8tuobcmkurdp8ffo2zjrxub4.jpg",
+    "1wupuklrchfnisvadqh3hkpoods0fjm47qsx2k1owux05lv79xq3pce4ztnvvgjmo952.jpg",
+    "1wupuklrchfnisvadqh3hkpw5lsimmgthupu5rwluivihkgqztrflyhfwqy42n4y9dd5.jpg",
+    "1wupuklrchfowjra9p1nnmvhv0v5z5usiq7td48ukoormvuhlaydxgzkjw5irmr96cm47.jpg",
+    "1wupuklrchfowjra9p1nnmwv5c0dkrrqurgoytrurtkqt1b5erkecrnbknlhesijwmj46.jpg",
+    "1wupuklrchfpxaw5v6di0qqjyqthpw218oko3fjwvmpbxonijpq1ello10nc2sj5z0748.jpg",
+    "1wupuklrchfqab5rjzviyhmzzp0hgyumeuxugyw7u0r2ps2j7exyvf7em5680sabsr011.jpg",
+    "1wupuklrchfrb2amfh83bksmymya4d7yt6fdx7r1vigatgjguwkatn1fdqkvfqb68vy10.jpg",
+    "1wupuklrchfrb2amfh83bkty26xqyklcz5knhfdvdvjamlxpz3d7iwgsmxgiysh0rcw12.jpg",
+    "1wupuklrchfrb2amfh83bkvaztfkfhfsnsmh1e5qajkw9uvota9nlf9l7kvaphlyfet13.jpg",
+    "1wupuklrchfrb2amfh83bkzxaloherlabplnhzvpqpoklb9nt2v6rcgimvshrf3vnss15.jpg",
+    "1wupuklrchfspifwbfsnhnra09eq3kyvlewfcgacuogvvy2bve49nivd1oqok2b1qzr50.jpg",
+    "1wupuklrchft1tfi0yknpenf70899pb9hq6pebn8ku02nsh4exbrobjgi72jezw5aga16.jpg",
+    "1wupuklrchft1tfi0yknpeouw7iourakahwswyxatbzzyjih3zuvbgx02sbexidvlbq14.jpg",
+    "1wupuklrchft1tfi0yknpep0p5ccytbueb264dqh9ta5ernecpm5khbndfyu9j2iqkx20.jpg",
+    "1wupuklrchft1tfi0yknpep2vylcrcez08cr94w04lwmq31jueni9po8hq5z5ns2wp617.jpg",
+    "1wupuklrchft1tfi0yknpepfiew0wjnnepfxfty3f1ljsghgawclyjellovqoxww05g18.jpg",
+    "1wupuklrchft1tfi0yknpepflu3o2nymmazfqcifdpy7425avik7dtj5ksdqkkftyyn19.jpg",
+    "1wupuklrchft1tfi0yknpepyy7lvaa8qwlufeunuls6syxrfagboc9iagdvqiqsjxcl21.jpg",
+    "1wupuklrchfug9krwxuhvgwhl3lojcnb1b6krjhrna8hzdvirxmjnocllwwi9o3chez49.jpg",
+    "1wupuklrchfxksu42pbnjesuh0y9wldvllhchuiolqfrdkxaqmah7gwbeb5wfmzut0i22.jpg",
+    "1wupuklrchfxksu42pbnjeswunmxb3iqapnnrbh0w3icxnwxxbjmmecybhdm4r3u7xu27.jpg",
+    "1wupuklrchfxksu42pbnjet6uy8xmtyl8ifffkbchft13afmcuvlbpt0j1jkcjjtprk23.jpg",
+    "1wupuklrchfxksu42pbnjetxgldommos7jgztvgfyklgyp5rvjqy88qqdmoujdd9il825.jpg",
+    "1wupuklrchfxksu42pbnjeum2figwerbhwg5af4n8xavat2cys2krkl5ovqauca9clb24.jpg",
+    "1wupuklrchfyljyznhdin8nkrzwqbhrwvadw9l0trrtr8lviau9gv61v6nbkv9rox2z26.jpg",
+    "1wupuklrchfyljyznhdin8pnzgjxoey7ihi8d4uzkz2qrhkw7x7uotnqnyy5tn8nut328.jpg",
+    "1wupuklrchfyljyznhdin8pp49fz0uhqhlhssa95zk2twostrh5kmzdlfmcijhgatab30.jpg"
+  ];
+
+  const mid = Math.ceil(incomeImages.length / 2);
+  const rows = [
+    { el: document.getElementById('proof-row-1'), items: incomeImages.slice(0, mid) },
+    { el: document.getElementById('proof-row-2'), items: incomeImages.slice(mid) },
+  ];
+
+  rows.forEach(({ el, items }) => {
+    const doubled = items.concat(items);
+    doubled.forEach((name) => {
+      const img = document.createElement('img');
+      img.src = 'assets/thu-nhap/' + name;
+      img.loading = 'lazy';
+      img.alt = 'Bằng chứng thu nhập thật';
+      img.onclick = () => {
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox').classList.add('open');
+      };
+      el.appendChild(img);
+    });
+  });
+</script>
+
+</body>
+</html>

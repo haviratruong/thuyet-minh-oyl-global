@@ -1,0 +1,2098 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Bản Đồ Hướng Nghiệp — Nguyên Phụng | Bộ sách định hướng tương lai cho con</title>
+ <meta name="description" content="Bộ sách 'Bản Đồ Hướng Nghiệp' (Tập 1 THCS, Tập 2 THPT) do Nguyên Phụng — Chủ tịch HĐQT OYL Global viết. Hồ sơ tác giả công khai, có giấy chứng nhận từ cơ quan nhà nước.">
+ <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%97%BA%EF%B8%8F%3C/text%3E%3C/svg%3E">
+
+ <!-- Tailwind CSS CDN + Config Unification -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script>
+ tailwind.config = {
+ theme: {
+ extend: {
+ fontFamily: {
+ sans: ['"Be Vietnam Pro"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+ heading: ['"Lora"', 'Georgia', 'serif'],
+ serif: ['"Lora"', 'Georgia', 'serif'],
+ 'serif-title': ['"Lora"', 'Georgia', 'serif'],
+ script: ['"Caveat"', 'cursive']
+ }
+ }
+ }
+ }
+ </script>
+
+ <!-- Google Fonts: Lora (Tiêu đề sách đẳng cấp theo mẫu) + Be Vietnam Pro (Nội dung chuẩn Việt) + Caveat -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+ <style>
+ :root {
+ --font-body: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+ --font-heading: 'Lora', Georgia, 'Times New Roman', serif;
+ --font-script: 'Caveat', cursive;
+ }
+
+ body {
+ font-family: var(--font-body);
+ line-height: 1.85;
+ color: #1e293b;
+ font-size: 17.5px;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+ }
+
+ h1, h2, h3, h4, h5, h6, .font-heading, .font-serif, .font-serif-title {
+ font-family: var(--font-heading) !important;
+ font-weight: 700;
+ line-height: 1.35;
+ letter-spacing: -0.01em;
+ }
+
+ p, li, .prose p {
+ font-family: var(--font-body);
+ font-size: 17.5px;
+ line-height: 1.85;
+ letter-spacing: -0.005em;
+ }
+
+ /* ══════ TOÀN DIỆN: KHẮC PHỤC TRIỆT ĐỂ CHỮ LI TI TOÀN TRANG (DESKTOP & MOBILE) ══════ */
+ .text-xs, .text-\[10px\], .text-\[11px\], .text-\[12px\] {
+ font-size: 14px!important;
+ line-height: 1.65!important;
+ }
+
+ .text-sm {
+ font-size: 16px!important;
+ line-height: 1.75!important;
+ }
+
+ .text-base {
+ font-size: 17.5px!important;
+ line-height: 1.85!important;
+ }
+
+ .text-lg {
+ font-size: 19.5px!important;
+ line-height: 1.6!important;
+ }
+
+ .text-xl {
+ font-size: 22px!important;
+ line-height: 1.5!important;
+ }
+
+ /* ══════ TỐI ƯU HIỂN THỊ TRÊN MOBILE (TO RÕ, ĐẬM ĐÀ NHƯ BẢN MẪU VNCREATORPRENEUR) ══════ */
+ @media (max-width: 768px) {
+ body {
+ font-size: 17px!important;
+ line-height: 1.85!important;
+ }
+ p, li, .prose p {
+ font-size: 17px!important;
+ line-height: 1.85!important;
+ }
+ .text-xs, .text-\[10px\], .text-\[11px\], .text-\[12px\] {
+ font-size: 14px!important;
+ line-height: 1.6!important;
+ }
+ .text-sm {
+ font-size: 15.5px!important;
+ line-height: 1.7!important;
+ }
+ .text-base {
+ font-size: 17px!important;
+ line-height: 1.8!important;
+ }
+ .text-lg {
+ font-size: 19px!important;
+ line-height: 1.55!important;
+ }
+ .text-xl {
+ font-size: 21px!important;
+ line-height: 1.45!important;
+ }
+ h1 {
+ font-size: 28px!important;
+ line-height: 1.3!important;
+ }
+ h2 {
+ font-size: 24px!important;
+ line-height: 1.35!important;
+ }
+ h3 {
+ font-size: 20px!important;
+ line-height: 1.4!important;
+ }
+ h4 {
+ font-size: 18px!important;
+ line-height: 1.4!important;
+ }
+ .nav-hidden-mobile {
+ transform: translateY(-100%) !important;
+ }
+ }
+
+ /* Ngoại lệ DUY NHẤT: Chữ ký tác giả hoặc note viết tay */
+ .font-script, .font-script *, .signature-font {
+ font-family: 'Caveat', cursive!important;
+ }
+
+ /* Scroll progress bar */
+ #scroll-progress {
+ position: fixed;
+ top: 0;
+ left: 0;
+ height: 4px;
+ background: linear-gradient(90deg, #059669, #10B981, #F59E0B, #D4A843);
+ z-index: 100;
+ transform-origin: left;
+ transition: width 0.1s ease;
+ }
+
+ /* Aurora Glow cho phần Hero sáng */
+ .aurora-hero {
+ background: 
+ radial-gradient(ellipse 80% 50% at 50% -20%, rgba(16, 185, 129, 0.18), transparent 70%),
+ radial-gradient(ellipse 60% 40% at 80% 50%, rgba(245, 158, 11, 0.12), transparent 60%),
+ radial-gradient(ellipse 50% 50% at 20% 80%, rgba(5, 150, 105, 0.08), transparent 60%),
+ #FBFDFB;
+ }
+
+ /* ══════ NGHỆ THUẬT HIGHLIGHT TỪ KHÓA & MICRO-BADGES ══════ */
+ .hl-marker {
+ background: linear-gradient(120deg, rgba(254, 240, 138, 0.55) 0%, rgba(254, 240, 138, 0.8) 100%);
+ border-radius: 6px;
+ padding: 1px 6px;
+ font-weight: 700;
+ color: #0F172A;
+ box-decoration-break: clone;
+ -webkit-box-decoration-break: clone;
+ }
+
+ .hl-emerald-marker {
+ background: rgba(209, 250, 229, 0.7);
+ border-radius: 6px;
+ padding: 1px 6px;
+ font-weight: 700;
+ color: #065F46;
+ box-decoration-break: clone;
+ -webkit-box-decoration-break: clone;
+ }
+
+ .micro-badge {
+ display: inline-flex;
+ align-items: center;
+ gap: 5px;
+ font-size: 11px;
+ font-weight: 800;
+ padding: 3px 10px;
+ border-radius: 9999px;
+ text-transform: uppercase;
+ letter-spacing: 0.04em;
+ }
+
+ /* ══════ HIỆU ỨNG VIỀN ÁNH SÁNG NEON CHẠY QUANH HỘP CALLOUT ══════ */
+ @keyframes borderRotate {
+ 0% { transform: rotate(0deg); }
+ 100% { transform: rotate(360deg); }
+ }
+ 
+ @keyframes shimmerSweep {
+ 0% { transform: translateX(-150%); }
+ 50%, 100% { transform: translateX(150%); }
+ }
+
+ @keyframes pulseGlow {
+ 0%, 100% {
+ box-shadow: 0 10px 30px -5px rgba(16, 185, 129, 0.2), 0 0 15px rgba(245, 158, 11, 0.2);
+ }
+ 50% {
+ box-shadow: 0 15px 40px 0px rgba(16, 185, 129, 0.35), 0 0 25px rgba(245, 158, 11, 0.35);
+ }
+ }
+
+ @keyframes iconHandPulse {
+ 0%, 100% { transform: scale(1) rotate(0deg); }
+ 25% { transform: scale(1.25) rotate(-10deg); }
+ 50% { transform: scale(1.1) rotate(10deg); }
+ 75% { transform: scale(1.25) rotate(-5deg); }
+ }
+
+ .callout-power-box {
+ position: relative;
+ background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(254, 243, 199, 0.4) 50%, rgba(236, 253, 245, 0.9) 100%);
+ border-radius: 20px;
+ padding: 1.5rem 2rem;
+ overflow: hidden;
+ animation: pulseGlow 4s ease-in-out infinite;
+ border: 2px solid transparent;
+ background-clip: padding-box;
+ }
+
+ .callout-power-box::before {
+ content: '';
+ position: absolute;
+ top: -50%;
+ left: -50%;
+ width: 200%;
+ height: 200%;
+ background: conic-gradient(
+ transparent,
+ rgba(16, 185, 129, 0.8),
+ rgba(245, 158, 11, 0.9),
+ rgba(5, 150, 105, 0.8),
+ transparent 65%
+ );
+ animation: borderRotate 6s linear infinite;
+ z-index: -2;
+ }
+
+ .callout-power-box::after {
+ content: '';
+ position: absolute;
+ inset: 2px;
+ background: linear-gradient(135deg, #FFFFFF 0%, #FFFDF8 100%);
+ border-radius: 18px;
+ z-index: -1;
+ }
+
+ .shimmer-light {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+ animation: shimmerSweep 5s ease-in-out infinite;
+ pointer-events: none;
+ z-index: 1;
+ }
+
+ .icon-hand {
+ display: inline-block;
+ animation: iconHandPulse 2.5s ease-in-out infinite;
+ transform-origin: center;
+ }
+
+ /* ══════ HIỆU ỨNG CHẠY NỔI VIỀN SÁNG CHO TỪNG KHỐI LỢI ÍCH ══════ */
+ .benefit-card-beam {
+ position: relative;
+ background: #FFFFFF;
+ border-radius: 20px;
+ border: 2px solid rgba(16, 185, 129, 0.25);
+ box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.06);
+ transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+ overflow: hidden;
+ }
+ .benefit-card-beam::before {
+ content: '';
+ position: absolute;
+ top: -50%;
+ left: -50%;
+ width: 200%;
+ height: 200%;
+ background: conic-gradient(
+ transparent,
+ rgba(16, 185, 129, 0.5),
+ rgba(245, 158, 11, 0.6),
+ rgba(16, 185, 129, 0.5),
+ transparent 45%
+ );
+ animation: borderRotate 6s linear infinite;
+ z-index: 0;
+ opacity: 0;
+ transition: opacity 0.3s ease;
+ }
+ .benefit-card-beam:hover::before {
+ opacity: 0.6;
+ animation-duration: 3.5s;
+ }
+ .benefit-card-beam::after {
+ content: '';
+ position: absolute;
+ inset: 2px;
+ background: #FFFFFF;
+ border-radius: 18px;
+ z-index: 1;
+ }
+ .benefit-card-inner {
+ position: relative;
+ z-index: 2;
+ }
+ .benefit-card-beam:hover {
+ transform: translateY(-5px);
+ box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.1), 0 0 25px rgba(16, 185, 129, 0.15);
+ border-color: rgba(16, 185, 129, 0.6);
+ }
+
+ /* ══════ 3D DYNAMIC FLOATING BOOKS ══════ */
+ @keyframes floatBook1 {
+ 0%, 100% {
+ transform: translateY(0px) rotate(-6deg) rotateY(15deg) scale(1);
+ filter: drop-shadow(0 25px 35px rgba(5, 150, 105, 0.25));
+ }
+ 50% {
+ transform: translateY(-22px) rotate(-3deg) rotateY(18deg) scale(1.02);
+ filter: drop-shadow(0 40px 45px rgba(16, 185, 129, 0.3));
+ }
+ }
+ @keyframes floatBook2 {
+ 0%, 100% {
+ transform: translateY(0px) rotate(5deg) rotateY(-12deg) scale(1);
+ filter: drop-shadow(0 25px 35px rgba(15, 23, 42, 0.25));
+ }
+ 50% {
+ transform: translateY(-28px) rotate(8deg) rotateY(-16deg) scale(1.04);
+ filter: drop-shadow(0 45px 50px rgba(245, 158, 11, 0.32));
+ }
+ }
+ .float-book-1 {
+ animation: floatBook1 5s ease-in-out infinite;
+ transform-origin: center bottom;
+ transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+ }
+ .float-book-2 {
+ animation: floatBook2 5s ease-in-out 1.2s infinite;
+ transform-origin: center bottom;
+ transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+ }
+
+ /* ══════ MARQUEE TICKER ══════ */
+ @keyframes marquee {
+ 0% { transform: translateX(0%); }
+ 100% { transform: translateX(-50%); }
+ }
+ .marquee-track {
+ display: flex;
+ width: 200%;
+ animation: marquee 26s linear infinite;
+ }
+ .marquee-track:hover {
+ animation-play-state: paused;
+ }
+
+ .glass-pill {
+ background: rgba(255, 255, 255, 0.85);
+ backdrop-filter: blur(12px);
+ -webkit-backdrop-filter: blur(12px);
+ border: 1px solid rgba(16, 185, 129, 0.25);
+ box-shadow: 0 4px 20px -2px rgba(16, 185, 129, 0.1);
+ }
+
+ .card-modern {
+ background: #FFFFFF;
+ border: 1px solid rgba(226, 232, 240, 0.9);
+ border-radius: 24px;
+ box-shadow: 0 4px 25px -4px rgba(0, 0, 0, 0.04);
+ transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+ }
+ .card-modern:hover {
+ transform: translateY(-6px);
+ box-shadow: 0 20px 40px -10px rgba(5, 150, 105, 0.12), 0 0 0 1px rgba(16, 185, 129, 0.3);
+ border-color: rgba(16, 185, 129, 0.4);
+ }
+
+ /* Accordion */
+ .accordion-content {
+ max-height: 0;
+ overflow: hidden;
+ transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+ opacity: 0;
+ }
+ .accordion-content.open {
+ max-height: 1400px;
+ opacity: 1;
+ }
+
+ /* Fade-in scroll animations */
+ .fade-in {
+ opacity: 0;
+ transform: translateY(28px);
+ transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+ }
+ .fade-in.visible {
+ opacity: 1;
+ transform: translateY(0);
+ }
+
+ .plan-tab.active {
+ background: #059669;
+ color: #FFFFFF;
+ border-color: #059669;
+ font-weight: 700;
+ box-shadow: 0 6px 20px rgba(5, 150, 105, 0.35);
+ }
+
+ .nav-scrolled {
+    background: rgba(255, 255, 255, 0.92) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-color: rgba(16, 185, 129, 0.2);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06);
+  }
+  </style>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8RWRMDSZHZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8RWRMDSZHZ');
+  </script>
+
+</head>
+<body class="bg-[#FBFDFB] text-[#1E293B] antialiased overflow-x-hidden">
+
+  <!-- ============================================================== -->
+  <!-- TOP STICKY BAR: ĐIỀU HƯỚNG QUAY LẠI WEBAPP & ĐẶT SÁCH           -->
+  <!-- ============================================================== -->
+  <div style="background:#064E3B;color:#fff;padding:10px 16px;text-align:center;font-size:13px;font-family:'Plus Jakarta Sans',sans-serif;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99999;box-shadow:0 2px 10px rgba(0,0,0,0.15);">
+    <a href="app.html" style="color:#A7F3D0;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:6px;font-size:12px;">
+      ← Quay Lại WebApp Hướng Nghiệp OYL Global
+    </a>
+    <span style="font-weight:700;font-size:12px;" class="hidden sm:inline">
+      CẨM NANG BẢN ĐỒ HƯỚNG NGHIỆP — NGUYÊN PHỤNG (ICF COACH)
+    </span>
+    <a href="#bang-gia" style="background:#F59E0B;color:#0F172A;padding:6px 16px;border-radius:20px;text-decoration:none;font-weight:800;font-size:11px;box-shadow:0 2px 6px rgba(245,158,11,0.4);">
+      ĐẶT SÁCH NGAY ↓
+    </a>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- HERO SHOWCASE: TRỌN BỘ CẨM NANG "BẢN ĐỒ HƯỚNG NGHIỆP"          -->
+  <!-- ============================================================== -->
+  <header class="relative pt-8 sm:pt-12 pb-12 sm:pb-16 px-4 md:px-8 bg-gradient-to-b from-[#F2FBF5] via-[#FFFDF5] to-white border-b border-emerald-200/50">
+    <div class="max-w-6xl mx-auto space-y-8">
+      
+      <!-- Top Pills & Brand Verified -->
+      <div class="text-center space-y-2">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 font-bold text-xs uppercase tracking-wider font-heading shadow-xs">
+          <span>📚</span> ẤN PHẨM HƯỚNG NGHIỆP THỰC CHIẾN • BẢN QUYỀN TÁC GIẢ SỐ 4686/2026/QTG
+        </div>
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-[#064E3B] font-serif-title leading-tight">
+          Bản Đồ Hướng Nghiệp Cho Con
+        </h1>
+        <p class="text-base sm:text-xl text-slate-700 font-serif-title italic max-w-3xl mx-auto leading-relaxed">
+          Bản đồ 7 năm cho con: Từ cánh cửa lớp 6 đến giảng đường đại học
+        </p>
+        <p class="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto font-medium">
+          Tác giả: <strong>Nguyên Phụng</strong> — Associate Certified Coach (ICF ACC) • Đóng gói từ hơn 10 năm kinh nghiệm khai vấn thực tế cho 10.000+ phụ huynh và học sinh toàn quốc.
+        </p>
+      </div>
+
+      <!-- Grid Showcase 2 Bìa Sách 3D & Nội Dung Cốt Lõi -->
+      <div class="grid md:grid-cols-12 gap-8 items-center bg-white p-6 sm:p-10 rounded-3xl border-2 border-emerald-500/30 shadow-xl">
+        
+        <!-- Cột Ảnh Bìa Sách 3D -->
+        <div class="md:col-span-5 flex flex-col items-center justify-center space-y-4">
+          <div class="relative flex items-center justify-center gap-3">
+            <div class="text-center space-y-2">
+              <img src="https://bandohuongnghiep.oyl.vn/assets/bia-tap-1.jpg" alt="Bản Đồ Hướng Nghiệp Tập 1 THCS" class="w-36 sm:w-44 rounded-2xl shadow-2xl border-2 border-emerald-300 hover:scale-105 transition-transform">
+              <span class="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-[11px] font-bold">Tập 1: THCS (Lớp 6-9)</span>
+            </div>
+            <div class="text-center space-y-2">
+              <img src="https://bandohuongnghiep.oyl.vn/assets/bia-tap-2.jpg" alt="Bản Đồ Hướng Nghiệp Tập 2 THPT" class="w-36 sm:w-44 rounded-2xl shadow-2xl border-2 border-amber-300 hover:scale-105 transition-transform">
+              <span class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-[11px] font-bold">Tập 2: THPT (Lớp 10-12)</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 text-xs text-slate-500 font-medium pt-1">
+            <span>🛡️ Bảo hộ Cục Bản Quyền Tác Giả</span>
+            <span>•</span>
+            <span>Ebook PDF tải ngay</span>
+            <span>•</span>
+            <span>Video Skool</span>
+          </div>
+        </div>
+
+        <!-- Cột Giới Thiệu Trọng Tâm 2 Tập -->
+        <div class="md:col-span-7 space-y-5 text-slate-800 text-left">
+          <div class="space-y-3">
+            <h3 class="text-xl sm:text-2xl font-bold font-serif-title text-[#0F172A] leading-snug">
+              2 Tập Sách — 2 Sứ Mệnh Chuyên Biệt Đồng Hành Suốt 7 Năm
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+              Không lý thuyết chung chung, bộ sách là cẩm nang cầm tay chỉ việc gồm <strong>20 chương thực chiến</strong>, các bảng trắc nghiệm, biểu mẫu tự đánh giá và kịch bản trò chuyện giữa cha mẹ và con tại nhà:
+            </p>
+          </div>
+
+          <div class="space-y-3 text-xs sm:text-sm">
+            <div class="p-4 bg-emerald-50/70 rounded-2xl border border-emerald-200/80 space-y-1">
+              <div class="font-extrabold text-emerald-950 flex items-center gap-2">
+                <span class="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[10px]">1</span>
+                Tập 1: Nền Tảng THCS (Lớp 6 – Lớp 9) • 9 Chương
+              </div>
+              <p class="text-slate-600 pl-7 leading-relaxed">
+                Giải mã khủng hoảng tâm lý tuổi dậy thì, thấu hiểu tính cách và tiềm năng tự nhiên của con; giúp gia đình chuẩn bị tâm lý và chiến lược cho bước ngoặt chọn tổ hợp môn vào lớp 10.
+              </p>
+            </div>
+
+            <div class="p-4 bg-amber-50/70 rounded-2xl border border-amber-200/80 space-y-1">
+              <div class="font-extrabold text-amber-950 flex items-center gap-2">
+                <span class="w-5 h-5 rounded-full bg-amber-600 text-white flex items-center justify-center text-[10px]">2</span>
+                Tập 2: Đột Phá THPT (Lớp 10 – Lớp 12) • 11 Chương
+              </div>
+              <p class="text-slate-600 pl-7 leading-relaxed">
+                Chiến lược ôn luyện và thi cử các kỳ thi riêng (HSA, TSA, ĐGNL), tư duy ngược "bắt đầu từ đích đến", biến IELTS thành phao cứu sinh, săn học bổng và quy trình chuẩn bị hồ sơ xét tuyển sớm.
+              </p>
+            </div>
+          </div>
+
+          <!-- Buttons Xem mục lục & Đặt mua -->
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <a href="#muc-luc" class="px-6 py-3 rounded-full bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs sm:text-sm shadow-md transition inline-flex items-center gap-2">
+              <i class="fa-solid fa-list-ol"></i> Xem Mục Lục 20 Chương ↓
+            </a>
+            <a href="#bang-gia" class="px-6 py-3 rounded-full bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-600 hover:to-amber-500 text-slate-950 font-black text-xs sm:text-sm shadow-md hover:scale-105 transition inline-flex items-center gap-2">
+              <i class="fa-solid fa-cart-shopping"></i> Đặt Mua Sách Ngay (Từ 199k) ↓
+            </a>
+          </div>
+
+          <!-- Micro trust proof -->
+          <div class="pt-1 flex flex-wrap items-center gap-4 text-xs text-slate-500 font-medium">
+            <span>⭐ Đánh giá <strong>4.9/5</strong> (10.000+ phụ huynh)</span>
+            <span>•</span>
+            <span>🛡️ Bảo hành <strong>hoàn tiền 100%</strong> trong 7 ngày</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+
+  <section class="py-14 sm:py-20 px-4 md:px-8 bg-gradient-to-br from-[#F0F7F2] via-[#FFFDF5] to-[#F0F7F2] fade-in border-b border-emerald-200/50">
+ <div class="w-full mx-auto">
+ <div class="text-center">
+ 
+ <!-- Header Spotlight -->
+ <div class="relative w-full mx-auto mb-14 text-center">
+ <div class="absolute inset-0 -top-6 -bottom-6 w-full mx-auto bg-gradient-to-r from-emerald-200/30 via-amber-200/25 to-emerald-200/30 blur-3xl -z-10 rounded-full animate-pulse"></div>
+
+ <div class="bg-gradient-to-br from-white via-emerald-50/60 to-amber-50/40 backdrop-blur-xl rounded-3xl p-8 sm:p-10 border-2 border-emerald-400/40 shadow-xl shadow-emerald-900/5 relative overflow-hidden">
+ <div class="shimmer-light"></div>
+
+ <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 border border-amber-300/60 shadow-sm mb-4">
+ <span class="relative flex h-2.5 w-2.5">
+ <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+ <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
+ </span>
+ <span class="text-amber-700 text-xs font-black uppercase tracking-widest">
+ GIÁ TRỊ CHUYỂN HÓA TOÀN DIỆN
+ </span>
+ </div>
+
+ <h2 class="text-3xl sm:text-5xl font-serif-title font-extrabold text-emerald-900 leading-tight mb-4">
+ Khi Cầm Trên Tay Bộ "Bản Đồ Hướng Nghiệp",<br class="hidden sm:inline">
+ <span class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 bg-clip-text text-transparent font-black">
+ Bố Mẹ Sẽ Nhận Được Gì?
+ </span>
+ </h2>
+
+ <p class="text-gray-600 text-sm sm:text-base md:text-lg w-full mx-auto leading-relaxed font-medium mt-4">
+ Không chỉ là 2 cuốn sách, đây là <strong class="text-amber-600 font-bold">7 chìa khóa thực chiến</strong> giúp gia đình bạn gạt bỏ hoàn toàn sự hoang mang và nắm chắc quyền chủ động tương lai của con.
+ </p>
+ </div>
+ </div>
+
+ <!-- Lưới Bento 2 Cột Gom Gọn & Hiệu Ứng Viền Chạy Nổi -->
+ <div class="grid md:grid-cols-2 gap-4 text-left text-sm sm:text-base">
+ 
+ <!-- Thẻ 1 -->
+ <div class="benefit-card-beam p-5 sm:p-6">
+ <div class="benefit-card-inner flex items-center gap-4">
+ <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-400 to-amber-300 text-slate-950 flex items-center justify-center font-black text-sm shrink-0 shadow-lg shadow-amber-400/30">✓</span>
+ <span class="text-gray-700 font-semibold leading-relaxed">Hiểu con qua công cụ có cơ sở khoa học, không phải cảm tính</span>
+ </div>
+ </div>
+
+ <!-- Thẻ 2 -->
+ <div class="benefit-card-beam p-5 sm:p-6">
+ <div class="benefit-card-inner flex items-center gap-4">
+ <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-400 to-amber-300 text-slate-950 flex items-center justify-center font-black text-sm shrink-0 shadow-lg shadow-amber-400/30">✓</span>
+ <span class="text-gray-700 font-semibold leading-relaxed">Có căn cứ để chọn tổ hợp môn lớp 10, không chọn theo số đông</span>
+ </div>
+ </div>
+
+ <!-- Thẻ 3 -->
+ <div class="benefit-card-beam p-5 sm:p-6">
+ <div class="benefit-card-inner flex items-center gap-4">
+ <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-400 to-amber-300 text-slate-950 flex items-center justify-center font-black text-sm shrink-0 shadow-lg shadow-amber-400/30">✓</span>
+ <span class="text-gray-700 font-semibold leading-relaxed">Biết trước lộ trình chọn ngành-chọn trường thay vì đợi lớp 12 mới cuống</span>
+ </div>
+ </div>
+
+ <!-- Thẻ 4 -->
+ <div class="benefit-card-beam p-5 sm:p-6">
+ <div class="benefit-card-inner flex items-center gap-4">
+ <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-400 to-amber-300 text-slate-950 flex items-center justify-center font-black text-sm shrink-0 shadow-lg shadow-amber-400/30">✓</span>
+ <span class="text-gray-700 font-semibold leading-relaxed">
+ Nắm chiến lược chuẩn bị kỳ thi riêng (<a href="https://hsa.edu.vn" target="_blank" rel="noopener noreferrer" class="underline text-emerald-800 hover:text-emerald-950 font-bold">HSA ĐHQG HN ↗</a> / <a href="https://thinangluc.vnuhcm.edu.vn" target="_blank" rel="noopener noreferrer" class="underline text-emerald-800 hover:text-emerald-950 font-bold">ĐGNL ĐHQG HCM ↗</a> / <a href="https://tsa.hust.edu.vn" target="_blank" rel="noopener noreferrer" class="underline text-emerald-800 hover:text-emerald-950 font-bold">TSA Bách Khoa ↗</a>) sớm hơn số đông
+ </span>
+ </div>
+ </div>
+
+ <!-- Thẻ 5 -->
+ <div class="benefit-card-beam p-5 sm:p-6">
+ <div class="benefit-card-inner flex items-center gap-4">
+ <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-400 to-amber-300 text-slate-950 flex items-center justify-center font-black text-sm shrink-0 shadow-lg shadow-amber-400/30">✓</span>
+ <span class="text-gray-700 font-semibold leading-relaxed">Có hướng chuẩn bị học bổng du học nếu con theo hướng đó (khung D.R.E.A.M.S)</span>
+ </div>
+ </div>
+
+ <!-- Thẻ 6 -->
+ <div class="benefit-card-beam p-5 sm:p-6">
+ <div class="benefit-card-inner flex items-center gap-4">
+ <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-400 to-amber-300 text-slate-950 flex items-center justify-center font-black text-sm shrink-0 shadow-lg shadow-amber-400/30">✓</span>
+ <span class="text-gray-700 font-semibold leading-relaxed">Nhận diện trước 11 "cạm bẫy tâm lý" phổ biến nhất khiến gia đình khác chọn sai</span>
+ </div>
+ </div>
+
+ <!-- Thẻ 7 - Trải dài toàn bộ chiều rộng làm điểm chốt vững chãi -->
+ <div class="benefit-card-beam p-5 sm:p-6 md:col-span-2 border-amber-300/40">
+ <div class="benefit-card-inner flex items-center gap-4 justify-center text-center sm:text-left">
+ <span class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-400 via-amber-300 to-amber-400 text-slate-950 flex items-center justify-center font-black text-base shrink-0 shadow-xl shadow-amber-400/40">✓</span>
+ <span class="text-amber-700 font-bold text-base sm:text-lg leading-relaxed">
+ Đồng hành cùng con qua từng giai đoạn từ THCS đến THPT, không phải đọc 1 lần rồi cất tủ
+ </span>
+ </div>
+ </div>
+
+ </div>
+
+ <!-- ══════ BIỂU ĐỒ ĐỒ THỊ LƯƠNG PHÂN KỲ ══════ -->
+ <div class="mt-14 w-full mx-auto bg-white rounded-3xl p-6 sm:p-9 border-2 border-emerald-500/30 shadow-xl shadow-emerald-900/5 text-left">
+ <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 border-b border-slate-100 pb-5">
+ <div>
+ <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+ 📈 Dữ liệu lương & việc làm thực tế
+ </div>
+ <h3 class="font-heading text-lg sm:text-2xl font-black text-slate-900 leading-tight">
+ Đồ Thị Phân Kỳ Thu Nhập Sau 5 Năm Ra Trường
+ </h3>
+ <p class="text-xs sm:text-sm text-slate-500 mt-1">
+ Sự khác biệt cực lớn giữa <span class="text-emerald-700 font-bold">đi đúng hướng từ THPT</span> và <span class="text-red-600 font-bold">chọn nhầm / làm trái ngành</span>.
+ </p>
+ </div>
+ 
+ <div class="flex flex-wrap sm:flex-col gap-2 shrink-0 text-xs">
+ <span class="inline-flex items-center gap-1.5 font-bold text-emerald-800">
+ <span class="w-3 h-3 rounded-full bg-emerald-500 shadow-sm"></span> Đi đúng chuyên môn
+ </span>
+ <span class="inline-flex items-center gap-1.5 font-bold text-red-600">
+ <span class="w-3 h-3 rounded-full bg-red-400 shadow-sm"></span> Làm trái ngành / Mất gốc
+ </span>
+ </div>
+ </div>
+
+ <!-- SVG Chart -->
+ <div class="w-full overflow-x-auto pb-2">
+ <svg viewBox="0 0 680 280" class="w-full min-w-[540px] h-auto" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+ <linearGradient id="salaryGreenGrad" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0%" stop-color="#10B981" stop-opacity="0.35" />
+ <stop offset="100%" stop-color="#10B981" stop-opacity="0.0" />
+ </linearGradient>
+ <linearGradient id="salaryRedGrad" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0%" stop-color="#EF4444" stop-opacity="0.15" />
+ <stop offset="100%" stop-color="#EF4444" stop-opacity="0.0" />
+ </linearGradient>
+ </defs>
+
+ <!-- Lưới ngang Y -->
+ <line x1="60" y1="40" x2="640" y2="40" stroke="#F1F5F9" stroke-width="1" stroke-dasharray="4" />
+ <text x="45" y="44" font-size="10" fill="#94A3B8" text-anchor="end" font-weight="bold">35 tr</text>
+
+ <line x1="60" y1="90" x2="640" y2="90" stroke="#F1F5F9" stroke-width="1" stroke-dasharray="4" />
+ <text x="45" y="94" font-size="10" fill="#94A3B8" text-anchor="end" font-weight="bold">25 tr</text>
+
+ <line x1="60" y1="145" x2="640" y2="145" stroke="#F1F5F9" stroke-width="1" stroke-dasharray="4" />
+ <text x="45" y="149" font-size="10" fill="#94A3B8" text-anchor="end" font-weight="bold">15 tr</text>
+
+ <line x1="60" y1="200" x2="640" y2="200" stroke="#F1F5F9" stroke-width="1" stroke-dasharray="4" />
+ <text x="45" y="204" font-size="10" fill="#94A3B8" text-anchor="end" font-weight="bold">8 tr</text>
+
+ <!-- Trục X -->
+ <line x1="60" y1="240" x2="640" y2="240" stroke="#CBD5E1" stroke-width="1.5" />
+ 
+ <!-- Cột mốc X -->
+ <text x="100" y="260" font-size="11" fill="#475569" text-anchor="middle" font-weight="bold">Mới tốt nghiệp</text>
+ <text x="260" y="260" font-size="11" fill="#475569" text-anchor="middle" font-weight="bold">Năm thứ 1</text>
+ <text x="430" y="260" font-size="11" fill="#475569" text-anchor="middle" font-weight="bold">Năm thứ 3</text>
+ <text x="590" y="260" font-size="11" fill="#475569" text-anchor="middle" font-weight="bold">Năm thứ 5</text>
+
+ <!-- Vùng chênh lệch Fill -->
+ <polygon points="100,200 260,160 430,95 590,45 590,165 430,175 260,190 100,200" fill="#FEF3C7" opacity="0.6" />
+
+ <!-- Đường Xanh (Đúng hướng) -->
+ <path d="M 100,200 Q 200,180 260,160 T 430,95 T 590,45" fill="none" stroke="#059669" stroke-width="3.5" stroke-linecap="round" />
+ 
+ <!-- Điểm tròn Xanh -->
+ <circle cx="100" cy="200" r="5" fill="#059669" stroke="#FFFFFF" stroke-width="2" />
+ <circle cx="260" cy="160" r="5" fill="#059669" stroke="#FFFFFF" stroke-width="2" />
+ <circle cx="430" cy="95" r="5" fill="#059669" stroke="#FFFFFF" stroke-width="2" />
+ <circle cx="590" cy="45" r="7" fill="#059669" stroke="#FFFFFF" stroke-width="2.5" />
+
+ <!-- Nhãn giá trị Xanh -->
+ <text x="100" y="188" font-size="11" font-weight="bold" fill="#065F46" text-anchor="middle">8 tr</text>
+ <text x="260" y="148" font-size="11" font-weight="bold" fill="#065F46" text-anchor="middle">14 tr</text>
+ <text x="430" y="83" font-size="11" font-weight="bold" fill="#065F46" text-anchor="middle">24 tr</text>
+ <text x="590" y="32" font-size="13" font-weight="900" fill="#065F46" text-anchor="middle">36+ triệu</text>
+
+ <!-- Đường Đỏ (Trái ngành / Mất phương hướng) -->
+ <path d="M 100,200 Q 200,195 260,190 T 430,175 T 590,165" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-dasharray="5,4" stroke-linecap="round" />
+ 
+ <!-- Điểm tròn Đỏ -->
+ <circle cx="100" cy="200" r="4" fill="#DC2626" />
+ <circle cx="260" cy="190" r="4" fill="#DC2626" />
+ <circle cx="430" cy="175" r="4" fill="#DC2626" />
+ <circle cx="590" cy="165" r="5" fill="#DC2626" stroke="#FFFFFF" stroke-width="2" />
+
+ <!-- Nhãn giá trị Đỏ -->
+ <text x="260" y="210" font-size="10" font-weight="bold" fill="#991B1B" text-anchor="middle">9 tr</text>
+ <text x="430" y="195" font-size="10" font-weight="bold" fill="#991B1B" text-anchor="middle">12 tr</text>
+ <text x="590" y="185" font-size="11" font-weight="900" fill="#991B1B" text-anchor="middle">14 tr</text>
+
+ <!-- Box Chỉ số Khoảng cách ở năm thứ 5 -->
+ <rect x="470" y="85" width="165" height="42" rx="8" fill="#DC2626" opacity="0.95" />
+ <text x="552" y="102" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">CHÊNH LỆCH NĂM 5:</text>
+ <text x="552" y="118" font-size="13" font-weight="900" fill="#FEF08A" text-anchor="middle">+22 TRIỆU / THÁNG</text>
+ </svg>
+ </div>
+
+ <!-- Chú thích chi tiết -->
+ <div class="mt-4 pt-4 border-t border-slate-100 grid sm:grid-cols-2 gap-3 text-xs text-slate-600">
+ <div class="flex items-start gap-2">
+ <span class="text-emerald-600 font-bold">✔</span>
+ <span><strong>Đi đúng hướng:</strong> Kỹ năng & kinh nghiệm tích lũy cộng dồn (Compound Effect) giúp thu nhập bứt phá cấp số nhân từ năm thứ 3.</span>
+ </div>
+ <div class="flex items-start gap-2">
+ <span class="text-red-500 font-bold">✖</span>
+ <span><strong>Trái ngành:</strong> Nhảy việc liên tục, làm việc dưới trình độ, bị trừ 9%–34% lương (Wage Penalty) và mất cơ hội thăng tiến.</span>
+ </div>
+ </div>
+ <p class="text-[11px] text-slate-500 mt-3 italic text-center sm:text-left flex flex-wrap items-center gap-x-2 gap-y-1">
+ <span>Nguồn đối soát thực tế:</span>
+ <a href="https://dantri.com.vn/giao-duc/tuyen-sinh.htm" target="_blank" rel="noopener noreferrer" class="underline text-slate-700 hover:text-emerald-700 font-medium">Báo Dân Trí Tuyển Sinh & Việc Làm ↗</a>
+ <span>·</span>
+ <a href="https://vnu.edu.vn/ttsk/?C1656" target="_blank" rel="noopener noreferrer" class="underline text-slate-700 hover:text-emerald-700 font-medium">Nghiên cứu Khoa học ĐHQG Hà Nội ↗</a>
+ <span>·</span>
+ <a href="https://vneconomy.vn/thi-truong-lao-dong-viet-nam-thach-thuc-va-co-hoi-viec-lam.htm" target="_blank" rel="noopener noreferrer" class="underline text-slate-700 hover:text-emerald-700 font-medium">Thống kê Lao động VnEconomy ↗</a>
+ </p>
+ </div>
+
+ <!-- ══════ CTA ĐIỂM CHẠM VÀNG 3: SAU 7 LỢI ÍCH CHUYỂN HÓA ══════ -->
+ <div class="mt-14 text-center">
+ <a href="#bang-gia" class="inline-flex items-center gap-3 px-9 py-4 rounded-full bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400 text-slate-950 font-black text-base sm:text-lg hover:shadow-2xl hover:scale-105 transition-all shadow-xl shadow-amber-400/40">
+ 🚀 Sở Hữu Trọn Bộ "Bản Đồ Hướng Nghiệp" Ngay →
+ </a>
+ <p class="text-xs text-amber-700 mt-3 font-medium">
+ 🎁 Tặng kèm Khóa học Video Skool 4.999k & Bản đồ cá nhân hóa 1.850k cho Gói 999k
+ </p>
+ </div>
+
+ </div>
+ </div>
+ </section>
+
+ <!-- ══════ KHỐI 7: MỤC LỤC CHI TIẾT (NỀN KEM NHẠT #F7F5EE) ══════ -->
+ <section id="muc-luc" class="py-8 px-4 md:px-8 bg-[#F7F5EE] fade-in border-b border-amber-200/50">
+ <div class="w-full mx-auto">
+ <!-- Header Mục Lục Đỉnh Cao: Hook 7 Năm Lộ Trình -->
+ <div class="text-center mb-14">
+ <div class="inline-flex items-center gap-2 bg-amber-100/80 text-amber-900 border border-amber-300 font-extrabold text-xs px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 shadow-sm">
+ 📚 LỘ TRÌNH ĐỘT PHÁ 20 CHƯƠNG THỰC CHIẾN
+ </div>
+ <h2 class="text-3xl sm:text-5xl font-serif-title font-bold text-[#0F172A] leading-tight mb-4">
+ Bản Đồ 7 Năm Cho Con:<br class="hidden sm:inline">
+ <span class="text-emerald-700">Từ Cánh Cửa Lớp 6</span> Đến <span class="text-amber-600">Giảng Đường Đại Học</span>
+ </h2>
+ <p class="text-slate-600 text-sm sm:text-base md:text-lg w-full mx-auto leading-relaxed">
+ <strong class="text-slate-800">2 tập sách — 2 sứ mệnh riêng biệt:</strong> Giải mã trọn vẹn khủng hoảng tâm lý tuổi dậy thì ở cấp 2 và định đoạt chiến lược chọn ngành, thi cử, săn học bổng ở cấp 3.
+ </p>
+ </div>
+
+ <div class="grid md:grid-cols-2 gap-8 items-start">
+ <!-- Tập 1 -->
+ <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-md flex flex-col justify-between">
+ <div>
+ <div class="flex items-start justify-between gap-4 mb-5">
+ <div>
+ <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider inline-block mb-3 border border-emerald-200">
+ TẬP 1 · THCS (LỚP 6-9)
+ </span>
+ <p class="text-xs sm:text-sm text-slate-600 italic leading-relaxed">
+ Con còn chưa phải quyết định ngay — trọng tâm là <strong>hiểu con trước khi chọn</strong>, chuẩn bị cho bước ngoặt chọn tổ hợp môn lớp 10.
+ </p>
+ </div>
+ <img src="assets/bia-tap-1.jpg" alt="Bìa Tập 1" class="w-20 sm:w-24 rounded-lg shadow-md shrink-0 border border-slate-200">
+ </div>
+
+ <div class="space-y-4 my-6">
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shrink-0">1</span>
+ <p class="text-sm font-semibold text-slate-900">"Cơ hội vàng" — Khai phóng tầm nhìn hướng nghiệp sớm bậc THCS</p>
+ </div>
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shrink-0">2</span>
+ <p class="text-sm font-semibold text-slate-900">Tâm sinh lý và những biến đổi của trẻ tuổi 12-15 (mô hình ESSENCE)</p>
+ </div>
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shrink-0">3</span>
+ <p class="text-sm font-semibold text-slate-900">Nghệ thuật đồng hành — Cách nói sao cho con nghe, nghe sao để con nói</p>
+ </div>
+
+ <div id="toc-tap1" class="accordion-content space-y-4 pt-2 border-t border-slate-100">
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shrink-0">4</span>
+ <p class="text-sm text-slate-700">Giải mã bản thân con: Sở thích, Khả năng, Tính cách, Lẽ sống</p>
+ </div>
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shrink-0">5</span>
+ <p class="text-sm text-slate-700">Mật mã Holland (RIASEC) và 8 loại hình trí thông minh</p>
+ </div>
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shrink-0">6</span>
+ <p class="text-sm text-slate-700">NPH COACH™ — Phương pháp tư duy ngược trong hướng nghiệp</p>
+ </div>
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shrink-0">7</span>
+ <p class="text-sm text-slate-700">Từ THCS đến THPT: hiểu đúng để đi đúng</p>
+ </div>
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shrink-0">8</span>
+ <p class="text-sm text-slate-700">Bản đồ chọn môn lớp 10 theo chương trình GDPT 2018</p>
+ </div>
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shrink-0">9</span>
+ <p class="text-sm text-slate-700">11 cạm bẫy tâm lý + cẩm nang gỡ rối và cam kết đồng hành</p>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <button onclick="toggleToc('toc-tap1', this)" class="w-full py-3.5 px-4 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-emerald-800 font-bold text-sm flex items-center justify-center gap-2 transition">
+ <span>Xem đầy đủ mục lục Tập 1 (9 chương)</span>
+ <span class="toc-icon text-lg">+</span>
+ </button>
+ </div>
+
+ <!-- Tập 2 -->
+ <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-md flex flex-col justify-between">
+ <div>
+ <div class="flex items-start justify-between gap-4 mb-5">
+ <div>
+ <span class="bg-amber-100 text-amber-800 text-xs font-extrabold px-3.5 py-1.5 rounded-full uppercase tracking-wider inline-block mb-3 border border-amber-200">
+ TẬP 2 · THPT (LỚP 10-12)
+ </span>
+ <p class="text-xs sm:text-sm text-slate-600 italic leading-relaxed">
+ Con đang cần quyết định — trọng tâm là <strong>hành động</strong>: chọn ngành, chọn trường, chiến lược thi, IELTS, du học.
+ </p>
+ </div>
+ <img src="assets/bia-tap-2.jpg" alt="Bìa Tập 2" class="w-20 sm:w-24 rounded-lg shadow-md shrink-0 border border-slate-200">
+ </div>
+
+ <div class="space-y-4 my-6">
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs shrink-0">1</span>
+ <p class="text-sm font-semibold text-slate-900">Thấu hiểu bản thân — nền tảng của sự lựa chọn đúng đắn</p>
+ </div>
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs shrink-0">2</span>
+ <p class="text-sm font-semibold text-slate-900">Bản đồ nghề nghiệp — khớp năng lực vào thực tiễn (CAREER MAP)</p>
+ </div>
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs shrink-0">3</span>
+ <p class="text-sm font-semibold text-slate-900">Nhận diện thiên hướng — chiếc la bàn tâm lý học (cảnh báo "Hiệu ứng Barnum")</p>
+ </div>
+
+ <div id="toc-tap2" class="accordion-content space-y-4 pt-2 border-t border-slate-100">
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs shrink-0">4</span>
+ <p class="text-sm text-slate-700">Hiểu đúng để chọn trúng — quy trình ra quyết định cho ngã rẽ cuộc đời</p>
+ </div>
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs shrink-0">5</span>
+ <p class="text-sm text-slate-700">Đa dạng hóa xét tuyển — chìa khóa mở cánh cửa đại học</p>
+ </div>
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs shrink-0">6</span>
+ <p class="text-sm text-slate-700">Chiến lược ôn luyện và làm bài trong các kỳ thi riêng (HSA/TSA/ĐGNL)</p>
+ </div>
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs shrink-0">7</span>
+ <p class="text-sm text-slate-700">Tư duy ngược "bắt đầu từ đích đến"</p>
+ </div>
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs shrink-0">8</span>
+ <p class="text-sm text-slate-700">IELTS — từ "bóng ma" tâm lý đến công cụ đắc lực</p>
+ </div>
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs shrink-0">9</span>
+ <p class="text-sm text-slate-700">20 câu hỏi tháo gỡ tâm lý và định vị chiến lược IELTS</p>
+ </div>
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs shrink-0">10</span>
+ <p class="text-sm text-slate-700">Lộ trình săn học bổng và du học tự túc (khung D.R.E.A.M.S)</p>
+ </div>
+ <div class="flex items-start gap-4">
+ <span class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs shrink-0">11</span>
+ <p class="text-sm text-slate-700">Cẩm nang chuẩn bị CV & nguồn học bổng chính thống</p>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <button onclick="toggleToc('toc-tap2', this)" class="w-full py-3.5 px-4 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-amber-800 font-bold text-sm flex items-center justify-center gap-2 transition">
+ <span>Xem đầy đủ mục lục Tập 2 (11 chương)</span>
+ <span class="toc-icon text-lg">+</span>
+ </button>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ══════ KHỐI 7.5: CÂU CHUYỆN & PHẢN HỒI THỰC TẾ (NỀN TRẮNG SÁNG #FBFDFB — BẢO CHỨNG NIỀM TIN) ══════ -->
+ <!-- ══════════════════════════════════════════════════════════════════════════════
+       KHỐI 8: MINH CHỨNG THỰC TẾ & FEEDBACK ZALO CHÍNH THỨC TỪ PHỤ HUYNH OYL
+  ══════════════════════════════════════════════════════════════════════════════ -->
+ <!-- ══════════════════════════════════════════════════════════════════════════════
+       KHỐI 8: MINH CHỨNG CHUYỂN HÓA THỰC TẾ (FEEDBACK ZALO NGƯỜI THẬT VIỆC THẬT)
+  ══════════════════════════════════════════════════════════════════════════════ -->
+ <!-- ══════════════════════════════════════════════════════════════════════════════
+       KHỐI 8: MINH CHỨNG CHUYỂN HÓA THỰC TẾ (5 CÂU CHUYỆN & ẢNH CHỤP ZALO PHỤ HUYNH OYL)
+  ══════════════════════════════════════════════════════════════════════════════ -->
+ <!-- ══════════════════════════════════════════════════════════════════════════════
+       KHỐI 8: MINH CHỨNG CHUYỂN HÓA THỰC TẾ (FEEDBACK ZALO CHÍNH XÁC 100%)
+  ══════════════════════════════════════════════════════════════════════════════ -->
+ <!-- ══════════════════════════════════════════════════════════════════════════════
+       KHỐI 8: MINH CHỨNG CHUYỂN HÓA THỰC TẾ (FEEDBACK ZALO CHÍNH XÁC 100%)
+  ══════════════════════════════════════════════════════════════════════════════ -->
+ <!-- ══════════════════════════════════════════════════════════════════════════════
+       KHỐI 8: MINH CHỨNG CHUYỂN HÓA THỰC TẾ (FEEDBACK ZALO ĐÃ NỐI CHUẨN XÁC 100%)
+  ══════════════════════════════════════════════════════════════════════════════ -->
+ <!-- ══════════════════════════════════════════════════════════════════════════════
+       KHỐI 8: MINH CHỨNG CHUYỂN HÓA THỰC TẾ (FEEDBACK TINH GỌN, CHUẨN XÁC 100%)
+  ══════════════════════════════════════════════════════════════════════════════ -->
+  <!-- ══════════════════════════════════════════════════════════════════════════════
+       KHỐI 8: MINH CHỨNG CHUYỂN HÓA THỰC TẾ (4 FEEDBACK NGƯỜI THẬT VIỆC THẬT CÓ AVATAR ĐẦY ĐỦ)
+  ══════════════════════════════════════════════════════════════════════════════ -->
+  <section id="feedback" class="py-8 sm:py-10 px-4 md:px-8 bg-gradient-to-b from-[#F0F7F2] via-white to-[#F0F7F2] fade-in border-b border-emerald-200/40">
+    <div class="w-full mx-auto space-y-6">
+      
+      <!-- Header Phản Hồi Tinh Gọn -->
+      <div class="text-center">
+        <div class="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-900 border border-emerald-300 font-extrabold text-[11px] px-3.5 py-1 rounded-full uppercase tracking-wider mb-2 shadow-sm">
+          💬 MINH CHỨNG CHUYỂN HÓA THỰC TẾ
+        </div>
+        <h2 class="text-xl sm:text-3xl font-serif-title font-bold text-[#0F172A] leading-tight mb-1.5">
+          Phụ Huynh & Học Viên Nói Gì Về<br class="hidden sm:inline">
+          <span class="text-emerald-800">Quy Trình NPH Coach & Bản Đồ Hướng Nghiệp?</span>
+        </h2>
+        <p class="text-slate-600 text-xs sm:text-[13px] max-w-xl mx-auto leading-relaxed">
+          100% Ảnh chụp màn hình tin nhắn Zalo và câu chuyện người thật việc thật từ cộng đồng OYL Global.
+        </p>
+      </div>
+
+      <!-- Lưới 4 Thẻ Feedback Compact Có Avatar Đầy Đủ (2x2 Grid) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 items-stretch">
+
+        <!-- 1. FEEDBACK CÔ PHƯƠNG LAN -->
+        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-emerald-500/30 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between gap-2.5 mb-3 pb-2.5 border-b border-slate-100">
+              <div class="flex items-center gap-2.5">
+                <img src="assets/feedback/avatar-phuong-lan.jpg" alt="Phương Lan" class="w-10 h-10 rounded-full object-cover border-2 border-amber-400 shadow-sm">
+                <div>
+                  <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm leading-tight">Phương Lan</h4>
+                  <p class="text-[10.5px] text-emerald-700 font-bold">🎓 Hướng Nghiệp — Du Học Quốc Tế</p>
+                </div>
+              </div>
+              <div class="flex text-amber-500 text-[11px] font-bold tracking-tight bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">
+                ★★★★★
+              </div>
+            </div>
+
+            <h3 class="text-xs sm:text-[13px] font-bold text-slate-900 mb-1.5 leading-snug font-serif-title">
+              "Du học nghề spa Đài Loan, lương hơn 40 triệu/tháng và gửi tiền về cho bố mẹ"
+            </h3>
+
+            <p class="text-xs text-slate-600 leading-relaxed italic mb-3">
+              "Em khoe với cô là em có học sinh đi du học Đài Loan, mừng quá vì bố mẹ đến khoe là <strong class="text-emerald-800">con làm được lương khá cao vì là con đã có nghề spa làm đẹp ý, lương hơn 40 triệu một tháng đấy ạ</strong>. Con mới đi từ tháng 10 năm ngoái mà đã gửi về cho bố mẹ mua được mấy chỉ vàng rồi..."
+            </p>
+
+            <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 p-1.5 mb-3 flex items-center justify-center max-h-56">
+              <img src="assets/feedback/chat-phuong-lan.jpg" alt="Tin nhắn Zalo Phương Lan" class="w-full max-h-52 object-contain rounded-lg">
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[10.5px]">
+            <span class="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+              ✓ Lương 40tr/tháng tại Đài Loan
+            </span>
+            <span class="text-slate-400 font-mono">Zalo 16:53</span>
+          </div>
+        </div>
+
+        <!-- 2. FEEDBACK CHỊ HÀ SÀI GÒN -->
+        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-amber-400/60 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between gap-2.5 mb-3 pb-2.5 border-b border-slate-100">
+              <div class="flex items-center gap-2.5">
+                <img src="assets/feedback/avatar-ha-sai-gon.jpg" alt="Chị Hà Sài Gòn" class="w-10 h-10 rounded-full object-cover border-2 border-amber-400 shadow-sm">
+                <div>
+                  <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm leading-tight">Chị Hà Sài Gòn</h4>
+                  <p class="text-[10.5px] text-amber-800 font-bold">💼 Phụ huynh Doanh nghiệp · TP.HCM</p>
+                </div>
+              </div>
+              <div class="flex text-amber-500 text-[11px] font-bold tracking-tight bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">
+                ★★★★★
+              </div>
+            </div>
+
+            <h3 class="text-xs sm:text-[13px] font-bold text-slate-900 mb-1.5 leading-snug font-serif-title">
+              "Con trai Trần Đình An đạt IELTS 8.0 & giành học bổng trường quốc tế Úc (giảm 6tr/tháng)"
+            </h3>
+
+            <p class="text-xs text-slate-600 leading-relaxed italic mb-3">
+              "Biết ơn cô Nguyên Phụng! Một hành trình học hỏi 5 năm đi tìm giải pháp kết nối với con. Nhờ cô dẫn dắt, <strong class="text-emerald-800">Con Trai em Trần Đình An thi IELTS 8.0</strong>. Nhờ có kết quả tốt con được chọn trường và <strong class="text-amber-800">đạt học bổng của nhà trường, lợi cho mẹ mỗi tháng 6 triệu học phí...</strong>"
+            </p>
+
+            <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 p-1.5 mb-3 flex items-center justify-center max-h-56">
+              <img src="assets/feedback/chat-ha-sai-gon.jpg" alt="Tin nhắn Zalo Chị Hà Sài Gòn" class="w-full max-h-52 object-contain rounded-lg">
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[10.5px]">
+            <span class="text-amber-800 font-bold bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">
+              ✓ IELTS 8.0 & Học bổng quốc tế Úc
+            </span>
+            <span class="text-slate-400 font-mono">Zalo Support OYL</span>
+          </div>
+        </div>
+
+        <!-- 3. FEEDBACK ANH NGUYỄN HOÀNG TRUNG (PHỤ HUYNH KHÁNH LINH) -->
+        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-emerald-500/30 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between gap-2.5 mb-3 pb-2.5 border-b border-slate-100">
+              <div class="flex items-center gap-2.5">
+                <img src="assets/feedback/avatar-khanh-linh.jpg" alt="Anh Nguyễn Hoàng Trung" class="w-10 h-10 rounded-full object-cover border-2 border-emerald-600 shadow-sm">
+                <div>
+                  <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm leading-tight">Anh Nguyễn Hoàng Trung</h4>
+                  <p class="text-[10.5px] text-emerald-700 font-bold">🎓 Du học sinh ngành Kiến trúc (Đài Loan) · Phụ huynh Khánh Linh</p>
+                </div>
+              </div>
+              <div class="flex text-amber-500 text-[11px] font-bold tracking-tight bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">
+                ★★★★★
+              </div>
+            </div>
+
+            <h3 class="text-xs sm:text-[13px] font-bold text-slate-900 mb-1.5 leading-snug font-serif-title">
+              "Chọn đúng ngành Kiến trúc & tự làm thêm trang trải toàn bộ chi phí tại Đài Loan"
+            </h3>
+
+            <p class="text-xs text-slate-600 leading-relaxed italic mb-3">
+              "Biết ơn cô Nguyên Phụng, biết ơn học viện OYL, nhờ chạm đến bản đồ Số học và chương trình du học ở học viện mà <strong class="text-emerald-800">con trai Nguyễn Hoàng Trung của mình đã chọn ngành Kiến trúc và đã sang Đài Loan học tập</strong>. Trong 1 năm qua con học có kết quả tốt và đã làm thêm tự trang trải tiền sinh hoạt và học phí..."
+            </p>
+
+            <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 p-1.5 mb-3 flex items-center justify-center max-h-56">
+              <img src="assets/feedback/chat-khanh-linh.jpg" alt="Tin nhắn Zalo Phụ huynh Khánh Linh" class="w-full max-h-52 object-contain rounded-lg">
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[10.5px]">
+            <span class="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+              ✓ Ngành Kiến trúc Đài Loan
+            </span>
+            <span class="text-slate-400 font-mono">Zalo Phụ huynh</span>
+          </div>
+        </div>
+
+        <!-- 4. FEEDBACK CHỊ PHÙNG THỊ HUYỀN (NINH BÌNH) -->
+        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-emerald-500/30 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between gap-2.5 mb-3 pb-2.5 border-b border-slate-100">
+              <div class="flex items-center gap-2.5">
+                <img src="assets/feedback/avatar-phung-thi-huyen.jpg" alt="Chị Phùng Thị Huyền" class="w-10 h-10 rounded-full object-cover border-2 border-emerald-600 shadow-sm">
+                <div>
+                  <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm leading-tight">Chị Phùng Thị Huyền</h4>
+                  <p class="text-[10.5px] text-emerald-700 font-bold">👩‍👧‍👦 Phụ huynh học sinh · Nho Quan, Ninh Bình</p>
+                </div>
+              </div>
+              <div class="flex text-amber-500 text-[11px] font-bold tracking-tight bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">
+                ★★★★★
+              </div>
+            </div>
+
+            <h3 class="text-xs sm:text-[13px] font-bold text-slate-900 mb-1.5 leading-snug font-serif-title">
+              "Biết ơn 120 phút khai mở: Giúp con nhìn sâu vào chính mình & tự tin viết nên tương lai"
+            </h3>
+
+            <p class="text-xs text-slate-600 leading-relaxed italic mb-3">
+              "Có những cuộc gặp chỉ 120 phút nhưng lại có thể mở ra một hướng đi cho cả tương lai. <strong class="text-emerald-800">Em biết ơn cô Nguyên Phụng – Học viện OYL đã dành trọn 120 phút để lắng nghe, khai vấn và giúp con trai em nhìn sâu hơn vào chính mình</strong>: con là ai, có thế mạnh gì... Điều em biết ơn nhất là cô không chọn thay con, mà giúp con đủ hiểu mình để tự tin bước đi..."
+            </p>
+
+            <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 p-1.5 mb-3 flex items-center justify-center max-h-56">
+              <img src="assets/feedback/chat-phung-thi-huyen.jpg" alt="Cảm nhận Chị Phùng Thị Huyền Ninh Bình" class="w-full max-h-52 object-contain rounded-lg">
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[10.5px]">
+            <span class="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+              ✓ Khai vấn 120 phút · Ninh Bình
+            </span>
+            <span class="text-slate-400 font-mono">Feedback OYL</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Callout Cam Kết Cuối Mục Feedback -->
+      <div class="w-full text-center p-3.5 sm:p-4 bg-emerald-50 rounded-xl border border-emerald-200">
+        <p class="text-xs text-emerald-950 font-semibold leading-relaxed">
+          🤝 Mỗi đứa trẻ là một bản thể độc nhất. Bản Đồ Hướng Nghiệp không áp đặt một công thức rập khuôn, mà giúp chính con và cha mẹ tự vẽ nên con đường phù hợp nhất với năng lực và hoàn cảnh của mình.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+ <!-- ══════ KHỐI 8: BẢNG GIÁ CHÍNH THỨC (NỀN TỐI SANG TRỌNG #0F172A) ══════ -->
+ <!-- ══════════════════════════════════════════════════════════════════════════════
+           KHU VỰC BẢNG GIÁ & ĐĂNG KÝ — 3 BƯỚC CHUẨN:
+           BƯỚC 1: BẢNG ĐỐI CHIẾU CHI TIẾT QUYỀN LỢI (MATRIX TABLE)
+           BƯỚC 2: KHUNG BẢNG GIÁ CÁC GÓI (PRICING CARDS)
+           BƯỚC 3: CHỖ ĐIỀN THÔNG TIN & MÃ VIETQR TECHCOMBANK TỰ ĐỘNG
+      ══════════════════════════════════════════════════════════════════════════════ -->
+ <!-- ══════════════════════════════════════════════════════════════════════════════
+           KHU VỰC BẢNG GIÁ & ĐĂNG KÝ — 3 BƯỚC CHUẨN:
+           BƯỚC 1: BẢNG ĐỐI CHIẾU CHI TIẾT QUYỀN LỢI (MATRIX TABLE)
+           BƯỚC 2: KHUNG BẢNG GIÁ CÁC GÓI (PRICING CARDS)
+           BƯỚC 3: CHỖ ĐIỀN THÔNG TIN & MÃ VIETQR TECHCOMBANK TỰ ĐỘNG
+      ══════════════════════════════════════════════════════════════════════════════ -->
+ 
+ <!-- ══════════════════════════════════════════════════════════════════════════════
+           KHỐI 5 QUÀ TẶNG HỆ SINH THÁI (ĐỊNH GIÁ CHUẨN XÁC: 7.847.000 VNĐ)
+      ══════════════════════════════════════════════════════════════════════════════ -->
+ <div id="qua-tang" class="w-full space-y-6 pt-4">
+ <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 pb-2 border-b border-emerald-500/20">
+ <div>
+ <span class="text-amber-600 text-xs font-black uppercase tracking-widest block mb-1">🎁 HỆ SINH THÁI ĐỒNG HÀNH TOÀN DIỆN</span>
+ <h3 class="text-xl sm:text-3xl font-black text-[#0F172A] font-serif-title">
+ Bộ "Bản Đồ Hướng Nghiệp" & 5 Đặc Quyền (Tổng Trị Giá: <span class="text-amber-600 font-mono">7.847.000đ</span>)
+ </h3>
+ </div>
+ <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold shrink-0">
+ <span>👑 Tặng kèm trọn vẹn trong Gói Thực Thi 999K</span>
+ </div>
+ </div>
+
+ <!-- 5 Compact Bento Cards (Phép cộng chuẩn xác: 4.999k + 1.850k + 599k + 399k = 7.847.000đ) -->
+ <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+ 
+ <!-- Bonus 1: Khóa học Video 30 bài giảng (4.999.000đ) -->
+ <div class="bg-white rounded-2xl p-4 sm:p-5 border border-emerald-200 shadow-sm flex flex-col justify-between hover:shadow-md transition group">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-800 text-[10px] font-black uppercase tracking-wider">HẠNG MỤC 1</span>
+ <span class="text-xs font-mono font-bold text-amber-600">4.999.000đ</span>
+ </div>
+ <div class="flex items-center gap-2.5 mb-2">
+ <span class="text-xl">🎥</span>
+ <h4 class="text-sm sm:text-base font-bold text-slate-900 font-heading">30 Video Bài Giảng Skool</h4>
+ </div>
+ <p class="text-xs text-slate-600 leading-relaxed mb-3">
+ Khóa học khai vấn thực chiến: Tư duy ngược trong thiết kế nghề nghiệp do Coach Nguyên Phụng trực tiếp đào tạo.
+ </p>
+ </div>
+ <div class="pt-2.5 border-t border-slate-100 text-[11px] text-emerald-700 font-bold flex items-center justify-between">
+ <span>✓ Xem lại trọn đời trên Skool</span>
+ <span class="text-slate-500 font-mono">4.999.000đ</span>
+ </div>
+ </div>
+
+ <!-- Bonus 2: Bản Đồ Định Hướng Cá Nhân Hóa (1.850.000đ) -->
+ <div class="bg-white rounded-2xl p-4 sm:p-5 border border-emerald-200 shadow-sm flex flex-col justify-between hover:shadow-md transition group">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-800 text-[10px] font-black uppercase tracking-wider">HẠNG MỤC 2</span>
+ <span class="text-xs font-mono font-bold text-amber-600">1.850.000đ</span>
+ </div>
+ <div class="flex items-center gap-2.5 mb-2">
+ <span class="text-xl">🗺️</span>
+ <h4 class="text-sm sm:text-base font-bold text-slate-900 font-heading">Bản Đồ Cá Nhân Hóa</h4>
+ </div>
+ <p class="text-xs text-slate-600 leading-relaxed mb-3">
+ Đánh giá toàn diện 6 nhóm chỉ số tiềm năng, bóc tách điểm mạnh/yếu để xây dựng chiến lược nghề nghiệp độc bản cho con.
+ </p>
+ </div>
+ <div class="pt-2.5 border-t border-slate-100 text-[11px] text-emerald-700 font-bold flex items-center justify-between">
+ <span>✓ Báo cáo định hướng chuyên sâu</span>
+ <span class="text-slate-500 font-mono">1.850.000đ</span>
+ </div>
+ </div>
+
+ <!-- Bonus 3: Trọn Bộ 2 Tập Sách PDF (599.000đ) -->
+ <div class="bg-white rounded-2xl p-4 sm:p-5 border border-emerald-200 shadow-sm flex flex-col justify-between hover:shadow-md transition group">
+ <div>
+ <div class="flex items-center justify-between mb-2">
+ <span class="px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-800 text-[10px] font-black uppercase tracking-wider">HẠNG MỤC 3</span>
+ <span class="text-xs font-mono font-bold text-amber-600">599.000đ</span>
+ </div>
+ <div class="flex items-center gap-2.5 mb-2">
+ <span class="text-xl">📚</span>
+ <h4 class="text-sm sm:text-base font-bold text-slate-900 font-heading">Trọn Bộ 2 Tập Sách (PDF)</h4>
+ </div>
+ <p class="text-xs text-slate-600 leading-relaxed mb-3">
+ Tập 1 (THCS: 115 trang nền tảng) + Tập 2 (THPT: 102 trang chuyên sâu chọn tổ hợp môn & kỳ thi riêng).
+ </p>
+ </div>
+ <div class="pt-2.5 border-t border-slate-100 text-[11px] text-emerald-700 font-bold flex items-center justify-between">
+ <span>✓ File PDF tải ngay, in ấn sắc nét</span>
+ <span class="text-slate-500 font-mono">599.000đ</span>
+ </div>
+ </div>
+
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+ 
+ <!-- Bonus 4: Bộ 3 Workbook Thực Hành 21 Ngày (399.000đ) -->
+ <div class="bg-white rounded-2xl p-4 sm:p-5 border border-emerald-200 shadow-sm flex flex-col sm:flex-row gap-4 items-center justify-between hover:shadow-md transition">
+ <div class="w-24 sm:w-28 shrink-0">
+ <img src="assets/mockup-workbook-quy-trinh-tham-van.jpg" alt="Workbook Thực Hành" class="w-full h-auto rounded-xl shadow border border-slate-200">
+ </div>
+ <div class="flex-1 flex flex-col justify-between">
+ <div>
+ <div class="flex items-center justify-between mb-1">
+ <span class="px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-800 text-[10px] font-black uppercase tracking-wider">HẠNG MỤC 4</span>
+ <span class="text-xs font-mono font-bold text-amber-600">399.000đ</span>
+ </div>
+ <h4 class="text-sm sm:text-base font-bold text-slate-900 font-heading mb-1">Bộ 3 Workbook Thực Hành (PDF)</h4>
+ <p class="text-xs text-slate-600 leading-relaxed">
+ Sổ tay bài tập 6 bước tham vấn chuẩn thực chiến kèm lộ trình tự đánh giá 21 ngày cho con.
+ </p>
+ </div>
+ <div class="mt-2 text-[11px] text-emerald-700 font-bold flex items-center justify-between">
+ <span>✓ Biểu mẫu theo dõi tiến độ chi tiết</span>
+ <span class="text-slate-500 font-mono">399.000đ</span>
+ </div>
+ </div>
+ </div>
+
+ <!-- Bonus 5: Cộng Đồng Phụ Huynh VIP (Đặc Quyền Vô Giá) -->
+ <div class="bg-white rounded-2xl p-4 sm:p-5 border border-emerald-200 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+ <div>
+ <div class="flex items-center justify-between mb-1">
+ <span class="px-2.5 py-0.5 rounded-md bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase tracking-wider">HẠNG MỤC 5</span>
+ <span class="text-xs font-mono font-bold text-emerald-700">ĐẶC QUYỀN VÔ GIÁ</span>
+ </div>
+ <h4 class="text-sm sm:text-base font-bold text-slate-900 font-heading mb-1">Cộng Đồng Zalo VIP (Dành Riêng Khách Mua Gói)</h4>
+              <p class="text-xs text-slate-600 leading-relaxed mb-2">
+                Nhóm riêng tư có kiểm duyệt nghiêm ngặt. Chỉ mở quyền truy cập cho phụ huynh đã đăng ký gói Combo 999K/VIP để đồng hành trực tiếp cùng Coach Nguyên Phụng.
+              </p>
+            </div>
+            <div class="mt-2 text-[11px] text-emerald-800 font-bold flex items-center justify-between bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200">
+              <span>🔒 Duyệt tự động theo SĐT đăng ký</span>
+              <span class="text-amber-800 font-extrabold uppercase">Đặc Quyền Khép Kín</span>
+            </div>
+
+ </div>
+
+ <!-- Tổng kết phép tính minh bạch -->
+ <div class="p-4 rounded-2xl bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 text-white flex flex-col sm:flex-row items-center justify-between gap-3 shadow-lg border border-amber-400/40">
+ <div class="text-xs sm:text-sm text-center sm:text-left">
+ <span class="text-amber-700 font-bold uppercase tracking-wider">Tổng giá trị thực tế của 5 hạng mục:</span>
+ <div class="font-mono text-xs text-emerald-200 mt-0.5">
+ 4.999.000đ (Video) + 1.850.000đ (Bản đồ) + 599.000đ (2 Sách) + 399.000đ (Workbook) = <strong class="text-amber-700 font-black text-sm sm:text-base">7.847.000đ</strong>
+ </div>
+ </div>
+ <div class="shrink-0 flex items-center gap-2 bg-amber-400 text-slate-950 px-4 py-2 rounded-xl font-bold text-xs font-mono shadow">
+ <span>ĐĂNG KÝ GÓI THỰC THI CHỈ:</span>
+ <span class="text-base font-black text-slate-950">999.000đ</span>
+ </div>
+ </div>
+ </div>
+
+ <!-- ══════════════════════════════════════════════════════════════════════════════
+           KHU VỰC BẢNG GIÁ & ĐĂNG KÝ — 3 BƯỚC CHUẨN:
+           BƯỚC 1: BẢNG ĐỐI CHIẾU CHI TIẾT QUYỀN LỢI (MATRIX TABLE)
+           BƯỚC 2: KHUNG BẢNG GIÁ CÁC GÓI (PRICING CARDS)
+           BƯỚC 3: CHỖ ĐIỀN THÔNG TIN & MÃ VIETQR TECHCOMBANK TỰ ĐỘNG
+      ══════════════════════════════════════════════════════════════════════════════ -->
+ <section id="bang-gia" class="w-full space-y-10 pt-4">
+
+ <!-- Header -->
+ <div class="text-center">
+ <span class="text-emerald-800 text-xs font-black uppercase tracking-widest block mb-1 font-heading">HỆ THỐNG ĐỊNH PHÍ & ĐĂNG KÝ</span>
+ <h2 class="text-2xl sm:text-4xl font-black text-[#0F172A] font-serif-title">Đầu Tư Xứng Đáng Cho Tương Lai Của Con</h2>
+ <p class="text-xs sm:text-sm text-slate-600 mt-1">Toàn bộ tài nguyên số (Ebook PDF, Video Skool, Test DISC/Holland) được kích hoạt tức thì qua Email & Zalo.</p>
+ </div>
+
+ <!-- ──────── BƯỚC 1: BẢNG ĐỐI CHIẾU QUYỀN LỢI & CHỌN GÓI ──────── -->
+ <div class="w-full mx-auto overflow-hidden rounded-3xl bg-white text-slate-900 shadow-xl border-2 border-emerald-600/30">
+ <div class="p-4 bg-emerald-900 text-white flex items-center justify-between">
+ <div class="flex items-center gap-2">
+ <span class="text-lg">📊</span>
+ <span class="text-xs sm:text-sm font-black uppercase tracking-wider text-white font-heading">
+ BẢNG ĐỐI CHIẾU QUYỀN LỢI CHI TIẾT & LỰA CHỌN GÓI
+ </span>
+ </div>
+ <span class="text-[11px] text-amber-300 font-mono font-bold">NPH COACH™ SYSTEM</span>
+ </div>
+
+ <div class="hidden md:block overflow-x-auto -mx-1 pt-4">
+          <table class="w-full table-fixed text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="border-b-2 border-emerald-600/20 bg-slate-50">
+                <th class="p-2 sm:p-3 text-left w-[40%] font-heading align-bottom sticky left-0 z-20 bg-emerald-900 text-white">
+                  <span class="text-xs sm:text-sm md:text-base font-black text-white uppercase tracking-wider block leading-tight">
+                    Hạng mục quyền lợi
+                  </span>
+                  <span class="text-[10px] sm:text-xs font-bold text-emerald-300 block mt-0.5">
+                    (Hệ sinh thái Bản Đồ Hướng Nghiệp)
+                  </span>
+                </th>
+
+                <!-- CỘT 199K: THU NHỎ, LÀM MỜ NHẸ -->
+                <th class="p-1.5 sm:p-2 text-center w-[15%] border-l border-slate-200 font-heading bg-slate-100/60 opacity-75 hover:opacity-100 transition-opacity align-bottom">
+                  <span class="inline-block px-2 py-0.5 rounded-full bg-slate-200 text-slate-500 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider mb-1">
+                    Chỉ Có Ebook
+                  </span>
+                  <h4 class="text-xs sm:text-sm font-bold text-slate-600 uppercase tracking-wide leading-tight">
+                    GÓI TRẢI NGHIỆM
+                  </h4>
+                </th>
+
+                <!-- CỘT 999K: TÂM ĐIỂM BEST SELLER - NỔI BẬT & TƯƠNG PHẢN CAO NHẤT -->
+                <th class="p-2 sm:p-3 text-center w-[30%] border-x-4 border-t-4 border-amber-400 bg-gradient-to-b from-amber-100 via-amber-50 to-white font-heading align-bottom shadow-2xl relative">
+                  <div class="mb-1.5">
+                    <span class="inline-flex items-center gap-1 bg-gradient-to-r from-red-600 via-amber-500 to-red-600 text-white text-[9px] sm:text-[11px] font-black uppercase tracking-wider px-2.5 sm:px-3 py-1 rounded-full shadow-lg border-2 border-white whitespace-nowrap">
+                      👑 BEST SELLER · TIẾT KIỆM 87%
+                    </span>
+                  </div>
+                  <div class="mt-2 mb-0.5">
+                    <span class="inline-block text-[10px] sm:text-xs font-black text-amber-900 uppercase tracking-wider bg-amber-200 px-2.5 py-0.5 rounded-full border border-amber-300">
+                      GÓI ĐẦY ĐỦ NHẤT (90% CHỌN)
+                    </span>
+                  </div>
+                  <h4 class="text-sm sm:text-base md:text-lg font-black text-amber-900 uppercase tracking-wide font-heading leading-tight">
+                    🔥 GÓI THỰC THI
+                  </h4>
+                  <div class="mt-0.5">
+                    <span class="inline-block text-[9px] sm:text-[11px] font-extrabold text-emerald-800 uppercase tracking-wider bg-emerald-100 px-2 py-0.5 rounded-full border border-emerald-300">
+                      Trọn Bộ 5 Hạng Mục
+                    </span>
+                  </div>
+                </th>
+
+                <!-- CỘT 11.9TR: CỐ VẤN 1:1 -->
+                <th class="p-2 sm:p-3 text-center w-[15%] border-l border-slate-200 font-heading bg-slate-50 opacity-80 hover:opacity-100 transition-opacity align-bottom">
+                  <span class="inline-block px-2 py-0.5 rounded-full bg-slate-200 text-slate-600 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider mb-1">
+                    Đặc Quyền 1:1
+                  </span>
+                  <h4 class="text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wide leading-tight">
+                    CỐ VẤN CHUYÊN SÂU
+                  </h4>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              
+              <!-- HÀNG MỨC GIÁ -->
+              <tr class="font-bold">
+                <td class="py-2 px-3 sm:px-4 text-emerald-950 leading-tight sticky left-0 z-10 bg-emerald-100/90 text-xs sm:text-sm border-r border-slate-200">Mức giá ưu đãi</td>
+                <td class="py-2 px-3 sm:px-4 text-center font-bold text-slate-400 text-xs sm:text-sm border-l border-slate-200 font-mono bg-slate-50/50">199.000đ</td>
+                <td class="py-2 px-3 sm:px-4 text-center font-black text-amber-600 text-lg sm:text-2xl border-x-4 border-amber-400 bg-amber-100/80 font-heading font-mono shadow-inner">
+                  <span class="block leading-none">999.000đ</span>
+                  <span class="text-[10.5px] font-bold text-red-600 tracking-normal block mt-1">Giảm 87% từ 7.8tr</span>
+                </td>
+                <td class="py-2 px-3 sm:px-4 text-center font-bold text-slate-500 text-xs sm:text-sm border-l border-slate-200 font-mono bg-slate-50/50">11.900.000đ</td>
+              </tr>
+
+              <!-- HÀNG GIÁ TRỊ THỰC TẾ -->
+              <tr>
+                <td class="py-2 px-3 sm:px-4 font-semibold text-slate-500 leading-tight sticky left-0 z-10 bg-white text-xs border-r border-slate-200">Giá trị thực tế</td>
+                <td class="py-2 px-3 sm:px-4 text-center text-slate-400 line-through border-l border-slate-200 text-xs font-mono bg-slate-50/30">599.000đ</td>
+                <td class="py-2 px-3 sm:px-4 text-center text-amber-800/80 line-through border-x-4 border-amber-400 bg-amber-50/70 text-xs sm:text-sm font-mono font-bold">7.847.000đ</td>
+                <td class="py-2 px-3 sm:px-4 text-center text-slate-400 line-through border-l border-slate-200 text-xs font-mono bg-slate-50/30">20.000.000đ</td>
+              </tr>
+
+              <!-- 1. Bộ 2 Tập Ebook PDF -->
+              <tr class="bg-slate-50/50">
+                <td class="py-1.5 px-3 sm:px-4 leading-snug sticky left-0 z-10 bg-slate-50 border-r border-slate-200">
+                  <strong class="text-slate-900 block">1. Bộ 2 Tập Ebook PDF (THCS & THPT)</strong>
+                  <span class="text-[11px] text-slate-500">Trị giá: 599.000đ</span>
+                </td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-slate-400 font-bold border-l border-slate-200 text-sm bg-slate-50/30">✅</td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-emerald-600 font-bold border-x-4 border-amber-400 bg-amber-50/50 text-base">✅</td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-slate-400 font-bold border-l border-slate-200 text-sm bg-slate-50/30">✅</td>
+              </tr>
+
+              <!-- 2. Khóa học Video 30 bài giảng Skool -->
+              <tr>
+                <td class="py-1.5 px-3 sm:px-4 leading-snug sticky left-0 z-10 bg-white border-r border-slate-200">
+                  <strong class="text-slate-900 block">2. Khóa học Video 30 bài giảng Skool</strong>
+                  <span class="text-[11px] text-slate-500">Coach Nguyên Phụng giảng dạy · Trị giá: 4.999.000đ</span>
+                </td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-slate-300 font-bold border-l border-slate-200 text-sm bg-slate-50/30">✕</td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-emerald-600 font-bold border-x-4 border-amber-400 bg-amber-50/50 text-base">✅</td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-emerald-600 font-bold border-l border-slate-200 text-base">✅</td>
+              </tr>
+
+              <!-- 3. Bản đồ định hướng cá nhân hóa -->
+              <tr class="bg-slate-50/50">
+                <td class="py-1.5 px-3 sm:px-4 leading-snug sticky left-0 z-10 bg-slate-50 border-r border-slate-200">
+                  <strong class="text-slate-900 block">3. Bản đồ định hướng cá nhân hóa</strong>
+                  <span class="text-[11px] text-slate-500">Báo cáo phân tích 6 chỉ số · Trị giá: 1.850.000đ</span>
+                </td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-slate-300 font-bold border-l border-slate-200 text-sm bg-slate-50/30">✕</td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-emerald-600 font-bold border-x-4 border-amber-400 bg-amber-50/50 text-base">✅</td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-emerald-600 font-bold border-l border-slate-200 text-base">✅</td>
+              </tr>
+
+              <!-- 4. Bộ 3 Workbook thực hành 21 ngày -->
+              <tr>
+                <td class="py-1.5 px-3 sm:px-4 leading-snug sticky left-0 z-10 bg-white border-r border-slate-200">
+                  <strong class="text-slate-900 block">4. Bộ 3 Workbook thực hành 21 ngày (PDF)</strong>
+                  <span class="text-[11px] text-slate-500">Sổ tay bài tập kèm biểu mẫu · Trị giá: 399.000đ</span>
+                </td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-slate-300 font-bold border-l border-slate-200 text-sm bg-slate-50/30">✕</td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-emerald-600 font-bold border-x-4 border-amber-400 bg-amber-50/50 text-base">✅</td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-emerald-600 font-bold border-l border-slate-200 text-base">✅</td>
+              </tr>
+
+              <!-- 5. Cộng đồng Zalo Phụ huynh VIP -->
+              <tr class="bg-slate-50/50">
+                <td class="py-1.5 px-3 sm:px-4 leading-snug sticky left-0 z-10 bg-slate-50 border-r border-slate-200">
+                  <strong class="text-slate-900 block">5. Cộng đồng Zalo Phụ huynh VIP</strong>
+                  <span class="text-[11px] text-slate-500">Hỗ trợ & giải đáp thắc mắc liên tục · Đặc quyền vô giá</span>
+                </td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-slate-300 font-bold border-l border-slate-200 text-sm bg-slate-50/30">✕</td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-emerald-600 font-bold border-x-4 border-amber-400 bg-amber-50/50 text-base">✅</td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-emerald-600 font-bold border-l border-slate-200 text-base">✅</td>
+              </tr>
+
+              <!-- 6. Phiên tham vấn 1:1 cùng Chuyên gia -->
+              <tr>
+                <td class="py-1.5 px-3 sm:px-4 leading-snug sticky left-0 z-10 bg-white border-r border-slate-200">
+                  <strong class="text-slate-900 block">6. Phiên tham vấn 1:1 cùng Chuyên gia</strong>
+                  <span class="text-[11px] text-slate-500">3 Buổi cố vấn lộ trình chuyên sâu (Gói VIP)</span>
+                </td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-slate-300 font-bold border-l border-slate-200 text-sm bg-slate-50/30">✕</td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-slate-300 font-bold border-x-4 border-amber-400 bg-amber-50/50 text-sm">✕</td>
+                <td class="py-1.5 px-3 sm:px-4 text-center text-emerald-600 font-bold border-l border-slate-200 text-base">✅</td>
+              </tr>
+
+              <!-- HÀNG NÚT CHỌN GÓI & CTA TRỰC TIẾP (TỐI ƯU TƯƠNG PHẢN ĐẬP VÀO MẮT GÓI 999K) -->
+              <tr class="bg-slate-50 border-t-2 border-emerald-600/30">
+                <td class="p-4 font-bold text-slate-800 sticky left-0 z-10 bg-slate-100 border-r border-slate-200 text-xs sm:text-sm">
+                  Lựa chọn gói & Đăng ký:
+                </td>
+                
+                <!-- Nút Gói 199K: Màu xám/trắng nhạt, mờ, phụ trợ -->
+                <td class="p-2 sm:p-3 text-center border-l border-slate-200 align-middle bg-slate-50/60">
+                  <button onclick="selectPackage('GÓI 1: TRẢI NGHIỆM - 199.000đ', 199000)" class="w-full py-2.5 px-2 rounded-xl bg-white hover:bg-slate-100 text-slate-500 hover:text-slate-800 border border-slate-300 font-bold text-[11px] uppercase tracking-wider transition shadow-none hover:shadow-xs">
+                    Chọn 199K
+                  </button>
+                </td>
+
+                <!-- Nút Gói 999K: TO HƠN, NHẤP NHÁY HÀO QUANG VÀNG KIM, TƯƠNG PHẢN TUYỆT ĐỐI -->
+                <td class="p-3 sm:p-4 text-center border-x-4 border-b-4 border-amber-400 bg-amber-100/90 align-middle relative">
+                  <button onclick="selectPackage('GÓI 2: THỰC THI (COMBO) - 999.000đ', 999000)" class="w-full py-4 px-3 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 text-slate-950 font-black text-xs sm:text-sm md:text-base uppercase tracking-wider hover:brightness-110 shadow-2xl shadow-amber-500/60 transition hover:scale-105 border-2 border-white ring-2 ring-amber-400 ring-offset-2 animate-pulse whitespace-nowrap">
+                    🔥 ĐẶT COMBO 999K ➔
+                  </button>
+                  <span class="block text-[10px] text-amber-900 font-extrabold mt-1.5">⚡ Nhận trọn bộ ngay tức thì</span>
+                </td>
+
+                <!-- Nút Gói VIP -->
+                <td class="p-2 sm:p-3 text-center border-l border-slate-200 align-middle bg-slate-50/60">
+                  <a href="https://zalo.me/0946154747" target="_blank" rel="noopener" class="inline-block w-full py-2.5 px-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-[11px] uppercase tracking-wider border border-slate-300 transition">
+                    Tư vấn 1:1 ↗
+                  </a>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+         <!-- ══════ B. GIAO DIỆN MOBILE (MÀN HÌNH ĐIỆN THOẠI: THẺ XẾP DỌC THÔNG MINH DỄ CHẠM VUỐT) ══════ -->
+        <div class="block md:hidden p-3.5 sm:p-4 space-y-4 bg-[#F8FAF8]">
+          
+          <!-- THẺ 1 (NỔI BẬT NHẤT TRÊN CÙNG): GÓI THỰC THI 999K (BEST SELLER) -->
+          <div class="relative bg-white rounded-3xl p-5 border-4 border-amber-400 shadow-2xl overflow-hidden bg-gradient-to-b from-amber-50/80 via-white to-amber-50/40">
+            <!-- Badge góc -->
+            <div class="inline-flex items-center gap-1 bg-gradient-to-r from-red-600 via-amber-500 to-red-600 text-white text-[11px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md mb-2 animate-bounce">
+              👑 BEST SELLER · TIẾT KIỆM 87%
+            </div>
+
+            <div class="flex items-baseline justify-between mt-1 mb-2">
+              <div>
+                <span class="text-[10px] font-extrabold text-amber-900 uppercase tracking-wide bg-amber-200 px-2 py-0.5 rounded-md">90% Phụ Huynh Chọn</span>
+                <h3 class="text-xl font-black text-amber-950 font-heading mt-1">🔥 GÓI THỰC THI</h3>
+              </div>
+              <div class="text-right">
+                <span class="block text-2xl font-black font-mono text-amber-600">999.000đ</span>
+                <span class="text-xs text-slate-400 line-through font-mono">7.847.000đ</span>
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-600 mb-3.5 leading-relaxed font-medium">
+              Trọn bộ hệ sinh thái hướng nghiệp độc bản cho con — bao gồm Video Skool, Bản đồ phân tích, Sách & Workbook.
+            </p>
+
+            <!-- Checklist 5 Quyền Lợi -->
+            <ul class="space-y-2.5 text-xs text-slate-800 mb-5 pt-3 border-t border-amber-200">
+              <li class="flex items-start gap-2 font-bold text-emerald-900">
+                <span class="shrink-0 text-emerald-600 font-black">✅</span>
+                <span>Bộ 2 Tập Ebook PDF (THCS & THPT)</span>
+              </li>
+              <li class="flex items-start gap-2 font-bold text-emerald-900">
+                <span class="shrink-0 text-emerald-600 font-black">✅</span>
+                <span>Khóa học Video 30 bài giảng Skool (Coach Nguyên Phụng)</span>
+              </li>
+              <li class="flex items-start gap-2 font-bold text-emerald-900">
+                <span class="shrink-0 text-emerald-600 font-black">✅</span>
+                <span>Bản đồ định hướng cá nhân hóa 6 nhóm chỉ số</span>
+              </li>
+              <li class="flex items-start gap-2 font-bold text-emerald-900">
+                <span class="shrink-0 text-emerald-600 font-black">✅</span>
+                <span>Bộ 3 Workbook thực hành 21 ngày (PDF)</span>
+              </li>
+              <li class="flex items-start gap-2 font-bold text-emerald-900">
+                <span class="shrink-0 text-emerald-600 font-black">✅</span>
+                <span>Cộng đồng Zalo Phụ huynh VIP (Đặc quyền riêng tư)</span>
+              </li>
+            </ul>
+
+            <!-- Nút bấm to đùng cho ngón tay cái -->
+            <button onclick="selectPackage('GÓI 2: THỰC THI (COMBO) - 999.000đ', 999000)" class="w-full py-4 px-4 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 text-slate-950 font-black text-sm uppercase tracking-wider shadow-xl shadow-amber-500/50 transition active:scale-95 border-2 border-white ring-2 ring-amber-400 animate-pulse">
+              🔥 ĐẶT COMBO 999K (TIẾT KIỆM 87%) ➔
+            </button>
+            <span class="block text-center text-[10.5px] text-amber-900 font-bold mt-2">⚡ Kích hoạt nhận toàn bộ tài nguyên ngay</span>
+          </div>
+
+          <!-- THẺ 2: GÓI TRẢI NGHIỆM 199K (THU NHỎ, MỜ HƠN, NẰM DƯỚI) -->
+          <div class="bg-white rounded-2xl p-4 border border-slate-300 shadow-sm opacity-80 hover:opacity-100 transition-opacity">
+            <div class="flex items-baseline justify-between mb-2">
+              <div>
+                <span class="text-[10px] font-bold text-slate-500 uppercase bg-slate-100 px-2 py-0.5 rounded">Chỉ gồm Ebook</span>
+                <h4 class="text-sm font-bold text-slate-700 mt-1">GÓI TRẢI NGHIỆM</h4>
+              </div>
+              <div class="text-right">
+                <span class="block text-base font-bold font-mono text-slate-600">199.000đ</span>
+                <span class="text-[11px] text-slate-400 line-through font-mono">599.000đ</span>
+              </div>
+            </div>
+            
+            <ul class="space-y-1.5 text-xs text-slate-600 mb-3.5 pt-2 border-t border-slate-100">
+              <li class="flex items-center gap-1.5 text-slate-700">
+                <span>✅</span> <span>Bộ 2 Tập Ebook PDF (THCS & THPT)</span>
+              </li>
+              <li class="flex items-center gap-1.5 text-slate-400">
+                <span>✕</span> <span class="line-through">Không có Video 30 bài Skool</span>
+              </li>
+              <li class="flex items-center gap-1.5 text-slate-400">
+                <span>✕</span> <span class="line-through">Không có Bản đồ cá nhân hóa</span>
+              </li>
+            </ul>
+
+            <button onclick="selectPackage('GÓI 1: TRẢI NGHIỆM - 199.000đ', 199000)" class="w-full py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs uppercase transition border border-slate-300">
+              Chọn Gói 199K →
+            </button>
+          </div>
+
+          <!-- THẺ 3: CỐ VẤN 1:1 (11.900.000đ) -->
+          <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm opacity-80">
+            <div class="flex items-baseline justify-between mb-2">
+              <div>
+                <span class="text-[10px] font-bold text-slate-500 uppercase bg-slate-100 px-2 py-0.5 rounded">Cố Vấn Chuyên Sâu</span>
+                <h4 class="text-sm font-bold text-slate-700 mt-1">GÓI VIP 1:1</h4>
+              </div>
+              <div class="text-right">
+                <span class="block text-base font-bold font-mono text-slate-800">11.900.000đ</span>
+              </div>
+            </div>
+            <p class="text-[11px] text-slate-500 mb-3">3 Buổi tham vấn lộ trình chuyên sâu trực tiếp cùng Chuyên gia cấp cao.</p>
+            <a href="https://zalo.me/0946154747" target="_blank" rel="noopener" class="inline-block w-full py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs uppercase text-center border border-slate-300 transition">
+              Liên Hệ Tư Vấn 1:1 ↗
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+  <!-- ──────── BƯỚC 2: CHỖ ĐIỀN THÔNG TIN & MÃ VIETQR THANH TOÁN TECHCOMBANK CHÍNH THỨC ──────── -->
+ <div id="thanh-toan" class="w-full bg-white rounded-3xl p-6 sm:p-10 border-2 border-emerald-500/30 shadow-2xl">
+ <div class="text-center mb-8">
+ <span class="text-emerald-800 text-xs font-black uppercase tracking-widest block mb-1 font-heading">BƯỚC 2: XÁC NHẬN ĐƠN HÀNG & QUÉT MÃ QR</span>
+ <h3 class="text-2xl sm:text-3xl font-black text-[#0F172A] font-serif-title mb-2">Điền Thông Tin & Quét Mã VietQR Chuyển Khoản Tức Thì</h3>
+ <p class="text-xs sm:text-sm text-slate-600">Hệ thống gửi email kích hoạt vào Skool để nhận Ebook/Video ngay, kèm link vào nhóm Zalo VIP hỗ trợ.</p>
+ </div>
+
+ <div class="grid lg:grid-cols-12 gap-8 items-center">
+ 
+ <!-- Form Thông Tin Tinh Gọn (7 Cột) -->
+ <div class="lg:col-span-7 space-y-4">
+ <div>
+ <label class="block text-xs font-bold text-slate-700 mb-1.5">Gói sản phẩm bạn chọn:</label>
+ <select id="selected-package" onchange="updateQR()" class="w-full bg-[#F8FAF8] border border-slate-300 rounded-xl px-4 py-3 text-xs text-slate-900 focus:outline-none focus:border-emerald-600 font-medium">
+ <option value="999000" selected>GÓI 2: THỰC THI COMBO (Ebook + Hệ sinh thái đầy đủ) — 999.000 VNĐ</option>
+ <option value="199000">GÓI 1: TRẢI NGHIỆM EBOOK 2 TẬP PDF — 199.000 VNĐ</option>
+ </select>
+ </div>
+
+ <div>
+ <label class="block text-xs font-bold text-slate-700 mb-1.5">Họ và tên phụ huynh / người nhận:</label>
+ <input type="text" id="cust-name" placeholder="Ví dụ: Nguyễn Văn A" class="w-full bg-[#F8FAF8] border border-slate-300 rounded-xl px-4 py-3 text-xs text-slate-900 focus:outline-none focus:border-emerald-600">
+ </div>
+
+ <div>
+ <label class="block text-xs font-bold text-slate-700 mb-1.5">Số điện thoại / Zalo nhận tài nguyên:</label>
+ <input type="tel" id="cust-phone" oninput="updateQR()" placeholder="Ví dụ: 0912345678" class="w-full bg-[#F8FAF8] border border-slate-300 rounded-xl px-4 py-3 text-xs text-slate-900 focus:outline-none focus:border-emerald-600">
+ </div>
+
+ <div>
+ <label class="block text-xs font-bold text-slate-700 mb-1.5">Email nhận link tải Ebook & Khóa học:</label>
+ <input type="email" id="cust-email" placeholder="Ví dụ: phuhuynh@gmail.com" class="w-full bg-[#F8FAF8] border border-slate-300 rounded-xl px-4 py-3 text-xs text-slate-900 focus:outline-none focus:border-emerald-600">
+ </div>
+
+ <div class="p-3.5 rounded-xl bg-emerald-50 border border-emerald-300 text-xs text-emerald-900">
+ ⚡ <strong>Nhận ngay tức thì:</strong> Sau khi chuyển khoản, bạn sẽ nhận được email kích hoạt link vào Skool để lấy Ebook/Video, kèm link vào nhóm Zalo VIP "OYLG - Hướng Nghiệp" để được hỗ trợ.
+ </div>
+
+ <button type="button" id="checkout-submit-btn" onclick="startCheckout()" class="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition shadow-lg">
+ Lấy Mã QR Thanh Toán →
+ </button>
+ </div>
+
+ <!-- Mã VietQR Chính Thức Của OYL Global (5 Cột) — sinh động, tạo mã đơn hàng riêng khi bấm nút -->
+ <div class="lg:col-span-5 bg-[#FAF6EE] rounded-2xl p-6 border-2 border-amber-300 text-center shadow-md flex flex-col items-center justify-center min-h-[280px]" id="qr-box">
+ <!-- Nội dung mặc định trước khi bấm nút — JS sẽ thay bằng QR động (checkoutResetUI()) -->
+ <span class="text-3xl mb-2">🧾</span>
+ <p class="text-xs text-slate-600 leading-relaxed max-w-xs">
+ Điền đầy đủ thông tin bên trái, sau đó bấm nút <strong>"Lấy Mã QR Thanh Toán"</strong> để hệ thống tạo mã đơn hàng và mã QR chuyển khoản riêng cho bạn.
+ </p>
+ </div>
+
+ </div>
+ <p id="checkout-error" class="hidden mt-4 text-xs text-red-600 text-center"></p>
+ </div>
+
+ </section>
+
+ <!-- ══════ KHỐI 11: FAQ HỎI ĐÁP (NỀN XÁM NHẸ #F8FAFC) ══════ -->
+ <section id="faq" class="py-8 px-4 md:px-8 bg-[#F8FAFC] fade-in border-b border-slate-200">
+ <div class="w-full mx-auto">
+ <div class="text-center mb-14">
+ <span class="text-emerald-700 text-xs font-bold uppercase tracking-widest block mb-2">Giải đáp thắc mắc</span>
+ <h2 class="text-3xl sm:text-4xl font-serif-title font-bold text-[#0F172A]">Câu hỏi thường gặp</h2>
+ </div>
+
+ <div class="space-y-4" id="faq-container">
+ <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+ <button onclick="toggleFaq(this)" class="w-full text-left p-6 font-semibold text-base sm:text-lg flex justify-between items-center text-[#0F172A] hover:bg-slate-50 transition">
+ <span>Sách này có phải cùng một sản phẩm với các bài test "Bản Đồ Hướng Nghiệp" miễn phí trên mạng không?</span>
+ <span class="faq-icon text-2xl text-emerald-600 ml-4 font-light">+</span>
+ </button>
+ <div class="accordion-content px-6 text-slate-600 text-sm sm:text-base leading-relaxed">
+ <p class="pb-6">
+ Không. Có một vài sản phẩm/dịch vụ khác trên thị trường cũng dùng tên gọi tương tự. Bộ sách này do chính Nguyên Phụng, Chủ tịch HĐQT OYL Global viết và phát hành — anh/chị có thể đối chiếu hồ sơ tác giả ở phần "Về tác giả" phía trên.
+ </p>
+ </div>
+ </div>
+
+ <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+ <button onclick="toggleFaq(this)" class="w-full text-left p-6 font-semibold text-base sm:text-lg flex justify-between items-center text-[#0F172A] hover:bg-slate-50 transition">
+ <span>Đây có phải lừa đảo không?</span>
+ <span class="faq-icon text-2xl text-emerald-600 ml-4 font-light">+</span>
+ </button>
+ <div class="accordion-content px-6 text-slate-600 text-sm sm:text-base leading-relaxed">
+ <p class="pb-6">
+ Không. Đây là sản phẩm của <strong>Công ty Cổ phần OYL Global</strong> (Số ĐKKD 0318073553), do chính tác giả <strong>Nguyên Phụng</strong> — Chủ tịch HĐQT OYL Global, có chứng chỉ quốc tế ACC (ICF International Coach Federation) — biên soạn. Sách đã có Giấy chứng nhận bản quyền tác giả số 4686/2026/QTG. Nếu không hài lòng, anh/chị được hoàn tiền 100% trong 7 ngày, không cần nêu lý do.
+ </p>
+ </div>
+ </div>
+
+ <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+ <button onclick="toggleFaq(this)" class="w-full text-left p-6 font-semibold text-base sm:text-lg flex justify-between items-center text-[#0F172A] hover:bg-slate-50 transition">
+ <span>Sau khi chuyển khoản, bao lâu tôi nhận được sách?</span>
+ <span class="faq-icon text-2xl text-emerald-600 ml-4 font-light">+</span>
+ </button>
+ <div class="accordion-content px-6 text-slate-600 text-sm sm:text-base leading-relaxed">
+ <p class="pb-6">
+ Ngay sau khi chuyển khoản đúng nội dung, hệ thống <strong>tự động xác nhận và gửi link nhận sách/video trong vài giây</strong> — không cần chờ đợi, không cần ai duyệt tay. Nếu quá 30 phút mà chưa thấy (kể cả mục Thư rác), anh/chị liên hệ trực tiếp theo hotline Zalo ở cuối trang, đội ngũ hỗ trợ trong vòng 24 giờ.
+ </p>
+ </div>
+ </div>
+
+ <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+ <button onclick="toggleFaq(this)" class="w-full text-left p-6 font-semibold text-base sm:text-lg flex justify-between items-center text-[#0F172A] hover:bg-slate-50 transition">
+ <span>Nếu tôi không hài lòng thì sao?</span>
+ <span class="faq-icon text-2xl text-emerald-600 ml-4 font-light">+</span>
+ </button>
+ <div class="accordion-content px-6 text-slate-600 text-sm sm:text-base leading-relaxed">
+ <p class="pb-6">
+ Trong <strong>7 ngày</strong> kể từ khi nhận sách, anh/chị có thể yêu cầu hoàn tiền 100%, không cần lý do.
+ </p>
+ </div>
+ </div>
+
+ <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+ <button onclick="toggleFaq(this)" class="w-full text-left p-6 font-semibold text-base sm:text-lg flex justify-between items-center text-[#0F172A] hover:bg-slate-50 transition">
+ <span>Sách này dành cho ai?</span>
+ <span class="faq-icon text-2xl text-emerald-600 ml-4 font-light">+</span>
+ </button>
+ <div class="accordion-content px-6 text-slate-600 text-sm sm:text-base leading-relaxed">
+ <p class="pb-6">
+ <strong>Tập 1</strong> dành cho phụ huynh có con học lớp 6-9, đang chuẩn bị cho việc chọn tổ hợp môn lớp 10. <strong>Tập 2</strong> dành cho phụ huynh có con học lớp 10-12, đang cần định hướng chọn ngành, chọn trường, chuẩn bị kỳ thi riêng và du học.
+ </p>
+ </div>
+ </div>
+
+ <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+ <button onclick="toggleFaq(this)" class="w-full text-left p-6 font-semibold text-base sm:text-lg flex justify-between items-center text-[#0F172A] hover:bg-slate-50 transition">
+ <span>Nên chọn Gói 1 hay Gói 2?</span>
+ <span class="faq-icon text-2xl text-emerald-600 ml-4 font-light">+</span>
+ </button>
+ <div class="accordion-content px-6 text-slate-600 text-sm sm:text-base leading-relaxed">
+ <p class="pb-6">
+ <strong>Gói 1 (199k)</strong> gồm 2 Sách PDF + Workbook — phù hợp nếu anh/chị muốn tự đọc và tự thực hành cùng con. <strong>Gói 2 (999k)</strong> có thêm trọn bộ hơn 30 bài giảng/buổi học video trên Skool do chính Nguyên Phụng giảng dạy trực tiếp — phần video này chiếm phần lớn giá trị của Gói 2 nên chênh lệch giá phản ánh đúng khối lượng nội dung nhận được, không phải giá ảo. Video có phần mở rộng thêm so với sách và sẵn kịch bản câu hỏi Coaching để hỏi con ngay trong lúc xem.
+ </p>
+ </div>
+ </div>
+
+ <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+ <button onclick="toggleFaq(this)" class="w-full text-left p-6 font-semibold text-base sm:text-lg flex justify-between items-center text-[#0F172A] hover:bg-slate-50 transition">
+ <span>Bộ video ở Gói 2 xem như thế nào, có giới hạn thời gian không?</span>
+ <span class="faq-icon text-2xl text-emerald-600 ml-4 font-light">+</span>
+ </button>
+ <div class="accordion-content px-6 text-slate-600 text-sm sm:text-base leading-relaxed">
+ <p class="pb-6">
+ Video được mời xem trên nền tảng <strong>Skool</strong> sau khi xác nhận chuyển khoản, thời hạn truy cập khoảng <strong>1-3 năm</strong>. Video do chính Nguyên Phụng giảng dạy trực tiếp, không có khách mời.
+ </p>
+ </div>
+ </div>
+
+ <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+ <button onclick="toggleFaq(this)" class="w-full text-left p-6 font-semibold text-base sm:text-lg flex justify-between items-center text-[#0F172A] hover:bg-slate-50 transition">
+ <span>Ngoài sách, tôi có được hỗ trợ thêm gì không?</span>
+ <span class="faq-icon text-2xl text-emerald-600 ml-4 font-light">+</span>
+ </button>
+ <div class="accordion-content px-6 text-slate-600 text-sm sm:text-base leading-relaxed">
+ <p class="pb-6">
+ Sau khi nhận sách, anh/chị được mời vào nhóm Zalo <em>"OYLG - Hướng Nghiệp"</em> để nhận thêm Sổ Tay <em>"100+ Câu Hỏi Coaching"</em> miễn phí và tiếp tục được đồng hành. Đây không phải dịch vụ tư vấn 1:1 — nếu có nhu cầu tư vấn riêng, thông tin sẽ được chia sẻ thêm trong nhóm.
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ══════ KHỐI 13: FOOTER (NỀN ĐEN XANH THẪM #0B132B) ══════ -->
+ <footer class="bg-[#0B132B] text-slate-500 py-14 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+ <div class="w-full mx-auto text-center text-sm space-y-2.5">
+ <p class="text-white font-bold text-base">Bản Đồ Hướng Nghiệp — Nguyên Phụng</p>
+ <p class="text-slate-300">Phát hành bởi Công ty Cổ phần OYL Global — 2/20 Nơ Trang Long, P. Bình Thạnh, TP.HCM — Số ĐKKD 0318073553</p>
+ <p class="text-slate-300">Cộng đồng Zalo: <a href="https://zalo.me/0946154747" target="_blank" rel="noopener" class="underline text-amber-400 hover:text-amber-700 font-semibold">"OYLG - Hướng Nghiệp"</a></p>
+ <p class="pt-4 text-slate-500">&copy; 2026 OYL Global. Chính sách hoàn tiền: hoàn 100% trong 7 ngày, không cần lý do.</p>
+ </div>
+ </footer>
+
+ <!-- ══════ 15. STICKY MOBILE CTA BAR ══════ -->
+ <div id="sticky-mobile-cta" class="fixed bottom-0 left-0 right-0 p-3 bg-white/95 backdrop-blur-xl border-t border-slate-200 md:hidden z-40 flex items-center justify-between gap-3 shadow-2xl">
+    <div>
+      <p class="text-[10px] text-slate-500 uppercase font-extrabold">Hệ Sinh Thái NPH Coach</p>
+      <p class="text-sm font-black text-amber-600 font-mono">Combo 999.000đ <span class="text-[10px] text-slate-400 font-normal line-through">7.8tr</span></p>
+    </div>
+    <a href="#bang-gia" class="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 text-slate-950 px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider shadow-lg shadow-amber-500/30 border border-white">
+      🔥 Đặt Combo 999K ➔
+    </a>
+  </div>
+
+  <!-- ══════ JAVASCRIPT LOGIC & INTERACTION (khôi phục sau khi bị mất thẻ script trong 1 lần chỉnh sửa trước) ══════ -->
+  <script>
+    function toggleToc(id, btn) {
+      const content = document.getElementById(id);
+      const icon = btn.querySelector('.toc-icon');
+      const isOpen = content.classList.contains('open');
+
+      if (isOpen) {
+        content.classList.remove('open');
+        icon.textContent = '+';
+      } else {
+        content.classList.add('open');
+        icon.textContent = '−';
+      }
+    }
+
+    function toggleFaq(button) {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('.faq-icon');
+      const isOpen = content.classList.contains('open');
+
+      document.querySelectorAll('#faq-container .accordion-content').forEach(el => el.classList.remove('open'));
+      document.querySelectorAll('#faq-container .faq-icon').forEach(el => el.textContent = '+');
+
+      if (!isOpen) {
+        content.classList.add('open');
+        icon.textContent = '−';
+      }
+    }
+
+    // ═══════════ THANH TOÁN TỰ ĐỘNG: đăng ký mã đơn → QR động → tự dò trạng thái → màn hình cảm ơn ═══════════
+    (function () {
+      const SKOOL_LINK = 'https://www.skool.com/xay-dung-thuong-hieu-ca-nhan-2083/about?ref=8dd32c9c2c0f431ca666ae336b491e12';
+      const ZALO_VIP_LINK = 'https://zalo.me/g/ynefcy7g75jylfpqlguz';
+      const PACKAGES_BY_AMOUNT = {
+        199000: { code: 'GOI1', short: '199K' },
+        999000: { code: 'GOI2', short: '999K' },
+      };
+      let pollTimer = null;
+
+      function fmtVnd(n) {
+        return Number(n || 0).toLocaleString('vi-VN') + 'đ';
+      }
+
+      function showError(msg) {
+        const el = document.getElementById('checkout-error');
+        if (!el) return;
+        if (!msg) {
+          el.classList.add('hidden');
+          el.textContent = '';
+        } else {
+          el.classList.remove('hidden');
+          el.textContent = msg;
+        }
+      }
+
+      function checkoutPlaceholderHTML() {
+        return `
+          <span class="text-3xl mb-2">🧾</span>
+          <p class="text-xs text-slate-600 leading-relaxed max-w-xs">
+            Điền đầy đủ thông tin bên trái, sau đó bấm nút <strong>"Lấy Mã QR Thanh Toán"</strong> để hệ thống tạo mã đơn hàng và mã QR chuyển khoản riêng cho bạn.
+          </p>`;
+      }
+
+      function checkoutResetUI() {
+        if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
+        showError('');
+        const box = document.getElementById('qr-box');
+        if (box) box.innerHTML = checkoutPlaceholderHTML();
+        const btn = document.getElementById('checkout-submit-btn');
+        if (btn) { btn.disabled = false; btn.textContent = 'Lấy Mã QR Thanh Toán →'; }
+      }
+
+      window.updateQR = checkoutResetUI;
+
+      window.selectPackage = function (label, amount) {
+        const sel = document.getElementById('selected-package');
+        if (sel) sel.value = String(amount);
+        checkoutResetUI();
+        const target = document.getElementById('thanh-toan');
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+
+      window.startCheckout = async function () {
+        showError('');
+        const amountEl = document.getElementById('selected-package');
+        const amount = amountEl ? Number(amountEl.value) : 999000;
+        const pkg = PACKAGES_BY_AMOUNT[amount] || PACKAGES_BY_AMOUNT[999000];
+        const name = (document.getElementById('cust-name') || {}).value || '';
+        const phone = (document.getElementById('cust-phone') || {}).value || '';
+        const email = (document.getElementById('cust-email') || {}).value || '';
+
+        if (!email || email.indexOf('@') === -1) {
+          showError('Vui lòng nhập email hợp lệ để nhận link tài liệu.');
+          return;
+        }
+
+        const btn = document.getElementById('checkout-submit-btn');
+        if (btn) { btn.disabled = true; btn.textContent = 'Đang tạo mã đơn hàng...'; }
+
+        try {
+          const res = await fetch('/api/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, phone, email, package: pkg.code }),
+          });
+          const data = await res.json();
+          if (!data.success) throw new Error(data.error || 'Không tạo được đơn hàng');
+
+          if (window.gtag) {
+            gtag('event', 'begin_checkout', {
+              currency: 'VND',
+              value: data.amount,
+              items: [{ item_id: pkg.code, item_name: data.packageLabel }],
+            });
+          }
+
+          renderQR(data.orderId, data.amount);
+          if (btn) { btn.disabled = false; btn.textContent = 'Lấy Mã QR Thanh Toán →'; }
+          pollTimer = setInterval(() => pollStatus(data.orderId, email, data.packageLabel), 4000);
+        } catch (err) {
+          showError('Có lỗi xảy ra: ' + err.message + '. Vui lòng thử lại hoặc nhắn Zalo 0946 154 747.');
+          if (btn) { btn.disabled = false; btn.textContent = 'Lấy Mã QR Thanh Toán →'; }
+        }
+      };
+
+      function renderQR(orderId, amount) {
+        const box = document.getElementById('qr-box');
+        if (!box) return;
+        const qrUrl = 'https://img.vietqr.io/image/MB-0946154747-compact2.png?amount=' + amount + '&addInfo=' + encodeURIComponent(orderId) + '&accountName=TRUONG%20THI%20THUY';
+        box.innerHTML = `
+          <div>
+            <span class="text-[10px] font-black text-slate-500 uppercase tracking-wider block mb-1">MÃ VIETQR CHÍNH THỨC</span>
+            <strong class="text-sm font-black font-mono block text-emerald-900">MB BANK · 0946154747</strong>
+            <span class="text-[11px] font-bold text-slate-700 block mt-0.5">TRUONG THI THUY</span>
+          </div>
+          <div class="my-4 p-2 bg-white rounded-xl border border-slate-200 shadow-sm">
+            <img src="${qrUrl}" alt="VietQR MB Bank OYL Global" class="w-44 h-44 object-contain mx-auto">
+          </div>
+          <div class="text-xs text-slate-700 leading-tight space-y-1">
+            <div>Số tiền: <strong class="text-red-600 font-mono text-base">${fmtVnd(amount)}</strong></div>
+            <div>Mã đơn hàng (giữ nguyên nội dung CK): <span class="font-mono font-bold text-emerald-700">${orderId}</span></div>
+            <div class="pt-2">
+              <button type="button" onclick="navigator.clipboard.writeText('${orderId}'); this.innerHTML='✅ Đã sao chép!'; setTimeout(()=>{this.innerHTML='📋 Sao chép mã đơn: ${orderId}';},2000);" class="text-[10px] bg-slate-800 hover:bg-slate-700 text-white px-3 py-1 rounded-lg transition font-mono">
+                📋 Sao chép mã đơn: ${orderId}
+              </button>
+            </div>
+            <div class="pt-3 text-[11px] text-emerald-700 font-semibold">
+              Đang chờ chuyển khoản — trang sẽ tự động cập nhật, không cần bấm gì thêm...
+            </div>
+          </div>`;
+      }
+
+ async function pollStatus(orderId, email, packageLabel) {
+ try {
+ const res = await fetch('/api/check-order-status?orderId=' + encodeURIComponent(orderId));
+ const data = await res.json();
+ if (data && data.status === 'Completed') {
+ clearInterval(pollTimer);
+ pollTimer = null;
+ renderSuccess(orderId, email, data.productName || packageLabel);
+ }
+ } catch (err) {
+ console.error('Lỗi kiểm tra trạng thái đơn hàng:', err.message);
+ }
+ }
+
+ function renderSuccess(orderId, email, packageLabel) {
+ const box = document.getElementById('qr-box');
+ if (!box) return;
+ const amountEl = document.getElementById('selected-package');
+ if (window.gtag) {
+ gtag('event', 'purchase', {
+ transaction_id: orderId,
+ currency: 'VND',
+ value: amountEl? Number(amountEl.value) : 0,
+ items: [{ item_name: packageLabel }],
+ });
+ }
+ box.innerHTML = `
+ <div class="text-center space-y-3">
+ <div class="text-4xl">✅</div>
+ <h4 class="text-base font-black text-emerald-800">Thanh toán thành công!</h4>
+ <p class="text-xs text-slate-600">Cảm ơn anh/chị đã tin tưởng đồng hành cùng <strong>Bản Đồ Hướng Nghiệp</strong>. Mã đơn của anh/chị: <strong class="font-mono">${orderId}</strong>.</p>
+ <p class="text-xs text-slate-600">Email hướng dẫn kích hoạt đang được gửi tới <strong>${email}</strong> (kiểm tra cả mục Thư rác nếu chưa thấy sau ít phút).</p>
+ <a href="${SKOOL_LINK}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition shadow-lg">
+ 🚀 Vào Skool nhận sách & video ngay →
+ </a>
+ <div class="p-3 bg-amber-50 rounded-xl border border-amber-300 text-left text-[11px] space-y-1">
+          <div class="font-extrabold text-amber-900 flex items-center gap-1.5">
+            <span>🔒</span> ĐẶC QUYỀN: NHÓM ZALO PHỤ HUYNH VIP
+          </div>
+          <p class="text-slate-700 leading-tight">
+            Nhóm khép kín có kiểm duyệt nghiêm ngặt. Khi bấm tham gia, vui lòng nhập đúng <strong>Số Điện Thoại / Mã Đơn (${orderId})</strong> bạn vừa đăng ký để Quản trị viên đối chiếu và phê duyệt ngay.
+          </p>
+        </div>
+        <a href="${ZALO_VIP_LINK}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-xs uppercase tracking-wider transition shadow-md hover:scale-[1.02]">
+          👑 Mở Khóa Vào Nhóm Zalo VIP Phụ Huynh →
+        </a>
+ <p class="text-[11px] text-slate-500">Cần hỗ trợ thêm, anh/chị nhắn Zalo <a class="underline" href="https://zalo.me/0946154747" target="_blank">0946 154 747</a> — đội ngũ OYL Global luôn sẵn sàng đồng hành.</p>
+ </div>`;
+ }
+
+ document.addEventListener('DOMContentLoaded', checkoutResetUI);
+ })();
+
+ function copyText(text, btn) {
+ if (navigator.clipboard && window.isSecureContext) {
+ navigator.clipboard.writeText(text).then(() => showCopied(btn)).catch(() => fallbackCopy(text, btn));
+ } else {
+ fallbackCopy(text, btn);
+ }
+ }
+
+ function fallbackCopy(text, btn) {
+ const textArea = document.createElement("textarea");
+ textArea.value = text;
+ textArea.style.position = "fixed";
+ textArea.style.left = "-999999px";
+ document.body.appendChild(textArea);
+ textArea.focus();
+ textArea.select();
+ try {
+ document.execCommand('copy');
+ showCopied(btn);
+ } catch (err) {
+ prompt("Vui lòng sao chép thủ công:", text);
+ }
+ textArea.remove();
+ }
+
+ function showCopied(btn) {
+ const originalText = btn.innerHTML;
+ btn.innerHTML = '✅ Đã sao chép!';
+ setTimeout(() => {
+ btn.innerHTML = originalText;
+ }, 2000);
+ }
+
+ const observer = new IntersectionObserver((entries) => {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) {
+ entry.target.classList.add('visible');
+ }
+ });
+ }, { threshold: 0.08 });
+
+ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+ // Stat Counter Animation
+ const counterObserver = new IntersectionObserver((entries) => {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) {
+ const el = entry.target;
+ const target = parseFloat(el.dataset.target);
+ const isDecimal = target % 1!== 0;
+ const duration = 2000;
+ const start = performance.now();
+ const animate = (now) => {
+ const elapsed = now - start;
+ const progress = Math.min(elapsed / duration, 1);
+ const eased = 1 - Math.pow(1 - progress, 3);
+ const current = eased * target;
+ el.textContent = isDecimal? current.toFixed(1) : Math.floor(current);
+ if (progress < 1) requestAnimationFrame(animate);
+            else el.textContent = isDecimal ? target.toFixed(1) : target;
+          };
+          requestAnimationFrame(animate);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-counter').forEach(el => counterObserver.observe(el));
+ </script>
+
+ </main>
+ </div>
+</body>
+</html>

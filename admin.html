@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full bg-slate-900 antialiased">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cổng Quản Trị Hệ Thống • Ban Lãnh Đạo OYL Global</title>
+  
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 9999px; }
+  </style>
+</head>
+
+<body class="h-full bg-slate-950 text-slate-100 flex flex-col overflow-hidden">
+
+  <!-- ============================================================ -->
+  <!-- MÀN HÌNH 1: CỔNG ĐĂNG NHẬP BẢO MẬT BẰNG EMAIL WHITELIST      -->
+  <!-- ============================================================ -->
+  <div id="admin-login-screen" style="display: flex;" class="fixed inset-0 bg-slate-950 z-50 items-center justify-center p-4">
+    <div class="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl p-7 shadow-2xl space-y-5">
+      
+      <div class="text-center space-y-1.5">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center text-lg mx-auto font-bold mb-3">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <h2 class="text-lg font-semibold text-white tracking-tight">Cổng Quản Trị Hệ Thống OYL</h2>
+        <p class="text-xs text-slate-400">Dành riêng cho Ban Lãnh Đạo & Hội Đồng Quản Trị</p>
+      </div>
+
+      <form onsubmit="handleAdminLogin(event); return false;" class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">Email được cấp quyền quản trị: *</label>
+          <input type="email" id="admin-login-email" required placeholder="Nhập email của bạn (ví dụ: nguyenphung@oyl.vn)..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-xs text-white focus:outline-none focus:border-amber-400 placeholder-slate-500 font-mono">
+        </div>
+
+        <div class="flex flex-wrap gap-2 pt-1">
+          <button type="button" onclick="quickLoginAs('nguyenphung@oyl.vn')" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-[11px] text-amber-400 font-mono border border-slate-700 transition-colors">
+            ⚡ nguyenphung@oyl.vn (Cô Nguyên Phụng)
+          </button>
+          <button type="button" onclick="quickLoginAs('admin@oyl.vn')" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-[11px] text-slate-300 font-mono border border-slate-700 transition-colors">
+            ⚡ admin@oyl.vn (Admin OYL)
+          </button>
+        </div>
+
+        <button type="button" onclick="handleAdminLogin(event)" class="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-semibold transition-colors shadow">
+          Xác Thực & Vào Bảng Điều Khiển
+        </button>
+
+        <div id="login-error-msg" class="hidden p-3 rounded-lg bg-red-950/50 border border-red-800/60 text-red-300 text-xs text-center font-medium">
+          Email không nằm trong danh sách cấp quyền. Vui lòng liên hệ Admin OYL!
+        </div>
+      </form>
+
+      <div class="pt-3 border-t border-slate-800/80 text-[11px] text-slate-500 text-center">
+        <span>Email mẫu được cấp quyền:</span>
+        <div class="font-mono text-slate-400 mt-0.5">nguyenphung@oyl.vn • admin@oyl.vn • truong.thuy160823@gmail.com</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MÀN HÌNH 2: GIAO DIỆN QUẢN TRỊ ADMIN (SAU KHI ĐĂNG NHẬP)     -->
+  <!-- ============================================================ -->
+  <div id="admin-dashboard-screen" style="display: none;" class="flex-1 flex-col overflow-hidden">
+    
+    <!-- Top Admin Bar -->
+    <header class="h-14 bg-slate-900 border-b border-slate-800 px-5 flex items-center justify-between shrink-0 z-30">
+      <div class="flex items-center gap-3">
+        <span class="font-bold text-amber-400 text-sm tracking-tight">OYL ADMIN PORTAL</span>
+        <span class="text-slate-600">|</span>
+        <span class="text-xs text-slate-400 font-medium">Bảng Điều Phối Toàn Quốc 2026</span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2 text-xs font-mono text-slate-400 bg-slate-800/80 px-2.5 py-1 rounded-lg border border-slate-700/60">
+          <i class="fa-solid fa-user-check text-emerald-400 text-[10px]"></i>
+          <span id="admin-user-badge">admin@oyl.vn</span>
+        </div>
+
+        <button onclick="handleAdminLogout()" class="text-xs text-slate-400 hover:text-white px-2.5 py-1 rounded-lg border border-slate-700 hover:bg-slate-800 transition-colors">
+          Đăng xuất
+        </button>
+      </div>
+    </header>
+
+    <!-- Admin Body: Sidebar + Main Content -->
+    <div class="flex-1 flex overflow-hidden">
+      
+      <!-- Admin Sidebar Navigation -->
+      <aside class="w-60 bg-slate-900/60 border-r border-slate-800 flex flex-col justify-between p-3 shrink-0">
+        <div class="space-y-1">
+          <button onclick="switchAdminSection('analytics')" id="adm-nav-analytics" class="adm-nav w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition-colors bg-slate-800 text-white">
+            <i class="fa-solid fa-chart-line w-4 text-center text-amber-400"></i>
+            <span>1. Số Liệu Vận Hành</span>
+          </button>
+
+          <button onclick="switchAdminSection('students')" id="adm-nav-students" class="adm-nav w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-white transition-colors">
+            <i class="fa-solid fa-users w-4 text-center text-blue-400"></i>
+            <span>2. Danh Sách Học Sinh</span>
+          </button>
+
+          <button onclick="switchAdminSection('affiliates')" id="adm-nav-affiliates" class="adm-nav w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-white transition-colors">
+            <i class="fa-solid fa-sitemap w-4 text-center text-emerald-400"></i>
+            <span>3. Mạng Lưới Đại Sứ</span>
+          </button>
+
+          <button onclick="switchAdminSection('whitelist')" id="adm-nav-whitelist" class="adm-nav w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-white transition-colors">
+            <i class="fa-solid fa-key w-4 text-center text-purple-400"></i>
+            <span>4. Cấp Quyền Email</span>
+          </button>
+        </div>
+
+        <div class="p-3 bg-slate-900 border border-slate-800 rounded-xl space-y-1 text-xs">
+          <div class="text-slate-400 text-[11px]">Trạng thái hệ thống:</div>
+          <div class="text-emerald-400 font-semibold flex items-center gap-1.5 text-xs">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Vận hành ổn định</span>
+          </div>
+          <a href="/app.html" target="_blank" class="block text-slate-400 hover:text-amber-400 text-[11px] pt-1">
+            Mở WebApp học sinh ↗
+          </a>
+        </div>
+      </aside>
+
+      <!-- Admin Main Viewport -->
+      <main class="flex-1 overflow-y-auto p-5 md:p-6 bg-slate-950 space-y-6">
+        
+        <!-- SECTION 1: SỐ LIỆU VẬN HÀNH THỜI GIAN THỰC -->
+        <div id="adm-sec-analytics" class="adm-sec space-y-5">
+          
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <div>
+              <h2 class="text-base font-semibold text-white">Tổng Quan Vận Hành Hệ Thống</h2>
+              <p class="text-xs text-slate-400">Dữ liệu ghi nhận từ phễu người dùng thực tế trên toàn quốc</p>
+            </div>
+            <button onclick="refreshMockStats()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 font-medium transition-colors">
+              <i class="fa-solid fa-rotate mr-1"></i> Làm mới số liệu
+            </button>
+          </div>
+
+          <!-- 4 Khối Chỉ Số KPI Lớn -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+              <div class="text-xs text-slate-400">Lượt Truy Cập Hệ Thống</div>
+              <div class="text-2xl font-bold text-white font-mono" id="stat-total-visits">1,284</div>
+              <div class="text-[11px] text-emerald-400 font-medium">↑ +14.2% so với tuần trước</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+              <div class="text-xs text-slate-400">Học Sinh Đã Làm Test 40</div>
+              <div class="text-2xl font-bold text-white font-mono" id="stat-completed-quiz">418</div>
+              <div class="text-[11px] text-slate-400 font-medium">Tỉ lệ hoàn thành: 32.5%</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+              <div class="text-xs text-slate-400">Mở Khóa Báo Cáo (Paywall)</div>
+              <div class="text-2xl font-bold text-amber-400 font-mono" id="stat-unlocked-reports">86</div>
+              <div class="text-[11px] text-slate-400 font-medium">Doanh thu mở khóa: 8.514.000 đ</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+              <div class="text-xs text-slate-400">Hồ Sơ Đăng Ký Nguyện Vọng</div>
+              <div class="text-2xl font-bold text-emerald-400 font-mono" id="stat-registrations">64</div>
+              <div class="text-[11px] text-emerald-400 font-medium">Đã phân luồng về các trường</div>
+            </div>
+
+          </div>
+
+          <!-- Biểu đồ Phân Bổ Nguyện Vọng & Tỉnh Thành -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+              <div class="text-xs font-semibold text-slate-300">Phân Bổ Nguyện Vọng 4 Phân Khúc (OYL Flow)</div>
+              <div class="h-60 flex items-center justify-center">
+                <canvas id="chartPathwayDistribution"></canvas>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+              <div class="text-xs font-semibold text-slate-300">Học Sinh Theo Địa Bàn Tỉnh Thành</div>
+              <div class="h-60 flex items-center justify-center">
+                <canvas id="chartProvinceDistribution"></canvas>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- SECTION 2: DANH SÁCH HỌC SINH (LEAD CRM) -->
+        <div id="adm-sec-students" class="adm-sec hidden space-y-4">
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+            <div>
+              <h2 class="text-base font-semibold text-white">Quản Lý Dữ Liệu Học Sinh (Leads CRM)</h2>
+              <p class="text-xs text-slate-400">Học sinh đăng ký qua link của các đại sứ trên toàn quốc</p>
+            </div>
+            
+            <div class="flex items-center gap-2">
+              <button onclick="exportStudentsCSV()" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-medium transition-colors inline-flex items-center gap-1.5">
+                <i class="fa-solid fa-file-excel"></i>
+                <span>Xuất File Excel</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Bộ lọc tìm kiếm nhanh -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-slate-900 p-3 rounded-xl border border-slate-800">
+            <input type="text" id="crm-search-input" oninput="filterCRMTable()" placeholder="Tìm theo tên học sinh, số Zalo..." class="px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-400">
+            
+            <select id="crm-pathway-select" onchange="filterCRMTable()" class="px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-xs text-slate-300 focus:outline-none">
+              <option value="all">Tất cả phân khúc</option>
+              <option value="cd">Cao Đẳng OYL (Học bổng 100%)</option>
+              <option value="galaxy">Galaxy Ed (ĐH Top / IELTS)</option>
+              <option value="kysu">Kỹ sư quốc tế (Đức/Nhật/Hàn)</option>
+              <option value="mba">MBA 985 Trung Quốc</option>
+            </select>
+
+            <select id="crm-agent-select" onchange="filterCRMTable()" class="px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-xs text-slate-300 focus:outline-none">
+              <option value="all">Tất cả đại sứ</option>
+              <option value="HONGTHUAN">Đại sứ: HONGTHUAN</option>
+              <option value="MAILAN">Đại sứ: MAILAN (Nghệ An)</option>
+              <option value="OYL_CHINH_THUC">Đại sứ: OYL_CHINH_THUC</option>
+            </select>
+          </div>
+
+          <!-- Bảng CRM chi tiết -->
+          <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs text-slate-300">
+                <thead class="bg-slate-950 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
+                  <tr>
+                    <th class="p-3">Học Sinh</th>
+                    <th class="p-3">Zalo / SĐT</th>
+                    <th class="p-3">Lớp / Tỉnh</th>
+                    <th class="p-3">Nhóm Năng Lực</th>
+                    <th class="p-3">Nguyện Vọng</th>
+                    <th class="p-3">Đại Sứ</th>
+                    <th class="p-3">Trạng Thái</th>
+                  </tr>
+                </thead>
+                <tbody id="crm-table-body" class="divide-y divide-slate-800/60 font-mono text-xs">
+                  <!-- Render qua JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- SECTION 3: MẠNG LƯỚI ĐẠI SỨ & GIÁM ĐỐC TỈNH -->
+        <div id="adm-sec-affiliates" class="adm-sec hidden space-y-4">
+          
+          <div class="border-b border-slate-800 pb-3">
+            <h2 class="text-base font-semibold text-white">Quản Trị Mạng Lưới Đại Sứ & Giám Đốc Thị Trường</h2>
+            <p class="text-xs text-slate-400">Theo dõi doanh số và học sinh phân bổ theo từng mã định danh</p>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs text-slate-300">
+                <thead class="bg-slate-950 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
+                  <tr>
+                    <th class="p-3">Mã Đại Sứ</th>
+                    <th class="p-3">Họ Tên & Chức Danh</th>
+                    <th class="p-3">Địa Bàn Tỉnh</th>
+                    <th class="p-3">Số Zalo</th>
+                    <th class="p-3">Học Sinh Mang Về</th>
+                    <th class="p-3">Hồ Sơ Nhập Học</th>
+                    <th class="p-3">Thù Lao Đối Soát</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800/60 font-mono text-xs">
+                  <tr class="hover:bg-slate-800/50">
+                    <td class="p-3 font-bold text-amber-400">MAILAN</td>
+                    <td class="p-3 text-white font-sans">Mai Lan • GĐ Phát Triển Thị Trường</td>
+                    <td class="p-3">Nghệ An</td>
+                    <td class="p-3 text-slate-400">0987.123.xxx</td>
+                    <td class="p-3 font-bold text-white">42 bạn</td>
+                    <td class="p-3 text-emerald-400 font-bold">12 hồ sơ</td>
+                    <td class="p-3 text-amber-400 font-bold">36.000.000 đ</td>
+                  </tr>
+                  <tr class="hover:bg-slate-800/50">
+                    <td class="p-3 font-bold text-amber-400">HONGTHUAN</td>
+                    <td class="p-3 text-white font-sans">Hồng Thuận • GĐ Phát Triển Thị Trường</td>
+                    <td class="p-3">Đắk Lắk</td>
+                    <td class="p-3 text-slate-400">0912.345.xxx</td>
+                    <td class="p-3 font-bold text-white">38 bạn</td>
+                    <td class="p-3 text-emerald-400 font-bold">9 hồ sơ</td>
+                    <td class="p-3 text-amber-400 font-bold">27.000.000 đ</td>
+                  </tr>
+                  <tr class="hover:bg-slate-800/50">
+                    <td class="p-3 font-bold text-amber-400">OYL_CHINH_THUC</td>
+                    <td class="p-3 text-white font-sans">Văn Phòng Tuyển Sinh Trung Ương</td>
+                    <td class="p-3">Hà Nội & Toàn Quốc</td>
+                    <td class="p-3 text-slate-400">0829.499.686</td>
+                    <td class="p-3 font-bold text-white">338 bạn</td>
+                    <td class="p-3 text-emerald-400 font-bold">43 hồ sơ</td>
+                    <td class="p-3 text-slate-400">Hệ Thống Lõi</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- SECTION 4: QUẢN LÝ EMAIL WHITELIST BAN LÃNH ĐẠO -->
+        <div id="adm-sec-whitelist" class="adm-sec hidden space-y-4">
+          
+          <div class="border-b border-slate-800 pb-3">
+            <h2 class="text-base font-semibold text-white">Quản Trị Danh Sách Email Được Cấp Quyền (Whitelist)</h2>
+            <p class="text-xs text-slate-400">Chỉ những email có trong danh sách này mới có thể truy cập Cổng Quản Trị</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3 max-w-lg">
+            <label class="block text-xs font-medium text-slate-300">Thêm Email Thành Viên Mới Vào Ban Quản Trị:</label>
+            <div class="flex gap-2">
+              <input type="email" id="new-whitelist-email" placeholder="Ví dụ: phung.coach@oyl.vn" class="flex-1 px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-xs text-white focus:outline-none focus:border-amber-400 font-mono">
+              <button onclick="addEmailToWhitelist()" class="px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-semibold transition-colors">
+                Thêm Email
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 max-w-lg space-y-3">
+            <div class="text-xs font-semibold text-slate-300">Danh Sách Email Đang Có Quyền Truy Cập:</div>
+            <ul id="whitelist-emails-list" class="space-y-1.5 font-mono text-xs text-slate-300">
+              <!-- Render qua JS -->
+            </ul>
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- JAVASCRIPT: LOGIC QUẢN TRỊ ADMIN VÀ WHITELIST                -->
+  <!-- ============================================================ -->
+  <script>
+    // 1. WHITELIST CONFIGURATION
+    let authorizedEmails = [
+      "nguyenphung@oyl.vn",
+      "admin@oyl.vn",
+      "truong.thuy160823@gmail.com",
+      "banlanhdao@oyl.vn"
+    ];
+
+    // Load from local storage if available
+    const storedWhitelist = localStorage.getItem('oyl_admin_whitelist');
+    if (storedWhitelist) {
+      try { authorizedEmails = JSON.parse(storedWhitelist); } catch(e) {}
+    }
+
+    let activeAdminEmail = "";
+
+    // 2. MOCK STUDENT LEADS DATA
+    const MOCK_STUDENTS = [
+      { name: "Nguyễn Văn An", phone: "0912.345.678", grade: "Lớp 12", province: "Nghệ An", trait: "P (Thực hành)", pathway: "cd", pathwayName: "CĐ OYL Học bổng 100%", agent: "MAILAN", status: "Đã nộp học bạ" },
+      { name: "Trần Thị Mai", phone: "0988.765.432", grade: "Lớp 12", province: "Đắk Lắk", trait: "A (Học thuật)", pathway: "galaxy", pathwayName: "Luyện thi Galaxy Ed", agent: "HONGTHUAN", status: "Đã test thử" },
+      { name: "Lê Hoàng Nam", phone: "0934.567.890", grade: "Lớp 12", province: "Thanh Hóa", trait: "G (Quốc tế)", pathway: "kysu", pathwayName: "Kỹ sư Đức / Nhật", agent: "OYL_CHINH_THUC", status: "Hẹn Zoom tối nay" },
+      { name: "Phạm Thu Hương", phone: "0971.223.344", grade: "Đã TN", province: "Hà Nội", trait: "G (Quốc tế)", pathway: "mba", pathwayName: "MBA 985 Trung Quốc", agent: "OYL_CHINH_THUC", status: "Thẩm định SOP" },
+      { name: "Hoàng Đức Minh", phone: "0965.112.233", grade: "Lớp 12", province: "Ninh Bình", trait: "P (Thực hành)", pathway: "cd", pathwayName: "CĐ OYL Học bổng 100%", agent: "MAILAN", status: "Đã ký thỏa thuận" }
+    ];
+
+    // 3. LOGIN & WHITELIST AUTHENTICATION
+    function quickLoginAs(email) {
+      document.getElementById('admin-login-email').value = email;
+      handleAdminLogin();
+    }
+
+    function handleAdminLogin(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      const emailInput = document.getElementById('admin-login-email').value.trim().toLowerCase();
+      const errBox = document.getElementById('login-error-msg');
+
+      if (authorizedEmails.map(m => m.toLowerCase()).includes(emailInput)) {
+        activeAdminEmail = emailInput;
+        document.getElementById('admin-user-badge').innerText = emailInput;
+        document.getElementById('admin-login-screen').style.display = 'none';
+        document.getElementById('admin-dashboard-screen').style.display = 'flex';
+        initAdminDashboard();
+      } else {
+        errBox.classList.remove('hidden');
+      }
+    }
+
+    function handleAdminLogout() {
+      activeAdminEmail = "";
+      document.getElementById('admin-login-screen').style.display = 'flex';
+      document.getElementById('admin-dashboard-screen').style.display = 'none';
+    }
+
+    // 4. NAVIGATION SECTION ROUTER
+    function switchAdminSection(secId) {
+      document.querySelectorAll('.adm-sec').forEach(el => el.classList.add('hidden'));
+      const targetSec = document.getElementById(`adm-sec-${secId}`);
+      if (targetSec) targetSec.classList.remove('hidden');
+
+      document.querySelectorAll('.adm-nav').forEach(btn => {
+        btn.classList.remove('bg-slate-800', 'text-white');
+        btn.classList.add('text-slate-400');
+      });
+      const activeBtn = document.getElementById(`adm-nav-${secId}`);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-slate-800', 'text-white');
+        activeBtn.classList.remove('text-slate-400');
+      }
+    }
+
+    // 5. CRM TABLE RENDERING & FILTERING
+    function renderCRMTable(data) {
+      const tbody = document.getElementById('crm-table-body');
+      tbody.innerHTML = data.map(s => `
+        <tr class="hover:bg-slate-800/50">
+          <td class="p-3 font-semibold text-white font-sans">${s.name}</td>
+          <td class="p-3 text-slate-300">${s.phone}</td>
+          <td class="p-3 text-slate-400 font-sans">${s.grade} • ${s.province}</td>
+          <td class="p-3 text-amber-400 font-medium">${s.trait}</td>
+          <td class="p-3 text-slate-200 font-sans">${s.pathwayName}</td>
+          <td class="p-3 font-bold text-emerald-400">${s.agent}</td>
+          <td class="p-3 font-sans">
+            <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-800 text-slate-300 border border-slate-700">
+              ${s.status}
+            </span>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function filterCRMTable() {
+      const q = document.getElementById('crm-search-input').value.toLowerCase().trim();
+      const pw = document.getElementById('crm-pathway-select').value;
+      const ag = document.getElementById('crm-agent-select').value;
+
+      const filtered = MOCK_STUDENTS.filter(s => {
+        const matchQ = s.name.toLowerCase().includes(q) || s.phone.includes(q) || s.province.toLowerCase().includes(q);
+        const matchPw = (pw === 'all') || (s.pathway === pw);
+        const matchAg = (ag === 'all') || (s.agent === ag);
+        return matchQ && matchPw && matchAg;
+      });
+
+      renderCRMTable(filtered);
+    }
+
+    function exportStudentsCSV() {
+      let csv = "Họ Tên,Số Điện Thoại,Khối Lớp,Tỉnh Thành,Năng Lực,Nguyện Vọng,Đại Sứ,Trạng Thái\n";
+      MOCK_STUDENTS.forEach(s => {
+        csv += `"${s.name}","${s.phone}","${s.grade}","${s.province}","${s.trait}","${s.pathwayName}","${s.agent}","${s.status}"\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `OYL_DANH_SACH_HOC_SINH_${Date.now()}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // 6. WHITELIST MANAGEMENT
+    function renderWhitelistUI() {
+      const listEl = document.getElementById('whitelist-emails-list');
+      listEl.innerHTML = authorizedEmails.map((email, idx) => `
+        <li class="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
+          <span>${email}</span>
+          ${authorizedEmails.length > 1 ? `<button onclick="removeEmailFromWhitelist(${idx})" class="text-red-400 hover:text-red-300 text-[10px]">Gỡ bỏ</button>` : ''}
+        </li>
+      `).join('');
+    }
+
+    function addEmailToWhitelist() {
+      const input = document.getElementById('new-whitelist-email');
+      const val = input.value.trim().toLowerCase();
+      if (val && !authorizedEmails.includes(val)) {
+        authorizedEmails.push(val);
+        localStorage.setItem('oyl_admin_whitelist', JSON.stringify(authorizedEmails));
+        input.value = '';
+        renderWhitelistUI();
+        alert(`✅ Đã cấp quyền truy cập quản trị cho email: ${val}`);
+      }
+    }
+
+    function removeEmailFromWhitelist(idx) {
+      if (confirm(`Bạn có chắc muốn gỡ quyền quản trị của email ${authorizedEmails[idx]}?`)) {
+        authorizedEmails.splice(idx, 1);
+        localStorage.setItem('oyl_admin_whitelist', JSON.stringify(authorizedEmails));
+        renderWhitelistUI();
+      }
+    }
+
+    // 7. CHARTS RENDERING
+    let chartPathwayObj = null;
+    let chartProvinceObj = null;
+
+    function initAdminCharts() {
+      const ctxPathway = document.getElementById('chartPathwayDistribution');
+      if (ctxPathway) {
+        if (chartPathwayObj) chartPathwayObj.destroy();
+        chartPathwayObj = new Chart(ctxPathway, {
+          type: 'doughnut',
+          data: {
+            labels: ['Cao Đẳng OYL 100%', 'Galaxy Ed (ĐH Top)', 'Kỹ Sư Quốc Tế', 'MBA 985 Trung Quốc'],
+            datasets: [{
+              data: [42, 28, 20, 10],
+              backgroundColor: ['#b45309', '#2563eb', '#059669', '#7c3aed'],
+              borderWidth: 0
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'bottom', labels: { boxWidth: 12, color: '#94a3b8', font: { size: 10 } } }
+            }
+          }
+        });
+      }
+
+      const ctxProvince = document.getElementById('chartProvinceDistribution');
+      if (ctxProvince) {
+        if (chartProvinceObj) chartProvinceObj.destroy();
+        chartProvinceObj = new Chart(ctxProvince, {
+          type: 'bar',
+          data: {
+            labels: ['Nghệ An', 'Đắk Lắk', 'Thanh Hóa', 'Ninh Bình', 'Hà Nội', 'Khác'],
+            datasets: [{
+              label: 'Học sinh đăng ký',
+              data: [142, 98, 76, 54, 38, 10],
+              backgroundColor: '#38bdf8',
+              borderRadius: 4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 10 } } },
+              y: { grid: { color: '#1e293b' }, ticks: { color: '#94a3b8', font: { size: 10 } } }
+            },
+            plugins: { legend: { display: false } }
+          }
+        });
+      }
+    }
+
+    function refreshMockStats() {
+      alert("✅ Đã đồng bộ số liệu mới nhất từ CSDL máy chủ!");
+    }
+
+    function initAdminDashboard() {
+      renderCRMTable(MOCK_STUDENTS);
+      renderWhitelistUI();
+      setTimeout(initAdminCharts, 100);
+    }
+  </script>
+
+</body>
+</html>

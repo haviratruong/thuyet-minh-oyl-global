@@ -1,0 +1,3313 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bản Đồ Tuyển Sinh & Định Hướng Nghề Nghiệp Cá Nhân Hóa — NPH COACH</title>
+  <meta name="description" content="Nền tảng tra cứu định hướng nghề nghiệp và chiến lược tuyển sinh đại học đa phương thức 5 khu vực toàn quốc. Đối soát điểm THPT, ĐGNL, ĐGTD và học bạ theo chuẩn Version 2." />
+  
+  <!-- Fonts Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Dữ liệu tuyển sinh chuẩn hóa (Tương thích Online Vercel & Offline Local) -->
+  <script src="/data/tuyensinh_database.js"></script>
+  <script>if (!window.TUYEN_SINH_DATABASE) { document.write('<script src="./data/tuyensinh_database.js"><\\/script>'); }</script>
+  <script>if (!window.TUYEN_SINH_DATABASE) { document.write('<script src="tuyensinh_database.js"><\\/script>'); }</script>
+
+  <style>
+    :root {
+      --primary: #0F1D36;       /* Deep Navy */
+      --primary-green: #1B4332; /* Forest Green */
+      --primary-light: #2D6A4F; /* Emerald Green */
+      --gold: #D4A853;          /* Warm Gold */
+      --gold-light: #FBF4E6;
+      --cream: #FAF7F2;
+      --bg: #F4F6F9;
+      --card-bg: #FFFFFF;
+      --border: #E2E8F0;
+      --text: #1E293B;
+      --text-muted: #64748B;
+      
+      /* Stratification Colors */
+      --dream-bg: #FEE2E2;
+      --dream-text: #991B1B;
+      --dream-border: #FCA5A5;
+      
+      --fit-bg: #FEF3C7;
+      --fit-text: #92400E;
+      --fit-border: #FCD34D;
+      
+      --safe-bg: #DCFCE7;
+      --safe-text: #166534;
+      --safe-border: #86EFAC;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    /* TOP HEADER / APP BAR */
+    .app-header {
+      background: linear-gradient(135deg, var(--primary) 0%, #172847 100%);
+      color: #FFFFFF;
+      padding: 16px 24px;
+      border-bottom: 3px solid var(--gold);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 15px rgba(15,29,54,0.15);
+    }
+    .header-container {
+      max-width: 1560px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 4px 8px;
+      border: 2px solid var(--gold);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+      flex-shrink: 0;
+    }
+    .brand-logo-img {
+      height: 46px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .badge-brand-verified {
+      background: linear-gradient(135deg, var(--gold) 0%, #E5B864 100%);
+      color: var(--primary);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 10px;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    }
+    .brand-badge {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--primary-green) 0%, #40916C 100%);
+      border: 2px solid var(--gold);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .brand-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+    .brand-text p {
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--primary);
+    }
+    .btn-gold:hover {
+      background: #E5B864;
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #FFFFFF;
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.18);
+    }
+    .btn-primary {
+      background: var(--primary-green);
+      color: #FFFFFF;
+    }
+    .btn-primary:hover {
+      background: var(--primary-light);
+    }
+
+    /* MAIN CONTAINER */
+    .main-wrap {
+      max-width: 1560px;
+      margin: 24px auto;
+      padding: 0 20px;
+    }
+
+    /* PROFILE & INPUT SECTION (COLLAPSIBLE / CLEAN) */
+    .profile-panel {
+      background: var(--card-bg);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .panel-header h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .panel-header .sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-group label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .form-control {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      background: #FFFFFF;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+    }
+    .input-highlight {
+      background: #F0FDF4;
+      border-color: #86EFAC;
+      color: var(--primary-green);
+    }
+
+    /* KPI INSIGHTS DASHBOARD */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 16px 20px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      position: relative;
+      overflow: hidden;
+    }
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+    }
+    .kpi-card.kpi-dream::before { background: var(--dream-text); }
+    .kpi-card.kpi-fit::before { background: var(--fit-text); }
+    .kpi-card.kpi-safe::before { background: var(--safe-text); }
+    .kpi-card.kpi-budget::before { background: #059669; }
+    .kpi-card.kpi-total::before { background: var(--gold); }
+
+    .kpi-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .kpi-dream .kpi-icon { background: var(--dream-bg); }
+    .kpi-fit .kpi-icon { background: var(--fit-bg); }
+    .kpi-safe .kpi-icon { background: var(--safe-bg); }
+    .kpi-budget .kpi-icon { background: #ECFDF5; }
+    .kpi-total .kpi-icon { background: var(--gold-light); }
+
+    .kpi-info h3 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+    .kpi-info p {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .kpi-desc {
+      font-size: 11px;
+      color: #64748B;
+      margin-top: 2px;
+    }
+
+    /* FILTER & TOOLBAR */
+    .toolbar-wrap {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .toolbar-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .region-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pill-btn {
+      padding: 7px 14px;
+      border-radius: 30px;
+      font-size: 12.5px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: #FFFFFF;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pill-btn:hover {
+      border-color: var(--primary-light);
+      background: #F1F5F9;
+    }
+    .pill-btn.active {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+    }
+    .pill-count {
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 20px;
+      background: rgba(0,0,0,0.08);
+      font-weight: 700;
+    }
+    .pill-btn.active .pill-count {
+      background: rgba(255,255,255,0.25);
+    }
+
+    .toolbar-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #F1F5F9;
+    }
+    .search-box {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 9px 14px 9px 36px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      outline: none;
+    }
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: #94A3B8;
+    }
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .filter-select {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 600;
+      background: #FFFFFF;
+      color: #334155;
+      outline: none;
+    }
+    .view-mode-toggle {
+      display: flex;
+      background: #E2E8F0;
+      padding: 3px;
+      border-radius: 8px;
+    }
+    .view-btn {
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      background: transparent;
+      color: #475569;
+      transition: all 0.2s;
+    }
+    .view-btn.active {
+      background: #FFFFFF;
+      color: var(--primary);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* BADGES */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .badge-dream {
+      background: var(--dream-bg);
+      color: var(--dream-text);
+      border: 1px solid var(--dream-border);
+    }
+    .badge-fit {
+      background: var(--fit-bg);
+      color: var(--fit-text);
+      border: 1px solid var(--fit-border);
+    }
+    .badge-safe {
+      background: var(--safe-bg);
+      color: var(--safe-text);
+      border: 1px solid var(--safe-border);
+    }
+    .badge-best {
+      background: #E0F2FE;
+      color: #0369A1;
+      border: 1px solid #BAE6FD;
+      font-weight: 700;
+    }
+    .badge-best-hero {
+      background: #DCFCE7;
+      color: #15803D;
+      border: 1px solid #86EFAC;
+      font-weight: 800;
+      box-shadow: 0 1px 2px rgba(22, 101, 52, 0.1);
+    }
+    .gap-fit {
+      color: #D97706;
+      font-weight: 800;
+    }
+    .badge-region {
+      background: #F1F5F9;
+      color: #334155;
+      font-size: 10.5px;
+      font-weight: 600;
+    }
+    .badge-tier-dh {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border: 1px solid #BFDBFE;
+      font-weight: 700;
+      font-size: 10px;
+    }
+    .badge-tier-cd {
+      background: #FFF7ED;
+      color: #C2410C;
+      border: 1px solid #FED7AA;
+      font-weight: 700;
+      font-size: 10px;
+    }
+
+    /* GAP DISPLAY */
+    .gap-positive {
+      color: #15803D;
+      font-weight: 800;
+    }
+    .gap-negative {
+      color: #B91C1C;
+      font-weight: 800;
+    }
+    .gap-neutral {
+      color: #475569;
+      font-weight: 700;
+    }
+
+    /* TABLE VIEW (VERSION 2 MODEL) */
+    .table-container {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow-x: auto;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+    table.v2-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+      text-align: left;
+    }
+    table.v2-table thead tr:first-child th {
+      background: var(--primary);
+      color: #FFFFFF;
+      font-weight: 700;
+      padding: 10px 12px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    table.v2-table thead tr:nth-child(2) th {
+      background: #1E293B;
+      color: #E2E8F0;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 8px 10px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      position: sticky;
+      top: 41px;
+      z-index: 20;
+    }
+    table.v2-table th.th-thpt { background: #1B4332 !important; }
+    table.v2-table th.th-gap { background: #2B6CB0 !important; }
+    table.v2-table th.th-other { background: #553C9A !important; }
+    table.v2-table th.th-action { background: #9B2C2C !important; }
+
+    table.v2-table td {
+      padding: 9px 11px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid #F1F5F9;
+      vertical-align: middle;
+    }
+    table.v2-table tbody tr:hover {
+      background: #F8FAFC;
+    }
+    .region-separator {
+      background: #F1F5F9 !important;
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 8px 14px !important;
+      border-top: 2px solid var(--border);
+    }
+
+    /* CARD VIEW (MOBILE OPTIMIZED) */
+    .cards-container {
+      display: none;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 18px;
+    }
+    .uni-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .uni-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .card-uni-code {
+      font-size: 12px;
+      font-weight: 800;
+      background: var(--primary);
+      color: #FFFFFF;
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+    .card-uni-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+    .card-major {
+      font-size: 13px;
+      color: var(--primary-light);
+      font-weight: 600;
+    }
+
+    .card-scores-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      background: #F8FAFC;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #E2E8F0;
+    }
+    .score-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .score-item .label {
+      font-size: 10.5px;
+      color: #64748B;
+      font-weight: 600;
+    }
+    .score-item .val {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .gap-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .gap-banner.dream { background: var(--dream-bg); color: var(--dream-text); }
+    .gap-banner.fit { background: var(--fit-bg); color: var(--fit-text); }
+    .gap-banner.safe { background: var(--safe-bg); color: var(--safe-text); }
+
+    .card-details {
+      font-size: 11.5px;
+      color: #475569;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border-top: 1px dashed var(--border);
+      padding-top: 10px;
+    }
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .detail-row span.dt-label { font-weight: 600; color: #64748B; }
+    .detail-row span.dt-val { font-weight: 700; color: var(--text); }
+
+    /* COACH / ADMIN DATA MANAGEMENT MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 29, 54, 0.6);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+    .modal-content {
+      background: #FFFFFF;
+      border-radius: 16px;
+      max-width: 880px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+      border: 1px solid var(--border);
+    }
+    .modal-header {
+      background: var(--primary);
+      color: #FFFFFF;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+    }
+    .modal-header h2 {
+      font-size: 18px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .close-btn {
+      background: none;
+      border: none;
+      color: #FFFFFF;
+      font-size: 24px;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+    .close-btn:hover { opacity: 1; }
+
+    .modal-body {
+      padding: 24px;
+    }
+    .admin-tabs {
+      display: flex;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+    .admin-tab-btn {
+      padding: 10px 18px;
+      border: none;
+      background: none;
+      font-size: 14px;
+      font-weight: 700;
+      color: #64748B;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .admin-tab-btn.active {
+      color: var(--primary);
+      border-color: var(--gold);
+    }
+    .admin-tab-pane {
+      display: none;
+    }
+    .admin-tab-pane.active {
+      display: block;
+    }
+
+    .guide-box {
+      background: #F8FAFC;
+      border-left: 4px solid var(--gold);
+      padding: 14px 18px;
+      border-radius: 6px;
+      margin-bottom: 18px;
+      font-size: 13px;
+      color: #334155;
+    }
+    .guide-box ol { margin-left: 20px; margin-top: 6px; }
+
+    /* TOAST NOTIFICATION */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--primary);
+      color: #FFFFFF;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 2000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* REALITY NOTICE BANNER (PHƯƠNG THỨC XÉT TUYỂN 2026 CHO PHỤ HUYNH) */
+    .admissions-reality-banner {
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-top: 4px solid #0284C7;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+    .reality-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #F1F5F9;
+      flex-wrap: wrap;
+    }
+    .reality-header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .reality-icon {
+      font-size: 24px;
+      line-height: 1;
+    }
+    .reality-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #0F172A;
+      letter-spacing: 0.3px;
+    }
+    .reality-sub {
+      font-size: 11.5px;
+      color: #64748B;
+      margin-top: 1px;
+    }
+    .reality-badge {
+      background: #E0F2FE;
+      color: #0369A1;
+      border: 1px solid #BAE6FD;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .reality-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .reality-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 11px 14px;
+    }
+    .rc-title {
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .rc-desc {
+      font-size: 11.5px;
+      line-height: 1.5;
+      color: #334155;
+    }
+
+    /* DATA COPYRIGHT BANNER (UNDER TABLES & CARDS) */
+    .data-copyright-banner {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary-green);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      flex-wrap: wrap;
+    }
+    .data-copyright-content {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+      min-width: 280px;
+    }
+    .copyright-mini-logo {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      flex-shrink: 0;
+      background: #FFFFFF;
+      padding: 2px;
+      border-radius: 6px;
+    }
+    .copyright-title {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--primary-green);
+      letter-spacing: 0.5px;
+      margin-bottom: 3px;
+    }
+    .copyright-desc {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .copyright-tag {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      color: #166534;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+
+    /* FOOTER STYLES */
+    .app-footer {
+      background: var(--primary);
+      color: #CBD5E1;
+      border-top: 3px solid var(--gold);
+      padding: 40px 20px 24px;
+      margin-top: 40px;
+    }
+    .footer-container {
+      max-width: 1560px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1.2fr 1.2fr;
+      gap: 36px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-brand-col {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .footer-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .footer-logo-box {
+      background: #FFFFFF;
+      padding: 4px 8px;
+      border-radius: 8px;
+      border: 1.5px solid var(--gold);
+      display: inline-flex;
+    }
+    .footer-logo-img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+    }
+    .footer-company-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: 0.5px;
+    }
+    .footer-tagline {
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .footer-about {
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: #94A3B8;
+      max-width: 600px;
+    }
+    .footer-heading {
+      font-size: 13px;
+      font-weight: 700;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 14px;
+      position: relative;
+      padding-bottom: 6px;
+    }
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 28px;
+      height: 2px;
+      background: var(--gold);
+    }
+    .footer-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 12.5px;
+      line-height: 2;
+    }
+    .footer-list li strong {
+      color: #E2E8F0;
+    }
+    .footer-cert-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: flex;
+      gap: 10px;
+    }
+    .cert-icon {
+      font-size: 20px;
+      line-height: 1;
+    }
+    .cert-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+    .cert-sub {
+      font-size: 11px;
+      line-height: 1.4;
+      color: #94A3B8;
+    }
+    .footer-bottom-bar {
+      max-width: 1560px;
+      margin: 20px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: #64748B;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* PRINT LAYOUT */
+    @media print {
+      body {
+        background: #FFFFFF;
+        color: #000000;
+        padding: 0;
+      }
+      .app-header, .toolbar-wrap, .btn, .view-mode-toggle, .modal-overlay, .toast, .app-footer, .data-copyright-banner {
+        display: none !important;
+      }
+      .main-wrap {
+        max-width: 100%;
+        margin: 0;
+        padding: 10px;
+      }
+      .profile-panel {
+        border: 1px solid #000;
+        box-shadow: none;
+        margin-bottom: 15px;
+        padding: 12px;
+      }
+      .kpi-row {
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+      .kpi-card {
+        border: 1px solid #999;
+        box-shadow: none;
+        padding: 10px;
+      }
+      .table-container {
+        border: 1px solid #000;
+        box-shadow: none;
+      }
+      table.v2-table th {
+        background: #2D3748 !important;
+        color: #FFF !important;
+      }
+      .print-header {
+        display: block !important;
+        margin-bottom: 20px;
+      }
+      .print-footer {
+        display: block !important;
+      }
+      .cards-container {
+        display: none !important;
+      }
+      table.v2-table {
+        display: table !important;
+      }
+    }
+    .print-header { display: none; }
+    .print-footer { display: none; }
+
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 900px) {
+      .table-container { display: none; }
+      .cards-container { display: grid; }
+      .view-mode-toggle { display: none; }
+      .header-container { flex-direction: column; align-items: flex-start; }
+      .header-actions { width: 100%; justify-content: flex-start; }
+      .footer-container { grid-template-columns: 1fr; gap: 24px; }
+      .brand-logo-img { height: 38px; }
+      .brand-text h1 { font-size: 18px; }
+    }
+  </style>
+</head>
+<div class="no-print" style="background:#0F1D36;color:#fff;padding:8px 20px;font-size:12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.1);position:sticky;top:0;z-index:99999;">
+  <a href="app.html" style="color:#6EE7B7;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:6px;">
+    ← Quay Lại WebApp OYL Global (app.html)
+  </a>
+  <span style="color:#CBD5E1;font-weight:600;">BẢN ĐỒ CHIẾN LƯỢC TUYỂN SINH CÁ NHÂN HÓA • MÔ HÌNH NPH COACH</span>
+  <span style="color:#F59E0B;font-weight:700;">CHUYÊN GIA: CÔ NGUYÊN PHỤNG</span>
+</div>
+<body>
+
+  <!-- TOP APP BAR -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-wrap">
+        <div class="brand-logo-container">
+          <img src="logo_oyl.png" onerror="if(this.src!=='https://coachnguyenphung.com/logo_oyl.png')this.src='https://coachnguyenphung.com/logo_oyl.png'" alt="OWN YOUR LIFE GLOBAL" class="brand-logo-img" />
+        </div>
+        <div class="brand-text">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <h1>CÔNG CỤ TÍNH ĐIỂM GAP &amp; LẬP CHIẾN LƯỢC TUYỂN SINH</h1>
+            <span class="badge-brand-verified">🛡️ BẢN QUYỀN OYL</span>
+          </div>
+          <p>Mô hình NPH COACH • Nhập điểm số dự kiến để tự động đối soát 225 trường &amp; lập ma trận nguyện vọng theo thời gian thực</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-gold" onclick="window.print()">
+          🖨️ Xuất Báo Cáo PDF / In
+        </button>
+        <button class="btn btn-outline" onclick="copyShareableLink()">
+          🔗 Chia Sẻ Link Học Sinh
+        </button>
+        <button class="btn btn-primary" onclick="openAdminModal()">
+          ⚙️ Quản Lý Dữ Liệu (Coach)
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PRINT ONLY HEADER -->
+  <div class="print-header">
+    <div style="display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid #1B4332; padding-bottom:12px; margin-bottom:15px;">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <img src="logo_oyl.png" onerror="if(this.src!=='https://coachnguyenphung.com/logo_oyl.png')this.src='https://coachnguyenphung.com/logo_oyl.png'" style="height:55px; width:auto; object-fit:contain;" alt="OWN YOUR LIFE GLOBAL" />
+        <div style="text-align:left;">
+          <div style="font-size:16px; font-weight:800; color:#1B4332; letter-spacing:0.5px;">OWN YOUR LIFE GLOBAL (OYL)</div>
+          <div style="font-size:11px; color:#555; text-transform:uppercase; font-weight:600;">Hệ Thống Cố Vấn Định Hướng &amp; Bản Đồ Tuyển Sinh Cá Nhân Hóa</div>
+        </div>
+      </div>
+      <div style="text-align:right; font-size:11px; color:#64748B;">
+        <div style="font-weight:700; color:#1B4332;">MÃ BÁO CÁO: OYL-TS2026</div>
+        <div>Ngày xuất: <span id="printDateStamp">2026</span></div>
+        <div style="color:#B45309; font-weight:600;">© Bản quyền OYL Global</div>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <h2 style="font-size:18px; font-weight:bold; color:#0F1D36; margin:8px 0 4px 0;">BÁO CÁO PHÂN TÍCH ĐỊNH HƯỚNG NGHỀ NGHIỆP &amp; CHIẾN LƯỢC TUYỂN SINH</h2>
+      <p style="font-size:12px; color:#555;">Hệ Thống Phân Tầng Chiến Lược 5 Khu Vực • Chuyên Gia Cố Vấn: Coach Nguyên Phụng • Đối Soát Đa Phương Thức</p>
+    </div>
+    <hr style="margin:10px 0 15px 0; border:0; border-top:1px dashed #CBD5E1;" />
+  </div>
+
+  <div class="main-wrap">
+    
+    <!-- SECTION 1: THÔNG TIN HỌC SINH & ĐIỂM SỐ -->
+    <section class="profile-panel">
+      <div class="panel-header">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <span style="background:#15803D;color:#FFF;font-size:12px;font-weight:800;padding:5px 14px;border-radius:20px;letter-spacing:0.5px;text-transform:uppercase;">BƯỚC 1: BẢNG NHẬP THÔNG SỐ ĐẦU VÀO</span>
+        </div>
+        <h2>👤 Nhập Hồ Sơ Học Sinh &amp; Điểm Số Dự Kiến Của Bạn</h2>
+        <span class="sub" style="font-size:13.5px;color:#334155;line-height:1.6;margin-top:6px;display:block;">
+          👉 Điền điểm thi và nhóm ngành của bạn vào các ô bên dưới (hoặc bấm chọn 1 kịch bản ví dụ mẫu giả định) — Hệ thống sẽ tự động tính toán đối soát ma trận 225 trường ở <strong>Bước 2</strong> phía dưới theo thời gian thực.
+        </span>
+      </div>
+
+      <!-- BANNER CHẾ ĐỘ THÍCH ỨNG DÀNH RIÊNG CHO LỚP 9 & LỚP 10 (GDPT 2018) -->
+      <div id="gradeSpecificAlert" style="display:none; margin-bottom:18px; padding:14px 18px; border-radius:12px; border:2px solid #38BDF8; background:linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);">
+        <div id="gradeAlertContent">
+          <!-- Populated dynamically by onStudentGradeChange() -->
+        </div>
+      </div>
+
+      <!-- Quick Test Presets (Kiểm thử nhanh case thực tế) -->
+      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 14px; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span style="font-size: 12px; font-weight: 700; color: #475569;">⚡ Xem kịch bản ví dụ mẫu giả định:</span>
+        <button type="button" class="btn" style="padding: 5px 12px; font-size: 12px; background: #EEF2FF; color: #4338CA; border: 1px solid #C7D2FE;" onclick="loadStudentPreset('ufm_minh')" title="Thử nghiệm case thực tế: THPT 20.6đ + Học bạ 24.0đ đỗ UFM Tài chính Ngân hàng">
+          🎯 Ví dụ: Thí sinh thi UFM (20.6đ)
+        </button>
+        <button type="button" class="btn" style="padding: 5px 12px; font-size: 12px; background: #F0FDF4; color: #166534; border: 1px solid #BBF7D0;" onclick="loadStudentPreset('supham_anh')" title="Thử nghiệm case Sư phạm: Miễn 100% học phí theo NĐ 116 + 3.63Tr/tháng">
+          🎓 Ví dụ: Thí sinh thi Sư Phạm (NĐ 116)
+        </button>
+        <button type="button" class="btn" style="padding: 5px 12px; font-size: 12px; background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A;" onclick="loadStudentPreset('luat_nam')" title="Thử nghiệm case Luật Kinh tế ĐH Luật Hà Nội / TP.HCM">
+          ⚖️ Ví dụ: Thí sinh thi Luật (HLU/ULAW)
+        </button>
+        <button type="button" class="btn" style="padding: 5px 12px; font-size: 12px; background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0;" onclick="loadStudentPreset('ngonngu_mai')" title="Thử nghiệm case ĐH Mở TP.HCM / Hà Nội: Ngôn ngữ Trung">
+          🎯 Ví dụ: Thí sinh thi Ngôn Ngữ Trung
+        </button>
+        <button type="button" class="btn" style="padding: 5px 12px; font-size: 12px; background: #F1F5F9; color: #334155; border: 1px solid #CBD5E1;" onclick="loadStudentPreset('cntt_khoi')" title="Thử nghiệm case Bách Khoa: CNTT">
+          🎯 Ví dụ: Thí sinh thi Bách Khoa (27.2đ)
+        </button>
+        <button type="button" class="btn" style="padding: 5px 12px; font-size: 12px; background: #FFFBEB; color: #B45309; border: 1px solid #FDE68A; margin-left: auto;" onclick="resetToDefaultDatabase()" title="Khôi phục nguyên vẹn 225 trường trong kho dữ liệu chuẩn">
+          🔄 Làm mới Kho 225 Trường
+        </button>
+      </div>
+
+      <div class="form-grid">
+        <!-- Họ và Tên -->
+        <div class="form-group">
+          <label>👤 Họ và Tên Học Sinh</label>
+          <input type="text" id="studentName" class="form-control" value="" oninput="updateProfile()" placeholder="Nhập tên học sinh..." />
+        </div>
+
+        <!-- Khối Lớp Hiện Tại (Adaptive Mode) -->
+        <div class="form-group">
+          <label style="color:#0369A1; font-weight:800;">🎓 Khối Lớp Hiện Tại (Tự Động Đổi Chế Độ)</label>
+          <select id="studentGradeSelect" class="form-control input-highlight" onchange="onStudentGradeChange()" style="background:#F0F9FF; border-color:#7DD3FC; font-weight:700; color:#0369A1;">
+            <option value="12" selected>Lớp 12 (Chiến Lược Xét Tuyển Đa Phương Thức & Tính GAP)</option>
+            <option value="11">Lớp 11 (Xây GPA Học Bạ & Tích Lũy Chứng Chỉ IELTS 6.5+)</option>
+            <option value="10">Lớp 10 (Đối Soát Tổ Hợp Môn Đang Học & Mục Tiêu Điểm GPA)</option>
+            <option value="9">Lớp 9 (Chiến Lược Chốt Đúng Tổ Hợp Môn Lớp 10 - GDPT 2018)</option>
+          </select>
+        </div>
+
+        <!-- Chọn Nhóm Ngành Mục Tiêu -->
+        <div class="form-group">
+          <label>🎯 1. Lĩnh Vực / Nhóm Ngành Quan Tâm</label>
+          <select id="selectedMajorGroup" class="form-control input-highlight" onchange="onMajorGroupChange()">
+            <option value="all">🌟 Xem Toàn Bộ 13 Nhóm Ngành Toàn Quốc (225 Trường/Ngành)</option>
+            <option value="cntt" selected>💻 Công nghệ Thông tin & Trí tuệ Nhân tạo (AI)</option>
+            <option value="kythuat">⚙️ Kỹ thuật Cơ khí - Ô tô - Bán dẫn & Tự Động Hóa</option>
+            <option value="kinhte">📈 Kinh tế - Quản trị - Tài chính - Marketing</option>
+            <option value="luat">⚖️ Luật & Pháp lý (Luật Kinh tế, Luật Thương mại Quốc tế)</option>
+            <option value="supham">🎓 Sư phạm & Giáo dục (Miễn 100% học phí theo NĐ 116)</option>
+            <option value="truyenthong">📡 Truyền thông - Báo chí & Quan hệ Công chúng (PR)</option>
+            <option value="xaydung">🏗️ Kiến trúc - Xây dựng & Thiết kế Nội thất</option>
+            <option value="tamly">🧠 Tâm lý học & Khoa học Xã hội (Trị liệu, Tư vấn, HR)</option>
+            <option value="logistics">🚢 Logistics & Quản lý Chuỗi Cung Ứng</option>
+            <option value="yduoc">🩺 Y - Dược - Điều Dưỡng - Thú Y & Sức Khỏe</option>
+            <option value="dulich">🏨 Du lịch - Khách sạn - Nghệ thuật Ẩm thực</option>
+            <option value="thietke">🎨 Thiết kế Đồ họa & Đa phương tiện</option>
+            <option value="ngonngu">🌐 Ngôn ngữ (Anh - Trung - Hàn - Nhật Bản)</option>
+          </select>
+        </div>
+
+        <!-- Chân dung nghề nghiệp mục tiêu 5 - 10 năm -->
+        <div class="form-group" style="grid-column: span 2;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2px;">
+            <label style="color:#166534; font-weight:800;">🚀 2. Chân Dung Nghề Nghiệp Mục Tiêu (Sau 5 - 10 Năm Ra Trường)</label>
+            <button type="button" id="btnToggleCustomGoal" onclick="toggleCustomCareerGoal()" style="border:none; background:none; color:#2563EB; font-size:11.5px; font-weight:700; cursor:pointer; text-decoration:underline;">
+              ✏️ Tự nhập nghề khác
+            </button>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <select id="careerGoalSelect" class="form-control" style="background:#F0FDF4; border-color:#86EFAC; font-weight:700; color:#166534; flex:1;" onchange="onCareerGoalSelectChange()">
+              <!-- Populated via JS based on selectedMajorGroup -->
+            </select>
+            <input type="text" id="careerGoal" class="form-control" style="display:none; flex:1;" value="Kỹ sư Trí tuệ Nhân tạo & AI Engineer" oninput="updateProfile()" placeholder="Nhập tên nghề nghiệp mục tiêu..." />
+          </div>
+          <div id="careerGoalNote" style="font-size:11.5px; color:#475569; margin-top:4px; line-height:1.4;">
+            <!-- Dynamically populated note -->
+          </div>
+        </div>
+
+        <!-- Điểm thi Tốt nghiệp THPT (Tổ hợp chính) -->
+        <div class="form-group">
+          <label>Điểm THPT Dự Kiến (Thang 30)</label>
+          <input type="number" step="0.05" id="scoreThpt" class="form-control input-highlight" value="" oninput="onScoresChange()" placeholder="VD: 27.2" />
+        </div>
+
+        <!-- Điểm ĐGNL / ĐGTD -->
+        <div class="form-group">
+          <label>Điểm ĐGNL / ĐGTD (HSA / TSA / HCM)</label>
+          <input type="number" step="0.5" id="scoreDgnl" class="form-control" value="" oninput="onScoresChange()" placeholder="VD: TSA 78.5 hoặc HSA 102" />
+        </div>
+
+        <!-- Điểm Học Bạ THPT (GPA) -->
+        <div class="form-group">
+          <label>Điểm Học Bạ THPT (GPA Thang 30)</label>
+          <input type="number" step="0.1" id="scoreGpa" class="form-control" value="" oninput="onScoresChange()" placeholder="VD: 27.8 (Tổng 3 môn 3 kỳ)" />
+        </div>
+
+        <!-- Chứng Chỉ Ngoại Ngữ Quốc Tế -->
+        <div class="form-group">
+          <label>Chứng Chỉ Ngoại Ngữ (IELTS / HSK...)</label>
+          <select id="certLang" class="form-control" onchange="onScoresChange()">
+            <option value="none">Chưa có chứng chỉ quốc tế</option>
+            <option value="ielts_50">IELTS 5.0 - 5.5 (Miễn thi TN Tiếng Anh / Sơ tuyển)</option>
+            <option value="ielts_60">IELTS 6.0 (Quy đổi 8.5-9đ Tiếng Anh / Xét kết hợp)</option>
+            <option value="ielts_65">IELTS 6.5 (Quy đổi 9.5-10đ Tiếng Anh / Xét kết hợp)</option>
+            <option value="ielts_70" selected>IELTS 7.0 - 7.5+ (Quy đổi 10đ Tiếng Anh / Xét kết hợp Top đầu)</option>
+            <option value="hsk">Tiếng Trung: HSK 4 - HSK 6 (Quy đổi / Xét kết hợp)</option>
+            <option value="jlpt">Tiếng Nhật: JLPT N3 - N1 (Quy đổi / Xét kết hợp)</option>
+            <option value="other">Chứng chỉ quốc tế khác</option>
+          </select>
+          <span style="font-size:11px; color:#64748B; margin-top:3px; display:block;">⚠️ Quy chế mới: Không cộng điểm thưởng vào tổng 30đ; chỉ dùng quy đổi môn Tiếng Anh hoặc sơ tuyển</span>
+        </div>
+
+        <!-- Điều Kiện Kinh Tế / Ngân Sách Gia Đình -->
+        <div class="form-group">
+          <label style="color:#C2410C;">💰 Điều Kiện Kinh Tế / Ngân Sách (Tr/Năm)</label>
+          <select id="budgetTier" class="form-control" style="border-color:#FDBA74; background:#FFF7ED; font-weight:700; color:#9A3412;" onchange="onScoresChange()">
+            <option value="all">🌟 Không Giới Hạn Ngân Sách</option>
+            <option value="15">🟢 Dưới 15 Tr/năm (Tiết kiệm, CĐ công lập, Sư phạm)</option>
+            <option value="30" selected>🟡 Dưới 30 Tr/năm (ĐH Công Lập đại trà chuẩn Bộ)</option>
+            <option value="50">🟠 Dưới 50 Tr/năm (ĐH Tự chủ, Chương trình CLC)</option>
+            <option value="100">🟣 Trên 50 Tr/năm (ĐH Quốc tế, Tư thục cao cấp)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- HỘP ĐỀ XUẤT NGÀNH GẦN & PHƯƠNG ÁN DỰ PHÒNG THÔNG MINH -->
+      <div id="relatedMajorsWrap" style="margin-top: 18px; padding: 14px 18px; background: #F0FDF4; border: 1.5px solid #86EFAC; border-radius: 12px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <span style="font-size: 13px; font-weight: 700; color: #166534; display: flex; align-items: center; gap: 6px;" id="relatedBoxTitle">
+            💡 Các Ngành Gần Cùng Hệ Sinh Thái (Đầu ra tương đương, điểm chuẩn mềm hơn 0.5 - 2.5 điểm):
+          </span>
+          <button class="btn btn-primary" style="font-size:11.5px; padding:5px 12px; background:#166534;" onclick="openRelatedModal()">
+            🗺️ Mở Cây Phả Hệ Ngành Gần (Chi Tiết)
+          </button>
+        </div>
+        <div id="relatedPillsList" style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <!-- Dynamically populated via JavaScript -->
+        </div>
+      </div>
+    </section>
+
+        <!-- ============================================================== -->
+    <!-- BƯỚC 2: KẾT QUẢ ĐỐI SOÁT & MA TRẬN NGUYỆN VỌNG THEO THỜI GIAN THỰC -->
+    <!-- ============================================================== -->
+    <div style="background:#FFFFFF;border:2px solid #15803D;border-radius:18px;padding:20px 24px;margin:28px 0 20px;box-shadow:0 6px 20px rgba(21,128,61,0.12);">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;">
+        <div>
+          <div style="display:inline-flex;align-items:center;gap:6px;background:#DCFCE7;color:#15803D;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:800;margin-bottom:4px;text-transform:uppercase;">
+            BƯỚC 2: KẾT QUẢ ĐỐI SOÁT CHIẾN LƯỢC
+          </div>
+          <h3 style="font-size:20px;font-weight:800;color:#182A1B;margin:2px 0 0;">
+            Bản Đồ Chiến Lược Tuyển Sinh &amp; Ma Trận GAP Điểm Số
+          </h3>
+          <p style="font-size:13px;color:#64748B;margin:4px 0 0;">
+            Tự động phân tầng: 🔴 Vươn tới (Dream) • 🟡 Vừa sức (Fit) • 🟢 An toàn (Safe) đối soát với 225+ trường chuẩn NPH Coach.
+          </p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <button class="btn btn-gold" onclick="window.print()" style="padding:10px 18px;font-size:12.5px;">
+            🖨️ Xuất Báo Cáo PDF / In
+          </button>
+          <button class="btn btn-outline" onclick="copyShareableLink()" style="padding:10px 18px;font-size:12.5px;">
+            🔗 Chia Sẻ Báo Cáo
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: BẢNG CHỈ SỐ NHANH (KPI INSIGHTS) -->
+    <section class="kpi-row">
+      <!-- Vươn tới -->
+      <div class="kpi-card kpi-dream">
+        <div class="kpi-icon">🔴</div>
+        <div class="kpi-info">
+          <h3 id="countDream">0</h3>
+          <p>Vươn tới (Dream)</p>
+          <div class="kpi-desc">Thiếu điểm (-1.5 đến 0đ), cần nỗ lực bứt phá</div>
+        </div>
+      </div>
+
+      <!-- Vừa sức -->
+      <div class="kpi-card kpi-fit">
+        <div class="kpi-icon">🟡</div>
+        <div class="kpi-info">
+          <h3 id="countFit">0</h3>
+          <p>Vừa sức (Fit)</p>
+          <div class="kpi-desc">Ngang hoặc hơn nhẹ (+0 đến +1.5đ), cơ hội cao</div>
+        </div>
+      </div>
+
+      <!-- An toàn -->
+      <div class="kpi-card kpi-safe">
+        <div class="kpi-icon">🟢</div>
+        <div class="kpi-info">
+          <h3 id="countSafe">0</h3>
+          <p>An toàn (Safe)</p>
+          <div class="kpi-desc">Vượt điểm chuẩn &gt; +1.5đ, bảo hiểm 99%</div>
+        </div>
+      </div>
+
+      <!-- Vừa sức tài chính -->
+      <div class="kpi-card kpi-budget">
+        <div class="kpi-icon">💰</div>
+        <div class="kpi-info">
+          <h3 id="countBudget">0</h3>
+          <p>Vừa Sức Tài Chính</p>
+          <div class="kpi-desc" id="budgetSub">Trong khả năng ngân sách gia đình</div>
+        </div>
+      </div>
+
+      <!-- Tổng trường đang hiển thị -->
+      <div class="kpi-card kpi-total">
+        <div class="kpi-icon">🏛️</div>
+        <div class="kpi-info">
+          <h3 id="countTotal">0</h3>
+          <p>Tổng Trường Đối Soát</p>
+          <div class="kpi-desc" id="statSub">Trải đều trên 5 khu vực toàn quốc</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THÔNG BÁO THỰC CHIẾN DÀNH CHO PHỤ HUYNH VỀ PHƯƠNG THỨC XÉT TUYỂN 2026 -->
+    <div class="admissions-reality-banner">
+      <div class="reality-header">
+        <div class="reality-header-left">
+          <span class="reality-icon">📢</span>
+          <div>
+            <div class="reality-title">LƯU Ý THỰC TẾ DÀNH CHO PHỤ HUYNH &amp; HỌC SINH (MÙA TUYỂN SINH 2026)</div>
+            <div class="reality-sub">Chuẩn hóa theo định hướng Quy chế mới của Bộ GD&amp;ĐT và xu hướng phân hóa phương thức giữa các trường</div>
+          </div>
+        </div>
+        <span class="reality-badge">DỰ BÁO 2026 • THAM CHIẾU 2025</span>
+      </div>
+      <div class="reality-grid">
+        <div class="reality-card" style="border-left: 3.5px solid #DC2626;">
+          <div class="rc-title" style="color:#DC2626;">🚫 Bỏ Hoàn Toàn Cộng Điểm Thưởng IELTS</div>
+          <div class="rc-desc">Các trường Đại học hiện <b>không còn cộng điểm thưởng (+0.5đ đến +2.0đ)</b> trực tiếp vào tổng 30 điểm thi. Chứng chỉ IELTS/HSK/JLPT chỉ dùng để <b>quy đổi điểm môn Tiếng Anh</b> trong tổ hợp hoặc làm <b>điều kiện sơ tuyển</b> trong phương thức kết hợp.</div>
+        </div>
+        <div class="reality-card" style="border-left: 3.5px solid #D97706;">
+          <div class="rc-title" style="color:#D97706;">⚠️ Phân Hóa Rõ Rệt Phương Thức Học Bạ</div>
+          <div class="rc-desc">Các trường Top đầu (Bách Khoa, Kinh tế Quốc dân, Ngoại Thương, Y Dược...) <b>không còn xét học bạ đơn thuần</b> (ưu tiên thi THPT và ĐGNL HSA/TSA). Phương thức xét học bạ sớm phát huy tối đa ở các trường ĐH vừa sức/tự chủ và 100% hệ Cao đẳng nghề.</div>
+        </div>
+        <div class="reality-card" style="border-left: 3.5px solid #0284C7;">
+          <div class="rc-title" style="color:#0284C7;">⏳ Minh Bạch Đề Án Tuyển Sinh 2026</div>
+          <div class="rc-desc">Đề án chính thức 2026 của các trường đang được hoàn thiện. Dữ liệu trong hệ thống dựa trên <b>Đề án gần nhất 2025 + Mô hình dự báo GAP 2026</b> giúp gia đình có chiến lược phòng thủ an toàn sớm, tránh bị động khi trường chốt đề án.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: BỘ LỌC KHU VỰC & TÌM KIẾM -->
+    <section class="toolbar-wrap">
+      <!-- Hàng lọc Bậc Đào Tạo (Học Thuật vs Thực Hành Nghề) -->
+      <div style="display:flex; align-items:center; gap:8px; padding-bottom:12px; border-bottom:1px solid #F1F5F9; flex-wrap:wrap;">
+        <span style="font-size:12px; font-weight:700; color:#475569; text-transform:uppercase;">🎓 BẬC ĐÀO TẠO:</span>
+        <button class="pill-btn active" id="btnTierAll" onclick="setTierFilter('all', this)">
+          🌐 Tất Cả Bậc <span class="pill-count" id="badgeTierAll">0</span>
+        </button>
+        <button class="pill-btn" id="btnTierDH" onclick="setTierFilter('daihoc', this)">
+          🎓 Đại Học (Học Thuật) <span class="pill-count" id="badgeTierDH">0</span>
+        </button>
+        <button class="pill-btn" id="btnTierCD" onclick="setTierFilter('caodang', this)">
+          🛠️ Cao Đẳng (Thực Hành Nghề) <span class="pill-count" id="badgeTierCD">0</span>
+        </button>
+      </div>
+
+      <!-- Hàng lọc Phương Thức Xét Tuyển (Thực tế Học bạ vs ĐGNL vs Thi THPT) -->
+      <div style="display:flex; align-items:center; gap:8px; padding-top:10px; padding-bottom:10px; border-bottom:1px solid #F1F5F9; flex-wrap:wrap;">
+        <span style="font-size:12px; font-weight:700; color:#475569; text-transform:uppercase;">📋 PHƯƠNG THỨC:</span>
+        <button class="pill-btn active" id="btnMethodAll" onclick="setMethodFilter('all', this)">
+          🌐 Tất Cả Phương Thức <span class="pill-count" id="badgeMethodAll">0</span>
+        </button>
+        <button class="pill-btn" id="btnMethodHb" onclick="setMethodFilter('hb', this)" title="Lọc các trường có phương thức xét học bạ sớm">
+          📋 Có Xét Học Bạ Sớm <span class="pill-count" id="badgeMethodHb">0</span>
+        </button>
+        <button class="pill-btn" id="btnMethodDgnl" onclick="setMethodFilter('dgnl', this)" title="Lọc các trường nhận điểm ĐGNL (HSA, TSA, ĐHQG HCM)">
+          🎯 Có Xét ĐGNL / ĐGTD <span class="pill-count" id="badgeMethodDgnl">0</span>
+        </button>
+        <button class="pill-btn" id="btnMethodNoHb" onclick="setMethodFilter('nohb', this)" title="Các trường Top đầu không xét học bạ đơn thuần (yêu cầu thi THPT hoặc ĐGNL)">
+          🚫 Không Xét HB Đơn Thuần <span class="pill-count" id="badgeMethodNoHb">0</span>
+        </button>
+      </div>
+
+      <!-- Hàng lọc 5 khu vực -->
+      <div class="toolbar-top" style="padding-top:4px;">
+        <div class="region-pills" id="regionPillsContainer">
+          <button class="pill-btn active" onclick="setRegionFilter('all', this)">
+            🌏 Tất cả Khu Vực <span class="pill-count" id="badgeAll">0</span>
+          </button>
+          <button class="pill-btn" onclick="setRegionFilter('Hà Nội', this)">
+            🏛️ Hà Nội <span class="pill-count" id="badgeHN">0</span>
+          </button>
+          <button class="pill-btn" onclick="setRegionFilter('Miền Bắc', this)">
+            🌲 Miền Bắc <span class="pill-count" id="badgeMB">0</span>
+          </button>
+          <button class="pill-btn" onclick="setRegionFilter('Đà Nẵng', this)">
+            🌊 Đà Nẵng <span class="pill-count" id="badgeDN">0</span>
+          </button>
+          <button class="pill-btn" onclick="setRegionFilter('Miền Trung', this)">
+            ☀️ Miền Trung <span class="pill-count" id="badgeMT">0</span>
+          </button>
+          <button class="pill-btn" onclick="setRegionFilter('TP.HCM & Nam', this)">
+            🏙️ TP.HCM & Miền Nam <span class="pill-count" id="badgeMN">0</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hàng lọc phân tầng & tìm kiếm -->
+      <div class="toolbar-bottom">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchKeyword" placeholder="Tìm tên trường, mã trường (BKA, NEU, FTU...), ngành..." oninput="onSearchChange()" />
+        </div>
+
+        <div class="filter-group">
+          <!-- Lọc vừa sức tài chính -->
+          <label style="font-size:12px; font-weight:700; color:#C2410C; display:inline-flex; align-items:center; gap:6px; background:#FFF7ED; padding:6px 12px; border-radius:8px; border:1px solid #FDBA74; cursor:pointer;" title="Ẩn các trường có học phí vượt ngân sách gia đình">
+            <input type="checkbox" id="chkBudgetOnly" onchange="renderAll()" style="width:15px; height:15px; accent-color:#C2410C;" />
+            <span>💰 Chỉ Hiện Trường Vừa Sức Tài Chính</span>
+          </label>
+
+          <!-- Phân tầng filter -->
+          <select id="stratFilter" class="filter-select" onchange="onStratChange()">
+            <option value="all">🎯 Tất Cả Phân Tầng</option>
+            <option value="Dream">🔴 Chỉ Trường Vươn Tới (Dream)</option>
+            <option value="Fit">🟡 Chỉ Trường Vừa Sức (Fit)</option>
+            <option value="Safe">🟢 Chỉ Trường An Toàn (Safe)</option>
+          </select>
+
+          <!-- Toggle View Mode (Bảng vs Thẻ) -->
+          <div class="view-mode-toggle">
+            <button class="view-btn active" id="btnTableView" onclick="switchView('table')">📋 Bảng Chuẩn V2</button>
+            <button class="view-btn" id="btnCardView" onclick="switchView('card')">🎴 Thẻ Trực Quan</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: TABLE VIEW (CHUẨN VERSION 2) -->
+    <section class="table-container" id="tableViewWrap">
+      <table class="v2-table">
+        <thead>
+          <tr>
+            <th rowspan="2" style="width:40px;">STT</th>
+            <th rowspan="2" style="width:90px;">Khu Vực</th>
+            <th rowspan="2" style="width:70px;">Mã</th>
+            <th rowspan="2" style="min-width:180px;">Tên Trường Đại Học</th>
+            <th rowspan="2" style="min-width:180px;">Ngành Đào Tạo</th>
+            <th rowspan="2" style="width:100px;">Tổ Hợp</th>
+            <!-- Khối THPT -->
+            <th colspan="3" class="th-thpt">Điểm Chuẩn THPT</th>
+            <!-- Khối Đối Soát & GAP (Version 2) -->
+            <th colspan="3" class="th-gap">Đối Soát &amp; Lệch Điểm Học Sinh</th>
+            <!-- Phương thức khác -->
+            <th colspan="2" class="th-other">Phương Thức ĐGNL, Học Bạ &amp; Ngoại Ngữ (Dự Kiến 2026)</th>
+            <!-- Chiến lược -->
+            <th colspan="3" class="th-action">Chiến Lược &amp; Đánh Giá Toàn Diện</th>
+          </tr>
+          <tr>
+            <!-- Sub THPT -->
+            <th class="th-thpt" title="Chuẩn 2024">2024</th>
+            <th class="th-thpt" title="Chuẩn 2025">2025</th>
+            <th class="th-thpt" title="Biên độ lệch = 2025 - 2024">Lệch Năm</th>
+            <!-- Sub GAP -->
+            <th class="th-gap" title="Điểm trung bình 2 năm">Điểm TB</th>
+            <th class="th-gap" title="Lệch so với 2025 = Điểm HS - Chuẩn 2025">GAP 2025</th>
+            <th class="th-gap" title="Lệch so với Điểm TB = Điểm HS - Điểm TB">GAP TB</th>
+            <!-- Sub Other -->
+            <th class="th-other">Kỳ Thi ĐGNL / ĐGTD</th>
+            <th class="th-other" title="Phương thức Học bạ (Dự kiến theo đề án gần nhất - Chờ đề án chính thức 2026)">Học Bạ (GPA) &amp; Ngoại Ngữ<br><span style="font-size:9.5px; font-weight:normal; opacity:0.85;">(Tham chiếu 2025)</span></th>
+            <!-- Sub Action -->
+            <th class="th-action" title="Cửa tuyển sinh tối ưu nhất dựa trên năng lực học sinh">Cửa Đỗ Tối Ưu (Chiến Lược)</th>
+            <th class="th-action">Đánh Giá (Học Lực + Chi Phí)</th>
+            <th class="th-action">Học Phí &amp; Tài Chính</th>
+          </tr>
+        </thead>
+        <tbody id="v2TableBody">
+          <!-- Render via JavaScript -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 5: CARD VIEW (CHO ĐIỆN THOẠI DI ĐỘNG) -->
+    <section class="cards-container" id="cardsViewWrap">
+      <!-- Render via JavaScript -->
+    </section>
+
+    <!-- COPYRIGHT & DATA AUTHENTICITY BADGE -->
+    <div class="data-copyright-banner">
+      <div class="data-copyright-content">
+        <img src="logo_oyl.png" onerror="if(this.src!=='https://coachnguyenphung.com/logo_oyl.png')this.src='https://coachnguyenphung.com/logo_oyl.png'" class="copyright-mini-logo" alt="OYL Logo" />
+        <div>
+          <span class="copyright-title">CHỨNG NHẬN BẢN QUYỀN HỆ THỐNG DỮ LIỆU &amp; THUẬT TOÁN ĐỐI SOÁT:</span>
+          <span class="copyright-desc">Toàn bộ cấu trúc phân tầng 5 khu vực, thuật toán tính GAP điểm chuẩn và ma trận cây phả hệ ngành gần được nghiên cứu và bảo hộ độc quyền bởi <b>OWN YOUR LIFE GLOBAL (OYL)</b> © 2026. Mọi hành vi sao chép cơ sở dữ liệu đều vi phạm pháp luật sở hữu trí tuệ.</span>
+        </div>
+      </div>
+      <div class="copyright-tag">
+        <span>🛡️ BẢN QUYỀN OYL GLOBAL © 2026</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COACH DATA MANAGEMENT MODAL -->
+  <div class="modal-overlay" id="adminModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>⚙️ Quản Lý Kho Dữ Liệu Tuyển Sinh (Coach Data Hub)</h2>
+        <button class="close-btn" onclick="closeAdminModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="admin-tabs">
+          <button class="admin-tab-btn active" onclick="switchAdminTab('sync', this)">🔄 Đồng Bộ Google Sheets</button>
+          <button class="admin-tab-btn" onclick="switchAdminTab('add', this)">➕ Thêm Trường / Ngành Mới</button>
+          <button class="admin-tab-btn" onclick="switchAdminTab('file', this)">📁 Xuất / Nhập File (CSV / JSON)</button>
+        </div>
+
+        <!-- TAB 1: GOOGLE SHEETS SYNC -->
+        <div class="admin-tab-pane active" id="tabSync">
+          <div class="guide-box">
+            <strong>Hướng dẫn kết nối Google Sheets tự động (Cập nhật thời gian thực):</strong>
+            <ol>
+              <li>Tạo bản sao Google Sheets từ file mẫu chuẩn 20 cột của Coach.</li>
+              <li>Trên Google Sheets: Vào <b>Tệp (File)</b> &gt; <b>Chia sẻ (Share)</b> &gt; <b>Xuất bản lên web (Publish to web)</b>.</li>
+              <li>Chọn định dạng <b>"Giá trị phân cách bằng dấu phẩy (.csv)"</b> rồi bấm Xuất bản.</li>
+              <li>Dán đường link CSV nhận được vào ô bên dưới rồi bấm <b>"Đồng Bộ Ngay"</b>.</li>
+            </ol>
+          </div>
+          <div class="form-group" style="margin-bottom:14px;">
+            <label>Link Google Sheets (Định dạng CSV công khai):</label>
+            <input type="url" id="googleSheetUrl" class="form-control" placeholder="https://docs.google.com/spreadsheets/d/e/.../pub?output=csv" />
+          </div>
+          <button class="btn btn-primary" onclick="syncGoogleSheet()">
+            ⚡ Đồng Bộ Dữ Liệu Từ Google Sheets
+          </button>
+          <a href="/data/mau_google_sheets_tuyensinh.csv" download class="btn btn-outline" style="color:var(--primary); border-color:#CBD5E0; margin-left:10px;">
+            📥 Tải File Mẫu Google Sheets (CSV)
+          </a>
+        </div>
+
+        <!-- TAB 2: THÊM TRƯỜNG MỚI THỦ CÔNG -->
+        <div class="admin-tab-pane" id="tabAdd">
+          <div class="guide-box">
+            Nhập thông tin một trường đại học hoặc ngành mới để thêm vào kho dữ liệu hiện hành.
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Bậc Đào Tạo</label>
+              <select id="newTier" class="form-control">
+                <option value="daihoc">🎓 Hệ Đại Học (Học Thuật)</option>
+                <option value="caodang">🛠️ Hệ Cao Đẳng (Thực Hành Nghề)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Nhóm Ngành</label>
+              <select id="newMajorGroup" class="form-control">
+                <option value="cntt">💻 Công nghệ Thông tin & Trí tuệ Nhân tạo</option>
+                <option value="kythuat">⚙️ Kỹ thuật Cơ khí - Ô tô - Tự Động Hóa</option>
+                <option value="kinhte">📈 Kinh tế - Tài chính - Marketing - QTKD</option>
+                <option value="logistics">🚢 Logistics & Quản lý Chuỗi Cung Ứng</option>
+                <option value="yduoc">🩺 Y - Dược - Điều Dưỡng - Sức Khỏe</option>
+                <option value="dulich">🏨 Du lịch - Khách sạn - Nghệ thuật Ẩm thực</option>
+                <option value="thietke">🎨 Thiết kế Đồ họa & Đa phương tiện</option>
+                <option value="ngonngu">🌐 Ngôn ngữ Anh & Ngôn ngữ Trung Quốc</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Khu Vực</label>
+              <select id="newRegion" class="form-control">
+                <option value="Hà Nội">Hà Nội</option>
+                <option value="Miền Bắc">Miền Bắc</option>
+                <option value="Đà Nẵng">Đà Nẵng</option>
+                <option value="Miền Trung">Miền Trung</option>
+                <option value="TP.HCM & Nam">TP.HCM & Nam</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Mã Trường (Code)</label>
+              <input type="text" id="newCode" class="form-control" placeholder="VD: BKA" />
+            </div>
+            <div class="form-group">
+              <label>Tên Trường Đại Học</label>
+              <input type="text" id="newSchool" class="form-control" placeholder="VD: ĐH Bách Khoa..." />
+            </div>
+            <div class="form-group">
+              <label>Ngành Đào Tạo</label>
+              <input type="text" id="newMajor" class="form-control" placeholder="VD: Khoa học Máy tính" />
+            </div>
+            <div class="form-group">
+              <label>Tổ Hợp Môn</label>
+              <input type="text" id="newComb" class="form-control" placeholder="VD: A00, A01" />
+            </div>
+            <div class="form-group">
+              <label>Điểm Chuẩn 2024</label>
+              <input type="number" step="0.05" id="newScore24" class="form-control" placeholder="VD: 27.5" />
+            </div>
+            <div class="form-group">
+              <label>Điểm Chuẩn 2025</label>
+              <input type="number" step="0.05" id="newScore25" class="form-control" placeholder="VD: 27.3" />
+            </div>
+            <div class="form-group">
+              <label>Kỳ Thi ĐGNL & Điểm Chuẩn</label>
+              <input type="text" id="newDgnl" class="form-control" placeholder="VD: HSA 95.0 hoặc TSA 75" />
+            </div>
+            <div class="form-group">
+              <label>Học Phí (Tr/Năm)</label>
+              <input type="text" id="newTuition" class="form-control" placeholder="VD: 25 - 35" />
+            </div>
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label>Website Đề Án Tuyển Sinh</label>
+              <input type="url" id="newWeb" class="form-control" placeholder="https://..." />
+            </div>
+          </div>
+          <button class="btn btn-primary" style="margin-top:16px;" onclick="addNewSchool()">
+            ➕ Thêm Vào Kho Dữ Liệu
+          </button>
+        </div>
+
+        <!-- TAB 3: FILE EXPORT / IMPORT -->
+        <div class="admin-tab-pane" id="tabFile">
+          <div class="guide-box">
+            Tải file dữ liệu JSON/CSV hiện tại để sao lưu, hoặc nạp file sao lưu trước đó.
+          </div>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
+            <button class="btn btn-primary" onclick="exportDataJson()">
+              📥 Tải Xuống File JSON
+            </button>
+            <button class="btn btn-gold" onclick="exportDataCsv()">
+              📥 Tải Xuống File CSV
+            </button>
+            <button class="btn btn-outline" style="color:#C53030; border-color:#FEB2B2;" onclick="resetToDefaultData()">
+              🔄 Khôi Phục Dữ Liệu Gốc Ban Đầu
+            </button>
+          </div>
+          <div class="form-group">
+            <label>Nạp Dữ Liệu Từ File JSON:</label>
+            <input type="file" id="jsonFileInput" accept=".json" class="form-control" onchange="importJsonFile(event)" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL MA TRẬN CÂY PHẢ HỆ NGÀNH GẦN & PHƯƠNG ÁN DỰ PHÒNG -->
+  <div class="modal-overlay" id="relatedModal">
+    <div class="modal-content" style="max-width: 980px;">
+      <div class="modal-header" style="background:#1B4332;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <img src="logo_oyl.png" onerror="if(this.src!=='https://coachnguyenphung.com/logo_oyl.png')this.src='https://coachnguyenphung.com/logo_oyl.png'" style="height:32px; width:auto; background:#FFF; border-radius:6px; padding:2px;" alt="OYL Logo" />
+          <h2 id="modalRelatedTitle">🗺️ Cây Phả Hệ Ngành Gần &amp; Chiến Lược Tuyển Sinh Dự Phòng</h2>
+        </div>
+        <button class="close-btn" onclick="closeRelatedModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Tab chuyển nhanh nhóm ngành trong Modal -->
+        <div id="modalGroupTabs" style="display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap; padding-bottom:10px; border-bottom:1px solid #E2E8F0;">
+          <!-- Dynamically populated tabs -->
+        </div>
+
+        <div class="guide-box" style="border-left-color: #166534; background:#F0FDF4;">
+          <b>Nguyên Tắc "Ngành Gần" Trong Hướng Nghiệp Thực Chiến:</b><br />
+          Khi học sinh thiếu từ <b>0.5 - 2.5 điểm</b> so với ngành mục tiêu hàng đầu (như Khoa học Máy tính, Y Đa khoa, Logistics hay Kinh doanh Quốc tế), <b>TUYỆT ĐỐI KHÔNG BỎ CUỘC</b> mà hãy chọn các <b>Ngành Gần (Near Majors)</b> cùng tổ hợp xét tuyển. Các ngành này có từ <b>75% - 95% kiến thức tương đồng</b>, sau khi ra trường đều làm việc tại các vị trí nghề nghiệp tương tự, nhưng điểm chuẩn mềm hơn rất nhiều và tỷ lệ trúng tuyển cao hơn!
+        </div>
+
+        <div id="relatedMatrixContainer" style="display:flex; flex-direction:column; gap:16px;">
+          <!-- Dynamically populated ONLY for the active group -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APP FOOTER WITH OYL COPYRIGHT -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand-col">
+        <div class="footer-logo-row">
+          <div class="footer-logo-box">
+            <img src="logo_oyl.png" onerror="if(this.src!=='https://coachnguyenphung.com/logo_oyl.png')this.src='https://coachnguyenphung.com/logo_oyl.png'" alt="OWN YOUR LIFE GLOBAL" class="footer-logo-img" />
+          </div>
+          <div>
+            <div class="footer-company-name">OWN YOUR LIFE GLOBAL</div>
+            <div class="footer-tagline">Hệ Sinh Thái Khai Vấn Định Hướng &amp; Giáo Dục Nghề Nghiệp</div>
+          </div>
+        </div>
+        <p class="footer-about">
+          Bản Đồ Tuyển Sinh Cá Nhân Hóa là giải pháp công nghệ định hướng chiến lược, ứng dụng dữ liệu thực tế hơn 220+ trường và ngành học toàn quốc, tích hợp mô hình phân tầng rủi ro 5 khu vực và ma trận cây phả hệ ngành gần độc quyền của OYL.
+        </p>
+      </div>
+
+      <div class="footer-info-col">
+        <div class="footer-heading">Thông Tin Bản Quyền &amp; Cố Vấn</div>
+        <ul class="footer-list">
+          <li><strong>Đơn vị phát triển:</strong> OWN YOUR LIFE GLOBAL (OYL)</li>
+          <li><strong>Chuyên gia Cố vấn Trưởng:</strong> Coach Nguyên Phụng</li>
+          <li><strong>Bản quyền Cơ sở Dữ liệu:</strong> Độc quyền OYL Global © 2026</li>
+          <li><strong>Cổng thông tin tuyển sinh:</strong> <a href="https://coachnguyenphung.com" target="_blank" style="color:var(--gold); text-decoration:none;">coachnguyenphung.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-badge-col">
+        <div class="footer-heading">Tiêu Chuẩn Định Hướng 2026</div>
+        <div class="footer-cert-card">
+          <div class="cert-icon">⚖️</div>
+          <div class="cert-info">
+            <div class="cert-title">Chuẩn Khung Bộ GD&amp;ĐT 2026</div>
+            <div class="cert-sub">Đối soát đa phương thức: Điểm thi THPT, ĐGNL (HSA/TSA/V-SAT), Xét học bạ THPT sớm &amp; Chứng chỉ Ngoại ngữ Quốc tế.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div>© 2026 <strong>OWN YOUR LIFE GLOBAL</strong>. All Rights Reserved. Bảo lưu mọi quyền đối với thuật toán và cơ sở dữ liệu.</div>
+      <div style="display:flex; gap:16px;">
+        <span>Chính Sách Bảo Mật Hồ Sơ</span>
+        <span>•</span>
+        <span>Điều Khoản Sử Dụng</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PRINT FOOTER (ONLY ON PAPER/PDF EXPORT) -->
+  <div class="print-footer">
+    <div style="border-top:1.5px solid #1B4332; margin-top:24px; padding-top:10px; display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#475569;">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <img src="logo_oyl.png" onerror="if(this.src!=='https://coachnguyenphung.com/logo_oyl.png')this.src='https://coachnguyenphung.com/logo_oyl.png'" style="height:26px; width:auto;" alt="OYL Logo" />
+        <span><strong>HỆ THỐNG ĐỊNH HƯỚNG &amp; CHIẾN LƯỢC TUYỂN SINH</strong> • BẢN QUYỀN © 2026 OWN YOUR LIFE GLOBAL</span>
+      </div>
+      <div>Chuyên Gia Cố Vấn: Coach Nguyên Phụng | coachnguyenphung.com</div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="appToast">Thông báo hệ thống</div>
+
+  <!-- MAIN APPLICATION LOGIC -->
+  <script>
+    // State
+    let currentDatabase = [];
+    let currentTier = 'all'; // 'all', 'daihoc', 'caodang'
+    let currentRegion = 'all';
+    let currentStrat = 'all';
+    let currentSearch = '';
+    let currentMajorGroup = 'all';
+    let currentView = 'table';
+
+    function setTierFilter(tier, btnEl) {
+      currentTier = tier;
+      document.querySelectorAll('#btnTierAll, #btnTierDH, #btnTierCD').forEach(btn => btn.classList.remove('active'));
+      btnEl.classList.add('active');
+      renderAll();
+    }
+
+    let currentMethodFilter = 'all'; // 'all', 'hb', 'dgnl', 'nohb'
+    function setMethodFilter(method, btnEl) {
+      currentMethodFilter = method;
+      document.querySelectorAll('#btnMethodAll, #btnMethodHb, #btnMethodDgnl, #btnMethodNoHb').forEach(btn => btn.classList.remove('active'));
+      btnEl.classList.add('active');
+      renderAll();
+    }
+
+    // Khởi tạo app khi load
+    window.addEventListener('DOMContentLoaded', () => {
+      loadDatabase();
+      loadUrlParams();
+
+      // Tự động nhận họ tên nếu học sinh đã làm khảo sát trên WebApp
+      try {
+        const student = JSON.parse(localStorage.getItem('oyl_student_profile') || '{}');
+        if (student && student.name && !document.getElementById('studentName').value) {
+          document.getElementById('studentName').value = student.name;
+        }
+      } catch (err) {}
+
+      populateCareerGoalDropdown();
+      renderRelatedPills();
+      renderAll();
+      const printDateEl = document.getElementById('printDateStamp');
+      if (printDateEl) printDateEl.textContent = new Date().toLocaleDateString('vi-VN');
+    });
+
+    // 1. Quản lý kho dữ liệu (LocalStorage & Mặc định)
+    const DB_VERSION = 'v2.5_20261014_225';
+    function loadDatabase() {
+      const savedVer = localStorage.getItem('NPH_COACH_DB_VERSION');
+      const saved = localStorage.getItem('NPH_COACH_TUYENSINH_DB');
+
+      // Tự động đồng bộ ngay khi phiên bản mã nguồn mới hơn hoặc số lượng trường phong phú hơn
+      let needSync = false;
+      if (!savedVer || savedVer !== DB_VERSION || !saved) {
+        needSync = true;
+      } else {
+        try {
+          const parsed = JSON.parse(saved);
+          if (window.TUYEN_SINH_DATABASE && parsed.length < window.TUYEN_SINH_DATABASE.length) {
+            needSync = true;
+          }
+        } catch (e) {
+          needSync = true;
+        }
+      }
+
+      if (needSync && window.TUYEN_SINH_DATABASE) {
+        currentDatabase = window.TUYEN_SINH_DATABASE;
+        localStorage.setItem('NPH_COACH_DB_VERSION', DB_VERSION);
+        saveDatabase();
+        console.log(`[DB Sync] Đã cập nhật thành công ${currentDatabase.length} trường chuẩn (${DB_VERSION})`);
+        return;
+      }
+
+      if (saved) {
+        try {
+          currentDatabase = JSON.parse(saved);
+        } catch (e) {
+          console.error("Lỗi parse local DB:", e);
+          currentDatabase = window.TUYEN_SINH_DATABASE || [];
+        }
+      } else if (window.TUYEN_SINH_DATABASE) {
+        currentDatabase = window.TUYEN_SINH_DATABASE;
+      } else {
+        currentDatabase = [];
+      }
+    }
+
+    function resetToDefaultDatabase() {
+      if (window.TUYEN_SINH_DATABASE) {
+        currentDatabase = JSON.parse(JSON.stringify(window.TUYEN_SINH_DATABASE));
+        localStorage.setItem('NPH_COACH_DB_VERSION', DB_VERSION);
+        saveDatabase();
+        renderAll();
+        showToast(`🔄 Đã làm mới kho dữ liệu gốc 2026 (${currentDatabase.length} trường toàn quốc)!`);
+      }
+    }
+
+    function loadStudentPreset(type) {
+      if (type === 'ufm_minh') {
+        document.getElementById('studentName').value = 'Nguyễn Nhật Minh (Case Thực Tế UFM)';
+        document.getElementById('selectedMajorGroup').value = 'kinhte';
+        currentMajorGroup = 'kinhte';
+        document.getElementById('scoreThpt').value = '20.60';
+        document.getElementById('scoreDgnl').value = '700';
+        document.getElementById('scoreGpa').value = '24.00';
+        document.getElementById('certLang').value = 'none';
+        document.getElementById('budgetTier').value = '30';
+        document.getElementById('searchKeyword').value = 'DMS';
+        currentSearch = 'dms';
+        populateCareerGoalDropdown();
+        renderRelatedPills();
+        renderAll();
+        showToast('✅ Đã nạp Case thực tế UFM: THPT 20.6đ + Học bạ 24.0đ -> Đỗ Sớm Tài Chính - Ngân Hàng!');
+      } else if (type === 'ngonngu_mai') {
+        document.getElementById('studentName').value = 'Lê Tuyết Mai (Case ĐH Mở)';
+        document.getElementById('selectedMajorGroup').value = 'ngonngu';
+        currentMajorGroup = 'ngonngu';
+        document.getElementById('scoreThpt').value = '22.50';
+        document.getElementById('scoreDgnl').value = '720';
+        document.getElementById('scoreGpa').value = '24.50';
+        document.getElementById('certLang').value = 'hsk';
+        document.getElementById('budgetTier').value = '30';
+        document.getElementById('searchKeyword').value = 'Mở';
+        currentSearch = 'mở';
+        populateCareerGoalDropdown();
+        renderRelatedPills();
+        renderAll();
+        showToast('✅ Đã nạp Case ĐH Mở: Ngôn ngữ Trung (HSK + Học bạ)!');
+      } else if (type === 'cntt_khoi') {
+        document.getElementById('studentName').value = 'Trần Đăng Khôi';
+        document.getElementById('selectedMajorGroup').value = 'cntt';
+        currentMajorGroup = 'cntt';
+        document.getElementById('scoreThpt').value = '27.20';
+        document.getElementById('scoreDgnl').value = '85';
+        document.getElementById('scoreGpa').value = '27.80';
+        document.getElementById('certLang').value = 'ielts_70';
+        document.getElementById('budgetTier').value = '30';
+        document.getElementById('searchKeyword').value = '';
+        currentSearch = '';
+        populateCareerGoalDropdown();
+        renderRelatedPills();
+        renderAll();
+        showToast('✅ Đã nạp Case Bách Khoa CNTT!');
+      } else if (type === 'supham_anh') {
+        document.getElementById('studentName').value = 'Trần Ngọc Anh (Case Sư phạm)';
+        document.getElementById('selectedMajorGroup').value = 'supham';
+        currentMajorGroup = 'supham';
+        document.getElementById('scoreThpt').value = '27.50';
+        document.getElementById('scoreDgnl').value = '820';
+        document.getElementById('scoreGpa').value = '28.00';
+        document.getElementById('certLang').value = 'ielts_65';
+        document.getElementById('budgetTier').value = '15';
+        document.getElementById('searchKeyword').value = '';
+        currentSearch = '';
+        populateCareerGoalDropdown();
+        renderRelatedPills();
+        renderAll();
+        showToast('✅ Đã nạp Case Sư phạm: Miễn 100% học phí theo Nghị định 116!');
+      } else if (type === 'luat_nam') {
+        document.getElementById('studentName').value = 'Hoàng Phương Nam (Case Luật)';
+        document.getElementById('selectedMajorGroup').value = 'luat';
+        currentMajorGroup = 'luat';
+        document.getElementById('scoreThpt').value = '26.80';
+        document.getElementById('scoreDgnl').value = '95';
+        document.getElementById('scoreGpa').value = '27.20';
+        document.getElementById('certLang').value = 'none';
+        document.getElementById('budgetTier').value = '30';
+        document.getElementById('searchKeyword').value = '';
+        currentSearch = '';
+        populateCareerGoalDropdown();
+        renderRelatedPills();
+        renderAll();
+        showToast('✅ Đã nạp Case Luật Kinh tế & Pháp lý!');
+      }
+    }
+
+    function saveDatabase() {
+      localStorage.setItem('NPH_COACH_TUYENSINH_DB', JSON.stringify(currentDatabase));
+    }
+
+    // 2. Đọc và Ghi Tham Số URL (Để chia sẻ link cho học sinh)
+    function loadUrlParams() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.has('name')) document.getElementById('studentName').value = params.get('name');
+      if (params.has('grade')) {
+        const gSel = document.getElementById('studentGradeSelect');
+        if (gSel) { gSel.value = params.get('grade'); onStudentGradeChange(); }
+      }
+      if (params.has('goal')) document.getElementById('careerGoal').value = params.get('goal');
+      if (params.has('major')) {
+        document.getElementById('selectedMajorGroup').value = params.get('major');
+        currentMajorGroup = params.get('major');
+      }
+      if (params.has('thpt')) document.getElementById('scoreThpt').value = params.get('thpt');
+      if (params.has('dgnl')) document.getElementById('scoreDgnl').value = params.get('dgnl');
+      if (params.has('gpa')) document.getElementById('scoreGpa').value = params.get('gpa');
+      if (params.has('lang')) document.getElementById('certLang').value = params.get('lang');
+      if (params.has('budget')) document.getElementById('budgetTier').value = params.get('budget');
+    }
+
+    function copyShareableLink() {
+      const name = encodeURIComponent(document.getElementById('studentName').value);
+      const goal = encodeURIComponent(document.getElementById('careerGoal').value);
+      const major = encodeURIComponent(document.getElementById('selectedMajorGroup').value);
+      const thpt = encodeURIComponent(document.getElementById('scoreThpt').value);
+      const dgnl = encodeURIComponent(document.getElementById('scoreDgnl').value);
+      const gpa = encodeURIComponent(document.getElementById('scoreGpa').value);
+      const lang = encodeURIComponent(document.getElementById('certLang').value);
+      const budget = encodeURIComponent(document.getElementById('budgetTier').value);
+
+      const url = `${window.location.origin}${window.location.pathname}?name=${name}&goal=${goal}&major=${major}&thpt=${thpt}&dgnl=${dgnl}&gpa=${gpa}&lang=${lang}&budget=${budget}`;
+      navigator.clipboard.writeText(url).then(() => {
+        showToast("✅ Đã sao chép link hồ sơ cá nhân hóa! Bạn có thể gửi cho học sinh / phụ huynh.");
+      }).catch(() => {
+        prompt("Sao chép link hồ sơ học sinh:", url);
+      });
+    }
+
+    // 3. Xử lý bộ lọc & Event Handlers
+    function updateProfile() {
+      // Re-render khi đổi tên/mục tiêu
+    }
+
+    function onMajorGroupChange() {
+      currentMajorGroup = document.getElementById('selectedMajorGroup').value;
+      populateCareerGoalDropdown();
+      renderRelatedPills();
+      renderAll();
+    }
+
+    function onScoresChange() {
+      renderAll();
+    }
+
+    function onSearchChange() {
+      currentSearch = document.getElementById('searchKeyword').value.trim().toLowerCase();
+      renderAll();
+    }
+
+    function onStratChange() {
+      currentStrat = document.getElementById('stratFilter').value;
+      renderAll();
+    }
+
+    function setRegionFilter(region, btnEl) {
+      currentRegion = region;
+      document.querySelectorAll('.pill-btn').forEach(btn => btn.classList.remove('active'));
+      btnEl.classList.add('active');
+      renderAll();
+    }
+
+    function switchView(mode) {
+      currentView = mode;
+      const tableWrap = document.getElementById('tableViewWrap');
+      const cardsWrap = document.getElementById('cardsViewWrap');
+      const btnTable = document.getElementById('btnTableView');
+      const btnCard = document.getElementById('btnCardView');
+
+      if (mode === 'table') {
+        tableWrap.style.display = 'block';
+        cardsWrap.style.display = 'none';
+        btnTable.classList.add('active');
+        btnCard.classList.remove('active');
+      } else {
+        tableWrap.style.display = 'none';
+        cardsWrap.style.display = 'grid';
+        btnTable.classList.remove('active');
+        btnCard.classList.add('active');
+      }
+    }
+
+    // 4. Helper lấy học phí tối thiểu (Tr/năm)
+    function getMinTuition(tuitionStr) {
+      if (!tuitionStr) return 20;
+      const str = String(tuitionStr).toLowerCase();
+      if (str.includes('miễn phí') || str.includes('miễn học phí') || str.includes('0')) return 0;
+      const matches = str.match(/(\d+(\.\d+)?)/);
+      if (matches) {
+        return parseFloat(matches[1]);
+      }
+      return 20;
+    }
+
+    // 4b. Helper phân tích tính hợp lệ và ngưỡng điểm xét học bạ THPT (Thực tế 2026)
+    function checkHbAdmission(item, studentScoreGpa) {
+      const cond = String(item.hb_condition || '').trim();
+      
+      // Nhận diện các trường Top đầu KHÔNG xét học bạ đơn thuần
+      const isNoHb = /không xét|ko xét|không tuyển|k xét|chỉ xét chuyên|xét theo pt tổng hợp|xét trong pt tổng hợp/i.test(cond);
+      
+      if (isNoHb) {
+        return {
+          hasHbMethod: false,
+          hbThreshold: null,
+          isQualified: false,
+          gapGpa: -99,
+          statusLabel: '🚫 Không xét học bạ đơn thuần',
+          note: `Không tuyển học bạ đơn thuần (Cần thi THPT hoặc ĐGNL)`,
+          rawCondition: cond || 'Không xét HB'
+        };
+      }
+
+      // Trích xuất ngưỡng điểm học bạ
+      const m = cond.match(/(?:≥|>=|từ|\b)\s*(\d+(\.\d+)?)/i);
+      let threshold = 22.0;
+      if (m) {
+        threshold = parseFloat(m[1]);
+      } else if (item.tier === 'caodang' || /tốt nghiệp/i.test(cond)) {
+        threshold = 18.0;
+      } else {
+        const thpt = parseFloat(item.score_2025) || 22.0;
+        threshold = Math.min(thpt, Math.max(20.0, +(thpt - 1.5).toFixed(1)));
+      }
+
+      const isQualified = (studentScoreGpa > 0 && studentScoreGpa >= threshold);
+      const gapGpa = studentScoreGpa > 0 ? +(studentScoreGpa - threshold).toFixed(2) : -99;
+
+      let statusLabel = '';
+      let note = '';
+      if (item.tier === 'caodang') {
+        if (studentScoreGpa >= 18.0) {
+          statusLabel = '🎉 ĐỖ SỚM CAO ĐẲNG (GPA ≥ 18)';
+          note = `Đủ chuẩn xét tuyển học bạ/tốt nghiệp THPT (Ngưỡng 18đ)`;
+        } else {
+          statusLabel = 'ℹ️ Xét tốt nghiệp THPT';
+          note = `Xét học bạ hoặc chứng nhận tốt nghiệp THPT`;
+        }
+      } else {
+        if (isQualified) {
+          statusLabel = `✅ Dự kiến đủ ngưỡng HB (≥ ${threshold}đ)`;
+          note = `GPA ${studentScoreGpa} ≥ ${threshold}: Đạt ngưỡng học bạ (Đề án 2025 - Chờ 2026 chính thức)`;
+        } else if (studentScoreGpa > 0) {
+          statusLabel = `⚠️ Thiếu ${Math.abs(gapGpa)}đ học bạ`;
+          note = `GPA ${studentScoreGpa} < Ngưỡng ${threshold}: Ưu tiên tập trung thi THPT/ĐGNL`;
+        } else {
+          statusLabel = `Ngưỡng tham chiếu: ≥ ${threshold}đ`;
+          note = `Tham chiếu đề án 2025`;
+        }
+      }
+
+      return {
+        hasHbMethod: true,
+        hbThreshold: threshold,
+        isQualified: isQualified,
+        gapGpa: gapGpa,
+        statusLabel: statusLabel,
+        note: note,
+        rawCondition: cond
+      };
+    }
+
+    // 5. Engine Tính Toán Chuẩn Version 2 Đa Chiều (Đối Soát Đa Phương Thức 2026: THPT + Học Bạ GPA + Ngoại Ngữ + Tài Chính)
+    function calculateV2Metrics(item, studentScoreThpt, studentScoreGpa, studentLang, budgetTier) {
+      const score2024 = parseFloat(item.score_2024) || 0;
+      const score2025 = parseFloat(item.score_2025) || 0;
+      
+      // 1. Lệch THPT 2025 - 2024
+      const deltaYoY = (score2025 - score2024);
+      
+      // 2. Điểm trung bình 2 năm
+      const avgScore = (score2024 + score2025) / 2;
+      
+      // 3. GAP THPT so với 2025 (= Điểm HS - Chuẩn 2025)
+      const gap2025 = (studentScoreThpt - score2025);
+      
+      // 4. GAP so với Điểm Trung Bình (= Điểm HS - TB 2 năm)
+      const gapAvg = (studentScoreThpt - avgScore);
+
+      // 5. Đối Soát Ngưỡng Học Bạ THPT (Chỉ kích hoạt nếu trường CÓ phương thức xét học bạ)
+      const hbInfo = checkHbAdmission(item, studentScoreGpa);
+      const isGpaHero = (hbInfo.hasHbMethod && hbInfo.isQualified && gap2025 < 0);
+
+      // 6. Phân tầng chiến lược Đa Phương Thức
+      let strat = 'Fit';
+      if (gap2025 >= 1.5) {
+        strat = 'Safe'; // Điểm thi THPT an toàn tuyệt đối
+      } else if (gap2025 >= 0) {
+        strat = (hbInfo.hasHbMethod && hbInfo.isQualified && hbInfo.gapGpa >= 0.5) ? 'Safe' : 'Fit';
+      } else {
+        if (isGpaHero) {
+          // Chỉ trường có xét học bạ mới cho phép cứu cánh đỗ sớm!
+          strat = (hbInfo.gapGpa >= 0.5) ? 'Safe' : 'Fit';
+        } else if (gap2025 >= -1.0) {
+          strat = 'Fit';
+        } else {
+          strat = 'Dream';
+        }
+      }
+
+      // 7. Đánh giá điều kiện tài chính gia đình
+      const minTuition = getMinTuition(item.tuition);
+      const isBudgetUnlimited = (!budgetTier || budgetTier === 'all');
+      let maxBudget = 999;
+      if (!isBudgetUnlimited) {
+        maxBudget = parseFloat(budgetTier) || 999;
+      }
+      const isOverBudget = (!isBudgetUnlimited && budgetTier !== '100' && minTuition > maxBudget);
+      const overBudgetAmount = isOverBudget ? Math.round(minTuition - maxBudget) : 0;
+
+      // 8. Đánh giá kết hợp: Vừa sức học lực + Học bạ + Tài chính
+      let stratLabel = '🟡 Vừa sức (Fit)';
+      let stratClass = 'badge-fit';
+
+      if (isGpaHero) {
+        if (!isOverBudget) {
+          stratLabel = `🟢 Dự Kiến Đỗ Học Bạ (GPA ${studentScoreGpa}đ)`;
+          stratClass = 'badge-safe';
+        } else {
+          stratLabel = `🟡 Đạt Điểm Học Bạ • Vượt Ngân Sách`;
+          stratClass = 'badge-fit';
+        }
+      } else if (strat === 'Safe') {
+        if (!isOverBudget) {
+          stratLabel = '🟢 Vừa sức toàn diện (Học lực + Tài chính)';
+          stratClass = 'badge-safe';
+        } else {
+          stratLabel = '🟡 Đạt học lực • Vượt học phí';
+          stratClass = 'badge-fit';
+        }
+      } else if (strat === 'Fit') {
+        if (!isOverBudget) {
+          stratLabel = '🟡 Vừa sức (Học lực & Tài chính)';
+          stratClass = 'badge-fit';
+        } else {
+          stratLabel = '🟠 Cân nhắc (Học lực vừa • Vượt chi phí)';
+          stratClass = 'badge-dream';
+        }
+      } else { // Dream
+        stratLabel = '🔴 Vươn tới (Dream)';
+        stratClass = 'badge-dream';
+      }
+
+      // 9. Phương thức xét tuyển tối ưu
+      let recommendedMethod = item.best_method || 'Điểm thi THPT';
+      if (isGpaHero) {
+        recommendedMethod = '⭐ Xét Học Bạ Sớm (Dự kiến đỗ sớm)';
+      } else if (!hbInfo.hasHbMethod) {
+        recommendedMethod = item.best_method || 'Điểm thi THPT / ĐGNL';
+      }
+
+      // 10. Đánh giá chứng chỉ ngoại ngữ quốc tế (Quy đổi môn Ngoại ngữ hoặc Sơ tuyển - BỎ HOÀN TOÀN CỘNG ĐIỂM THƯỞNG)
+      let langNote = '';
+      if (studentLang === 'ielts_70') {
+        langNote = '⭐ IELTS 7.0+: Quy đổi 10đ môn Tiếng Anh / Xét kết hợp Top đầu';
+      } else if (studentLang === 'ielts_65') {
+        langNote = '⭐ IELTS 6.5: Quy đổi 9.5-10đ môn Tiếng Anh / Xét kết hợp';
+      } else if (studentLang === 'ielts_60') {
+        langNote = '⭐ IELTS 6.0: Đạt chuẩn quy đổi môn Tiếng Anh (8.5-9đ) / Sơ tuyển';
+      } else if (studentLang === 'ielts_50') {
+        langNote = '⭐ IELTS 5.0-5.5: Miễn thi tốt nghiệp THPT môn Tiếng Anh (10đ TN)';
+      } else if (studentLang === 'hsk') {
+        langNote = '⭐ HSK: Quy đổi điểm môn ngoại ngữ hoặc xét kết hợp ngành tiếng Trung';
+      } else if (studentLang === 'jlpt') {
+        langNote = '⭐ JLPT: Quy đổi điểm môn ngoại ngữ hoặc xét kết hợp ngành tiếng Nhật';
+      }
+
+      return {
+        deltaYoY: deltaYoY.toFixed(2),
+        avgScore: avgScore.toFixed(2),
+        gap2025: (gap2025 >= 0 ? `+${gap2025.toFixed(2)}` : gap2025.toFixed(2)),
+        gapAvg: (gapAvg >= 0 ? `+${gapAvg.toFixed(2)}` : gapAvg.toFixed(2)),
+        gapNum: gap2025,
+        hbInfo,
+        hbThreshold: hbInfo.hbThreshold,
+        isGpaQualified: hbInfo.isQualified,
+        isGpaHero,
+        gapGpa: hbInfo.gapGpa,
+        strat,
+        stratClass,
+        stratLabel,
+        recommendedMethod,
+        minTuition,
+        isOverBudget,
+        overBudgetAmount,
+        maxBudget,
+        gpaNote: hbInfo.note,
+        langNote
+      };
+    }
+
+    // 6. Render Core (Bảng & Thẻ)
+    function renderAll() {
+      const studentScoreThpt = parseFloat(document.getElementById('scoreThpt').value) || 0;
+      const studentScoreGpa = parseFloat(document.getElementById('scoreGpa').value) || 0;
+      const studentLang = document.getElementById('certLang').value;
+      const budgetTier = document.getElementById('budgetTier').value;
+      const chkBudgetOnly = document.getElementById('chkBudgetOnly').checked;
+
+      const tbody = document.getElementById('v2TableBody');
+      const cardsWrap = document.getElementById('cardsViewWrap');
+
+      tbody.innerHTML = '';
+      cardsWrap.innerHTML = '';
+
+      // Lọc danh sách theo: Bậc đào tạo, Nhóm ngành, Khu vực, Phương thức, Phân tầng, Ngân sách, Từ khóa tìm kiếm
+      let filtered = currentDatabase.filter(item => {
+        // Lọc bậc đào tạo (Đại học vs Cao đẳng)
+        if (currentTier !== 'all' && item.tier !== currentTier) return false;
+
+        // Lọc nhóm ngành
+        if (currentMajorGroup !== 'all' && item.group_id !== currentMajorGroup) return false;
+
+        // Lọc khu vực
+        if (currentRegion !== 'all' && item.region !== currentRegion) return false;
+
+        // Tính metric để kiểm tra phân tầng & tài chính
+        const m = calculateV2Metrics(item, studentScoreThpt, studentScoreGpa, studentLang, budgetTier);
+        if (currentStrat !== 'all' && m.strat !== currentStrat) return false;
+
+        // Lọc phương thức xét tuyển (Thực tế Học bạ vs ĐGNL vs Thi THPT)
+        if (currentMethodFilter === 'hb' && !m.hbInfo.hasHbMethod) return false;
+        if (currentMethodFilter === 'nohb' && m.hbInfo.hasHbMethod) return false;
+        if (currentMethodFilter === 'dgnl') {
+          const dgnlStr = String(item.dgnl_method || '').trim();
+          if (!dgnlStr || dgnlStr === 'N/A' || dgnlStr === '-' || /không/i.test(dgnlStr)) return false;
+        }
+
+        // Lọc chỉ hiện trường vừa sức tài chính nếu checkbox được bật
+        if (chkBudgetOnly && m.isOverBudget) return false;
+
+        // Lọc từ khóa tìm kiếm
+        if (currentSearch) {
+          const text = `${item.school} ${item.code} ${item.major} ${item.region}`.toLowerCase();
+          if (!text.includes(currentSearch)) return false;
+        }
+
+        return true;
+      });
+
+      // Cập nhật thống kê badges & KPI
+      updateBadgesAndKPIs(studentScoreThpt, studentScoreGpa, studentLang, budgetTier);
+
+      // Render từng khu vực trong bảng
+      const regions = ['Hà Nội', 'Miền Bắc', 'Đà Nẵng', 'Miền Trung', 'TP.HCM & Nam'];
+      let stt = 1;
+
+      regions.forEach(reg => {
+        const inRegion = filtered.filter(it => it.region === reg);
+        if (inRegion.length === 0) return;
+
+        // Hàng tiêu đề khu vực
+        const sepTr = document.createElement('tr');
+        sepTr.className = 'region-separator';
+        sepTr.innerHTML = `<td colspan="17">📍 KHU VỰC: ${reg.toUpperCase()} (${inRegion.length} Trường Tuyển Sinh)</td>`;
+        tbody.appendChild(sepTr);
+
+        inRegion.forEach(item => {
+          const m = calculateV2Metrics(item, studentScoreThpt, studentScoreGpa, studentLang, budgetTier);
+          const gapClass2025 = m.gapNum >= 0 ? 'gap-positive' : (m.isGpaHero ? 'gap-fit' : 'gap-negative');
+          const deltaSign = parseFloat(m.deltaYoY) > 0 ? `+${m.deltaYoY}` : m.deltaYoY;
+          const tierBadge = item.tier === 'caodang'
+            ? `<span class="badge badge-tier-cd">🛠️ CĐ</span>`
+            : `<span class="badge badge-tier-dh">🎓 ĐH</span>`;
+
+          // Badge tài chính
+          const financialBadge = m.isOverBudget
+            ? `<span class="badge" style="background:#FEF2F2; color:#DC2626; border:1px solid #FECACA; font-size:10.5px; margin-top:3px; display:inline-block;" title="Vượt ngân sách gia đình (${m.maxBudget} Tr/năm)">⚠️ Vượt NS (+${m.overBudgetAmount}Tr)</span>`
+            : `<span class="badge" style="background:#ECFDF5; color:#059669; border:1px solid #A7F3D0; font-size:10.5px; margin-top:3px; display:inline-block;" title="Phù hợp khả năng tài chính gia đình">💰 Vừa túi tiền</span>`;
+
+          // Hiển thị Học bạ & Ngoại ngữ (Thực tế 2026 - Tham chiếu 2025)
+          let hbDisplay = '';
+          if (!m.hbInfo.hasHbMethod) {
+            hbDisplay = `
+              <div style="font-size:11px; font-weight:700; color:#DC2626; background:#FEF2F2; padding:3px 6px; border-radius:4px; border:1px solid #FECACA; display:inline-block;">
+                🚫 Không xét HB đơn thuần
+              </div>
+              <div style="font-size:10.5px; color:#64748B; margin-top:2px;">
+                Cần điểm thi THPT hoặc ĐGNL
+              </div>
+            `;
+          } else {
+            if (m.isGpaHero) {
+              hbDisplay = `
+                <div style="font-size:11px; color:#15803D; font-weight:800; background:#F0FDF4; padding:3px 6px; border-radius:4px; border:1px solid #BBF7D0;">
+                  🎉 GPA ${studentScoreGpa} ≥ ${m.hbThreshold}: ĐỦ NGƯỠNG HB
+                </div>
+                <div style="font-size:10px; color:#64748B; margin-top:1px;">
+                  (Tham chiếu đề án 2025)
+                </div>
+              `;
+            } else {
+              hbDisplay = `
+                <div style="font-size:11px; font-weight:600; color:#1E293B;">
+                  ${item.hb_condition || 'Xét học bạ'}
+                </div>
+                <div style="font-size:10.5px; color:#15803D; font-weight:600; margin-top:1px;">
+                  ${m.gpaNote}
+                </div>
+              `;
+            }
+          }
+
+          if (m.langNote) {
+            hbDisplay += `<div style="font-size:10.5px; color:#0369A1; font-weight:600; margin-top:3px; background:#F0F9FF; padding:2px 5px; border-radius:4px; border:1px solid #BAE6FD;">${m.langNote}</div>`;
+          }
+          if (item.combine_condition) {
+            hbDisplay += `<div style="font-size:10px; color:#64748B; margin-top:2px;">📌 Xét kết hợp: ${item.combine_condition}</div>`;
+          }
+
+          // Cột GAP THPT
+          let gapDisplay = `<span class="${gapClass2025}">${m.gap2025}</span>`;
+          if (m.isGpaHero) {
+            gapDisplay += `<div style="font-size:10px; color:#15803D; font-weight:700; margin-top:2px;" title="Cửa thi THPT thiếu điểm nhưng đạt ngưỡng xét học bạ sớm">🛡️ Cứu cánh HB</div>`;
+          }
+
+          const bestMethodClass = m.isGpaHero ? 'badge-best-hero' : 'badge-best';
+
+          // Render Row Table
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td style="text-align:center; font-weight:700;">${stt++}</td>
+            <td style="text-align:center;"><span class="badge badge-region">${item.region}</span></td>
+            <td style="text-align:center; font-weight:800; color:var(--primary);">${item.code}</td>
+            <td style="font-weight:700;">${item.school} ${tierBadge}</td>
+            <td style="color:var(--primary-light); font-weight:600;">${item.major}</td>
+            <td style="text-align:center; font-size:11.5px;">${item.combination || 'A00, A01'}</td>
+            
+            <!-- THPT Scores -->
+            <td style="text-align:center;">${item.score_2024}</td>
+            <td style="text-align:center; font-weight:700;">${item.score_2025}</td>
+            <td style="text-align:center; font-size:11.5px; color:${parseFloat(m.deltaYoY) > 0 ? '#B91C1C' : '#15803D'}; font-weight:700;">
+              ${deltaSign}
+            </td>
+
+            <!-- Đối soát & GAP -->
+            <td style="text-align:center; font-weight:700; color:#2563EB;">${m.avgScore}</td>
+            <td style="text-align:center;">${gapDisplay}</td>
+            <td style="text-align:center; font-weight:600; color:#475569;">${m.gapAvg}</td>
+
+            <!-- Phương thức khác -->
+            <td style="font-size:11.5px;"><b>${item.dgnl_method || 'HSA/TSA'}</b>: ${item.dgnl_score_2025 || 'Đang cập nhật'}</td>
+            <td style="font-size:11.5px;">${hbDisplay}</td>
+
+            <!-- Chiến lược & Đánh giá toàn diện -->
+            <td style="text-align:center;"><span class="badge ${bestMethodClass}">⭐ ${m.recommendedMethod}</span></td>
+            <td style="text-align:center;"><span class="badge ${m.stratClass}">${m.stratLabel}</span></td>
+            <td style="font-size:11.5px; text-align:center;">
+              <div style="font-weight:700;">${item.tuition || '20-30'} Tr/năm</div>
+              ${financialBadge}
+              <div style="margin-top:2px;"><a href="${item.website || '#'}" target="_blank" style="color:#2563EB; font-weight:600; text-decoration:none;">🔗 Đề án</a></div>
+            </td>
+          `;
+          tbody.appendChild(tr);
+
+          // Render Card View (Mobile)
+          const card = document.createElement('div');
+          card.className = 'uni-card';
+          card.innerHTML = `
+            <div class="card-top">
+              <div>
+                <span class="card-uni-code">${item.code}</span>
+                <span class="badge badge-region" style="margin-left:4px;">${item.region}</span>
+                ${item.tier === 'caodang' ? '<span class="badge badge-tier-cd" style="margin-left:4px;">🛠️ Cao Đẳng</span>' : '<span class="badge badge-tier-dh" style="margin-left:4px;">🎓 Đại Học</span>'}
+                <h4 class="card-uni-name">${item.school}</h4>
+                <div class="card-major">🎯 ${item.major}</div>
+              </div>
+              <span class="badge ${m.stratClass}">${m.stratLabel}</span>
+            </div>
+
+            <div class="card-scores-grid">
+              <div class="score-item">
+                <span class="label">Chuẩn 2025</span>
+                <span class="val">${item.score_2025}</span>
+              </div>
+              <div class="score-item">
+                <span class="label">Điểm TB 2 Năm</span>
+                <span class="val">${m.avgScore}</span>
+              </div>
+              <div class="score-item">
+                <span class="label">Biến Động Năm</span>
+                <span class="val" style="color:${parseFloat(m.deltaYoY) > 0 ? '#B91C1C' : '#15803D'}">${deltaSign}</span>
+              </div>
+              <div class="score-item">
+                <span class="label">Tổ Hợp</span>
+                <span class="val" style="font-size:13px;">${item.combination}</span>
+              </div>
+            </div>
+
+            <div class="gap-banner ${m.isGpaHero ? 'safe' : m.strat.toLowerCase()}">
+              <span>${m.isGpaHero ? 'Cửa trúng tuyển sớm:' : 'Độ Lệch (GAP vs 2025):'}</span>
+              <span style="font-size:13.5px; font-weight:800;">${m.isGpaHero ? `🎉 ĐỦ NGƯỠNG HB (GPA ${studentScoreGpa} ≥ ${m.hbThreshold})` : `${m.gap2025} điểm`}</span>
+            </div>
+
+            <div class="card-details">
+              <div class="detail-row">
+                <span class="dt-label">ĐGNL / ĐGTD:</span>
+                <span class="dt-val">${item.dgnl_method || 'HSA/TSA'} (${item.dgnl_score_2025 || 'N/A'})</span>
+              </div>
+              <div class="detail-row">
+                <span class="dt-label">Phương thức Học bạ:</span>
+                <span class="dt-val" style="color:${m.hbInfo.hasHbMethod ? '#15803D' : '#DC2626'}; font-weight:600;">
+                  ${m.hbInfo.hasHbMethod ? m.gpaNote : '🚫 Không xét học bạ đơn thuần (Cần thi THPT hoặc ĐGNL)'}
+                  ${m.langNote ? `<div style="color:#0369A1; font-size:11px; margin-top:2px;">${m.langNote}</div>` : ''}
+                </span>
+              </div>
+              <div class="detail-row">
+                <span class="dt-label">Cửa đỗ tốt nhất:</span>
+                <span class="dt-val" style="color:${m.isGpaHero ? '#15803D' : '#0369A1'}; font-weight:700;">⭐ ${m.recommendedMethod}</span>
+              </div>
+              ${m.isGpaHero ? `
+              <div class="detail-row" style="background:#F0FDF4; padding:6px 8px; border-radius:6px; border:1px solid #BBF7D0;">
+                <span class="dt-label" style="color:#15803D; font-weight:700;">💡 Lưu ý:</span>
+                <span class="dt-val" style="color:#166534; font-weight:600;">Đủ điểm xét học bạ sớm (tham chiếu đề án 2025). Cần nộp hồ sơ đợt sớm và theo dõi đề án chính thức 2026 của trường.</span>
+              </div>` : ''}
+              <div class="detail-row">
+                <span class="dt-label">Học phí &amp; Tài chính:</span>
+                <span class="dt-val">
+                  <b>${item.tuition || '20-30'} Tr/năm</b> • ${m.isOverBudget ? `<span style="color:#DC2626; font-weight:700;">⚠️ Vượt NS (+${m.overBudgetAmount}Tr)</span>` : `<span style="color:#059669; font-weight:700;">💰 Vừa túi tiền</span>`} • <a href="${item.website || '#'}" target="_blank" style="color:#2563EB;">Đề án</a>
+                </span>
+              </div>
+            </div>
+          `;
+          cardsWrap.appendChild(card);
+        });
+      });
+
+      // Nếu không có kết quả
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="17" style="text-align:center; padding:30px; color:#64748B;">Không tìm thấy trường nào phù hợp với bộ lọc hiện tại.</td></tr>`;
+        cardsWrap.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:30px; color:#64748B;">Không tìm thấy trường nào phù hợp.</div>`;
+      }
+    }
+
+    // 7. Cập nhật Thống Kê & Badges
+    function updateBadgesAndKPIs(studentScoreThpt, studentScoreGpa, studentLang, budgetTier) {
+      let countDream = 0;
+      let countFit = 0;
+      let countSafe = 0;
+      let countBudget = 0;
+
+      let bAll = 0, bHN = 0, bMB = 0, bDN = 0, bMT = 0, bMN = 0;
+      let bTierAll = 0, bTierDH = 0, bTierCD = 0;
+      let bMethodAll = 0, bMethodHb = 0, bMethodDgnl = 0, bMethodNoHb = 0;
+
+      currentDatabase.forEach(item => {
+        // Đếm theo tier
+        bTierAll++;
+        if (item.tier === 'caodang') bTierCD++;
+        else bTierDH++;
+
+        // Lọc theo tier đang chọn cho các badge khu vực & KPI
+        if (currentTier !== 'all' && item.tier !== currentTier) return;
+
+        // Chỉ đếm theo ngành đang chọn nếu không phải 'all'
+        if (currentMajorGroup !== 'all' && item.group_id !== currentMajorGroup) return;
+
+        bAll++;
+        if (item.region === 'Hà Nội') bHN++;
+        else if (item.region === 'Miền Bắc') bMB++;
+        else if (item.region === 'Đà Nẵng') bDN++;
+        else if (item.region === 'Miền Trung') bMT++;
+        else if (item.region === 'TP.HCM & Nam') bMN++;
+
+        const m = calculateV2Metrics(item, studentScoreThpt, studentScoreGpa, studentLang, budgetTier);
+        if (m.strat === 'Dream') countDream++;
+        else if (m.strat === 'Fit') countFit++;
+        else if (m.strat === 'Safe') countSafe++;
+
+        if (!m.isOverBudget) countBudget++;
+
+        // Đếm theo phương thức
+        bMethodAll++;
+        if (m.hbInfo.hasHbMethod) bMethodHb++;
+        else bMethodNoHb++;
+        const dgnlStr = String(item.dgnl_method || '').trim();
+        if (dgnlStr && dgnlStr !== 'N/A' && dgnlStr !== '-' && !/không/i.test(dgnlStr)) bMethodDgnl++;
+      });
+
+      document.getElementById('countDream').innerText = countDream;
+      document.getElementById('countFit').innerText = countFit;
+      document.getElementById('countSafe').innerText = countSafe;
+      if (document.getElementById('countBudget')) document.getElementById('countBudget').innerText = countBudget;
+      document.getElementById('countTotal').innerText = bAll;
+
+      document.getElementById('badgeAll').innerText = bAll;
+      document.getElementById('badgeHN').innerText = bHN;
+      document.getElementById('badgeMB').innerText = bMB;
+      document.getElementById('badgeDN').innerText = bDN;
+      document.getElementById('badgeMT').innerText = bMT;
+      document.getElementById('badgeMN').innerText = bMN;
+
+      if (document.getElementById('badgeTierAll')) document.getElementById('badgeTierAll').innerText = bTierAll;
+      if (document.getElementById('badgeTierDH')) document.getElementById('badgeTierDH').innerText = bTierDH;
+      if (document.getElementById('badgeTierCD')) document.getElementById('badgeTierCD').innerText = bTierCD;
+
+      if (document.getElementById('badgeMethodAll')) document.getElementById('badgeMethodAll').innerText = bMethodAll;
+      if (document.getElementById('badgeMethodHb')) document.getElementById('badgeMethodHb').innerText = bMethodHb;
+      if (document.getElementById('badgeMethodDgnl')) document.getElementById('badgeMethodDgnl').innerText = bMethodDgnl;
+      if (document.getElementById('badgeMethodNoHb')) document.getElementById('badgeMethodNoHb').innerText = bMethodNoHb;
+    }
+
+    // 7. Quản lý Modal & Tabs Admin
+    function openAdminModal() {
+      document.getElementById('adminModal').style.display = 'flex';
+    }
+    function closeAdminModal() {
+      document.getElementById('adminModal').style.display = 'none';
+    }
+
+    function switchAdminTab(tabId, btn) {
+      document.querySelectorAll('.admin-tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.admin-tab-pane').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+
+      if (tabId === 'sync') document.getElementById('tabSync').classList.add('active');
+      else if (tabId === 'add') document.getElementById('tabAdd').classList.add('active');
+      else if (tabId === 'file') document.getElementById('tabFile').classList.add('active');
+    }
+
+    // 8. Đồng Bộ Google Sheets (CSV Parser)
+    async function syncGoogleSheet() {
+      const url = document.getElementById('googleSheetUrl').value.trim();
+      if (!url) {
+        alert("Vui lòng nhập đường link Google Sheets định dạng CSV công khai!");
+        return;
+      }
+
+      showToast("⏳ Đang kết nối và tải dữ liệu từ Google Sheets...");
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("Không thể tải file từ Google Sheets!");
+        const csvText = await res.text();
+        const parsed = parseCsv(csvText);
+
+        if (parsed.length > 0) {
+          currentDatabase = parsed;
+          saveDatabase();
+          renderAll();
+          showToast(`✅ Đã đồng bộ thành công ${parsed.length} trường từ Google Sheets!`);
+          closeAdminModal();
+        } else {
+          alert("Không tìm thấy dữ liệu hợp lệ trong file Google Sheets!");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Lỗi kết nối Google Sheets: " + err.message + "\nHãy đảm bảo bạn đã 'Xuất bản lên web' với định dạng CSV!");
+      }
+    }
+
+    // Simple CSV parser
+    function parseCsv(text) {
+      const lines = text.split(/\r\n|\n/).filter(l => l.trim().length > 0);
+      if (lines.length < 2) return [];
+
+      const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+      const results = [];
+
+      for (let i = 1; i < lines.length; i++) {
+        // Regex xử lý dấu phẩy nằm trong ngoặc kép
+        const row = lines[i].match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || lines[i].split(',');
+        if (row.length >= 5) {
+          let obj = {};
+          headers.forEach((h, idx) => {
+            let val = row[idx] ? row[idx].replace(/^"|"$/g, '').trim() : '';
+            obj[h] = val;
+          });
+          results.push(obj);
+        }
+      }
+      return results;
+    }
+
+    // 9. Thêm trường mới thủ công
+    function addNewSchool() {
+      const code = document.getElementById('newCode').value.trim();
+      const school = document.getElementById('newSchool').value.trim();
+      const major = document.getElementById('newMajor').value.trim();
+      const region = document.getElementById('newRegion').value;
+      const tier = document.getElementById('newTier').value;
+      const groupId = document.getElementById('newMajorGroup').value;
+      const comb = document.getElementById('newComb').value.trim() || 'A00, A01';
+      const score24 = parseFloat(document.getElementById('newScore24').value) || 0;
+      const score25 = parseFloat(document.getElementById('newScore25').value) || 0;
+      const dgnl = document.getElementById('newDgnl').value.trim();
+      const tuition = document.getElementById('newTuition').value.trim() || '20 - 30';
+      const web = document.getElementById('newWeb').value.trim() || '#';
+
+      if (!code || !school || !major) {
+        alert("Vui lòng điền đủ Mã trường, Tên trường và Ngành đào tạo!");
+        return;
+      }
+
+      const newObj = {
+        id: `custom-${Date.now()}`,
+        tier: tier,
+        group_id: groupId,
+        group_name: document.getElementById('newMajorGroup').selectedOptions[0].text,
+        region: region,
+        code: code,
+        school: school,
+        major: major,
+        combination: comb,
+        score_2024: score24,
+        score_2025: score25,
+        dgnl_method: dgnl || 'HSA/TSA',
+        dgnl_score_2024: 0,
+        dgnl_score_2025: 0,
+        hb_condition: 'Xét học bạ',
+        combine_condition: '',
+        best_method: 'Điểm thi THPT',
+        tuition: tuition,
+        website: web,
+        notes: 'Dữ liệu thêm thủ công bởi Coach'
+      };
+
+      currentDatabase.unshift(newObj);
+      saveDatabase();
+      renderAll();
+      showToast(`✅ Đã thêm trường ${school} vào kho dữ liệu thành công!`);
+      closeAdminModal();
+    }
+
+    // 10. Xuất / Nhập JSON & CSV
+    function exportDataJson() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(currentDatabase, null, 2));
+      const a = document.createElement('a');
+      a.setAttribute("href", dataStr);
+      a.setAttribute("download", `tuyensinh_database_${Date.now()}.json`);
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+
+    function exportDataCsv() {
+      if (currentDatabase.length === 0) return;
+      const headers = Object.keys(currentDatabase[0]);
+      let csvContent = "data:text/csv;charset=utf-8,\uFEFF";
+      csvContent += headers.join(",") + "\r\n";
+
+      currentDatabase.forEach(row => {
+        let line = headers.map(h => `"${(row[h] || '').toString().replace(/"/g, '""')}"`).join(",");
+        csvContent += line + "\r\n";
+      });
+
+      const a = document.createElement('a');
+      a.setAttribute("href", encodeURI(csvContent));
+      a.setAttribute("download", `tuyensinh_database_${Date.now()}.csv`);
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+
+    function importJsonFile(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        try {
+          const parsed = JSON.parse(evt.target.result);
+          if (Array.isArray(parsed)) {
+            currentDatabase = parsed;
+            saveDatabase();
+            renderAll();
+            showToast(`✅ Đã nạp thành công ${parsed.length} trường từ file JSON!`);
+            closeAdminModal();
+          } else {
+            alert("File JSON không đúng cấu trúc danh sách!");
+          }
+        } catch (err) {
+          alert("Lỗi đọc file JSON: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function resetToDefaultData() {
+      if (confirm("Bạn có chắc chắn muốn khôi phục kho dữ liệu về 74 trường mặc định ban đầu?")) {
+        localStorage.removeItem('NPH_COACH_TUYENSINH_DB');
+        currentDatabase = window.TUYEN_SINH_DATABASE || [];
+        renderAll();
+        showToast("🔄 Đã khôi phục dữ liệu gốc thành công!");
+        closeAdminModal();
+      }
+    }
+
+    // 11. BẢN ĐỒ CHÂN DUNG NGHỀ NGHIỆP 5 - 10 NĂM (ĐỊNH HƯỚNG NGHỀ TRƯỚC NGÀNH)
+    const CAREER_GOALS_MAP = {
+      logistics: [
+        { title: "🚢 Chuyên viên Quản trị Chuỗi Cung ứng (Supply Chain Manager)", note: "Điều phối toàn bộ dòng nguyên liệu, sản xuất và phân phối hàng hóa toàn cầu. Ngành dẫn tới: Logistics, Kinh tế Vận tải, Kinh doanh Quốc tế." },
+        { title: "📑 Chuyên viên Nghiệp vụ Xuất nhập khẩu & Hải quan", note: "Xử lý chứng từ vận tải biển/hàng không, thủ tục thông quan và hợp đồng thương mại quốc tế. Ngành dẫn tới: Kinh doanh Quốc tế, Logistics, Kinh tế Đối ngoại." },
+        { title: "📦 Quản lý Vận hành Kho bãi & Fulfillment E-Commerce", note: "Tối ưu hóa lưu kho thông minh, phân loại hàng hóa tự động và đóng gói giao hàng nhanh. Ngành dẫn tới: Logistics, QTKD, CĐ Logistics." },
+        { title: "🛫 Chuyên viên Giao nhận Vận tải Quốc tế (Freight Forwarder)", note: "Đàm phán giá cước tàu biển/hàng không, thuê container và điều phối mạng lưới giao nhận toàn cầu. Ngành dẫn tới: Kinh tế Vận tải & Cảng, Logistics." },
+        { title: "📊 Chuyên viên Kế hoạch Nhu cầu & Thu mua (Procurement Planner)", note: "Dự báo nhu cầu thị trường, phân tích chi phí và thu mua nguồn hàng tối ưu cho tập đoàn. Ngành dẫn tới: Logistics, Kinh doanh Quốc tế, Kinh tế." }
+      ],
+      cntt: [
+        { title: "🤖 Kỹ sư Trí tuệ Nhân tạo & Machine Learning (AI Engineer)", note: "Huấn luyện mô hình ngôn ngữ lớn (LLM), AI tạo sinh, thị giác máy tính. Ngành dẫn tới: Khoa học Máy tính, Khoa học Dữ liệu & AI, Kỹ thuật Phần mềm." },
+        { title: "💻 Kỹ sư Phát triển Phần mềm (Fullstack / Backend Developer)", note: "Xây dựng hệ thống web, ứng dụng di động và nền tảng dịch vụ triệu người dùng. Ngành dẫn tới: Kỹ thuật Phần mềm, Khoa học Máy tính, CĐ Lập trình." },
+        { title: "🛡️ Chuyên gia An toàn Thông tin & An ninh Mạng (Security Specialist)", note: "Kiểm thử xâm nhập (Pen-test), bảo vệ hệ thống Cloud và phát hiện lỗ hổng bảo mật. Ngành dẫn tới: An toàn Thông tin, Mạng máy tính, Khoa học Máy tính." },
+        { title: "📊 Chuyên viên Phân tích Nghiệp vụ & Dữ liệu (BA / Data Analyst)", note: "Cầu nối chuyển đổi bài toán kinh doanh thành giải pháp công nghệ số. Ngành dẫn tới: Hệ thống Thông tin Quản lý (MIS), Khoa học Dữ liệu, CNTT." },
+        { title: "☁️ Kỹ sư Điện toán Đám mây & Vận hành Hệ thống (DevOps / Cloud)", note: "Tự động hóa hạ tầng đám mây (AWS/GCP), kiến trúc Microservices và CI/CD. Ngành dẫn tới: Mạng máy tính & Truyền thông, Kỹ thuật Phần mềm." }
+      ],
+      kinhte: [
+        { title: "📈 Chuyên viên Phân tích Đầu tư & Quản lý Tài chính Doanh nghiệp", note: "Định giá cổ phiếu, phân tích báo cáo tài chính và quản trị rủi ro đầu tư. Ngành dẫn tới: Tài chính - Ngân hàng, FinTech, Kinh tế Đầu tư." },
+        { title: "🎯 Giám đốc / Chuyên viên Chiến lược Marketing & Brand Manager", note: "Xây dựng chiến dịch quảng bá, định vị thương hiệu và tăng trưởng doanh thu đa kênh. Ngành dẫn tới: Marketing, Quản trị Kinh doanh, TMĐT." },
+        { title: "🛒 Quản lý Vận hành Kinh doanh Thương mại Điện tử (E-Commerce Lead)", note: "Quản trị gian hàng số, tối ưu tỷ lệ chuyển đổi và chiến lược bán hàng đa nền tảng. Ngành dẫn tới: Thương mại Điện tử, Kinh tế số, QTKD." },
+        { title: "🌐 Chuyên viên Phát triển Thị trường & Đàm phán Quốc tế (BDM)", note: "Mở rộng mạng lưới đối tác nước ngoài và đàm phán hợp đồng phân phối. Ngành dẫn tới: Kinh doanh Quốc tế, Kinh tế Đối ngoại, Marketing." },
+        { title: "💼 Quản trị viên Doanh nghiệp & Hoạch định Chiến lược", note: "Quản trị chuỗi giá trị doanh nghiệp, điều phối nhân sự và quy trình vận hành. Ngành dẫn tới: Quản trị Kinh doanh, Kinh tế Phát triển." }
+      ],
+      kythuat: [
+        { title: "🚗 Kỹ sư Thiết kế & Phát triển Ô tô Điện (EV Engineer)", note: "Nghiên cứu hệ truyền động điện tử, khối pin lưu trữ và trạm sạc xe điện thông minh. Ngành dẫn tới: Kỹ thuật Ô tô, Kỹ thuật Điện - Điện tử, Cơ điện tử." },
+        { title: "🤖 Kỹ sư Lập trình Robot & Dây chuyền Tự động hóa (Automation)", note: "Lập trình PLC, SCADA, tích hợp cánh tay robot trong nhà máy thông minh. Ngành dẫn tới: Kỹ thuật Điều khiển & Tự động hóa, Cơ điện tử." },
+        { title: "⚙️ Kỹ sư Cơ khí Chế tạo máy & Thiết kế CAD/CAM/CNC", note: "Mô phỏng 3D kết cấu máy móc công nghiệp, gia công chính xác và thiết kế khuôn mẫu. Ngành dẫn tới: Kỹ thuật Cơ khí, Chế tạo máy, CĐ Ô tô/Cơ khí." },
+        { title: "⚡ Kỹ sư Quản lý Hệ thống Năng lượng Xí nghiệp", note: "Đảm bảo vận hành nguồn điện công nghiệp, hệ thống điện mặt trời và tối ưu năng lượng. Ngành dẫn tới: Kỹ thuật Điện, Kỹ thuật Năng lượng." }
+      ],
+      yduoc: [
+        { title: "🩺 Bác sĩ Đa khoa Điều trị Lâm sàng", note: "Khám chữa bệnh trực tiếp tại bệnh viện tuyến tỉnh/trung ương, tiếp tục học nội trú/chuyên khoa 1. Ngành dẫn tới: Bác sĩ Y Đa khoa." },
+        { title: "🦷 Bác sĩ Chuyên khoa Răng - Hàm - Mặt", note: "Nha khoa thẩm mỹ, cấy ghép Implant, chỉnh nha và làm việc tại phòng khám chuyên khoa. Ngành dẫn tới: Răng - Hàm - Mặt." },
+        { title: "💊 Dược sĩ Bệnh viện & Quản lý Hệ thống Bán lẻ Dược phẩm", note: "Dược lâm sàng, kiểm nghiệm chất lượng dược chất hoặc mở chuỗi phân phối thuốc. Ngành dẫn tới: Dược học." },
+        { title: "🔬 Chuyên viên Trưởng Xét nghiệm & Chẩn đoán Sinh học Y học", note: "Vận hành hệ thống xét nghiệm tự động, huyết học, sinh hóa và xét nghiệm di truyền. Ngành dẫn tới: Kỹ thuật Xét nghiệm Y học." },
+        { title: "🏥 Điều dưỡng viên Chuyên sâu Bệnh viện Quốc tế", note: "Chăm sóc phục hồi hồi sức tích cực, cơ hội học bổng làm việc tại Đức/Nhật/Úc. Ngành dẫn tới: Điều dưỡng Đa khoa (ĐH/CĐ)." }
+      ],
+      dulich: [
+        { title: "🏨 Giám đốc Vận hành Khách sạn & Quần thể Resort 5 Sao", note: "Quản lý lưu trú, kiểm soát chất lượng dịch vụ phòng và điều phối hội nghị quốc tế. Ngành dẫn tới: Quản trị Khách sạn, Quản trị Du lịch." },
+        { title: "🍳 Bếp trưởng Điều hành & Nghệ nhân Ẩm thực (Executive Chef)", note: "Sáng tạo thực đơn ẩm thực Á - Âu cao cấp, tiêu chuẩn Michelin và quản lý bếp. Ngành dẫn tới: Kỹ thuật Chế biến Món ăn, Quản trị Nhà hàng (F&B)." },
+        { title: "🗺️ Giám đốc Điều hành Tour & Du lịch Lữ hành Quốc tế", note: "Thiết kế sản phẩm du lịch cao cấp, tuyến tour xuyên quốc gia và hướng dẫn viên VIP. Ngành dẫn tới: Quản trị Dịch vụ Du lịch & Lữ hành." }
+      ],
+      thietke: [
+        { title: "📱 Chuyên viên Thiết kế Trải nghiệm Giao diện Số (Lead UI/UX)", note: "Nghiên cứu hành vi người dùng, thiết kế giao diện ứng dụng web/app hiện đại. Ngành dẫn tới: Thiết kế Đồ họa, Truyền thông Đa phương tiện." },
+        { title: "🎬 Kỹ xảo Điện ảnh & Đồ họa Game 3D (3D/VFX Artist)", note: "Dựng hình nhân vật 3D, làm kỹ xảo điện ảnh và hiệu ứng cho các tựa game quốc tế. Ngành dẫn tới: Hoạt hình 3D, Mỹ thuật Đa phương tiện." },
+        { title: "🎨 Giám đốc Nghệ thuật & Nhận diện Thương hiệu (Art Director)", note: "Định hình concept thị giác, bao bì thương hiệu và chiến dịch hình ảnh nghệ thuật. Ngành dẫn tới: Thiết kế Đồ họa (Graphic Design)." }
+      ],
+      ngonngu: [
+        { title: "🌐 Biên - Phiên dịch viên Cấp cao Doanh nghiệp Đa quốc gia", note: "Dịch cabin, đàm phán hợp đồng ngoại thương và làm việc tại hội nghị cấp cao. Ngành dẫn tới: Ngôn ngữ Anh, Ngôn ngữ Trung Quốc." },
+        { title: "🤝 Chuyên viên Điều phối Dự án Đối ngoại & Ngoại giao", note: "Làm việc tại đại sứ quán, tổ chức phi chính phủ quốc tế và doanh nghiệp FDI. Ngành dẫn tới: Ngôn ngữ Anh, Quan hệ Quốc tế." },
+        { title: "💼 Chuyên viên Quản lý Khách hàng Doanh nghiệp FDI", note: "Đàm phán thương mại, chăm sóc khách hàng đối tác nước ngoài tại KCN. Ngành dẫn tới: Tiếng Anh Thương mại, Ngôn ngữ Trung/Hàn/Nhật." }
+      ],
+      luat: [
+        { title: "⚖️ Luật sư Tranh tụng & Trọng tài Thương mại Quốc tế", note: "Bào chữa tại tòa án, giải quyết tranh chấp hợp đồng kinh tế và đầu tư quốc tế. Ngành dẫn tới: Luật Kinh tế, Luật học." },
+        { title: "📑 Chuyên viên Pháp chế Doanh nghiệp & Ngân hàng (In-house Counsel)", note: "Rà soát hợp đồng kinh tế, đảm bảo tuân thủ pháp lý và quản trị rủi ro pháp lý. Ngành dẫn tới: Luật Kinh tế, Luật Tài chính - Ngân hàng." },
+        { title: "🏛️ Công chứng viên / Kiểm sát viên / Thẩm phán Tòa án", note: "Thực thi công lý, giám sát tố tụng và công chứng hợp đồng dân sự/thương mại. Ngành dẫn tới: Luật học, Luật Dân sự." }
+      ],
+      supham: [
+        { title: "🎓 Giáo viên THPT / THCS Chuyên môn Cao (Toán, Văn, Anh)", note: "Giảng dạy tại các trường chuyên, công lập hoặc quốc tế. Miễn 100% học phí theo NĐ 116. Ngành dẫn tới: Sư phạm Toán, Sư phạm Văn, Sư phạm Tiếng Anh." },
+        { title: "🏫 Chuyên gia Phát triển Chương trình & EdTech Manager", note: "Thiết kế giáo án hiện đại, tích hợp công nghệ AI vào giảng dạy tại các tập đoàn giáo dục. Ngành dẫn tới: Sư phạm, Khoa học Giáo dục." },
+        { title: "👩‍🏫 Giáo viên Mầm non & Tiểu học Chuẩn Quốc tế", note: "Chăm sóc và giáo dục sớm cho trẻ em tại các trường song ngữ, quốc tế. Ngành dẫn tới: Giáo dục Tiểu học, Giáo dục Mầm non." }
+      ],
+      truyenthong: [
+        { title: "📡 Giám đốc Truyền thông & Quan hệ Công chúng (PR Manager)", note: "Xây dựng chiến lược hình ảnh doanh nghiệp, xử lý khủng hoảng truyền thông và họp báo. Ngành dẫn tới: Quan hệ Công chúng, Truyền thông Đa phương tiện." },
+        { title: "✍️ Nhà báo Điều tra / Phóng viên - Biên tập viên Đa phương tiện", note: "Sản xuất tin tức truyền hình (VTV/VOV), báo điện tử và phóng sự chuyên sâu. Ngành dẫn tới: Báo chí, Truyền thông Đa phương tiện." },
+        { title: "🎬 Chuyên gia Sáng tạo Nội dung Số (Content & Viral Media Lead)", note: "Sản xuất video viral, podcast, xây dựng kênh TikTok/YouTube triệu views cho nhãn hàng. Ngành dẫn tới: Truyền thông Đa phương tiện, Marketing." }
+      ],
+      xaydung: [
+        { title: "🏛️ Kiến trúc sư Chủ trì Thiết kế Công trình (Chief Architect)", note: "Thiết kế concept công trình dân dụng, quy hoạch đô thị và cảnh quan sinh thái. Ngành dẫn tới: Kiến trúc, Quy hoạch Đô thị." },
+        { title: "🏗️ Chỉ huy trưởng Công trường & Quản lý Dự án Xây dựng", note: "Điều phối thi công kết cấu, kiểm soát tiến độ và an toàn lao động công trình cao tầng. Ngành dẫn tới: Kỹ thuật Xây dựng, Quản lý Xây dựng." },
+        { title: "🛋️ Chuyên gia Thiết kế & Thi công Nội thất Cao cấp", note: "Thiết kế không gian căn hộ, biệt thự, resort cao cấp và am hiểu vật liệu mới. Ngành dẫn tới: Thiết kế Nội thất, Kiến trúc." }
+      ],
+      tamly: [
+        { title: "🧠 Chuyên gia Tham vấn & Trị liệu Tâm lý Lâm sàng", note: "Trị liệu tâm lý, tham vấn trầm cảm, lo âu và sức khỏe tâm thần tại bệnh viện/phòng khám. Ngành dẫn tới: Tâm lý học, Tâm lý học Lâm sàng." },
+        { title: "👥 Chuyên viên Quản trị Nhân lực & Văn hóa Doanh nghiệp (HR Lead)", note: "Ứng dụng tâm lý học vào đánh giá năng lực, tuyển dụng và gắn kết nhân tài. Ngành dẫn tới: Tâm lý học, Quản trị Nhân lực." },
+        { title: "🏫 Chuyên viên Tâm lý Học đường Trường Quốc tế", note: "Hỗ trợ học sinh giải tỏa áp lực học đường, hướng nghiệp và can thiệp hành vi. Ngành dẫn tới: Tâm lý học Giáo dục, Tâm lý học." }
+      ]
+    };
+
+    function populateCareerGoalDropdown() {
+      const group = document.getElementById('selectedMajorGroup').value;
+      const selectEl = document.getElementById('careerGoalSelect');
+      const inputEl = document.getElementById('careerGoal');
+      if (!selectEl) return;
+
+      selectEl.innerHTML = '';
+      const list = CAREER_GOALS_MAP[group] || CAREER_GOALS_MAP['logistics'] || CAREER_GOALS_MAP['cntt'];
+
+      list.forEach((c, idx) => {
+        const opt = document.createElement('option');
+        opt.value = c.title;
+        opt.text = c.title;
+        opt.dataset.note = c.note;
+        selectEl.appendChild(opt);
+      });
+
+      // Tùy chọn tự gõ
+      const customOpt = document.createElement('option');
+      customOpt.value = 'custom';
+      customOpt.text = '✏️ Tự nhập chân dung nghề nghiệp khác...';
+      selectEl.appendChild(customOpt);
+
+      // Nếu inputEl có sẵn giá trị trong URL/hồ sơ
+      let matched = false;
+      for (let i = 0; i < selectEl.options.length; i++) {
+        if (selectEl.options[i].value === inputEl.value) {
+          selectEl.selectedIndex = i;
+          matched = true;
+          break;
+        }
+      }
+
+      if (!matched && inputEl.value && inputEl.style.display !== 'none') {
+        selectEl.value = 'custom';
+      } else if (!matched) {
+        selectEl.selectedIndex = 0;
+        inputEl.value = selectEl.options[0].value;
+      }
+
+      updateCareerGoalNote();
+    }
+
+    function onCareerGoalSelectChange() {
+      const selectEl = document.getElementById('careerGoalSelect');
+      const inputEl = document.getElementById('careerGoal');
+      const btn = document.getElementById('btnToggleCustomGoal');
+      if (selectEl.value === 'custom') {
+        inputEl.style.display = 'block';
+        if (btn) btn.innerText = '📋 Chọn từ danh sách';
+        inputEl.focus();
+      } else {
+        inputEl.style.display = 'none';
+        if (btn) btn.innerText = '✏️ Tự nhập nghề khác';
+        inputEl.value = selectEl.value;
+      }
+      updateCareerGoalNote();
+      updateProfile();
+    }
+
+    function toggleCustomCareerGoal() {
+      const selectEl = document.getElementById('careerGoalSelect');
+      const inputEl = document.getElementById('careerGoal');
+      const btn = document.getElementById('btnToggleCustomGoal');
+      if (inputEl.style.display === 'none') {
+        inputEl.style.display = 'block';
+        selectEl.value = 'custom';
+        if (btn) btn.innerText = '📋 Chọn từ danh sách';
+        inputEl.focus();
+      } else {
+        inputEl.style.display = 'none';
+        selectEl.selectedIndex = 0;
+        inputEl.value = selectEl.options[0].value;
+        if (btn) btn.innerText = '✏️ Tự nhập nghề khác';
+      }
+      updateCareerGoalNote();
+      updateProfile();
+    }
+
+    function updateCareerGoalNote() {
+      const selectEl = document.getElementById('careerGoalSelect');
+      const noteEl = document.getElementById('careerGoalNote');
+      if (!noteEl || !selectEl) return;
+
+      const selOpt = selectEl.options[selectEl.selectedIndex];
+      if (selOpt && selOpt.dataset && selOpt.dataset.note) {
+        noteEl.innerHTML = `💡 <b>Định hướng 5 - 10 năm:</b> ${selOpt.dataset.note}`;
+      } else {
+        noteEl.innerHTML = `💡 <b>Định hướng 5 - 10 năm:</b> Học các ngành gần cùng khối xét tuyển bên dưới để hướng đến chân dung nghề nghiệp này.`;
+      }
+    }
+
+    // 12. HỆ THỐNG GỢI Ý NGÀNH GẦN CHUẨN HỆ SINH THÁI (ĐÚNG KHỐI XÉT TUYỂN)
+    const RELATED_MAJORS_MAP = {
+      logistics: {
+        title: "🚢 Logistics & Quản lý Chuỗi Cung Ứng",
+        core: "Logistics & Quản lý Chuỗi Cung ứng (Điểm chuẩn thường rất cao: 26.5 - 28.0+)",
+        comb: "D01, A00, A01, D07",
+        related: [
+          { name: "Kinh tế Vận tải & Khai thác Cảng biển", comb: "A00, A01, D01", similarity: "90%", gapAdvantage: "Mềm hơn 1.5 - 2.5đ", keyword: "Vận tải", note: "Cùng khối A00/A01/D01, chuyên sâu vận tải biển, hàng không, quản lý đội tàu và cảng biển." },
+          { name: "Kinh doanh Quốc tế / Thương mại Quốc tế", comb: "D01, A01, A00", similarity: "85%", gapAdvantage: "Mềm hơn 0.5 - 1.5đ", keyword: "Kinh doanh Quốc tế", note: "Làm chuyên sâu về nghiệp vụ xuất nhập khẩu, forwarder, chứng từ hải quan, hợp đồng mua bán quốc tế." },
+          { name: "Quản trị Kinh doanh (Chuyên ngành Chuỗi Cung Ứng)", comb: "D01, A00, A01", similarity: "85%", gapAdvantage: "Mềm hơn 1.0 - 2.0đ", keyword: "Quản trị kinh doanh", note: "Bằng Cử nhân Quản trị chuẩn, học chuyên sâu chuỗi cung ứng, thu mua và quản lý kho bãi." },
+          { name: "Kinh tế Đối ngoại", comb: "D01, A01", similarity: "80%", gapAdvantage: "Điểm tương đương/mềm hơn", keyword: "Kinh tế Đối ngoại", note: "Nghiệp vụ ngoại thương, đàm phán hợp đồng thương mại quốc tế và logistics xuyên biên giới." },
+          { name: "Logistics & Vận hành Kho vận (Hệ Cao Đẳng)", comb: "Xét Học bạ THPT", similarity: "95%", gapAdvantage: "Xét học bạ (Đỗ 100%)", keyword: "Logistics", note: "Đào tạo thực hành điều hành kho thông minh, chứng từ xuất nhập khẩu, ra trường có việc ngay." }
+        ]
+      },
+      cntt: {
+        title: "💻 Công nghệ Thông tin & Trí tuệ Nhân tạo",
+        core: "Khoa học Máy tính & Kỹ thuật Máy tính (Điểm chuẩn 27.5 - 29.5+)",
+        comb: "A00, A01, D01, D07",
+        related: [
+          { name: "Kỹ thuật Phần mềm (Software Engineering)", comb: "A00, A01, D01", similarity: "95%", gapAdvantage: "Mềm hơn 0.5 - 1.5đ", keyword: "Kỹ thuật Phần mềm", note: "Tập trung chuyên sâu kỹ năng lập trình, làm cùng vị trí Software Engineer với KHMT." },
+          { name: "Hệ thống Thông tin Quản lý (MIS)", comb: "A00, A01, D01", similarity: "85%", gapAdvantage: "Mềm hơn 1.5 - 2.5đ", keyword: "Hệ thống Thông tin", note: "Cầu nối CNTT và kinh doanh, làm Chuyên viên Phân tích Nghiệp vụ (Business Analyst - BA)." },
+          { name: "Khoa học Dữ liệu & Trí tuệ Nhân tạo", comb: "A00, A01", similarity: "90%", gapAdvantage: "Mũi nhọn công nghệ", keyword: "Khoa học Dữ liệu", note: "Chuyên sâu về dữ liệu lớn (Big Data), Machine Learning, phân tích thống kê thuật toán." },
+          { name: "An toàn Thông tin (Cyber Security)", comb: "A00, A01", similarity: "85%", gapAdvantage: "Mềm hơn 1.0 - 2.0đ", keyword: "An toàn Thông tin", note: "Chuyên sâu về an ninh mạng, kiểm thử xâm nhập (Pen-test), bảo mật Cloud." },
+          { name: "Mạng máy tính & Truyền thông dữ liệu", comb: "A00, A01", similarity: "85%", gapAdvantage: "Mềm hơn 2.0 - 3.0đ", keyword: "Mạng máy tính", note: "Chuyên sâu về hạ tầng mạng, quản trị hệ thống Cloud và kỹ sư DevOps." },
+          { name: "Lập trình Ứng dụng & Web (Hệ Cao Đẳng)", comb: "Xét Học bạ THPT", similarity: "90%", gapAdvantage: "Xét học bạ (Đỗ 100%)", keyword: "Phần mềm", note: "Đào tạo thực chiến 2 - 2.5 năm, làm lập trình viên Frontend/Backend ngay." }
+        ]
+      },
+      kinhte: {
+        title: "📈 Kinh tế - Quản trị - Tài chính - Marketing",
+        core: "Kinh doanh Quốc tế, Marketing & Tài chính (Điểm chuẩn 26.0 - 27.5+)",
+        comb: "D01, A00, A01, D07",
+        related: [
+          { name: "Thương mại Điện tử & Kinh doanh số", comb: "D01, A00, A01", similarity: "90%", gapAdvantage: "Mềm hơn 0.5 - 1.5đ", keyword: "Thương mại", note: "Kết hợp kinh doanh với nền tảng công nghệ số, quản trị sàn TMĐT và Digital Marketing." },
+          { name: "Quản trị Kinh doanh Tổng hợp", comb: "D01, A00, A01", similarity: "90%", gapAdvantage: "Mềm hơn 1.0 - 2.0đ", keyword: "Quản trị kinh doanh", note: "Nền tảng quản trị bao quát, ra trường làm việc linh hoạt tại hầu hết các phòng ban doanh nghiệp." },
+          { name: "Tài chính - Công nghệ (FinTech) & Ngân hàng", comb: "D01, A00, A01", similarity: "85%", gapAdvantage: "Mềm hơn 1.0 - 2.0đ", keyword: "Tài chính", note: "Phân tích tài chính, quản trị dòng tiền, đầu tư chứng khoán và công nghệ ngân hàng số." },
+          { name: "Kinh tế Phát triển / Kinh tế Đầu tư", comb: "D01, A00, A01", similarity: "80%", gapAdvantage: "Mềm hơn 2.0 - 3.5đ", keyword: "Kinh tế", note: "Cử nhân kinh tế chuẩn, cơ hội việc làm lớn tại các cơ quan quản lý nhà nước và tập đoàn." },
+          { name: "Kế toán - Kiểm toán Doanh nghiệp", comb: "D01, A00, A01", similarity: "85%", gapAdvantage: "Mềm hơn 1.0 - 2.5đ", keyword: "Kế toán", note: "Nhu cầu tuyển dụng ổn định tại 100% doanh nghiệp, cơ hội làm việc tại Big 4." }
+        ]
+      },
+      kythuat: {
+        title: "⚙️ Kỹ thuật Cơ khí - Ô tô - Điện & Tự Động Hóa",
+        core: "Kỹ thuật Ô tô & Kỹ thuật Cơ điện tử cao cấp (Điểm chuẩn 25.5 - 27.5+)",
+        comb: "A00, A01, B00",
+        related: [
+          { name: "Kỹ thuật Cơ khí / Chế tạo máy", comb: "A00, A01", similarity: "90%", gapAdvantage: "Mềm hơn 1.0 - 2.0đ", keyword: "Cơ khí", note: "Gốc rễ nền tảng máy móc công nghiệp, thiết kế kết cấu cơ khí, làm việc tại các nhà máy sản xuất." },
+          { name: "Kỹ thuật Điều khiển & Tự động hóa", comb: "A00, A01", similarity: "85%", gapAdvantage: "Mềm hơn 0.5 - 1.5đ", keyword: "Tự động hóa", note: "Lập trình cánh tay robot, PLC, dây chuyền sản xuất tự động trong các nhà máy thông minh." },
+          { name: "Kỹ thuật Điện - Điện tử (Mảng EV Ô tô Điện)", comb: "A00, A01", similarity: "85%", gapAdvantage: "Mềm hơn 1.0 - 2.5đ", keyword: "Điện", note: "Đón đầu làn sóng ô tô điện (EV), trạm sạc thông minh và pin năng lượng mới." },
+          { name: "Kỹ thuật Hệ thống Công nghiệp", comb: "A00, A01", similarity: "80%", gapAdvantage: "Mềm hơn 2.0 - 3.0đ", keyword: "Hệ thống", note: "Tối ưu hóa năng suất, quản trị dây chuyền lắp ráp tại các tập đoàn sản xuất đa quốc gia." },
+          { name: "Công nghệ Ô tô & Cơ điện tử (Hệ Cao Đẳng)", comb: "Xét Học bạ THPT", similarity: "95%", gapAdvantage: "Xét học bạ (Đỗ 100%)", keyword: "Ô tô", note: "Thực hành tay nghề sửa chữa, chẩn đoán ô tô hiện đại, việc làm 100% sau 2.5 năm." }
+        ]
+      },
+      yduoc: {
+        title: "🩺 Y - Dược - Điều Dưỡng - Sức Khỏe",
+        core: "Bác sĩ Đa khoa (Điểm chuẩn rất cao: 27.5 - 28.5+)",
+        comb: "B00 (Toán, Hóa, Sinh)",
+        related: [
+          { name: "Bác sĩ Y học Cổ truyền", comb: "B00", similarity: "85%", gapAdvantage: "Mềm hơn 1.5 - 2.5đ", keyword: "Cổ truyền", note: "Cấp chứng chỉ hành nghề Bác sĩ, kết hợp điều trị đông y và tây y, mở phòng khám tư nhân." },
+          { name: "Dược học", comb: "A00, B00", similarity: "80%", gapAdvantage: "Mềm hơn 1.5 - 2.5đ", keyword: "Dược", note: "Cấp bằng Dược sĩ đại học, kinh doanh nhà thuốc hoặc làm nghiên cứu tại công ty dược." },
+          { name: "Kỹ thuật Xét nghiệm Y học", comb: "B00", similarity: "80%", gapAdvantage: "Mềm hơn 3.0 - 4.5đ", keyword: "Xét nghiệm", note: "Làm việc tại trung tâm xét nghiệm bệnh viện, công việc ổn định, ít áp lực trực cấp cứu." },
+          { name: "Kỹ thuật Phục hồi Chức năng", comb: "B00", similarity: "80%", gapAdvantage: "Mềm hơn 3.5 - 5.0đ", keyword: "Phục hồi", note: "Chuyên ngành phục hồi sau tai biến, cơ xương khớp, nhu cầu xã hội ngày càng tăng cao." },
+          { name: "Điều Dưỡng Đa Khoa (Hệ ĐH / CĐ)", comb: "B00 / Học bạ", similarity: "75%", gapAdvantage: "Mềm hơn 4.0 - 6.0đ", keyword: "Điều dưỡng", note: "Nhu cầu bệnh viện rất lớn, cơ hội việc làm và xuất khẩu lao động sang Đức/Nhật/Úc." }
+        ]
+      },
+      dulich: {
+        title: "🏨 Du lịch - Khách sạn - Nghệ thuật Ẩm thực",
+        core: "Quản trị Khách sạn & Du lịch (Điểm chuẩn 24.0 - 26.0+)",
+        comb: "D01, A00, C00",
+        related: [
+          { name: "Quản trị Nhà hàng & Dịch vụ Ăn uống (F&B)", comb: "D01, A00, C00", similarity: "90%", gapAdvantage: "Mềm hơn 1.0 - 1.5đ", keyword: "Nhà hàng", note: "Quản lý chuỗi ẩm thực, F&B cao cấp tại resort/khách sạn 5 sao." },
+          { name: "Quản trị Dịch vụ Du lịch & Lữ hành", comb: "D01, C00", similarity: "85%", gapAdvantage: "Mềm hơn 1.0 - 2.0đ", keyword: "Lữ hành", note: "Thiết kế tour, điều hành hãng lữ hành quốc tế, hướng dẫn viên VIP." },
+          { name: "Kỹ thuật Chế biến Món ăn (Bếp trưởng)", comb: "Xét Học bạ THPT", similarity: "85%", gapAdvantage: "Xét học bạ dễ đỗ", keyword: "Chế biến", note: "Nghệ thuật ẩm thực quốc tế, lương cao tại các nhà hàng, du thuyền 5 sao." }
+        ]
+      },
+      thietke: {
+        title: "🎨 Thiết kế Đồ họa & Đa phương tiện",
+        core: "Thiết kế Đồ họa (Graphic Design)",
+        comb: "H00, V00, D01, A00",
+        related: [
+          { name: "Thiết kế Giao diện UI/UX Web & App", comb: "D01, A00", similarity: "90%", gapAdvantage: "Nhu cầu công nghệ cao", keyword: "UI/UX", note: "Thiết kế trải nghiệm người dùng số, mức lương cao trong ngành phần mềm." },
+          { name: "Truyền thông Đa phương tiện (Multimedia)", comb: "D01, A00, C00", similarity: "85%", gapAdvantage: "Mềm hơn 1.0 - 2.0đ", keyword: "Đa phương tiện", note: "Sản xuất video, hình ảnh truyền thông và sáng tạo nội dung số trên mạng xã hội." },
+          { name: "Hoạt hình 3D, Game & Hiệu ứng Kỹ xảo (VFX)", comb: "D01, V00", similarity: "85%", gapAdvantage: "Nhiều studio tuyển dụng", keyword: "3D", note: "Làm game và đồ họa 3D cho các studio quốc tế." }
+        ]
+      },
+      ngonngu: {
+        title: "🌐 Ngôn ngữ (Anh - Trung - Hàn - Nhật Bản)",
+        core: "Ngôn ngữ Anh, Ngôn ngữ Trung Quốc, Hàn Quốc, Nhật Bản",
+        comb: "D01, D04, D06, D14, D78",
+        related: [
+          { name: "Tiếng Anh Thương Mại (Business English)", comb: "D01", similarity: "90%", gapAdvantage: "Dễ xin việc kinh tế", keyword: "Thương mại", note: "Ngoại ngữ chuyên sâu xuất nhập khẩu, thương mại quốc tế." },
+          { name: "Ngôn ngữ Trung Quốc Thương Mại", comb: "D01, D04", similarity: "90%", gapAdvantage: "FDI tuyển dụng mạnh", keyword: "Trung Quốc", note: "Làm việc cho các tập đoàn FDI, khu công nghiệp và thương mại điện tử." },
+          { name: "Ngôn ngữ Nhật Bản / Nhật Bản học", comb: "D01, D06", similarity: "90%", gapAdvantage: "Học bổng Nhật phong phú", keyword: "Nhật", note: "Làm việc tại các tập đoàn công nghệ, ô tô Nhật Bản và cơ hội sang Nhật làm việc." },
+          { name: "Ngôn ngữ Hàn Quốc / Hàn Quốc học", comb: "D01, D78", similarity: "90%", gapAdvantage: "Samsung, LG tuyển dụng lớn", keyword: "Hàn", note: "Thu nhập cao tại các tập đoàn FDI Hàn Quốc đầu tư tại Việt Nam." },
+          { name: "Quốc tế học & Truyền thông Quốc tế", comb: "D01, C00", similarity: "80%", gapAdvantage: "Mềm hơn 1.5 - 2.5đ", keyword: "Quốc tế", note: "Ngoại giao, tổ chức phi chính phủ và sự kiện quốc tế." }
+        ]
+      },
+      luat: {
+        title: "⚖️ Luật & Pháp lý",
+        core: "Luật Kinh tế & Luật Thương mại Quốc tế (Điểm chuẩn 26.5 - 28.0+)",
+        comb: "A00, A01, C00, D01",
+        related: [
+          { name: "Luật học (Luật Dân sự, Hình sự)", comb: "A00, C00, D01", similarity: "95%", gapAdvantage: "Mềm hơn 1.0 - 2.0đ", keyword: "Luật học", note: "Cử nhân luật tiêu chuẩn, làm việc tại tòa án, viện kiểm sát, công chứng hoặc luật sư." },
+          { name: "Quản trị & Pháp chế Kinh doanh", comb: "A00, A01, D01", similarity: "85%", gapAdvantage: "Mềm hơn 1.5 - 2.5đ", keyword: "Kinh doanh", note: "Kết hợp quản trị doanh nghiệp và kiến thức pháp lý thương mại." },
+          { name: "Luật Kinh tế (Hệ ĐH Vùng / Mở)", comb: "Xét Học bạ THPT", similarity: "90%", gapAdvantage: "Học bạ ≥ 20 - 23đ", keyword: "Luật", note: "Cơ hội xét học bạ sớm vào các trường ĐH công lập uy tín như ĐH Mở, ĐH Luật Huế." }
+        ]
+      },
+      supham: {
+        title: "🎓 Sư phạm & Khoa học Giáo dục (Miễn Học Phí NĐ 116)",
+        core: "Sư phạm Toán, Ngữ văn & Tiếng Anh (Điểm chuẩn 27.5 - 28.5+)",
+        comb: "A00, C00, D01, D14",
+        related: [
+          { name: "Giáo dục Tiểu học & Mầm non", comb: "A00, C00, D01", similarity: "90%", gapAdvantage: "Mềm hơn 0.5 - 1.5đ", keyword: "Tiểu học", note: "Hưởng trọn chính sách Nghị định 116 miễn 100% học phí + cấp sinh hoạt phí 3.63Tr/tháng." },
+          { name: "Sư phạm Tin học / KHTN", comb: "A00, A01", similarity: "85%", gapAdvantage: "Mềm hơn 2.0 - 3.5đ", keyword: "Sư phạm", note: "Nhu cầu giáo viên STEM/Tin học tại các trường phổ thông rất lớn, điểm chuẩn vừa sức." },
+          { name: "Giáo dục Mầm non (Hệ Cao Đẳng)", comb: "Xét Học bạ THPT", similarity: "95%", gapAdvantage: "Xét học bạ (Đỗ 100%)", keyword: "Mầm non", note: "Miễn học phí, ra trường có việc làm ngay tại các trường mầm non công lập và quốc tế." }
+        ]
+      },
+      truyenthong: {
+        title: "📡 Truyền thông - Báo chí & Quan hệ Công chúng (PR)",
+        core: "Quan hệ Công chúng (PR) & Truyền thông Đa phương tiện (Chuẩn 27.5 - 28.5+)",
+        comb: "C00, D01, A01, D14",
+        related: [
+          { name: "Báo chí & Xuất bản", comb: "C00, D01", similarity: "90%", gapAdvantage: "Mềm hơn 0.5 - 1.5đ", keyword: "Báo chí", note: "Phóng viên, biên tập viên, sản xuất tin tức truyền hình VTV, VOV và báo điện tử." },
+          { name: "Truyền thông Đa phương tiện (ĐH Công nghệ / Tư thục)", comb: "A00, D01", similarity: "85%", gapAdvantage: "Xét học bạ dễ đỗ", keyword: "Đa phương tiện", note: "Sản xuất video, livestream, sáng tạo nội dung số tại các agency và tập đoàn lớn." },
+          { name: "Quốc tế học & Truyền thông Đối ngoại", comb: "D01, C00", similarity: "80%", gapAdvantage: "Mềm hơn 1.5 - 2.5đ", keyword: "Quốc tế", note: "Tổ chức sự kiện quốc tế, quan hệ công chúng ngoại giao." }
+        ]
+      },
+      xaydung: {
+        title: "🏗️ Kiến trúc - Xây dựng & Thiết kế Nội thất",
+        core: "Kiến trúc & Kỹ thuật Xây dựng (Điểm chuẩn 24.5 - 25.5+)",
+        comb: "V00, H00, A00, A01",
+        related: [
+          { name: "Thiết kế Nội thất & Không gian", comb: "H00, V00", similarity: "90%", gapAdvantage: "Mềm hơn 1.0 - 2.0đ", keyword: "Nội thất", note: "Thiết kế không gian sống, căn hộ, văn phòng, nhu cầu đô thị hóa rất cao." },
+          { name: "Quản lý Dự án Xây dựng / Kinh tế Xây dựng", comb: "A00, A01", similarity: "85%", gapAdvantage: "Mềm hơn 1.5 - 2.5đ", keyword: "Xây dựng", note: "Dự toán chi phí, đấu thầu, quản trị tài chính công trình xây dựng." },
+          { name: "Kỹ thuật Xây dựng (Hệ Cao Đẳng)", comb: "Xét Học bạ THPT", similarity: "95%", gapAdvantage: "Xét học bạ (Đỗ 100%)", keyword: "Xây dựng", note: "Giám sát công trình, vẽ Autocad/Revit, ra trường lương cao ngay." }
+        ]
+      },
+      tamly: {
+        title: "🧠 Tâm lý học & Khoa học Xã hội",
+        core: "Tâm lý học Lâm sàng & Tham vấn (Điểm chuẩn 26.5 - 27.5+)",
+        comb: "B00, C00, D01, D14",
+        related: [
+          { name: "Tâm lý học Giáo dục & Tham vấn Học đường", comb: "B00, C00, D01", similarity: "90%", gapAdvantage: "Mềm hơn 0.5 - 1.5đ", keyword: "Giáo dục", note: "Cố vấn tâm lý học sinh tại các hệ thống trường tư thục, quốc tế với thu nhập hấp dẫn." },
+          { name: "Xã hội học & Công tác Xã hội", comb: "C00, D01", similarity: "80%", gapAdvantage: "Mềm hơn 2.5 - 4.0đ", keyword: "Xã hội", note: "Nghiên cứu hành vi xã hội, điều phối dự án phi chính phủ (NGO) quốc tế." },
+          { name: "Quản trị Nhân lực (HR)", comb: "A00, D01", similarity: "85%", gapAdvantage: "Mềm hơn 1.0 - 2.0đ", keyword: "Nhân lực", note: "Ứng dụng tâm lý học vào tuyển dụng, đào tạo và phát triển văn hóa doanh nghiệp." }
+        ]
+      }
+    };
+
+    function renderRelatedPills() {
+      const container = document.getElementById('relatedPillsList');
+      const boxTitle = document.getElementById('relatedBoxTitle');
+      if (!container) return;
+      container.innerHTML = '';
+
+      if (currentMajorGroup !== 'all' && RELATED_MAJORS_MAP[currentMajorGroup]) {
+        const groupObj = RELATED_MAJORS_MAP[currentMajorGroup];
+        if (boxTitle) {
+          boxTitle.innerHTML = `💡 Các Ngành Gần Cùng Tổ Hợp (${groupObj.comb}) Dẫn Đến Mục Tiêu ${groupObj.title} (Mềm hơn 0.5 - 2.5đ):`;
+        }
+        groupObj.related.forEach(m => {
+          const btn = document.createElement('button');
+          btn.className = 'pill-btn';
+          btn.style.cssText = 'background:#FFFFFF; border-color:#86EFAC; color:#166534; font-size:12px; font-weight:700;';
+          btn.innerHTML = `🎯 ${m.name} <span class="pill-count" style="background:#DCFCE7; color:#15803D;">${m.gapAdvantage}</span>`;
+          btn.onclick = () => filterByRelatedMajor(m.keyword, currentMajorGroup);
+          container.appendChild(btn);
+        });
+      } else {
+        if (boxTitle) {
+          boxTitle.innerHTML = `💡 Hãy chọn một Lĩnh vực / Nhóm ngành cụ thể ở trên để xem danh sách Ngành Gần tương ứng!`;
+        }
+        // Gợi ý chuyển sang Logistics hoặc CNTT
+        const hintBtn1 = document.createElement('button');
+        hintBtn1.className = 'pill-btn';
+        hintBtn1.style.cssText = 'background:#FFFFFF; border-color:#86EFAC; color:#166534; font-size:12px; font-weight:700;';
+        hintBtn1.innerHTML = `🚢 Xem Ngành Gần Logistics`;
+        hintBtn1.onclick = () => {
+          document.getElementById('selectedMajorGroup').value = 'logistics';
+          onMajorGroupChange();
+        };
+        container.appendChild(hintBtn1);
+
+        const hintBtn2 = document.createElement('button');
+        hintBtn2.className = 'pill-btn';
+        hintBtn2.style.cssText = 'background:#FFFFFF; border-color:#86EFAC; color:#166534; font-size:12px; font-weight:700;';
+        hintBtn2.innerHTML = `💻 Xem Ngành Gần CNTT & AI`;
+        hintBtn2.onclick = () => {
+          document.getElementById('selectedMajorGroup').value = 'cntt';
+          onMajorGroupChange();
+        };
+        container.appendChild(hintBtn2);
+      }
+    }
+
+    function filterByRelatedMajor(keyword, groupId) {
+      document.getElementById('searchKeyword').value = keyword;
+      currentSearch = keyword.toLowerCase();
+      if (groupId && groupId !== 'all') {
+        currentMajorGroup = groupId;
+        document.getElementById('selectedMajorGroup').value = groupId;
+        populateCareerGoalDropdown();
+      }
+      renderAll();
+      showToast(`💡 Đang lọc các trường đào tạo ngành gần: "${keyword}"`);
+      // Scroll mượt xuống bảng
+      const wrap = document.getElementById('tableViewWrap');
+      if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function openRelatedModal(targetGroupKey) {
+      const activeKey = targetGroupKey || (currentMajorGroup !== 'all' ? currentMajorGroup : 'logistics');
+      renderRelatedMatrix(activeKey);
+      document.getElementById('relatedModal').style.display = 'flex';
+    }
+
+    function closeRelatedModal() {
+      document.getElementById('relatedModal').style.display = 'none';
+    }
+
+    function renderRelatedMatrix(activeGroupKey) {
+      const container = document.getElementById('relatedMatrixContainer');
+      const tabsContainer = document.getElementById('modalGroupTabs');
+      const titleEl = document.getElementById('modalRelatedTitle');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const groupObj = RELATED_MAJORS_MAP[activeGroupKey] || RELATED_MAJORS_MAP['logistics'];
+      if (titleEl) {
+        titleEl.innerHTML = `🗺️ Cây Phả Hệ Ngành Gần: ${groupObj.title}`;
+      }
+
+      // Render tab chọn nhóm ngành
+      if (tabsContainer) {
+        tabsContainer.innerHTML = '';
+        Object.keys(RELATED_MAJORS_MAP).forEach(key => {
+          const item = RELATED_MAJORS_MAP[key];
+          const tabBtn = document.createElement('button');
+          tabBtn.className = `pill-btn ${key === activeGroupKey ? 'active' : ''}`;
+          tabBtn.style.fontSize = '12px';
+          tabBtn.innerText = item.title;
+          tabBtn.onclick = () => renderRelatedMatrix(key);
+          tabsContainer.appendChild(tabBtn);
+        });
+      }
+
+      // Render ONLY ONE TABLE cho nhóm ngành đang chọn
+      const card = document.createElement('div');
+      card.style.cssText = 'background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:16px 20px; box-shadow:0 2px 6px rgba(0,0,0,0.03);';
+
+      let rowsHtml = '';
+      groupObj.related.forEach(r => {
+        rowsHtml += `
+          <tr style="border-bottom:1px solid #F1F5F9;">
+            <td style="font-weight:700; color:#1A365D; padding:10px 12px;">🎯 ${r.name}</td>
+            <td style="text-align:center; padding:10px 8px; font-weight:700; color:#475569; font-size:11.5px;">${r.comb || groupObj.comb}</td>
+            <td style="text-align:center; padding:10px 8px;"><span class="badge badge-fit">${r.similarity}</span></td>
+            <td style="text-align:center; padding:10px 8px; color:#15803D; font-weight:700; font-size:12px;">${r.gapAdvantage}</td>
+            <td style="font-size:12px; color:#334155; padding:10px 12px; line-height:1.4;">${r.note}</td>
+            <td style="text-align:center; padding:10px 8px;">
+              <button class="btn btn-primary" style="font-size:11px; padding:5px 12px; background:#1B4332; white-space:nowrap;" onclick="selectRelatedFromModal('${r.keyword}', '${activeGroupKey}')">
+                Xem Trường
+              </button>
+            </td>
+          </tr>
+        `;
+      });
+
+      card.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; border-bottom:2px solid #E2E8F0; padding-bottom:10px; flex-wrap:wrap; gap:8px;">
+          <div>
+            <h3 style="font-size:16px; font-weight:800; color:#0F1D36;">${groupObj.title}</h3>
+            <div style="font-size:12px; color:#64748B; margin-top:2px;">
+              Ngành Lõi Chuẩn: <b style="color:#B91C1C;">${groupObj.core}</b> • Tổ hợp phổ biến: <b style="color:#1D4ED8;">${groupObj.comb}</b>
+            </div>
+          </div>
+          <span class="badge badge-safe" style="font-size:11px;">Chỉ hiện ngành cùng hệ sinh thái</span>
+        </div>
+        <div style="overflow-x:auto;">
+          <table style="width:100%; border-collapse:collapse; font-size:12.5px;">
+            <thead>
+              <tr style="background:#F8FAFC; color:#475569; font-weight:700; font-size:11.5px;">
+                <th style="padding:9px 12px; text-align:left;">Ngành Gần &amp; Dự Phòng</th>
+                <th style="padding:9px 8px; text-align:center; width:120px;">Tổ Hợp Môn</th>
+                <th style="padding:9px 8px; text-align:center; width:110px;">Tương Đồng</th>
+                <th style="padding:9px 8px; text-align:center; width:130px;">Lợi Thế Điểm Chuẩn</th>
+                <th style="padding:9px 12px; text-align:left;">Đầu Ra &amp; Lưu Ý Nghề Nghiệp</th>
+                <th style="padding:9px 8px; text-align:center; width:90px;">Thao Tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rowsHtml}
+            </tbody>
+          </table>
+        </div>
+      `;
+      container.appendChild(card);
+    }
+
+    function selectRelatedFromModal(keyword, groupKey) {
+      closeRelatedModal();
+      filterByRelatedMajor(keyword, groupKey);
+    }
+
+    // 13. Toast utility
+    function showToast(msg) {
+      const toast = document.getElementById('appToast');
+      toast.innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+  </script>
+</body>
+</html>
