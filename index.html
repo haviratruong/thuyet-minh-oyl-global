@@ -10078,6 +10078,10 @@
               "<button onclick=\"switchMainTab('colleges')\" class=\"px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition\">🏛️ Tra Cứu 225+ Trường</button>" +
             "</div>" +
           "</div>" +
+          "<!-- CẦU NỐI SANG CÔNG CỤ TÍNH ĐIỂM GAP: mang theo kết quả khảo sát -->" +
+          "<a href=\"ban-do-tuyen-sinh.html?from=khao-sat\" class=\"w-full py-3.5 px-5 rounded-2xl bg-[#0E5A3D] hover:bg-[#15803D] text-white font-extrabold text-sm flex items-center justify-center gap-2 transition shadow-md\" style=\"text-decoration:none;\">" +
+            "<span>Bước tiếp theo: Tính điểm GAP & lập Bản đồ chiến lược tuyển sinh với kết quả này →</span>" +
+          "</a>" +
         "</div>";
 
       // ═════════════════════════════════════════════════════════════════════
@@ -10132,7 +10136,16 @@
           academicPct: aPct,
           vocationalPct: vPct,
           p1: p1.title,
-          date: today.toLocaleDateString("vi-VN")
+          p1Id: p1.id,
+          p1Badge: p1.badge,
+          p2: p2.title,
+          p3: p3.title,
+          strength: strengthText.innerText,
+          burnout: burnoutText.innerText,
+          parents: parentsMsg.innerText,
+          actions: Array.prototype.map.call(actionPlan.querySelectorAll('li'), function (li) { return li.innerText.replace(/^\s*•\s*/, '').trim(); }),
+          date: today.toLocaleDateString("vi-VN"),
+          savedAt: new Date().toISOString()
         };
         localStorage.setItem("oyl_assessment_result", JSON.stringify(assessmentResult));
         
