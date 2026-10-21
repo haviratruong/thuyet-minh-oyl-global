@@ -1118,6 +1118,61 @@
     .print-header { display: none; }
     .print-footer { display: none; }
 
+    /* ===== BÁO CÁO CHIẾN LƯỢC TUYỂN SINH 4 TRỤ CỘT NPH (chỉ hiện khi in) ===== */
+    #nphReport { display: none; }
+    @page { size: A4; margin: 14mm 13mm 16mm 13mm; }
+    @media print {
+      body.nph-printing > *:not(#nphReport) { display: none !important; }
+      body.nph-printing #nphReport { display: block !important; }
+      body.nph-printing { background: #fff !important; padding: 0 !important; }
+    }
+    #nphReport, #nphReport * { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-sizing: border-box; }
+    #nphReport { font-family: 'Be Vietnam Pro', Arial, sans-serif; color: #1E293B; font-size: 11.5px; line-height: 1.55; }
+    #nphReport .r-page { page-break-after: always; break-after: page; }
+    #nphReport .r-page:last-of-type { page-break-after: auto; break-after: auto; }
+    #nphReport .r-cover { height: 255mm; display: flex; flex-direction: column; justify-content: space-between; border: 3px solid #0E5A3D; border-radius: 6px; padding: 18mm 14mm; position: relative; }
+    #nphReport .r-cover-band { position: absolute; left: 0; right: 0; top: 0; height: 9mm; background: #0E5A3D; }
+    #nphReport .r-cover-band2 { position: absolute; left: 0; right: 0; top: 9mm; height: 2mm; background: #EA580C; }
+    #nphReport .r-kicker { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #EA580C; font-weight: 800; }
+    #nphReport .r-title { font-size: 26px; font-weight: 900; color: #0E5A3D; line-height: 1.25; margin: 6px 0 8px; }
+    #nphReport .r-slogan { font-size: 11px; font-weight: 800; color: #0E5A3D; letter-spacing: 1.5px; }
+    #nphReport .r-pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 14px; }
+    #nphReport .r-pillar { border: 1.5px solid #0E5A3D; border-radius: 6px; padding: 8px; text-align: center; }
+    #nphReport .r-pillar b { display: block; font-size: 18px; color: #EA580C; }
+    #nphReport .r-pillar span { font-size: 10px; font-weight: 700; color: #0E5A3D; text-transform: uppercase; }
+    #nphReport .r-meta { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    #nphReport .r-meta td { padding: 6px 8px; border-bottom: 1px solid #E2E8F0; font-size: 12px; }
+    #nphReport .r-meta td:first-child { width: 38%; color: #64748B; font-weight: 600; }
+    #nphReport .r-meta td:last-child { font-weight: 800; color: #0F172A; }
+    #nphReport .r-legal { font-size: 9.5px; color: #64748B; border-top: 1px dashed #CBD5E1; padding-top: 8px; }
+    #nphReport .r-hd { display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #0E5A3D; padding-bottom: 6px; margin-bottom: 10px; }
+    #nphReport .r-hd img { height: 30px; }
+    #nphReport .r-hd .r-hd-right { text-align: right; font-size: 9.5px; color: #64748B; }
+    #nphReport h2 { font-size: 15px; color: #0E5A3D; margin: 14px 0 6px; display: flex; align-items: center; gap: 8px; }
+    #nphReport h2 .r-num { background: #0E5A3D; color: #fff; border-radius: 4px; padding: 1px 8px; font-size: 12px; }
+    #nphReport h3 { font-size: 12px; color: #0F172A; margin: 10px 0 4px; }
+    #nphReport .r-box { border: 1px solid #E2E8F0; border-left: 4px solid #15803D; border-radius: 4px; padding: 8px 10px; margin: 6px 0; background: #F8FAFC; }
+    #nphReport .r-box.warn { border-left-color: #EA580C; background: #FFF7ED; }
+    #nphReport .r-bar { height: 9px; background: #E2E8F0; border-radius: 5px; overflow: hidden; }
+    #nphReport .r-bar i { display: block; height: 100%; }
+    #nphReport .r-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    #nphReport table.r-t { width: 100%; border-collapse: collapse; margin: 4px 0 8px; font-size: 10.5px; }
+    #nphReport table.r-t th { background: #0E5A3D; color: #fff; padding: 5px 6px; text-align: left; font-weight: 700; }
+    #nphReport table.r-t td { padding: 5px 6px; border-bottom: 1px solid #E2E8F0; vertical-align: top; }
+    #nphReport table.r-t tr { page-break-inside: avoid; break-inside: avoid; }
+    #nphReport .r-tag { display: inline-block; padding: 1px 7px; border-radius: 10px; font-weight: 800; font-size: 10px; }
+    #nphReport .t-dream { background: #FEE2E2; color: #B91C1C; }
+    #nphReport .t-fit { background: #FEF3C7; color: #92400E; }
+    #nphReport .t-safe { background: #DCFCE7; color: #166534; }
+    #nphReport .r-pos { color: #15803D; font-weight: 800; }
+    #nphReport .r-neg { color: #B91C1C; font-weight: 800; }
+    #nphReport ol.r-steps { margin: 4px 0 0 18px; padding: 0; }
+    #nphReport ol.r-steps li { margin: 3px 0; }
+    #nphReport .r-sign { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; text-align: center; font-size: 10.5px; }
+    #nphReport .r-sign div { border-top: 1px solid #94A3B8; padding-top: 4px; height: 26mm; }
+    #nphReport .r-foot { position: fixed; bottom: 0; left: 0; right: 0; font-size: 8.5px; color: #64748B; text-align: center; border-top: 1px solid #E2E8F0; padding-top: 3px; background: #fff; }
+    #nphReport .r-avoid { page-break-inside: avoid; break-inside: avoid; }
+
     /* RESPONSIVE BREAKPOINTS */
     @media (max-width: 900px) {
       .table-container { display: none; }
@@ -1156,7 +1211,7 @@
         </div>
       </div>
       <div class="header-actions">
-        <button class="btn btn-gold" onclick="window.print()">
+        <button class="btn btn-gold" onclick="exportStrategyReport()">
           🖨️ Xuất Báo Cáo PDF / In
         </button>
         <button class="btn btn-outline" onclick="copyShareableLink()">
@@ -1205,6 +1260,9 @@
           👉 Điền điểm thi và nhóm ngành của bạn vào các ô bên dưới (hoặc bấm chọn 1 kịch bản ví dụ mẫu giả định) — Hệ thống sẽ tự động tính toán đối soát ma trận 225 trường ở <strong>Bước 2</strong> phía dưới theo thời gian thực.
         </span>
       </div>
+
+      <!-- KẾT QUẢ KHẢO SÁT 20 CÂU (tự động nhận từ WebApp) -->
+      <div id="surveyLinkPanel" class="no-print" style="display:none; margin-bottom:18px; padding:14px 18px; border-radius:12px; border:2px solid #15803D; background:#F0FDF4;"></div>
 
       <!-- BANNER CHẾ ĐỘ THÍCH ỨNG DÀNH RIÊNG CHO LỚP 9 & LỚP 10 (GDPT 2018) -->
       <div id="gradeSpecificAlert" style="display:none; margin-bottom:18px; padding:14px 18px; border-radius:12px; border:2px solid #38BDF8; background:linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);">
@@ -1374,7 +1432,7 @@
           </p>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <button class="btn btn-gold" onclick="window.print()" style="padding:10px 18px;font-size:12.5px;">
+          <button class="btn btn-gold" onclick="exportStrategyReport()" style="padding:10px 18px;font-size:12.5px;">
             🖨️ Xuất Báo Cáo PDF / In
           </button>
           <button class="btn btn-outline" onclick="copyShareableLink()" style="padding:10px 18px;font-size:12.5px;">
@@ -1890,6 +1948,8 @@
 
       populateCareerGoalDropdown();
       renderRelatedPills();
+      try { applySurveyToGapTool(); } catch (e) { console.warn('survey link', e); }
+      try { onStudentGradeChange(); } catch (e) {}
       renderAll();
       const printDateEl = document.getElementById('printDateStamp');
       if (printDateEl) printDateEl.textContent = new Date().toLocaleDateString('vi-VN');
@@ -2050,6 +2110,196 @@
       if (params.has('lang')) document.getElementById('certLang').value = params.get('lang');
       if (params.has('budget')) document.getElementById('budgetTier').value = params.get('budget');
     }
+
+    // ===================================================================
+    // KẾT NỐI KHẢO SÁT 20 CÂU -> CÔNG CỤ GAP  (đọc từ localStorage của WebApp)
+    // ===================================================================
+    function oylGetSurvey() {
+      try {
+        var r = JSON.parse(localStorage.getItem('oyl_assessment_result') || 'null');
+        if (r && typeof r.academicPct === 'number') return r;
+      } catch (e) {}
+      return null;
+    }
+    function oylEsc(t) { return String(t == null ? '' : t).replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}\u{200D}]/gu, '').replace(/\s{2,}/g, ' ').trim().replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+
+    function applySurveyToGapTool() {
+      var r = oylGetSurvey();
+      var panel = document.getElementById('surveyLinkPanel');
+      if (!panel) return;
+      if (!r) {
+        var params = new URLSearchParams(location.search);
+        if (params.get('from') === 'khao-sat') {
+          panel.style.display = 'block';
+          panel.innerHTML = '<div style="font-weight:800;color:#0E5A3D;">Chưa đọc được kết quả khảo sát trên trình duyệt này.</div><div style="font-size:12.5px;color:#334155;margin-top:4px;">Vui lòng làm lại bài khảo sát 20 câu trên cùng trình duyệt, hoặc nhập thông tin trực tiếp bên dưới.</div>';
+        }
+        return;
+      }
+      var st = r.student || {};
+      var nameEl = document.getElementById('studentName');
+      if (nameEl && !nameEl.value && st.name) nameEl.value = st.name;
+      var params2 = new URLSearchParams(location.search);
+      var gSel = document.getElementById('studentGradeSelect');
+      if (gSel && st.grade && !params2.has('grade') && gSel.querySelector('option[value="' + st.grade + '"]')) { gSel.value = String(st.grade); onStudentGradeChange(); }
+      var isVoc = r.p1Id === 'vocational', isAca = r.p1Id === 'academic';
+      var suggest = isVoc
+        ? '<button type="button" class="pill-btn" onclick="setTierFilter(\'caodang\', document.getElementById(\'btnTierCD\'))" style="border:1.5px solid #15803D;color:#15803D;font-weight:800;">Gợi ý: lọc các trường Cao đẳng</button>'
+        : (isAca ? '<button type="button" class="pill-btn" onclick="setTierFilter(\'daihoc\', document.getElementById(\'btnTierDH\'))" style="border:1.5px solid #15803D;color:#15803D;font-weight:800;">Gợi ý: lọc các trường Đại học</button>' : '');
+      panel.style.display = 'block';
+      panel.innerHTML =
+        '<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:flex-start;">' +
+          '<div><div style="font-size:11px;font-weight:800;letter-spacing:1px;color:#EA580C;text-transform:uppercase;">Đã nhận kết quả Khảo sát phân luồng 20 câu' + (r.date ? ' • ' + oylEsc(r.date) : '') + '</div>' +
+          '<div style="font-size:15px;font-weight:900;color:#0E5A3D;margin-top:2px;">' + oylEsc(st.name || 'Học sinh') + ' — Ưu tiên 1: ' + oylEsc(r.p1) + '</div>' +
+          '<div style="font-size:12.5px;color:#334155;margin-top:4px;">Tư duy học thuật <b>' + r.academicPct + '%</b> • Năng lực thực hành <b>' + r.vocationalPct + '%</b>' + (st.school ? ' • ' + oylEsc(st.school) : '') + '</div></div>' +
+          '<div style="display:flex;gap:8px;flex-wrap:wrap;">' + suggest + '</div>' +
+        '</div>' +
+        '<div style="font-size:12px;color:#475569;margin-top:8px;">Kết quả này sẽ được đưa vào phần <b>Nhân dạng</b> của Báo cáo PDF. Nhập điểm dự kiến bên dưới để tính GAP.</div>';
+    }
+
+    // Hướng dẫn theo khối lớp (trước đây select gọi hàm này nhưng hàm chưa tồn tại)
+    function onStudentGradeChange() {
+      var g = (document.getElementById('studentGradeSelect') || {}).value || '12';
+      var box = document.getElementById('gradeSpecificAlert');
+      var c = document.getElementById('gradeAlertContent');
+      var tips = {
+        '9': '<b>Lớp 9 — chọn đúng tổ hợp môn lớp 10 (GDPT 2018).</b> Hãy xem các ngành/trường mục tiêu bên dưới xét tuyển tổ hợp nào, rồi chọn môn học lựa chọn ở lớp 10 cho khớp. Chọn sai tổ hợp từ lớp 10 sẽ làm hẹp cánh cửa xét tuyển sau này.',
+        '10': '<b>Lớp 10 — đối soát tổ hợp môn đang học.</b> Kiểm tra cột "Tổ hợp" của các trường mục tiêu có khớp với môn đang học không, và đặt mục tiêu điểm học bạ (GPA) cho 3 năm THPT.',
+        '11': '<b>Lớp 11 — xây học bạ & chứng chỉ.</b> Đây là giai đoạn quyết định điểm học bạ và thời điểm phù hợp để tích lũy chứng chỉ ngoại ngữ (IELTS…) nếu trường mục tiêu có xét kết hợp.'
+      };
+      if (box && c) {
+        if (tips[g]) { c.innerHTML = '<div style="font-size:13px;color:#0C4A6E;line-height:1.6;">' + tips[g] + '</div>'; box.style.display = 'block'; }
+        else { box.style.display = 'none'; c.innerHTML = ''; }
+      }
+      try { if (typeof renderAll === 'function' && document.getElementById('v2TableBody') && typeof currentDatabase !== 'undefined' && currentDatabase.length) renderAll(); } catch (e) {}
+    }
+
+    // ===================================================================
+    // XUẤT BÁO CÁO CHIẾN LƯỢC TUYỂN SINH 4 TRỤ CỘT NPH (PDF qua hộp thoại in)
+    // ===================================================================
+    function oylOptText(id) { var el = document.getElementById(id); if (!el) return ''; if (el.tagName === 'SELECT') { var o = el.options[el.selectedIndex]; return o ? o.text.replace(/^[^\wÀ-ỹ(]+/u, '').trim() : ''; } return (el.value || '').trim(); }
+
+    function buildStrategyReport() {
+      var thpt = parseFloat(document.getElementById('scoreThpt').value) || 0;
+      var gpa = parseFloat(document.getElementById('scoreGpa').value) || 0;
+      var lang = document.getElementById('certLang').value;
+      var budget = document.getElementById('budgetTier').value;
+      var budgetOnly = document.getElementById('chkBudgetOnly') && document.getElementById('chkBudgetOnly').checked;
+      var r = oylGetSurvey();
+      var st = (r && r.student) || {};
+      var name = (document.getElementById('studentName').value || st.name || 'Học sinh').trim();
+      var grade = document.getElementById('studentGradeSelect').value;
+      var today = new Date();
+      var code = 'OYL-TS' + today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + String(today.getDate()).padStart(2, '0') + '-' + String(today.getHours()).padStart(2, '0') + String(today.getMinutes()).padStart(2, '0');
+
+      // Lấy danh sách theo đúng bộ lọc đang chọn trên màn hình (trừ bộ lọc phân tầng)
+      var rows = (currentDatabase || []).filter(function (it) {
+        if (currentTier !== 'all' && it.tier !== currentTier) return false;
+        if (currentMajorGroup !== 'all' && it.group_id !== currentMajorGroup) return false;
+        if (currentRegion !== 'all' && it.region !== currentRegion) return false;
+        return true;
+      }).map(function (it) { return { it: it, m: calculateV2Metrics(it, thpt, gpa, lang, budget) }; })
+        .filter(function (x) { return !(budgetOnly && x.m.isOverBudget); });
+
+      function pick(strat, sorter) { return rows.filter(function (x) { return x.m.strat === strat; }).sort(sorter).slice(0, 6); }
+      var byGapAsc = function (a, b) { return Math.abs(a.m.gapNum) - Math.abs(b.m.gapNum); };
+      var dream = pick('Dream', function (a, b) { return b.m.gapNum - a.m.gapNum; });
+      var fit = pick('Fit', byGapAsc);
+      var safe = pick('Safe', function (a, b) { return a.m.gapNum - b.m.gapNum; });
+
+      function tableRows(list, cls, label) {
+        if (!list.length) return '<tr><td colspan="7" style="color:#64748B;font-style:italic;">Không có trường phù hợp tầng ' + label + ' với bộ lọc hiện tại.</td></tr>';
+        return list.map(function (x) {
+          var g = x.m.gapNum;
+          return '<tr><td><span class="r-tag ' + cls + '">' + label + '</span></td>' +
+            '<td><b>' + oylEsc(x.it.school) + '</b><br><span style="color:#64748B;">' + oylEsc(x.it.code) + ' • ' + oylEsc(x.it.region) + '</span></td>' +
+            '<td>' + oylEsc(x.it.major) + '<br><span style="color:#64748B;">' + oylEsc(x.it.combination || '') + '</span></td>' +
+            '<td style="text-align:center;">' + (x.it.score_2025 || '—') + '</td>' +
+            '<td style="text-align:center;" class="' + (g >= 0 ? 'r-pos' : 'r-neg') + '">' + (thpt ? x.m.gap2025 : '—') + (x.m.isGpaHero ? '<br><span class="r-pos" style="font-size:9.5px;">đạt HB</span>' : '') + '</td>' +
+            '<td>' + oylEsc(String(x.m.recommendedMethod).replace(/^[^\wÀ-ỹ]+/u, '')) + '</td>' +
+            '<td>' + oylEsc(x.it.tuition || '—') + (x.it.tuition && !/Tr|%|Miễn/.test(x.it.tuition) ? ' Tr/năm' : '') + (x.m.isOverBudget ? '<br><span class="r-neg">Vượt ngân sách</span>' : '') + '</td></tr>';
+        }).join('');
+      }
+
+      var gradePlans = {
+        '12': ['Chốt 3 tầng nguyện vọng theo bảng GAP: 1–2 trường Vươn tới, 2–3 trường Vừa sức, tối thiểu 2 trường An toàn.', 'Rà soát lịch các phương thức xét tuyển sớm (học bạ, ĐGNL/ĐGTD, xét kết hợp chứng chỉ) của từng trường trong danh sách.', 'Tập trung ôn thi đúng tổ hợp xét tuyển; theo dõi điểm thi thử để cập nhật lại GAP định kỳ.', 'Chuẩn bị hồ sơ và đăng ký nguyện vọng đúng hạn trên hệ thống của Bộ GD&ĐT.'],
+        '11': ['Đặt mục tiêu điểm học bạ cho các học kỳ còn lại theo ngưỡng xét học bạ của trường mục tiêu.', 'Lên kế hoạch thi chứng chỉ ngoại ngữ / ĐGNL nếu trường mục tiêu có xét kết hợp.', 'Thu hẹp danh sách ngành – trường; cập nhật GAP mỗi học kỳ.'],
+        '10': ['Đối soát tổ hợp môn đang học với tổ hợp xét tuyển của ngành mục tiêu.', 'Xây nền điểm học bạ ổn định ngay từ lớp 10.', 'Trải nghiệm thực tế nghề nghiệp để kiểm chứng kết quả khảo sát phân luồng.'],
+        '9': ['Chọn môn học lựa chọn lớp 10 khớp tổ hợp xét tuyển của nhóm ngành quan tâm (GDPT 2018).', 'Tham khảo kết quả khảo sát phân luồng: con hợp con đường học thuật, thực hành hay kết hợp.', 'Trao đổi cùng gia đình và chuyên viên tham vấn trước khi nộp hồ sơ tuyển sinh lớp 10.']
+      };
+
+      var surveyHtml = r
+        ? '<div class="r-grid2 r-avoid">' +
+            '<div><div style="display:flex;justify-content:space-between;font-weight:700;"><span>Tư duy học thuật</span><span>' + r.academicPct + '%</span></div><div class="r-bar"><i style="width:' + r.academicPct + '%;background:#0369A1;"></i></div></div>' +
+            '<div><div style="display:flex;justify-content:space-between;font-weight:700;"><span>Năng lực thực hành nghề</span><span>' + r.vocationalPct + '%</span></div><div class="r-bar"><i style="width:' + r.vocationalPct + '%;background:#15803D;"></i></div></div>' +
+          '</div>' +
+          '<div class="r-box r-avoid"><b>Ưu tiên 1:</b> ' + oylEsc(r.p1) + (r.p2 ? '<br><b>Ưu tiên 2 (dự phòng):</b> ' + oylEsc(r.p2) : '') + '</div>' +
+          (r.strength ? '<h3>Điểm mạnh nhận thức</h3><div class="r-box r-avoid">' + oylEsc(r.strength) + '</div>' : '') +
+          (r.burnout ? '<h3>Nguy cơ quá tải cần lưu ý</h3><div class="r-box warn r-avoid">' + oylEsc(r.burnout) + '</div>' : '') +
+          '<div style="font-size:9.5px;color:#64748B;">Nguồn: Khảo sát phân luồng 20 câu (mô hình phong cách tiếp thu David Kolb, chuẩn Đề án 522/QĐ-TTg) — ngày ' + oylEsc(r.date || '') + '.</div>'
+        : '<div class="r-box warn">Học sinh chưa làm Khảo sát phân luồng 20 câu trên trình duyệt này. Phần Nhân dạng sẽ đầy đủ hơn khi hoàn thành khảo sát tại WebApp OYL Global.</div>';
+
+      var header = '<div class="r-hd"><img src="/assets/logo/logo-oyl-official.png" alt="OYL Global"><div class="r-hd-right"><b style="color:#0E5A3D;">' + oylEsc(name) + '</b> • Mã báo cáo ' + code + '<br>Ngày xuất ' + today.toLocaleDateString('vi-VN') + '</div></div>';
+
+      var html =
+        '<div class="r-foot">© Học Viện OYL Global • Mô hình NPH COACH • Bản quyền tác giả số 4686/2026/QTG • “HỌC ĐỂ LÀM” • Hotline 0946 154 747 • lienhe@oyl.vn</div>' +
+        // ---- TRANG BÌA ----
+        '<section class="r-page"><div class="r-cover"><div class="r-cover-band"></div><div class="r-cover-band2"></div>' +
+          '<div style="margin-top:8mm;"><img src="/assets/logo/logo-oyl-official.png" alt="OYL Global" style="height:22mm;"></div>' +
+          '<div><div class="r-kicker">Báo cáo tham vấn hướng nghiệp cá nhân hóa</div>' +
+            '<div class="r-title">BẢN ĐỒ CHIẾN LƯỢC<br>TUYỂN SINH CÁ NHÂN</div>' +
+            '<div class="r-slogan">HỌC ĐỂ LÀM • HƯỚNG NGHIỆP TỪ SỚM TỪ XA • CÙNG CON LẬP NGHIỆP</div>' +
+            '<div class="r-pillars"><div class="r-pillar"><b>N</b><span>Nhân dạng</span></div><div class="r-pillar"><b>P</b><span>Phương tiện</span></div><div class="r-pillar"><b>H</b><span>Hệ thống</span></div><div class="r-pillar"><b>Đ</b><span>Đồng hành</span></div></div>' +
+          '</div>' +
+          '<table class="r-meta">' +
+            '<tr><td>Học sinh</td><td>' + oylEsc(name) + '</td></tr>' +
+            '<tr><td>Khối lớp</td><td>Lớp ' + oylEsc(grade) + (st.school ? ' • ' + oylEsc(st.school) : '') + '</td></tr>' +
+            '<tr><td>Nhóm ngành quan tâm</td><td>' + oylEsc(oylOptText('selectedMajorGroup')) + '</td></tr>' +
+            '<tr><td>Nghề nghiệp mục tiêu</td><td>' + oylEsc(oylOptText('careerGoal') || oylOptText('careerGoalSelect')) + '</td></tr>' +
+            '<tr><td>Cố vấn trưởng</td><td>Cô Nguyên Phụng (ICF Coach ACC)</td></tr>' +
+            '<tr><td>Mã báo cáo • Ngày lập</td><td>' + code + ' • ' + today.toLocaleDateString('vi-VN') + '</td></tr>' +
+          '</table>' +
+          '<div class="r-legal">Học Viện OYL Global • Mô hình NPH COACH — Bản quyền tác giả số 4686/2026/QTG. Căn cứ định hướng: Quyết định 522/QĐ-TTg (Đề án giáo dục hướng nghiệp và định hướng phân luồng học sinh) và Nghị định 238/2025/NĐ-CP. Dữ liệu cá nhân trong báo cáo được xử lý theo Nghị định 13/2023/NĐ-CP (Điều 11, Điều 20). Tài liệu dành riêng cho học sinh và gia đình, không phát tán.</div>' +
+        '</div></section>' +
+        // ---- TRANG NỘI DUNG ----
+        '<section class="r-page">' + header +
+          '<h2><span class="r-num">N</span> NHÂN DẠNG — Thấu hiểu nội lực</h2>' + surveyHtml +
+          '<h2><span class="r-num">P</span> PHƯƠNG TIỆN — Hồ sơ điểm & Ma trận nguyện vọng</h2>' +
+          '<table class="r-t r-avoid"><tr><th>Điểm thi THPT dự kiến</th><th>ĐGNL / ĐGTD</th><th>Học bạ (tổng 3 môn)</th><th>Ngoại ngữ</th><th>Ngân sách học phí</th></tr>' +
+          '<tr><td>' + (thpt || '—') + '</td><td>' + oylEsc(document.getElementById('scoreDgnl').value || '—') + '</td><td>' + (gpa || '—') + '</td><td>' + oylEsc(oylOptText('certLang')) + '</td><td>' + oylEsc(oylOptText('budgetTier')) + '</td></tr></table>' +
+          (thpt ? '' : '<div class="r-box warn">Chưa nhập điểm thi THPT dự kiến nên cột GAP để trống. Nhập điểm trên công cụ rồi xuất lại báo cáo để có phân tầng chính xác.</div>') +
+          '<div style="font-size:10px;color:#64748B;margin:4px 0;">GAP = Điểm thi THPT dự kiến − Điểm chuẩn năm 2025 (dương: cao hơn chuẩn). “đạt HB”: học bạ đạt ngưỡng xét tuyển của trường, nên có thể đỗ sớm bằng học bạ dù GAP điểm thi còn âm. Bộ lọc áp dụng: ' + oylEsc(oylOptText('selectedMajorGroup')) + (currentTier !== 'all' ? ' • ' + (currentTier === 'caodang' ? 'Cao đẳng' : 'Đại học') : '') + (currentRegion !== 'all' ? ' • ' + oylEsc(currentRegion) : '') + '.</div>' +
+          '<table class="r-t"><tr><th style="width:11%;">Tầng</th><th style="width:24%;">Trường</th><th style="width:22%;">Ngành • Tổ hợp</th><th style="width:8%;">Chuẩn 2025</th><th style="width:8%;">GAP</th><th style="width:15%;">Phương thức khuyến nghị</th><th style="width:12%;">Học phí</th></tr>' +
+            tableRows(dream, 't-dream', 'Vươn tới') + tableRows(fit, 't-fit', 'Vừa sức') + tableRows(safe, 't-safe', 'An toàn') +
+          '</table>' +
+        '</section>' +
+        '<section class="r-page">' + header +
+          '<h2><span class="r-num">H</span> HỆ THỐNG — Lộ trình hành động</h2>' +
+          '<h3>Kế hoạch theo khối lớp ' + oylEsc(grade) + '</h3><ol class="r-steps">' + (gradePlans[grade] || gradePlans['12']).map(function (t) { return '<li>' + oylEsc(t) + '</li>'; }).join('') + '</ol>' +
+          (r && r.actions && r.actions.length ? '<h3>Khuyến nghị từ kết quả khảo sát</h3><ol class="r-steps">' + r.actions.map(function (t) { return '<li>' + oylEsc(t) + '</li>'; }).join('') + '</ol>' : '') +
+          (r && r.parents ? '<h3>Lời nhắn dành cho phụ huynh</h3><div class="r-box r-avoid">' + oylEsc(r.parents) + '</div>' : '') +
+          '<h2><span class="r-num">Đ</span> ĐỒNG HÀNH — Kết nối chuyên viên tham vấn</h2>' +
+          '<div class="r-box r-avoid">Đặt lịch phiên tham vấn 1:1 cùng chuyên viên NPH COACH để rà soát báo cáo và chốt nguyện vọng.<br><b>Hotline / Zalo:</b> 0946 154 747 &nbsp;•&nbsp; <b>Email:</b> lienhe@oyl.vn &nbsp;•&nbsp; <b>Website:</b> oyl.vn • coachnguyenphung.com</div>' +
+          '<div class="r-box warn r-avoid" style="font-size:10px;">Lưu ý: Điểm chuẩn trong báo cáo là số liệu tham chiếu năm 2025 do OYL Global tổng hợp; điểm chuẩn và phương thức xét tuyển năm tuyển sinh có thể thay đổi. Gia đình vui lòng đối chiếu thông báo chính thức của từng trường trước khi đăng ký nguyện vọng.</div>' +
+          '<div class="r-sign"><div>Học sinh<br><br><b>' + oylEsc(name) + '</b></div><div>Phụ huynh</div><div>Chuyên viên tham vấn OYL Global</div></div>' +
+        '</section>';
+      return html;
+    }
+
+    function exportStrategyReport() {
+      var box = document.getElementById('nphReport');
+      if (!box) { box = document.createElement('div'); box.id = 'nphReport'; document.body.appendChild(box); }
+      box.innerHTML = buildStrategyReport();
+      document.body.classList.add('nph-printing');
+      var done = function () { document.body.classList.remove('nph-printing'); window.removeEventListener('afterprint', done); };
+      window.addEventListener('afterprint', done);
+      // Chờ logo tải xong rồi mới mở hộp thoại in (chọn "Lưu dưới dạng PDF")
+      var imgs = box.querySelectorAll('img'), left = imgs.length;
+      var go = function () { setTimeout(function () { window.print(); setTimeout(done, 1500); }, 150); };
+      if (!left) return go();
+      var tick = function () { if (--left <= 0) go(); };
+      imgs.forEach(function (im) { if (im.complete) tick(); else { im.onload = tick; im.onerror = tick; } });
+    }
+    window.exportStrategyReport = exportStrategyReport;
 
     function copyShareableLink() {
       const name = encodeURIComponent(document.getElementById('studentName').value);
