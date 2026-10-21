@@ -2,13 +2,22 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/logo/logo-oyl-official.png">
+  <link rel="apple-touch-icon" href="/assets/logo/logo-oyl-official.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Học Viện OYL Global">
+  <meta property="og:title" content="OYL Global • Học Để Làm — Hướng Nghiệp Từ Sớm, Cùng Con Lập Nghiệp">
+  <meta property="og:description" content="Khảo sát phân luồng 20 câu miễn phí, tra cứu 225+ trường và 4 lộ trình đầu ra có bảo trợ học phí & việc làm.">
+  <meta property="og:image" content="https://thuyet-minh-oyl-global.vercel.app/assets/logo/logo-oyl-official.png">
+  <meta property="og:url" content="https://thuyet-minh-oyl-global.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
   <title>OYL Global • Học Để Làm | Nền Tảng Hướng Nghiệp & Tuyển Sinh Chính Quy</title>
     <style id="global-bevietnampro-override">
     /* ============================================================ */
     /* CHUẨN HÓA TOÀN TRANG SANG FONT BE VIETNAM PRO (ĐẬM ĐÀ, DỄ ĐỌC) */
     /* ============================================================ */
-    *, *::before, *::after, html, body, h1, h2, h3, h4, h5, h6, p, a, span, button, input, select, textarea, div, li {
+    html, body, h1, h2, h3, h4, h5, h6, p, a, span:not([class*="fa-"]), button, input, select, textarea, div, li {
       font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -29,8 +38,29 @@
     strong, b {
       font-weight: 700 !important;
     }
+    /* Trả lại font cho icon Font Awesome (trước đây bị ép sang font chữ -> ô vuông) */
+    .fa, .fas, .far, .fa-solid, .fa-regular, .fa-classic, i[class*="fa-"],
+    .fa::before, .fas::before, .far::before, .fa-solid::before, .fa-regular::before, i[class*="fa-"]::before {
+      font-family: "Font Awesome 6 Free" !important;
+    }
+    .fa-solid, .fas, .fa-solid::before, .fas::before { font-weight: 900 !important; }
+    .fa-regular, .far, .fa-regular::before, .far::before { font-weight: 400 !important; }
+    /* Mobile: tab Trường & Lộ trình bị dính sát mép màn hình */
+    @media (max-width: 768px) {
+      #tab-colleges, #tab-pathways { padding-left: 16px; padding-right: 16px; box-sizing: border-box; }
+    }
+    .fab, .fa-brands, .fab::before, .fa-brands::before {
+      font-family: "Font Awesome 6 Brands" !important; font-weight: 400 !important;
+    }
   </style>
-  <meta name="description" content="Nền tảng định vị năng lực, tra cứu 500+ trường đại học - cao đẳng và điều phối học bổng chính quy OYL Global x Galaxy Education.">
+  <script>
+    // Số di động VN: 0 hoặc +84/84, đầu số 3/5/7/8/9, tổng 10 số
+    function isValidVNPhone(p) {
+      p = (p || '').toString().replace(/[\s.\-()]/g, '');
+      return /^(0|\+?84)(3|5|7|8|9)\d{8}$/.test(p);
+    }
+  </script>
+  <meta name="description" content="Nền tảng định vị năng lực, tra cứu 225+ trường đại học - cao đẳng và điều phối học bổng chính quy OYL Global x Galaxy Education.">
 
   <!-- Google Fonts: Inter + Outfit (clean EdTech) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1962,7 +1992,7 @@
       <section style="position:relative;width:100%;min-height:500px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;border-top:2px solid rgba(255,255,255,0.85);border-bottom:2px solid rgba(255,255,255,0.85);box-shadow:0 0 25px rgba(255,255,255,0.3);padding:44px 16px;">
         
         <!-- Ảnh thật tập thể OYL Global bên dưới -->
-        <img src="assets/hoat-dong/hoat-dong-03.jpg" alt="Học Viện OYL Global" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 36%;filter:brightness(96%) contrast(105%);">
+        <img loading="lazy" decoding="async" src="assets/hoat-dong/hoat-dong-03.jpg" alt="Học Viện OYL Global" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 36%;filter:brightness(96%) contrast(105%);">
         
         <!-- Lớp phủ xanh ngọc bích mờ nhẹ, sáng rõ người thật -->
         <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(16, 75, 40, 0.65) 0%, rgba(10, 50, 26, 0.75) 100%);"></div>
@@ -2023,7 +2053,7 @@
             
             <!-- Cụm ảnh trực quan đại diện hệ sinh thái -->
             <div style="flex:1;min-width:280px;border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.08);border:2px solid #E8F8DE;height:240px;position:relative;">
-              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80" alt="Môi trường đào tạo OYL Global" style="width:100%;height:100%;object-fit:cover;">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80" alt="Môi trường đào tạo OYL Global" style="width:100%;height:100%;object-fit:cover;">
               <div style="position:absolute;inset:0;background:linear-gradient(180deg, transparent 40%, rgba(21,128,61,0.88) 100%);"></div>
               <div style="position:absolute;bottom:14px;left:16px;right:16px;color:#FFFFFF;">
                 <div style="font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#FEF08A;margin-bottom:2px;">HỆ SINH THÁI THỰC THI</div>
@@ -2357,15 +2387,15 @@
           <div class="audience-grid-responsive" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
             
             <a href="truyen-nghe.html" target="_blank" style="position:relative;border-radius:14px;overflow:hidden;height:210px;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,0.06);transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
-              <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80" alt="Chuyên viên hướng nghiệp" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80" alt="Chuyên viên hướng nghiệp" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
               <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.78) 100%);"></div>
               <div class="text-overlay" style="position:relative;z-index:2;color:#FFFFFF;font-size:17.5px;font-weight:700;text-align:center;padding:0 10px;text-shadow:0 2px 8px rgba(0,0,0,0.8);">
                 Chuyên viên<br>hướng nghiệp
               </div>
             </a>
 
-            <a href="#khao-sat" onclick="switchMainTab('assessment')" style="position:relative;border-radius:14px;overflow:hidden;height:210px;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,0.06);transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
-              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80" alt="Học sinh sinh viên" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <a href="#khao-sat" onclick="switchMainTab('assessment'); return false;" style="position:relative;border-radius:14px;overflow:hidden;height:210px;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,0.06);transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80" alt="Học sinh sinh viên" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
               <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.78) 100%);"></div>
               <div class="text-overlay" style="position:relative;z-index:2;color:#FFFFFF;font-size:17.5px;font-weight:700;text-align:center;padding:0 10px;text-shadow:0 2px 8px rgba(0,0,0,0.8);">
                 Học sinh<br>Sinh viên
@@ -2373,7 +2403,7 @@
             </a>
 
             <a href="#lo-trinh" onclick="switchMainTab('pathways')" style="position:relative;border-radius:14px;overflow:hidden;height:210px;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,0.06);transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
-              <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80" alt="Kỹ sư FDI" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80" alt="Kỹ sư FDI" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
               <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.78) 100%);"></div>
               <div class="text-overlay" style="position:relative;z-index:2;color:#FFFFFF;font-size:17.5px;font-weight:700;text-align:center;padding:0 10px;text-shadow:0 2px 8px rgba(0,0,0,0.8);">
                 Kỹ sư &amp;<br>Lộ trình FDI
@@ -2381,7 +2411,7 @@
             </a>
 
             <a href="sach.html" target="_blank" style="position:relative;border-radius:14px;overflow:hidden;height:210px;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,0.06);transition:transform 0.2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
-              <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&q=80" alt="Cha mẹ gia đình" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&q=80" alt="Cha mẹ gia đình" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
               <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.78) 100%);"></div>
               <div class="text-overlay" style="position:relative;z-index:2;color:#FFFFFF;font-size:17.5px;font-weight:700;text-align:center;padding:0 10px;text-shadow:0 2px 8px rgba(0,0,0,0.8);">
                 Cha mẹ &amp;<br>Gia đình
@@ -2416,7 +2446,7 @@
           <div id="content-tab-service" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
             <div class="card" style="border-radius:18px;overflow:hidden;background:#FFFFFF;border:1.5px solid #E2E8F0;box-shadow:0 3px 12px rgba(0,0,0,0.04);display:flex;flex-direction:column;">
               <div style="background:#15803D;padding:24px 20px 18px;text-align:center;color:#FFFFFF;">
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80" alt="Phụ huynh Lê Thu Hương" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #FFFFFF;margin:0 auto 10px;">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80" alt="Phụ huynh Lê Thu Hương" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #FFFFFF;margin:0 auto 10px;">
                 <div style="font-size:18px;font-weight:700;">Lê Thu Hương</div>
                 <div style="font-size:12.5px;color:#FEF08A;font-weight:600;">Phụ huynh học sinh THPT Chuyên (Hà Nội)</div>
               </div>
@@ -2427,7 +2457,7 @@
 
             <div class="card" style="border-radius:18px;overflow:hidden;background:#FFFFFF;border:1.5px solid #E2E8F0;box-shadow:0 3px 12px rgba(0,0,0,0.04);display:flex;flex-direction:column;">
               <div style="background:#15803D;padding:24px 20px 18px;text-align:center;color:#FFFFFF;">
-                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&q=80" alt="Sinh viên Nguyễn Minh Tuấn" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #FFFFFF;margin:0 auto 10px;">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&q=80" alt="Sinh viên Nguyễn Minh Tuấn" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #FFFFFF;margin:0 auto 10px;">
                 <div style="font-size:18px;font-weight:700;">Nguyễn Minh Tuấn</div>
                 <div style="font-size:12.5px;color:#FEF08A;font-weight:600;">Sinh viên Cao Đẳng Kỹ Sư FDI (Ninh Bình)</div>
               </div>
@@ -2438,7 +2468,7 @@
 
             <div class="card" style="border-radius:18px;overflow:hidden;background:#FFFFFF;border:1.5px solid #E2E8F0;box-shadow:0 3px 12px rgba(0,0,0,0.04);display:flex;flex-direction:column;">
               <div style="background:#15803D;padding:24px 20px 18px;text-align:center;color:#FFFFFF;">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Phụ huynh Trần Văn Nam" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #FFFFFF;margin:0 auto 10px;">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Phụ huynh Trần Văn Nam" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #FFFFFF;margin:0 auto 10px;">
                 <div style="font-size:18px;font-weight:700;">Trần Văn Nam</div>
                 <div style="font-size:12.5px;color:#FEF08A;font-weight:600;">Phụ huynh học sinh lớp 11 (Nghệ An)</div>
               </div>
@@ -2452,7 +2482,7 @@
           <div id="content-tab-career" style="display:none;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
             <div class="card" style="border-radius:18px;overflow:hidden;background:#FFFFFF;border:1.5px solid #E2E8F0;box-shadow:0 3px 12px rgba(0,0,0,0.04);display:flex;flex-direction:column;">
               <div style="background:#0F766E;padding:24px 20px 18px;text-align:center;color:#FFFFFF;">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80" alt="Chuyên viên Mai Lan" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #FFFFFF;margin:0 auto 10px;">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80" alt="Chuyên viên Mai Lan" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #FFFFFF;margin:0 auto 10px;">
                 <div style="font-size:18px;font-weight:700;">Mai Lan</div>
                 <div style="font-size:12.5px;color:#99F6E4;font-weight:600;">Giám Đốc Phát Triển Thị Trường (Nghệ An)</div>
               </div>
@@ -2463,7 +2493,7 @@
 
             <div class="card" style="border-radius:18px;overflow:hidden;background:#FFFFFF;border:1.5px solid #E2E8F0;box-shadow:0 3px 12px rgba(0,0,0,0.04);display:flex;flex-direction:column;">
               <div style="background:#0F766E;padding:24px 20px 18px;text-align:center;color:#FFFFFF;">
-                <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=200&q=80" alt="Chuyên viên Hoàng Hải Yến" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #FFFFFF;margin:0 auto 10px;">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=200&q=80" alt="Chuyên viên Hoàng Hải Yến" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #FFFFFF;margin:0 auto 10px;">
                 <div style="font-size:18px;font-weight:700;">Hoàng Hải Yến</div>
                 <div style="font-size:12.5px;color:#99F6E4;font-weight:600;">Chuyên viên Tham vấn Hướng nghiệp (Hải Phòng)</div>
               </div>
@@ -2474,7 +2504,7 @@
 
             <div class="card" style="border-radius:18px;overflow:hidden;background:#FFFFFF;border:1.5px solid #E2E8F0;box-shadow:0 3px 12px rgba(0,0,0,0.04);display:flex;flex-direction:column;">
               <div style="background:#0F766E;padding:24px 20px 18px;text-align:center;color:#FFFFFF;">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80" alt="Chuyên viên Đặng Quốc Dũng" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #FFFFFF;margin:0 auto 10px;">
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80" alt="Chuyên viên Đặng Quốc Dũng" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #FFFFFF;margin:0 auto 10px;">
                 <div style="font-size:18px;font-weight:700;">Đặng Quốc Dũng</div>
                 <div style="font-size:12.5px;color:#99F6E4;font-weight:600;">Giám Đốc Phát Triển Thị Trường (Đắk Lắk)</div>
               </div>
@@ -2698,10 +2728,10 @@
             <label class="block text-xs font-medium text-slate-700 mb-1">Khối lớp & Lớp *</label>
             <div class="grid grid-cols-2 gap-2">
               <select id="student-grade" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-1 focus:ring-slate-500 focus:outline-none text-xs">
+                <option value="9">Khối 9 THCS</option>
                 <option value="10">Khối 10 THPT</option>
                 <option value="11" selected>Khối 11 THPT</option>
                 <option value="12">Khối 12 THPT</option>
-                <option value="9">Khối 9 THCS</option>
               </select>
               <input type="text" id="student-class" placeholder="Lớp (vd: 11A1)" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-1 focus:ring-slate-500 focus:outline-none text-xs">
             </div>
@@ -2715,7 +2745,7 @@
         <!-- BƯỚC ĐỒNG THUẬN BẮT BUỘC THEO ĐIỀU 19 & ĐIỀU 11 NGHỊ ĐỊNH 13/2023/NĐ-CP -->
         <div class="mt-4 p-4 bg-slate-50 rounded-2xl border border-slate-200 text-left space-y-2.5">
           <div class="flex items-start gap-3">
-            <input type="checkbox" id="student-consent" class="mt-1 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 w-4 h-4 cursor-pointer shrink-0" checked>
+            <input type="checkbox" id="student-consent" class="mt-1 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 w-4 h-4 cursor-pointer shrink-0">
             <label for="student-consent" class="text-xs text-slate-700 leading-relaxed cursor-pointer select-none">
               Học sinh và cha mẹ/người giám hộ xác nhận đã đọc, hiểu và <strong>đồng ý cho phép thu thập và xử lý dữ liệu cá nhân</strong> theo đúng quy định tại <strong>Điều 20 (Xử lý dữ liệu cá nhân của trẻ em) & Điều 11 (Sự đồng ý của chủ thể dữ liệu)</strong> của <a href="https://vanban.chinhphu.vn/?pageid=27160&docid=207759" target="_blank" rel="noopener noreferrer" class="text-emerald-700 hover:text-emerald-900 underline font-bold" onclick="event.stopPropagation()">Nghị định số 13/2023/NĐ-CP của Chính phủ ↗</a> về bảo vệ dữ liệu cá nhân.
             </label>
@@ -3488,7 +3518,7 @@
                 <!-- 1. Cô Nguyên Phụng - Chủ tịch HĐQT OYL Global -->
                 <div class="flex flex-col items-center">
                   <div class="relative w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-amber-400/60 shadow-lg hover:border-amber-400 transition-all hover:scale-105">
-                    <img src="https://hocmienphicoluong.oyl.vn/assets/tac-gia/nguyen-phung-executive.jpg" alt="Cô Nguyên Phụng" class="w-full h-full object-cover object-center" data-aos="zoom-in" data-aos-duration="700">
+                    <img loading="lazy" decoding="async" src="https://hocmienphicoluong.oyl.vn/assets/tac-gia/nguyen-phung-executive.jpg" alt="Cô Nguyên Phụng" class="w-full h-full object-cover object-center" data-aos="zoom-in" data-aos-duration="700">
                   </div>
                   <div class="mt-1.5 text-center">
                     <h4 class="text-[10px] sm:text-xs font-bold text-amber-300 font-heading leading-tight">Cô Nguyên Phụng</h4>
@@ -3499,7 +3529,7 @@
                 <!-- 2. TS. Hoàng Văn Phúc - Hiệu trưởng CĐ Bách Khoa Sài Gòn -->
                 <div class="flex flex-col items-center">
                   <div class="relative w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-amber-400/60 shadow-lg hover:border-amber-400 transition-all hover:scale-105">
-                    <img src="https://hocmienphicoluong.oyl.vn/assets/bkc/ts_hoang_van_phuc_portrait.jpg" alt="TS. Hoàng Văn Phúc" class="w-full h-full object-cover object-center" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="100">
+                    <img loading="lazy" decoding="async" src="https://hocmienphicoluong.oyl.vn/assets/bkc/ts_hoang_van_phuc_portrait.jpg" alt="TS. Hoàng Văn Phúc" class="w-full h-full object-cover object-center" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="100">
                   </div>
                   <div class="mt-1.5 text-center">
                     <h4 class="text-[10px] sm:text-xs font-bold text-amber-300 font-heading leading-tight">TS. Hoàng Văn Phúc</h4>
@@ -3510,7 +3540,7 @@
                 <!-- 3. Ông Trần Anh Tuấn - Phó Chủ tịch Hội GDNN TP.HCM -->
                 <div class="flex flex-col items-center">
                   <div class="relative w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-amber-400/60 shadow-lg hover:border-amber-400 transition-all hover:scale-105">
-                    <img src="https://hocmienphicoluong.oyl.vn/assets/bkc/chuyen_gia_tran_anh_tuan_portrait_v2.jpg" alt="Ông Trần Anh Tuấn" class="w-full h-full object-cover object-center" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="200">
+                    <img loading="lazy" decoding="async" src="https://hocmienphicoluong.oyl.vn/assets/bkc/chuyen_gia_tran_anh_tuan_portrait_v2.jpg" alt="Ông Trần Anh Tuấn" class="w-full h-full object-cover object-center" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="200">
                   </div>
                   <div class="mt-1.5 text-center">
                     <h4 class="text-[10px] sm:text-xs font-bold text-amber-300 font-heading leading-tight">Ông Trần Anh Tuấn</h4>
@@ -3521,7 +3551,7 @@
                 <!-- 4. Ông Đỗ Xuân Phương - Phó Giám đốc Cty Nguồn Nhân Lực Đại Dương -->
                 <div class="flex flex-col items-center">
                   <div class="relative w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-amber-400/60 shadow-lg hover:border-amber-400 transition-all hover:scale-105">
-                    <img src="https://hocmienphicoluong.oyl.vn/assets/tac-gia/do-xuan-phuong_portrait.jpg" alt="Ông Đỗ Xuân Phương" class="w-full h-full object-cover" style="object-position: center top; object-fit: cover;" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="300">
+                    <img loading="lazy" decoding="async" src="https://hocmienphicoluong.oyl.vn/assets/tac-gia/do-xuan-phuong_portrait.jpg" alt="Ông Đỗ Xuân Phương" class="w-full h-full object-cover" style="object-position: center top; object-fit: cover;" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="300">
                   </div>
                   <div class="mt-1.5 text-center">
                     <h4 class="text-[10px] sm:text-xs font-bold text-amber-300 font-heading leading-tight">Ông Đỗ Xuân Phương</h4>
@@ -3748,7 +3778,7 @@
             <span class="text-[11px] text-slate-300 font-medium">Tiết kiệm 288 triệu • Có ngay vốn 216 triệu</span>
           </div>
           <a href="assets/infographics/so-sanh-tai-chinh.jpg" target="_blank" title="Bấm để xem ảnh gốc kích thước lớn" class="block group relative">
-            <img data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/infographics/so-sanh-tai-chinh.jpg" alt="So sánh bài toán tài chính sau 4 năm: Đại học vs Đào tạo kép" class="w-full h-auto object-contain block max-h-[85vh] mx-auto bg-white">
+            <img loading="lazy" decoding="async" data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/infographics/so-sanh-tai-chinh.jpg" alt="So sánh bài toán tài chính sau 4 năm: Đại học vs Đào tạo kép" class="w-full h-auto object-contain block max-h-[85vh] mx-auto bg-white">
             <div class="absolute bottom-3 right-3 bg-black/75 hover:bg-black text-white text-xs px-3 py-1.5 rounded-xl font-bold flex items-center gap-1.5 shadow-lg backdrop-blur-sm">
               <i class="fa-solid fa-magnifying-glass-plus text-amber-400"></i>
               <span>Xem kích thước đầy đủ</span>
@@ -3769,7 +3799,7 @@
                 <span class="text-[10px] bg-rose-950 px-2 py-0.5 rounded font-bold">CÒN NỢ 240TR</span>
               </div>
               <a href="assets/infographics/tai-chinh-dai-hoc.jpg" target="_blank" title="Bấm xem phóng to" class="block relative">
-                <img data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/infographics/tai-chinh-dai-hoc.jpg" alt="Chi tiết chi phí học đại học 4 năm và thời gian hoàn vốn" class="w-full h-auto object-contain block bg-white border-b border-slate-200">
+                <img loading="lazy" decoding="async" data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/infographics/tai-chinh-dai-hoc.jpg" alt="Chi tiết chi phí học đại học 4 năm và thời gian hoàn vốn" class="w-full h-auto object-contain block bg-white border-b border-slate-200">
                 <div class="absolute bottom-3 right-3 bg-black/75 text-white text-[11px] px-2.5 py-1 rounded-lg font-bold flex items-center gap-1">
                   <i class="fa-solid fa-expand text-rose-400"></i> Phóng to
                 </div>
@@ -3791,7 +3821,7 @@
                 <span class="text-[10px] bg-emerald-950 px-2 py-0.5 rounded font-bold">CÓ VỐN 216TR</span>
               </div>
               <a href="assets/infographics/tai-chinh-dao-tao-kep.jpg" target="_blank" title="Bấm xem phóng to" class="block relative">
-                <img data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/infographics/tai-chinh-dao-tao-kep.jpg" alt="Chi tiết bài toán tài chính đào tạo kép cao đẳng nghề hưởng lương" class="w-full h-auto object-contain block bg-white border-b border-slate-200">
+                <img loading="lazy" decoding="async" data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/infographics/tai-chinh-dao-tao-kep.jpg" alt="Chi tiết bài toán tài chính đào tạo kép cao đẳng nghề hưởng lương" class="w-full h-auto object-contain block bg-white border-b border-slate-200">
                 <div class="absolute bottom-3 right-3 bg-black/75 text-white text-[11px] px-2.5 py-1 rounded-lg font-bold flex items-center gap-1">
                   <i class="fa-solid fa-expand text-emerald-400"></i> Phóng to
                 </div>
@@ -4015,7 +4045,7 @@
           <div class="persona-card-container" data-aos="fade-up" data-aos-delay="100">
             <div class="persona-img-box">
               <span class="persona-badge-pill">NHÓM 01</span>
-              <img data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/bkc/nhap_hoc_05.jpg" alt="Tân sinh viên 2K7 2K8 nhận tài liệu nhập học">
+              <img loading="lazy" decoding="async" data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/bkc/nhap_hoc_05.jpg" alt="Tân sinh viên 2K7 2K8 nhận tài liệu nhập học">
             </div>
             <div class="persona-content-box">
               <div>
@@ -4032,7 +4062,7 @@
           <div class="persona-card-container" data-aos="fade-up" data-aos-delay="200">
             <div class="persona-img-box">
               <span class="persona-badge-pill">NHÓM 02</span>
-              <img data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/bkc/nhap_hoc_03.jpg" alt="Phụ huynh đồng hành và tự hào cùng con">
+              <img loading="lazy" decoding="async" data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/bkc/nhap_hoc_03.jpg" alt="Phụ huynh đồng hành và tự hào cùng con">
             </div>
             <div class="persona-content-box">
               <div>
@@ -4049,7 +4079,7 @@
           <div class="persona-card-container" data-aos="fade-up" data-aos-delay="300">
             <div class="persona-img-box">
               <span class="persona-badge-pill">NHÓM 03</span>
-              <img data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/markets/kr_korea.jpg" alt="Làm việc tại nước ngoài">
+              <img loading="lazy" decoding="async" data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/markets/kr_korea.jpg" alt="Làm việc tại nước ngoài">
             </div>
             <div class="persona-content-box">
               <div>
@@ -4066,7 +4096,7 @@
           <div class="persona-card-container" data-aos="fade-up" data-aos-delay="400">
             <div class="persona-img-box">
               <span class="persona-badge-pill">NHÓM 04</span>
-              <img data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/bkc/nhap_hoc_04.jpg" alt="Sinh viên học lại nghề vững bước tương lai">
+              <img loading="lazy" decoding="async" data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/bkc/nhap_hoc_04.jpg" alt="Sinh viên học lại nghề vững bước tương lai">
             </div>
             <div class="persona-content-box">
               <div>
@@ -4247,7 +4277,7 @@
         <!-- Ảnh Đoàn Sinh Viên Thực Tập Thực Tế Tại Nhà Máy FDI -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div class="rounded-3xl overflow-hidden border border-sky-800/60 bg-[#0f2342] shadow-xl">
-            <img data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/thuc-tap-yazaki.jpg" alt="165 Sinh viên thực tập tại Nhà máy Yazaki Quảng Ninh do Cty Nguồn nhân lực Đại Dương tổ chức" class="w-full h-80 object-cover img-zoom-hover">
+            <img loading="lazy" decoding="async" data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/thuc-tap-yazaki.jpg" alt="165 Sinh viên thực tập tại Nhà máy Yazaki Quảng Ninh do Cty Nguồn nhân lực Đại Dương tổ chức" class="w-full h-80 object-cover img-zoom-hover">
             <div class="p-6">
               <span class="text-xs font-bold text-amber-400 uppercase tracking-widest font-heading block mb-1">TIẾP NHẬN THỰC HÀNH FDI</span>
               <h4 class="text-lg font-black text-white mb-2 font-heading">165 Sinh Viên Thực Tập Tại Nhà Máy Yazaki</h4>
@@ -4256,7 +4286,7 @@
           </div>
 
           <div class="rounded-3xl overflow-hidden border border-sky-800/60 bg-[#0f2342] shadow-xl">
-            <img data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/thuc-tap-qp-group.jpg" alt="Gần 200 sinh viên thực tập tại Công ty QP Group" class="w-full h-80 object-cover img-zoom-hover">
+            <img loading="lazy" decoding="async" data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/thuc-tap-qp-group.jpg" alt="Gần 200 sinh viên thực tập tại Công ty QP Group" class="w-full h-80 object-cover img-zoom-hover">
             <div class="p-6">
               <span class="text-xs font-bold text-sky-400 uppercase tracking-widest font-heading block mb-1">QUY MÔ TIẾP NHẬN HÀNG TRĂM SINH VIÊN</span>
               <h4 class="text-lg font-black text-white mb-2 font-heading">Gần 200 Sinh Viên Thực Tập Tại QP Group</h4>
@@ -4452,7 +4482,7 @@
           <!-- 1. Nhà ăn công ty -->
           <div data-aos="fade-up" data-aos-delay="100" class="rounded-3xl overflow-hidden bg-[#0f2342] border border-sky-800/60 shadow-xl flex flex-col justify-between">
             <div class="relative overflow-hidden group">
-              <img data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/nha-an-cong-ty.jpg" alt="Nhà ăn công ty FDI quy mô lớn" class="w-full h-56 object-cover img-zoom-hover">
+              <img loading="lazy" decoding="async" data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/nha-an-cong-ty.jpg" alt="Nhà ăn công ty FDI quy mô lớn" class="w-full h-56 object-cover img-zoom-hover">
               <span class="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-lg">
                 ĂN CA MIỄN PHÍ
               </span>
@@ -4468,7 +4498,7 @@
           <!-- 2. Sam Coffee & Nghỉ ngơi giữa ca -->
           <div data-aos="fade-up" data-aos-delay="200" class="rounded-3xl overflow-hidden bg-[#0f2342] border border-sky-800/60 shadow-xl flex flex-col justify-between">
             <div class="relative overflow-hidden group">
-              <img data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/sam-coffee-nghi-ca.jpg" alt="Khu Sam Coffee và nghỉ ngơi giữa ca" class="w-full h-56 object-cover img-zoom-hover">
+              <img loading="lazy" decoding="async" data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/sam-coffee-nghi-ca.jpg" alt="Khu Sam Coffee và nghỉ ngơi giữa ca" class="w-full h-56 object-cover img-zoom-hover">
               <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-lg">
                 TIỆN ÍCH THƯ GIÃN
               </span>
@@ -4484,7 +4514,7 @@
           <!-- 3. Văn phòng Wistron -->
           <div data-aos="fade-up" data-aos-delay="300" class="rounded-3xl overflow-hidden bg-[#0f2342] border border-sky-800/60 shadow-xl flex flex-col justify-between">
             <div class="relative overflow-hidden group">
-              <img data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/van-phong-wistron.jpg" alt="Văn phòng làm việc tập đoàn công nghệ Wistron" class="w-full h-56 object-cover img-zoom-hover">
+              <img loading="lazy" decoding="async" data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/van-phong-wistron.jpg" alt="Văn phòng làm việc tập đoàn công nghệ Wistron" class="w-full h-56 object-cover img-zoom-hover">
               <span class="absolute top-3 left-3 bg-sky-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-lg">
                 VĂN PHÒNG FDI
               </span>
@@ -4500,7 +4530,7 @@
           <!-- 4. Giảng đường đào tạo -->
           <div data-aos="fade-up" data-aos-delay="100" class="rounded-3xl overflow-hidden bg-[#0f2342] border border-sky-800/60 shadow-xl flex flex-col justify-between lg:col-span-1 md:col-span-1">
             <div class="relative overflow-hidden group">
-              <img data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/giang-duong-dao-tao.jpg" alt="Giảng đường đào tạo hiện đại" class="w-full h-56 object-cover img-zoom-hover">
+              <img loading="lazy" decoding="async" data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/giang-duong-dao-tao.jpg" alt="Giảng đường đào tạo hiện đại" class="w-full h-56 object-cover img-zoom-hover">
               <span class="absolute top-3 left-3 bg-amber-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-lg">
                 HỘI TRƯỜNG ĐÀO TẠO
               </span>
@@ -4516,7 +4546,7 @@
           <!-- 5. Khu vực học tập & thi sát hạch -->
           <div data-aos="fade-up" data-aos-delay="200" class="rounded-3xl overflow-hidden bg-[#0f2342] border border-sky-800/60 shadow-xl flex flex-col justify-between lg:col-span-2 md:col-span-1">
             <div class="relative overflow-hidden group">
-              <img data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/khu-vuc-hoc-tap.jpg" alt="Khu vực học tập và kiểm tra sinh viên" class="w-full h-56 object-cover img-zoom-hover">
+              <img loading="lazy" decoding="async" data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/khu-vuc-hoc-tap.jpg" alt="Khu vực học tập và kiểm tra sinh viên" class="w-full h-56 object-cover img-zoom-hover">
               <span class="absolute top-3 left-3 bg-purple-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-lg">
                 ĐIỂM DANH & SÁT HẠCH
               </span>
@@ -4592,7 +4622,7 @@
           <div class="grid grid-cols-1 lg:grid-cols-12 items-center">
             
             <div class="lg:col-span-6 relative h-80 sm:h-96 overflow-hidden bg-slate-900">
-              <img id="marketImg" src="https://hocmienphicoluong.oyl.vn/assets/markets/kr_korea.jpg" alt="Thị trường việc làm kỹ thuật cao" class="w-full h-full object-cover transition-all duration-500">
+              <img loading="lazy" decoding="async" id="marketImg" src="https://hocmienphicoluong.oyl.vn/assets/markets/kr_korea.jpg" alt="Thị trường việc làm kỹ thuật cao" class="w-full h-full object-cover transition-all duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
               <div class="absolute bottom-4 left-4 right-4">
                 <span id="marketBadge" class="px-3 py-1 bg-amber-500 text-slate-950 font-black text-xs rounded-lg uppercase tracking-wider font-heading">
@@ -4716,11 +4746,11 @@
 
             <div class="lg:col-span-7 grid grid-cols-2 gap-3 sm:gap-4">
               <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                <img data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/tac-gia/nguyen-phung-bkc-event.jpg" alt="Cô Nguyên Phụng tham dự sự kiện định hướng tuyển sinh CĐ BKC" class="w-full h-40 sm:h-48 object-cover img-zoom-hover">
+                <img loading="lazy" decoding="async" data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/tac-gia/nguyen-phung-bkc-event.jpg" alt="Cô Nguyên Phụng tham dự sự kiện định hướng tuyển sinh CĐ BKC" class="w-full h-40 sm:h-48 object-cover img-zoom-hover">
                 <p class="p-2 text-[11px] font-bold text-slate-700 text-center">Đại diện OYL Global tại sự kiện BKC</p>
               </div>
               <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                <img data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/bkc/nhap_hoc_08.jpg" alt="Tập thể sinh viên & Ban Giám Hiệu Trường CĐ Bách Khoa Sài Gòn" class="w-full h-40 sm:h-48 object-cover img-zoom-hover">
+                <img loading="lazy" decoding="async" data-aos="zoom-in" data-aos-duration="700" src="https://hocmienphicoluong.oyl.vn/assets/bkc/nhap_hoc_08.jpg" alt="Tập thể sinh viên & Ban Giám Hiệu Trường CĐ Bách Khoa Sài Gòn" class="w-full h-40 sm:h-48 object-cover img-zoom-hover">
                 <p class="p-2 text-[11px] font-bold text-slate-700 text-center">Tập thể sinh viên & BGH BKC</p>
               </div>
             </div>
@@ -4905,7 +4935,7 @@
                     </div>
                     <div class="flex items-start gap-3 mb-2">
                       <div class="w-10 h-10 rounded-xl bg-white border border-sky-300 p-1 flex items-center justify-center shrink-0 shadow-sm">
-                        <img src="https://hocmienphicoluong.oyl.vn/assets/bkc/icon_bkc.png" alt="BKC" class="h-full w-auto object-contain">
+                        <img loading="lazy" decoding="async" src="https://hocmienphicoluong.oyl.vn/assets/bkc/icon_bkc.png" alt="BKC" class="h-full w-auto object-contain">
                       </div>
                       <div>
                         <h4 class="font-bold text-slate-900 text-sm font-heading leading-snug">CĐ Bách Khoa Sài Gòn (BKC)</h4>
@@ -4947,7 +4977,7 @@
             <div class="rounded-3xl overflow-hidden shadow-xl border-2 border-amber-500/40 hover:border-amber-400 transition-all duration-300 bg-gradient-to-r from-[#0c1f38] via-[#0f284a] to-[#071324] text-white flex flex-col md:flex-row group">
               <!-- Nửa Trái: Ảnh Thực Tế & Logo Chính Hãng -->
               <div class="md:w-5/12 relative min-h-[200px] md:min-h-full overflow-hidden bg-slate-900">
-                <img src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/thuc-tap-qp-group.jpg" alt="Nhà máy Goertek Vina" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
+                <img loading="lazy" decoding="async" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/thuc-tap-qp-group.jpg" alt="Nhà máy Goertek Vina" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
                 <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
                 <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm py-1.5 px-3 rounded-xl shadow-lg border border-slate-200">
                   <img src="https://hocmienphicoluong.oyl.vn/assets/brand-logos/goertek.svg" alt="Goertek" class="h-6 w-auto object-contain">
@@ -4995,7 +5025,7 @@
             <div class="rounded-3xl overflow-hidden shadow-xl border-2 border-amber-500/40 hover:border-amber-400 transition-all duration-300 bg-gradient-to-r from-[#0c1f38] via-[#0f284a] to-[#071324] text-white flex flex-col md:flex-row group">
               <!-- Nửa Trái: Ảnh Thực Tế & Logo Chính Hãng -->
               <div class="md:w-5/12 relative min-h-[200px] md:min-h-full overflow-hidden bg-slate-900">
-                <img src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/van-phong-wistron.jpg" alt="Nhà máy Luxshare-ICT" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
+                <img loading="lazy" decoding="async" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/van-phong-wistron.jpg" alt="Nhà máy Luxshare-ICT" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
                 <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
                 <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm py-1.5 px-3 rounded-xl shadow-lg border border-slate-200">
                   <img src="https://hocmienphicoluong.oyl.vn/assets/brand-logos/luxshare.svg" alt="Luxshare-ICT" class="h-6 w-auto object-contain">
@@ -5043,7 +5073,7 @@
             <div class="rounded-3xl overflow-hidden shadow-xl border-2 border-amber-500/40 hover:border-amber-400 transition-all duration-300 bg-gradient-to-r from-[#0c1f38] via-[#0f284a] to-[#071324] text-white flex flex-col md:flex-row group">
               <!-- Nửa Trái: Ảnh Thực Tế & Logo Chính Hãng -->
               <div class="md:w-5/12 relative min-h-[200px] md:min-h-full overflow-hidden bg-slate-900">
-                <img src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/thuc-tap-yazaki.jpg" alt="Tập đoàn Foxconn" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
+                <img loading="lazy" decoding="async" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/thuc-tap-yazaki.jpg" alt="Tập đoàn Foxconn" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
                 <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
                 <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm py-1.5 px-3 rounded-xl shadow-lg border border-slate-200">
                   <img src="https://hocmienphicoluong.oyl.vn/assets/brand-logos/foxconn.svg" alt="Foxconn" class="h-6 w-auto object-contain">
@@ -5091,7 +5121,7 @@
             <div class="rounded-3xl overflow-hidden shadow-xl border-2 border-amber-500/40 hover:border-amber-400 transition-all duration-300 bg-gradient-to-r from-[#0c1f38] via-[#0f284a] to-[#071324] text-white flex flex-col md:flex-row group">
               <!-- Nửa Trái: Ảnh Thực Tế & Logo Chính Hãng -->
               <div class="md:w-5/12 relative min-h-[200px] md:min-h-full overflow-hidden bg-slate-900">
-                <img src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/sam-coffee-nghi-ca.jpg" alt="Nhà máy WNC" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
+                <img loading="lazy" decoding="async" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/sam-coffee-nghi-ca.jpg" alt="Nhà máy WNC" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
                 <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
                 <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm py-1.5 px-3 rounded-xl shadow-lg border border-slate-200">
                   <img src="https://hocmienphicoluong.oyl.vn/assets/brand-logos/wnc.svg" alt="WNC" class="h-6 w-auto object-contain">
@@ -5139,7 +5169,7 @@
             <div class="rounded-3xl overflow-hidden shadow-xl border-2 border-amber-500/40 hover:border-amber-400 transition-all duration-300 bg-gradient-to-r from-[#0c1f38] via-[#0f284a] to-[#071324] text-white flex flex-col md:flex-row group">
               <!-- Nửa Trái: Ảnh Thực Tế & Logo Chính Hãng -->
               <div class="md:w-5/12 relative min-h-[200px] md:min-h-full overflow-hidden bg-slate-900">
-                <img src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/nha-an-cong-ty.jpg" alt="Tập đoàn Wistron" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
+                <img loading="lazy" decoding="async" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/nha-an-cong-ty.jpg" alt="Tập đoàn Wistron" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
                 <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
                 <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm py-1.5 px-3 rounded-xl shadow-lg border border-slate-200">
                   <img src="https://hocmienphicoluong.oyl.vn/assets/brand-logos/wistron.svg" alt="Wistron" class="h-6 w-auto object-contain">
@@ -5187,7 +5217,7 @@
             <div class="rounded-3xl overflow-hidden shadow-xl border-2 border-amber-500/40 hover:border-amber-400 transition-all duration-300 bg-gradient-to-r from-[#0c1f38] via-[#0f284a] to-[#071324] text-white flex flex-col md:flex-row group">
               <!-- Nửa Trái: Ảnh Thực Tế & Logo Chính Hãng -->
               <div class="md:w-5/12 relative min-h-[200px] md:min-h-full overflow-hidden bg-slate-900">
-                <img src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/khu-vuc-hoc-tap.jpg" alt="Nhà máy LCFC Lenovo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
+                <img loading="lazy" decoding="async" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/khu-vuc-hoc-tap.jpg" alt="Nhà máy LCFC Lenovo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
                 <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
                 <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm py-1.5 px-3 rounded-xl shadow-lg border border-slate-200">
                   <img src="https://hocmienphicoluong.oyl.vn/assets/brand-logos/lcfc.svg" alt="LCFC Lenovo" class="h-6 w-auto object-contain">
@@ -5235,7 +5265,7 @@
             <div class="rounded-3xl overflow-hidden shadow-xl border-2 border-amber-500/40 hover:border-amber-400 transition-all duration-300 bg-gradient-to-r from-[#0c1f38] via-[#0f284a] to-[#071324] text-white flex flex-col md:flex-row group">
               <!-- Nửa Trái: Ảnh Thực Tế & Logo Chính Hãng -->
               <div class="md:w-5/12 relative min-h-[200px] md:min-h-full overflow-hidden bg-slate-900">
-                <img src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/giang-duong-dao-tao.jpg" alt="Tập đoàn Pegatron" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
+                <img loading="lazy" decoding="async" src="https://hocmienphicoluong.oyl.vn/assets/fdi-life/giang-duong-dao-tao.jpg" alt="Tập đoàn Pegatron" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
                 <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
                 <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm py-1.5 px-3 rounded-xl shadow-lg border border-slate-200">
                   <img src="https://hocmienphicoluong.oyl.vn/assets/brand-logos/pegatron.svg" alt="Pegatron" class="h-6 w-auto object-contain">
@@ -6038,7 +6068,7 @@
                 <i class="fa-solid fa-phone"></i> Nhận Tư Vấn 1:1 Với Cố Vấn Tuyển Sinh
               </button>
               <button onclick="switchMainTab('colleges')" class="px-6 py-3 rounded-full bg-white/20 hover:bg-white/30 text-white font-bold text-xs sm:text-sm border border-white/40 transition">
-                Tra Cứu 500+ Trường ĐH-CĐ →
+                Tra Cứu 225+ Trường ĐH-CĐ →
               </button>
             </div>
           </div>
@@ -6468,8 +6498,8 @@
                   </p>
 
                   <div class="flex items-center gap-3 pt-2">
-                    <img src="https://bandohuongnghiep.oyl.vn/assets/bia-tap-1.jpg" alt="Tập 1 THCS" class="w-16 sm:w-20 rounded-lg shadow-md border border-emerald-200">
-                    <img src="https://bandohuongnghiep.oyl.vn/assets/bia-tap-2.jpg" alt="Tập 2 THPT" class="w-16 sm:w-20 rounded-lg shadow-md border border-emerald-200">
+                    <img loading="lazy" decoding="async" src="https://bandohuongnghiep.oyl.vn/assets/bia-tap-1.jpg" alt="Tập 1 THCS" class="w-16 sm:w-20 rounded-lg shadow-md border border-emerald-200">
+                    <img loading="lazy" decoding="async" src="https://bandohuongnghiep.oyl.vn/assets/bia-tap-2.jpg" alt="Tập 2 THPT" class="w-16 sm:w-20 rounded-lg shadow-md border border-emerald-200">
                     <div class="text-xs space-y-1 text-slate-700">
                       <div class="font-bold text-emerald-900">✅ Tập 1: Nền tảng THCS (Lớp 6-9)</div>
                       <div class="font-bold text-emerald-900">✅ Tập 2: Đột phá THPT (Lớp 10-12)</div>
@@ -6525,7 +6555,7 @@
  <!-- Khung Ký Tên Tác Giả & Con Dấu Bản Quyền Sang Trọng -->
  <div class="pt-4 border-t border-amber-100 flex flex-col sm:flex-row items-center justify-between gap-4">
  <div class="flex items-center gap-3.5">
- <img src="https://bandohuongnghiep.oyl.vn/assets/anh-tac-gia.jpg" alt="Chân dung Tác giả Nguyên Phụng" class="w-14 h-14 rounded-full object-cover object-top border-2 border-amber-300 shadow-md shrink-0">
+ <img loading="lazy" decoding="async" src="https://bandohuongnghiep.oyl.vn/assets/anh-tac-gia.jpg" alt="Chân dung Tác giả Nguyên Phụng" class="w-14 h-14 rounded-full object-cover object-top border-2 border-amber-300 shadow-md shrink-0">
  <div class="text-left">
  <span class="block font-serif-title text-xl sm:text-2xl text-amber-900 font-bold leading-snug mb-1">Nguyên Phụng</span>
  <p class="text-xs sm:text-sm text-slate-600 font-medium leading-normal">
@@ -6851,7 +6881,7 @@
  
  <div class="flex flex-col items-center w-full relative z-10">
  <div class="relative mb-5">
- <img src="https://bandohuongnghiep.oyl.vn/assets/anh-tac-gia.jpg" alt="Chân dung Tác giả Nguyên Phụng"
+ <img loading="lazy" decoding="async" src="https://bandohuongnghiep.oyl.vn/assets/anh-tac-gia.jpg" alt="Chân dung Tác giả Nguyên Phụng"
                    class="w-36 h-36 rounded-full object-cover object-top border-4 border-amber-400 shadow-xl ring-4 ring-amber-100/80">
  <span class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 text-[11px] font-black uppercase tracking-wider px-3.5 py-0.5 rounded-full shadow-md whitespace-nowrap border border-white/60">
  ICF Coach
@@ -7081,7 +7111,7 @@
 
  <!-- BANNER MASTER NỔI BẬT: CÙNG CON KIẾN TẠO TƯƠNG LAI -->
  <div class="my-10 w-full mx-auto rounded-3xl overflow-hidden shadow-2xl border-2 border-emerald-500/30 hover:border-amber-400/60 transition-all duration-300 group">
- <img src="https://bandohuongnghiep.oyl.vn/assets/banner-cung-con-kien-tao-tuong-lai.jpg" alt="Cùng Con Kiến Tạo Tương Lai - Bản Đồ Hướng Nghiệp NPH Coach" class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-500">
+ <img loading="lazy" decoding="async" src="https://bandohuongnghiep.oyl.vn/assets/banner-cung-con-kien-tao-tuong-lai.jpg" alt="Cùng Con Kiến Tạo Tương Lai - Bản Đồ Hướng Nghiệp NPH Coach" class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-500">
  </div>
 
  <!-- Khung Chứng Minh Học Thuật & Pháp Lý 2 Cột -->
@@ -7613,7 +7643,7 @@
  Con còn chưa phải quyết định ngay — trọng tâm là <strong>hiểu con trước khi chọn</strong>, chuẩn bị cho bước ngoặt chọn tổ hợp môn lớp 10.
  </p>
  </div>
- <img src="https://bandohuongnghiep.oyl.vn/assets/bia-tap-1.jpg" alt="Bìa Tập 1" class="w-20 sm:w-24 rounded-lg shadow-md shrink-0 border border-slate-200">
+ <img loading="lazy" decoding="async" src="https://bandohuongnghiep.oyl.vn/assets/bia-tap-1.jpg" alt="Bìa Tập 1" class="w-20 sm:w-24 rounded-lg shadow-md shrink-0 border border-slate-200">
  </div>
 
  <div class="space-y-4 my-6">
@@ -7677,7 +7707,7 @@
  Con đang cần quyết định — trọng tâm là <strong>hành động</strong>: chọn ngành, chọn trường, chiến lược thi, IELTS, du học.
  </p>
  </div>
- <img src="https://bandohuongnghiep.oyl.vn/assets/bia-tap-2.jpg" alt="Bìa Tập 2" class="w-20 sm:w-24 rounded-lg shadow-md shrink-0 border border-slate-200">
+ <img loading="lazy" decoding="async" src="https://bandohuongnghiep.oyl.vn/assets/bia-tap-2.jpg" alt="Bìa Tập 2" class="w-20 sm:w-24 rounded-lg shadow-md shrink-0 border border-slate-200">
  </div>
 
  <div class="space-y-4 my-6">
@@ -7765,7 +7795,7 @@
           <div>
             <div class="flex items-center justify-between gap-2.5 mb-3 pb-2.5 border-b border-slate-100">
               <div class="flex items-center gap-2.5">
-                <img src="https://bandohuongnghiep.oyl.vn/assets/feedback/avatar-phuong-lan.jpg" alt="Phương Lan" class="w-10 h-10 rounded-full object-cover border-2 border-amber-400 shadow-sm">
+                <img loading="lazy" decoding="async" src="https://bandohuongnghiep.oyl.vn/assets/feedback/avatar-phuong-lan.jpg" alt="Phương Lan" class="w-10 h-10 rounded-full object-cover border-2 border-amber-400 shadow-sm">
                 <div>
                   <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm leading-tight">Phương Lan</h4>
                   <p class="text-[10.5px] text-emerald-700 font-bold">🎓 Hướng Nghiệp — Du Học Quốc Tế</p>
@@ -7785,7 +7815,7 @@
             </p>
 
             <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 p-1.5 mb-3 flex items-center justify-center max-h-56">
-              <img src="https://bandohuongnghiep.oyl.vn/assets/feedback/chat-phuong-lan.jpg" alt="Tin nhắn Zalo Phương Lan" class="w-full max-h-52 object-contain rounded-lg">
+              <img loading="lazy" decoding="async" src="https://bandohuongnghiep.oyl.vn/assets/feedback/chat-phuong-lan.jpg" alt="Tin nhắn Zalo Phương Lan" class="w-full max-h-52 object-contain rounded-lg">
             </div>
           </div>
 
@@ -7802,7 +7832,7 @@
           <div>
             <div class="flex items-center justify-between gap-2.5 mb-3 pb-2.5 border-b border-slate-100">
               <div class="flex items-center gap-2.5">
-                <img src="https://bandohuongnghiep.oyl.vn/assets/feedback/avatar-ha-sai-gon.jpg" alt="Chị Hà Sài Gòn" class="w-10 h-10 rounded-full object-cover border-2 border-amber-400 shadow-sm">
+                <img loading="lazy" decoding="async" src="https://bandohuongnghiep.oyl.vn/assets/feedback/avatar-ha-sai-gon.jpg" alt="Chị Hà Sài Gòn" class="w-10 h-10 rounded-full object-cover border-2 border-amber-400 shadow-sm">
                 <div>
                   <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm leading-tight">Chị Hà Sài Gòn</h4>
                   <p class="text-[10.5px] text-amber-800 font-bold">💼 Phụ huynh Doanh nghiệp · TP.HCM</p>
@@ -7822,7 +7852,7 @@
             </p>
 
             <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 p-1.5 mb-3 flex items-center justify-center max-h-56">
-              <img src="https://bandohuongnghiep.oyl.vn/assets/feedback/chat-ha-sai-gon.jpg" alt="Tin nhắn Zalo Chị Hà Sài Gòn" class="w-full max-h-52 object-contain rounded-lg">
+              <img loading="lazy" decoding="async" src="https://bandohuongnghiep.oyl.vn/assets/feedback/chat-ha-sai-gon.jpg" alt="Tin nhắn Zalo Chị Hà Sài Gòn" class="w-full max-h-52 object-contain rounded-lg">
             </div>
           </div>
 
@@ -7839,7 +7869,7 @@
           <div>
             <div class="flex items-center justify-between gap-2.5 mb-3 pb-2.5 border-b border-slate-100">
               <div class="flex items-center gap-2.5">
-                <img src="https://bandohuongnghiep.oyl.vn/assets/feedback/avatar-khanh-linh.jpg" alt="Anh Nguyễn Hoàng Trung" class="w-10 h-10 rounded-full object-cover border-2 border-emerald-600 shadow-sm">
+                <img loading="lazy" decoding="async" src="https://bandohuongnghiep.oyl.vn/assets/feedback/avatar-khanh-linh.jpg" alt="Anh Nguyễn Hoàng Trung" class="w-10 h-10 rounded-full object-cover border-2 border-emerald-600 shadow-sm">
                 <div>
                   <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm leading-tight">Anh Nguyễn Hoàng Trung</h4>
                   <p class="text-[10.5px] text-emerald-700 font-bold">🎓 Du học sinh ngành Kiến trúc (Đài Loan) · Phụ huynh Khánh Linh</p>
@@ -7859,7 +7889,7 @@
             </p>
 
             <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 p-1.5 mb-3 flex items-center justify-center max-h-56">
-              <img src="https://bandohuongnghiep.oyl.vn/assets/feedback/chat-khanh-linh.jpg" alt="Tin nhắn Zalo Phụ huynh Khánh Linh" class="w-full max-h-52 object-contain rounded-lg">
+              <img loading="lazy" decoding="async" src="https://bandohuongnghiep.oyl.vn/assets/feedback/chat-khanh-linh.jpg" alt="Tin nhắn Zalo Phụ huynh Khánh Linh" class="w-full max-h-52 object-contain rounded-lg">
             </div>
           </div>
 
@@ -7876,7 +7906,7 @@
           <div>
             <div class="flex items-center justify-between gap-2.5 mb-3 pb-2.5 border-b border-slate-100">
               <div class="flex items-center gap-2.5">
-                <img src="https://bandohuongnghiep.oyl.vn/assets/feedback/avatar-phung-thi-huyen.jpg" alt="Chị Phùng Thị Huyền" class="w-10 h-10 rounded-full object-cover border-2 border-emerald-600 shadow-sm">
+                <img loading="lazy" decoding="async" src="https://bandohuongnghiep.oyl.vn/assets/feedback/avatar-phung-thi-huyen.jpg" alt="Chị Phùng Thị Huyền" class="w-10 h-10 rounded-full object-cover border-2 border-emerald-600 shadow-sm">
                 <div>
                   <h4 class="font-extrabold text-slate-900 text-xs sm:text-sm leading-tight">Chị Phùng Thị Huyền</h4>
                   <p class="text-[10.5px] text-emerald-700 font-bold">👩‍👧‍👦 Phụ huynh học sinh · Nho Quan, Ninh Bình</p>
@@ -7896,7 +7926,7 @@
             </p>
 
             <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 p-1.5 mb-3 flex items-center justify-center max-h-56">
-              <img src="https://bandohuongnghiep.oyl.vn/assets/feedback/chat-phung-thi-huyen.jpg" alt="Cảm nhận Chị Phùng Thị Huyền Ninh Bình" class="w-full max-h-52 object-contain rounded-lg">
+              <img loading="lazy" decoding="async" src="https://bandohuongnghiep.oyl.vn/assets/feedback/chat-phung-thi-huyen.jpg" alt="Cảm nhận Chị Phùng Thị Huyền Ninh Bình" class="w-full max-h-52 object-contain rounded-lg">
             </div>
           </div>
 
@@ -7977,7 +8007,7 @@
               <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i> <div><strong>Bằng CĐ chính quy</strong> + Cam kết 100% có việc làm sau tốt nghiệp bằng văn bản.</div></div>
             </div>
           </div>
-          <button onclick="goToPathway(\x27cd\x27)" class="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow transition mt-2">Xem Chi Tiết Lộ Trình Cao Đẳng FDI →</button>
+          <button onclick="goToPathway('cd')" class="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow transition mt-2">Xem Chi Tiết Lộ Trình Cao Đẳng FDI →</button>
         </div>
 
         <!-- LỘ TRÌNH 2: FDI QUỐC TẾ (HÀN - NHẬT 50-100TR) -->
@@ -8021,7 +8051,7 @@
               <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-sky-600 mt-0.5"></i> <div><strong>Lộ trình cá nhân hóa:</strong> Học đúng trọng tâm, tối ưu hóa điểm số trong thời gian ngắn.</div></div>
             </div>
           </div>
-          <button onclick="goToPathway(\x27galaxy\x27)" class="w-full py-3 px-4 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-sm shadow transition mt-2">Khám Phá Lộ Trình ĐGNL & Tiếng Anh →</button>
+          <button onclick="goToPathway('galaxy')" class="w-full py-3 px-4 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-sm shadow transition mt-2">Khám Phá Lộ Trình ĐGNL & Tiếng Anh →</button>
         </div>
 
         <!-- LỘ TRÌNH 4: THẠC SĨ MBA TRUNG QUỐC (TOP 50 985/211) -->
@@ -8061,8 +8091,8 @@
         <button onclick="switchMainTab('assessment')" class="px-6 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm shadow-md transition flex items-center gap-2">
           <i class="fa-solid fa-scale-balanced"></i> 1. Làm Khảo Sát Phân Luồng 20 Câu (Đề Án 522)
         </button>
-        <button onclick="switchMainTab(\x27colleges\x27)" class="px-6 py-3.5 rounded-full bg-sky-600 hover:bg-sky-500 text-white font-black text-sm shadow-md transition flex items-center gap-2">
-          <i class="fa-solid fa-magnifying-glass"></i> 2. Cổng Tra Cứu 500+ Trường & Ngành
+        <button onclick="switchMainTab('colleges')" class="px-6 py-3.5 rounded-full bg-sky-600 hover:bg-sky-500 text-white font-black text-sm shadow-md transition flex items-center gap-2">
+          <i class="fa-solid fa-magnifying-glass"></i> 2. Cổng Tra Cứu 225+ Trường & Ngành
         </button>
         <button onclick="switchMainTab('tracker')" class="px-6 py-3.5 rounded-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-sm shadow-md transition flex items-center gap-2">
           <i class="fa-solid fa-list-check"></i> 3. Theo Dõi Hồ Sơ & Lộ Trình
@@ -8317,7 +8347,7 @@
         <i class="fa-solid fa-compass"></i><span>Khám Phá</span>
       </button>
       <button class="mob-tab" id="mob-nav-assessment" onclick="switchMainTab('assessment')">
-        <i class="fa-solid fa-wand-magic-sparkles"></i><span>Test</span>
+        <i class="fa-solid fa-wand-magic-sparkles"></i><span>Khảo sát</span>
       </button>
       <button class="mob-tab" id="mob-nav-colleges" onclick="switchMainTab('colleges')">
         <i class="fa-solid fa-magnifying-glass"></i><span>Trường</span>
@@ -8496,7 +8526,7 @@
     "combination": "A00, A01",
     "tuition": "35 - 40",
     "website": "https://uet.vnu.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": "ĐH Top"
   },
   {
@@ -8568,7 +8598,7 @@
     "combination": "A00, A01",
     "tuition": "24 - 30",
     "website": "https://dut.udn.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -8640,7 +8670,7 @@
     "combination": "A00, A01",
     "tuition": "35 - 50",
     "website": "https://tuyensinh.uit.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": "ĐH Top"
   },
   {
@@ -8712,7 +8742,7 @@
     "combination": "Xét Học Bạ THPT",
     "tuition": "22 - 28",
     "website": "https://caodang.fpt.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": "Học bổng 100%"
   },
   {
@@ -8784,7 +8814,7 @@
     "combination": "Xét Học Bạ THPT",
     "tuition": "9 - 13",
     "website": "https://cdct.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": "Học bổng 100%"
   },
   {
@@ -8856,7 +8886,7 @@
     "combination": "A00, A01 / Học Bạ",
     "tuition": "14 - 18",
     "website": "https://caothang.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": "Học bổng 100%"
   },
   {
@@ -8928,7 +8958,7 @@
     "combination": "A00, A01, D01",
     "tuition": "28 - 45",
     "website": "https://ftu.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": "ĐH Top"
   },
   {
@@ -9000,7 +9030,7 @@
     "combination": "Xét Học Bạ THPT",
     "tuition": "11 - 14",
     "website": "https://caodanggtvt5.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": "Học bổng 100%"
   },
   {
@@ -9072,7 +9102,7 @@
     "combination": "Xét Học Bạ THPT",
     "tuition": "15 - 18",
     "website": "https://caodangyduocpasteur.com.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": "Học bổng 100%"
   },
   {
@@ -9144,7 +9174,7 @@
     "combination": "A00, A01, D01",
     "tuition": "22 - 28",
     "website": "https://due.udn.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -9216,7 +9246,7 @@
     "combination": "Xét Học Bạ THPT",
     "tuition": "10 - 13",
     "website": "https://nttc.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": "Học bổng 100%"
   },
   {
@@ -9288,7 +9318,7 @@
     "combination": "Xét Học Bạ / Năng Khiếu",
     "tuition": "12 - 16",
     "website": "https://nghethuathanoi.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": "Học bổng 100%"
   },
   {
@@ -9360,7 +9390,7 @@
     "combination": "A00, A01, D01",
     "tuition": "18 - 24",
     "website": "https://utc.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -9432,7 +9462,7 @@
     "combination": "A00, A01, D01",
     "tuition": "16 - 20",
     "website": "https://vku.udn.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -9504,7 +9534,7 @@
     "combination": "A00, A01, D01",
     "tuition": "14 - 18",
     "website": "https://qnu.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -9576,7 +9606,7 @@
     "combination": "A00, A01, D07",
     "tuition": "16 - 22",
     "website": "https://ctu.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -9648,7 +9678,7 @@
     "combination": "A00, A01, D01",
     "tuition": "14 - 17",
     "website": "https://tueba.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -9720,7 +9750,7 @@
     "combination": "A00, A01, D01",
     "tuition": "32 - 42",
     "website": "https://ueh.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": "ĐH Top"
   },
   {
@@ -9792,7 +9822,7 @@
     "combination": "A00, A01, D01",
     "tuition": "18 - 24",
     "website": "https://utc.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -9864,7 +9894,7 @@
     "combination": "A00, A01, D01",
     "tuition": "16 - 20",
     "website": "https://ntu.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -9936,7 +9966,7 @@
     "combination": "B00",
     "tuition": "55 - 65",
     "website": "https://hmu.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": "ĐH Top"
   },
   {
@@ -10008,7 +10038,7 @@
     "combination": "B00, A00",
     "tuition": "35 - 45",
     "website": "https://dhtm.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -10080,7 +10110,7 @@
     "combination": "D01, D04, D06",
     "tuition": "20 - 35",
     "website": "https://ulis.vnu.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": "ĐH Top"
   },
   {
@@ -10152,7 +10182,7 @@
     "combination": "D01, D04",
     "tuition": "25 - 35",
     "website": "https://hcmussh.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -10224,7 +10254,7 @@
     "combination": "A00, A01, D01",
     "tuition": "18 - 22",
     "website": "https://tuyensinh.hou.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -10296,7 +10326,7 @@
     "combination": "D01, D04",
     "tuition": "26 - 32",
     "website": "https://admission.tdtu.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -10368,7 +10398,7 @@
     "combination": "D01, D04, C00",
     "tuition": "28 - 34",
     "website": "https://vhu.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -10440,7 +10470,7 @@
     "combination": "D01, D04",
     "tuition": "14 - 18",
     "website": "https://hpu2.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -10512,7 +10542,7 @@
     "combination": "A00, A01, D01, D07",
     "tuition": "25 - 30",
     "website": "https://tuyensinh.ufm.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -10584,7 +10614,7 @@
     "combination": "D01, D14",
     "tuition": "0 (Miễn 100% học phí NĐ 116 + 3.63Tr/tháng)",
     "website": "https://hcmue.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": "ĐH Top"
   },
   {
@@ -10656,7 +10686,7 @@
     "combination": "A00, A01, C00, D01",
     "tuition": "26 - 32",
     "website": "https://hlu.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": "ĐH Top"
   },
   {
@@ -10728,7 +10758,7 @@
     "combination": "A00, A01, D01, D07",
     "tuition": "22 - 28",
     "website": "https://due.udn.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -10800,7 +10830,7 @@
     "combination": "D01, D14, C00",
     "tuition": "24 - 30",
     "website": "https://hcmussh.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": "ĐH Top"
   },
   {
@@ -10872,7 +10902,7 @@
     "combination": "A00, A01",
     "tuition": "32 - 40",
     "website": "https://hcmut.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -10944,7 +10974,7 @@
     "combination": "A00, A01",
     "tuition": "32 - 40",
     "website": "https://hcmut.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": "ĐH Top"
   },
   {
@@ -11016,7 +11046,7 @@
     "combination": "D01, D06, D78",
     "tuition": "18 - 24",
     "website": "https://ufl.udn.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -11088,7 +11118,7 @@
     "combination": "A00, A01, D01",
     "tuition": "0 (Miễn 100% học phí NĐ 116 + 3.63Tr/tháng)",
     "website": "https://qnu.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   },
   {
@@ -11160,12 +11190,16 @@
     "combination": "B00, A00",
     "tuition": "22 - 28",
     "website": "https://dhktyduocdn.edu.vn",
-    "img": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80",
+    "img": null,
     "tag": null
   }
 ];
 
-    var currentFilterr = 'all';
+    var currentFilter = 'all';
+    function oylNorm(str) {
+      return (str || '').toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase().trim();
+    }
 
     function renderSchoolsTable(data) {
       var container = document.getElementById('schools-list');
@@ -11197,7 +11231,7 @@
         html += '<div style="width:42px;height:42px;border-radius:10px;background:#F1F5F9;border:1px solid #E2E8F0;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;position:relative;">';
         html += '<span style="font-weight:800;font-size:11px;color:#15803D;">' + initials + '</span>';
         if (s.img) {
-          html += '<img src="' + s.img + '" onerror="this.style.display=\'none\';" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="' + s.name + '">';
+          html += '<img loading="lazy" decoding="async" src="' + s.img + '" onerror="this.style.display=\'none\';" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" alt="' + s.name + '">';
         }
         html += '</div><div>';
         html += '<div style="font-weight:700;color:var(--text-primary);line-height:1.3;">' + s.name + '</div>';
@@ -11237,7 +11271,7 @@
     }
 
     function filterSchools() {
-      var query = (document.getElementById('school-search').value || '').toLowerCase().trim();
+      var query = oylNorm(document.getElementById('school-search').value);
       var filtered = SCHOOLS_DATA.filter(function(s) {
         var matchType = false;
         if (currentFilter === 'all') {
@@ -11253,10 +11287,10 @@
         }
         
         var matchQuery = !query || 
-          s.name.toLowerCase().indexOf(query) !== -1 || 
-          (s.major && s.major.toLowerCase().indexOf(query) !== -1) ||
-          (s.combination && s.combination.toLowerCase().indexOf(query) !== -1) ||
-          (s.region && s.region.toLowerCase().indexOf(query) !== -1);
+          oylNorm(s.name).indexOf(query) !== -1 || 
+          (s.major && oylNorm(s.major).indexOf(query) !== -1) ||
+          (s.combination && oylNorm(s.combination).indexOf(query) !== -1) ||
+          (s.region && oylNorm(s.region).indexOf(query) !== -1);
         return matchType && matchQuery;
       });
       renderSchoolsTable(filtered);
@@ -11783,7 +11817,7 @@
         '<span class="text-[11px] font-bold text-slate-700 block mt-0.5">TRUONG THI THUY</span>' +
         '</div>' +
         '<div class="my-4 p-2 bg-white rounded-xl border border-slate-200 shadow-sm">' +
-        '<img src="' + qrUrl + '" alt="VietQR MB Bank OYL Global" class="w-44 h-44 object-contain mx-auto">' +
+        '<img loading="lazy" decoding="async" src="' + qrUrl + '" alt="VietQR MB Bank OYL Global" class="w-44 h-44 object-contain mx-auto">' +
         '</div>' +
         '<div class="text-xs text-slate-700 leading-tight space-y-1">' +
         '<div>Số tiền: <strong class="text-red-600 font-mono text-base">' + fmtVnd(amount) + '</strong></div>' +
@@ -11863,7 +11897,7 @@
           </div>
           <div>
             <label class="text-xs font-bold text-slate-300 block mb-1">Số điện thoại (Zalo) <span class="text-red-400">*</span></label>
-            <input type="tel" id="mLeadPhone" required pattern="[0-9]{9,11}" placeholder="0912345678" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0d223f] border border-sky-800/60 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:border-amber-400 transition-colors">
+            <input type="tel" id="mLeadPhone" required inputmode="tel" autocomplete="tel" placeholder="0912345678" class="w-full px-3.5 py-2.5 rounded-xl bg-[#0d223f] border border-sky-800/60 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:border-amber-400 transition-colors">
           </div>
           <div>
             <label class="text-xs font-bold text-slate-300 block mb-1">Tỉnh / Thành phố</label>
@@ -11897,7 +11931,7 @@
         </p>
 
         <div class="bg-white rounded-2xl p-3 inline-block mb-4 shadow-xl">
-          <img src="https://hocmienphicoluong.oyl.vn/assets/zalo-group-qr.png" alt="QR Code Nhóm Zalo Học Bổng OYL x BKC" class="w-40 h-40 sm:w-48 sm:h-48 object-contain" onerror="this.style.display='none'">
+          <img loading="lazy" decoding="async" src="https://hocmienphicoluong.oyl.vn/assets/zalo-group-qr.png" alt="QR Code Nhóm Zalo Học Bổng OYL x BKC" class="w-40 h-40 sm:w-48 sm:h-48 object-contain" onerror="this.style.display='none'">
         </div>
 
         <a href="https://zalo.me/g/ynefcy7g75jylfpqlguz" target="_blank" class="btn-zalo-hero w-full py-3.5 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 font-heading mb-2.5">
@@ -11943,21 +11977,59 @@
 
     function handleModalSubmit(e) {
       e.preventDefault();
-      const name = (document.getElementById('mLeadName') || {}).value || '';
-      const phone = (document.getElementById('mLeadPhone') || {}).value || '';
-      const school = (document.getElementById('mLeadSchool') || {}).value || '';
+      const name = ((document.getElementById('mLeadName') || {}).value || '').trim();
+      const phone = ((document.getElementById('mLeadPhone') || {}).value || '').replace(/[\s.\-]/g, '');
+      const province = ((document.getElementById('mLeadProvince') || {}).value || '').trim();
+      const majorEl = document.getElementById('mLeadMajor');
+      const major = majorEl && majorEl.selectedIndex >= 0 ? majorEl.options[majorEl.selectedIndex].text : '';
+
+      if (!isValidVNPhone(phone)) {
+        alert('Số điện thoại chưa đúng. Vui lòng nhập số di động Việt Nam 10 số (vd: 0912345678).');
+        const ph = document.getElementById('mLeadPhone'); if (ph) ph.focus();
+        return;
+      }
+
+      // 1. Lưu lead về hệ thống (Notion) — keepalive để không mất khi chuyển trang
+      try {
+        fetch('/api/track', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          keepalive: true,
+          body: JSON.stringify({
+            name: name, phone: phone, school: province, className: '',
+            refCode: window._oylRef || 'OYL_TRUNG_TAM',
+            p1: 'Cao Đẳng FDI - ' + major,
+            action: 'modal_lead_registration'
+          })
+        }).catch(function (err) { console.error('track error:', err); });
+      } catch (err) {}
 
       const s1 = document.getElementById('modalStep1');
       const s2 = document.getElementById('modalStep2');
       if (s1) s1.style.display = 'none';
       if (s2) s2.style.display = 'block';
 
-      // Chuyển hướng sang Zalo nhóm sau 1.5s
-      setTimeout(() => {
-        window.open('https://zalo.me/g/ynefcy7g75jylfpqlguz', '_blank');
-      }, 1500);
+      // 2. Mở Zalo NGAY trong sự kiện submit (setTimeout làm Safari/Zalo in-app chặn popup)
+      const w = window.open('https://zalo.me/g/ynefcy7g75jylfpqlguz', '_blank');
+      if (!w) window.location.href = 'https://zalo.me/g/ynefcy7g75jylfpqlguz';
     }
     window.handleModalSubmit = handleModalSubmit;
+
+    // Tab "Cảm nhận khách hàng": Dịch vụ / Nghề hướng nghiệp
+    function switchTestimonialTab(tab) {
+      ['service', 'career'].forEach(function (k) {
+        var content = document.getElementById('content-tab-' + k);
+        var btn = document.getElementById('btn-tab-' + k);
+        var on = (k === tab);
+        if (content) content.style.display = on ? 'grid' : 'none';
+        if (btn) {
+          btn.style.background = on ? '#FFFFFF' : 'transparent';
+          btn.style.color = on ? '#15803D' : '#64748B';
+          btn.style.boxShadow = on ? '0 2px 6px rgba(0,0,0,0.1)' : 'none';
+        }
+      });
+    }
+    window.switchTestimonialTab = switchTestimonialTab;
   </script>
 
 
@@ -12297,6 +12369,11 @@
         document.getElementById("student-phone").focus();
         return;
       }
+      if (!isValidVNPhone(phoneInput)) {
+        alert("Số điện thoại chưa đúng. Vui lòng nhập số di động Việt Nam 10 số (vd: 0912345678).");
+        document.getElementById("student-phone").focus();
+        return;
+      }
       if (!schoolInput) {
         alert("Vui lòng nhập Tên trường học của bạn.");
         document.getElementById("student-school").focus();
@@ -12605,13 +12682,13 @@
           
           "<!-- CẦU NỐI TỰ NGUYỆN SANG TẦNG 2: WEBAPP OYL -->" +
           "<div class=\"pt-3 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-3 text-xs\">" +
-            "<span class=\"text-slate-600 font-medium\">Muốn tra cứu cụ thể 500+ trường và các gói học bổng độc quyền?</span>" +
+            "<span class=\"text-slate-600 font-medium\">Muốn tra cứu cụ thể 225+ trường và các gói học bổng độc quyền?</span>" +
             "<div class=\"flex flex-wrap items-center gap-2\">" +
               (p1.id === "academic" ?
                 "<button onclick=\"goToPathway('galaxy')\" class=\"px-4 py-2 rounded-xl bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold transition\">🎓 Xem Khóa Luyện Thi Galaxy Ed →</button>" :
                 "<button onclick=\"goToPathway('cd')\" class=\"px-4 py-2 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-900 font-bold transition\">🏭 Xem Lộ Trình CĐ Vừa Học Vừa Làm →</button>"
               ) +
-              "<button onclick=\"switchMainTab('colleges')\" class=\"px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition\">🏛️ Tra Cứu 500+ Trường</button>" +
+              "<button onclick=\"switchMainTab('colleges')\" class=\"px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition\">🏛️ Tra Cứu 225+ Trường</button>" +
             "</div>" +
           "</div>" +
         "</div>";
@@ -13123,6 +13200,11 @@
       const school = (document.getElementById('footerLeadSchool') || {}).value.trim();
       const interest = (document.getElementById('footerLeadInterest') || {}).value;
       const refCode = window._oylRef || 'OYL_TRUNG_TAM';
+      if (!isValidVNPhone(phone)) {
+        alert('Số điện thoại chưa đúng. Vui lòng nhập số di động Việt Nam 10 số (vd: 0912345678).');
+        const ph = document.getElementById('footerLeadPhone'); if (ph) ph.focus();
+        return;
+      }
 
       const interestMap = {
         cd: 'Học Bổng Cao Đẳng Vừa Học Vừa Làm (Lương 6-12Tr)',
